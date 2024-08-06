@@ -1,21 +1,28 @@
-# {Course Name}
+# Intro to Python
 
 This course was created from [this GitHub template](https://github.com/jhudsl/OTTR_Template).
 
-You can see the rendered course material here: {Link to rendered bookdown and/or to the Leanpub.}
+You can see the rendered course material here: https://hutchdatascience.org/Intro_to_Python/
 
 If you would like to contribute to this course material, take a look at the [OTTR documentation](https://www.ottrproject.org/).
 
 ## About this course
 
-This course introduces {info on what this course introduces}
+The course covers fundamentals of Python, a high-level programming language, and use it to wrangle data for analysis and visualization.
+
+## Audience
+
+The course is intended for researchers who want to learn coding for the first time with a data science application via the Python language. This course is also appropriate for folks who have explored data science or programming on their own and want to focus on some fundamentals.
 
 ## Learning Objectives
 
-This course will teach learners to:  
+**Analyze** Tidy datasets in the Python programming language via data subsetting, joining, and transformations.
 
-- {You can use https://www.bobpikegroup.com/trainer-blog/5-steps-to-writing-clear-and-measurable-learning-objectives to define some learning objectives here}
-- {More learning objectives}
+**Evaluate** summary statistics and data visualization to understand scientific questions.
+
+**Describe** how the Python programming environment interpret complex expressions made out of functions, operations, and data structures, in a step-by-step way.
+
+**Apply** problem solving strategies to debug broken code.
 
 ## Encountering problems?
 
