@@ -177,8 +177,14 @@ Often, we will use multiple functions, in a nested way, or use parenthesis to ch
 
 If we don't know how to use a function, such as `pow()` we can ask for help:
 
-```{python}
+```         
 ?pow
+
+pow(base, exp, mod=None)
+Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
+ 
+Some types, such as ints, are able to use a more efficient algorithm when
+invoked using the three argument form.
 ```
 
 This shows the function takes in three input arguments: `base`, `exp`, and `mod=None`. When an argument has an assigned value of `mod=None`, that means the input argument already has a value, and you don't need to specify anything, unless you want to.
