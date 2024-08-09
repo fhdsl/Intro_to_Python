@@ -215,7 +215,7 @@ And there is an operational equivalent:
 
 `Computer = powerful + stupid`
 
-Even the smallest spelling and formatting changes will cause unexpected output and errors!
+Computers are excellent at doing something specific over and over again, but is extremely rigid and lack flexibility. Here are some tips that is helpful for beginners:
 
 -   Write incrementally, test often
 
