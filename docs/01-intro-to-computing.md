@@ -38,7 +38,9 @@ More importantly: **How we organize ideas \<-\> Instructing a computer to do som
 
 Google Colab is a Integrated Development Environment (IDE) on a web browser. Think about it as Microsoft Word to a plain text editor. It provides extra bells and whistles to using Python that is easier for the user.
 
-Let's open up the KRAS analysis in Google Colab. If you are taking this course while it is in session, the project name is probably named "KRAS Demo" in your Google Classroom workspace. If you are taking this course on your own time, open up...
+Let's open up the KRAS analysis in Google Colab. If you are taking this course while it is in session, the project name is probably named "KRAS Demo" in your Google Classroom workspace. If you are taking this course on your own time, you can view it [here](https://colab.research.google.com/drive/1_77QQcj0mgZOWLlhtkZ-QKWUP1dnSt-_?usp=sharing).
+
+![](images/colab.png){width="800"}
 
 Today, we will pay close attention to:
 
@@ -304,7 +306,7 @@ And there is an operational equivalent:
 
 `Computer = powerful + stupid`
 
-Even the smallest spelling and formatting changes will cause unexpected output and errors!
+Computers are excellent at doing something specific over and over again, but is extremely rigid and lack flexibility. Here are some tips that is helpful for beginners:
 
 -   Write incrementally, test often
 
@@ -315,3 +317,7 @@ Even the smallest spelling and formatting changes will cause unexpected output a
 -   Ask for help!
 
 To get more familiar with the errors Python gives you, take a look at this [summary of Python error messages](https://betterstack.com/community/guides/scaling-python/python-errors/).
+
+## Exercises
+
+Exercise for week 1 can be found [here](https://colab.research.google.com/drive/1AqVvktGz3LStUyu6dLJFsU2KoqNxgagT?usp=sharing).
