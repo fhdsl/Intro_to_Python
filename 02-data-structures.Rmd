@@ -1,0 +1,76 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+# Working with data structures
+
+In our second lesson, we start to look at two **data structures**, **Lists** and **Dataframes**, that can handle a large amount of data for analysis.
+
+## Lists
+
+In the first exercise, you started to explore **data structures**, which store information about data types. You played around with **lists**, which is an ordered collection of data types and data structures. Each *element* of a list contains a data type or another data structure, and there is no limit on how big a list can be.
+
+We can now store a vast amount of information in a list, and assign it to a single variable. Even more, we can use operations and functions on a list, modifying many elements within the list at once! This makes analyzing data much more scalable and less repetitive.
+
+We create a list via the bracket `[ ]` operation.
+
+```{python}
+staff = ["chris", "ted", "jeff"]
+chrNum = [2, 3, 1, 2, 2]
+mixedList = [False, False, False, "A", "B", 92]
+```
+
+### Subsetting lists
+
+To access an element of a list, you can use the bracket notation `[ ]` to access the elements of the list. We simply access an element via the "index" number - the location of the data within the list.
+
+*Here's the tricky thing about the index number: it starts at 0!*
+
+1st element of `chrNum`: `chrNum[0]`
+
+2nd element of `chrNum`: `chrNum[1]`
+
+...
+
+5th element of `chrNum`: `chrNum[4]`
+
+With subsetting, you can modify elements of a list or use the element of a list as part of an expression.
+
+### Subsetting multiple elements of lists
+
+Suppose you want to access *multiple* elements of a list, such as accessing the first three elements of `chrNum`. You would use the slice operator, which specifies the index number to start and the index of the item to stop at *without including it in the slice.*
+
+```{python}
+chrNum[0:3]
+```
+
+If you want to access the second and third element of `chrNum`:
+
+```{python}
+chrNum[1:3]
+```
+
+If you want to access everything but the first three elements of `chrNum`:
+
+```{python}
+chrNum[3:len(chrNum)]
+```
+
+where `len(chrNum)` is the length of the list.
+
+When the start or stop index is missing, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:
+
+```{python}
+chrNum[:3]
+chrNum[3:]
+```
+
+More discussion of list slicing can be found [here](https://stackoverflow.com/questions/509211/how-slicing-in-python-works).
+
+## Objects in Python
+
+Object functions, object properties
+
+Pandas Dataframes
+
+Subsetting Dataframes
