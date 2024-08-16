@@ -1,5 +1,5 @@
 ---
-title: "Course Name"
+title: "Introduction to Python"
 date: "August, 2024"
 site: bookdown::bookdown_site
 documentclass: book
@@ -13,14 +13,26 @@ output:
       toc: true
 ---
 
-# About this Course {-}
+# About this Course {.unnumbered}
 
+## Curriculum
 
-## Available course formats
+The course covers fundamentals of Python, a high-level programming language, and use it to wrangle data for analysis and visualization.
 
-This course is available in multiple formats which allows you to take it in the way that best suites your needs. You can take it for certificate which can be for free or fee.
+## Target Audience
 
-- The material for this course can be viewed without login requirement on this [Bookdown website](LINK HERE). This format might be most appropriate for you if you rely on screen-reader technology.
-- This course can be taken for [free certification through Leanpub](LINK HERE).
-- This course can be taken on [Coursera for certification here](LINK HERE) (but it is not available for free on Coursera).
-- Our courses are open source, you can find the [source material for this course on GitHub](LINK HERE).
+The course is intended for researchers who want to learn coding for the first time with a data science application via the Python language. This course is also appropriate for folks who have explored data science or programming on their own and want to focus on some fundamentals.
+
+## Learning Objectives
+
+**Analyze** Tidy datasets in the Python programming language via data subsetting, joining, and transformations.
+
+**Evaluate** summary statistics and data visualization to understand scientific questions.
+
+**Describe** how the Python programming environment interpret complex expressions made out of functions, operations, and data structures, in a step-by-step way.
+
+**Apply** problem solving strategies to debug broken code.
+
+## Offerings
+
+This course is taught on a regular basis at [Fred Hutch Cancer Center](https://www.fredhutch.org/) through the [Data Science Lab](https://hutchdatascience.org/). Announcements of course offering can be found [here](https://hutchdatascience.org/training/).
