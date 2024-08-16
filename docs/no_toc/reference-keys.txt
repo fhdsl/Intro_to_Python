@@ -14,4 +14,14 @@ execution-rule-for-variable-assignment
 grammar-structure-3-evaluation-of-functions
 execution-rule-for-functions
 tips-on-writing-your-first-code
+exercises
+working-with-data-structures
+lists
+subsetting-lists
+subsetting-multiple-elements-of-lists
+objects-in-python
+dataframes
+what-does-a-dataframe-contain-in-terms-of-data
+what-can-a-dataframe-do-in-terms-of-operations-and-functions
+subsetting-dataframes
 references
