@@ -111,7 +111,7 @@ The list data structure has an organization and functionality that metaphoricall
 
 And if it "makes sense" to us, then it is well-designed.
 
-The list data structure we have been working with is an example of an **Object**. The definition of an object allows us to ask the questions above: what does it contain, and what can it do. It is an organizational tool for a collection of data and functions that we can relate to. Formally, an object contains the following:
+The list data structure we have been working with is an example of an **Object**. The definition of an object allows us to ask the questions above: what does it contain, and what can it do? It is an organizational tool for a collection of data and functions that we can relate to. Formally, an object contains the following:
 
 -   **Value** that holds the essential data for the object.
 
@@ -130,6 +130,8 @@ Let's see how this applies to the list:
 -   **Methods** that can be used on the object: `chrNum.count(2)` counts the number of instances 2 appears as an element of `chrNum`.
 
 Object methods are functions that does something with the object you are using it on. You should think about `chrNum.count(2)` as a function that takes in `chrNum` and `2` as inputs. If you want to use the count function on list `mixedList`, you would use `mixedList.count(x)`.
+
+Here are some more examples of methods with lists:
 
 | Function method    | What it takes in             | What it does                                                          | Returns                          |
 |----------------|----------------|-------------------------------------|------------------|
@@ -349,3 +351,7 @@ metadata.iloc[5:, [1, 10, 21]]
 This is a great way to start thinking about subsetting your dataframes for analysis, but this way of of subsetting can lead to some inconsistencies in the long run. For instance, suppose your collaborator added a new cell line to the metadata and changed the order of the column. Then your code to subset the last 5 rows and the columns will get you a different answer once the spreadsheet is changed.
 
 The second way is to subset by the column name, and this is much more preferred in data analysis practice. You will learn about it next week!
+
+## Exercises
+
+Exercise for week 2 can be found [here](https://colab.research.google.com/drive/1oIL3gKEZR2Lq16k6XY0HXIhjYl34pEjr?usp=sharing).
