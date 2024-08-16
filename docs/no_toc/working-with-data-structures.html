@@ -178,6 +178,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-does-a-dataframe-contain-in-terms-of-data"><i class="fa fa-check"></i><b>2.3.1</b> What does a Dataframe contain (in terms of data)?</a></li>
 <li class="chapter" data-level="2.3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-can-a-dataframe-do-in-terms-of-operations-and-functions"><i class="fa fa-check"></i><b>2.3.2</b> What can a Dataframe do (in terms of operations and functions)?</a></li>
 </ul></li>
+<li class="chapter" data-level="2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>2.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="3" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>3</b> References</a></li>
@@ -270,7 +271,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>What can it do (in terms of operations and functions)?</p></li>
 </ul>
 <p>And if it “makes sense” to us, then it is well-designed.</p>
-<p>The list data structure we have been working with is an example of an <strong>Object</strong>. The definition of an object allows us to ask the questions above: what does it contain, and what can it do. It is an organizational tool for a collection of data and functions that we can relate to. Formally, an object contains the following:</p>
+<p>The list data structure we have been working with is an example of an <strong>Object</strong>. The definition of an object allows us to ask the questions above: what does it contain, and what can it do? It is an organizational tool for a collection of data and functions that we can relate to. Formally, an object contains the following:</p>
 <ul>
 <li><p><strong>Value</strong> that holds the essential data for the object.</p></li>
 <li><p><strong>Attributes</strong> that store additional data for the object.</p></li>
@@ -284,6 +285,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Methods</strong> that can be used on the object: <code>chrNum.count(2)</code> counts the number of instances 2 appears as an element of <code>chrNum</code>.</p></li>
 </ul>
 <p>Object methods are functions that does something with the object you are using it on. You should think about <code>chrNum.count(2)</code> as a function that takes in <code>chrNum</code> and <code>2</code> as inputs. If you want to use the count function on list <code>mixedList</code>, you would use <code>mixedList.count(x)</code>.</p>
+<p>Here are some more examples of methods with lists:</p>
 <table>
 <colgroup>
 <col width="18%" />
@@ -455,9 +457,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## [1859 rows x 3 columns]</code></pre>
 <p>This is a great way to start thinking about subsetting your dataframes for analysis, but this way of of subsetting can lead to some inconsistencies in the long run. For instance, suppose your collaborator added a new cell line to the metadata and changed the order of the column. Then your code to subset the last 5 rows and the columns will get you a different answer once the spreadsheet is changed.</p>
 <p>The second way is to subset by the column name, and this is much more preferred in data analysis practice. You will learn about it next week!</p>
+</div>
+</div>
+</div>
+<div id="exercises-1" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Exercises<a href="working-with-data-structures.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Exercise for week 2 can be found <a href="https://colab.research.google.com/drive/1oIL3gKEZR2Lq16k6XY0HXIhjYl34pEjr?usp=sharing">here</a>.</p>
 
-</div>
-</div>
 </div>
 </div>
 <hr>

@@ -24,4 +24,5 @@ dataframes
 what-does-a-dataframe-contain-in-terms-of-data
 what-can-a-dataframe-do-in-terms-of-operations-and-functions
 subsetting-dataframes
+exercises-1
 references
