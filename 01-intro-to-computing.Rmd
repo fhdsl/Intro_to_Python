@@ -182,7 +182,7 @@ max(len("hello"), 4)
 If we don't know how to use a function, such as `pow()`, we can ask for help:
 
 ```         
-pow?
+?pow
 
 pow(base, exp, mod=None)
 Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
@@ -213,7 +213,7 @@ And there is an operational equivalent:
 2 ** 3
 ```
 
-We will mostly look at functions with input arguments and return types in this course, but not all functions need to have input arguments and output return. Here are some varieties of functions to stretch your function horizons.
+We will mostly look at functions with input arguments and return types in this course, but not all functions need to have input arguments and output return. Here are some varieties of functions to stretch your horizons.
 
 | Function call    | What it takes in         | What it does                                | Returns |
 |---------------|---------------|----------------------------|---------------|

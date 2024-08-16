@@ -38,17 +38,19 @@ With subsetting, you can modify elements of a list or use the element of a list 
 
 ### Subsetting multiple elements of lists
 
-Suppose you want to access multiple elements of a list, such as accessing the first three elements of `chrNum`. You would use the **slice** operator, which specifies:
+Suppose you want to access multiple elements of a list, such as accessing the first three elements of `chrNum`. You would use the **slice** operator `:`, which specifies:
 
 -   the index number to start
 
 -   the index number to stop, *plus one.*
 
-If you want to access the first three elements of `chrNum` (The first element's index number is 0, the third element's index number is 2, plus 1, which is 3.)
+If you want to access the first three elements of `chrNum`:
 
 ```{python}
 chrNum[0:3]
 ```
+
+The first element's index number is 0, the third element's index number is 2, plus 1, which is 3.
 
 If you want to access the second and third elements of `chrNum`:
 
@@ -120,6 +122,7 @@ To load in a Dataframe from existing spreadsheet data, we use the function `pd.r
 
 ```{python}
 import pandas as pd
+
 metadata = pd.read_csv("classroom_data/metadata.csv")
 type(metadata)
 ```
