@@ -310,6 +310,35 @@ Perhaps the most important operation you will can do with Dataframes is subsetti
 
 You will use the `iloc` and bracket operations, and you give two slices: one for the row, and one for the column.
 
+Let's start with a small dataframe to see how it works before returning to `metadata`:
+
+
+``` python
+df = pd.DataFrame(data={'status': ["treated", "untreated", "untreated", "discharged", "treated"],
+                            'age_case': [25, 43, 21, 65, 7],
+                            'age_control': [49, 20, 32, 25, 32]})
+df
+```
+
+```
+##        status  age_case  age_control
+## 0     treated        25           49
+## 1   untreated        43           20
+## 2   untreated        21           32
+## 3  discharged        65           25
+## 4     treated         7           32
+```
+
+Here is how the dataframe looks like with the row and column index numbers:
+
+![](images/pandas_subset_0.png)
+
+Subset the second to fourth rows, and the first two columns:
+
+![](images/pandas_subset_1.png)
+
+Now, back to `metadata` dataframe.
+
 Subset the first 5 rows, and first two columns:
 
 
