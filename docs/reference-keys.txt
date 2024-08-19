@@ -9,6 +9,7 @@ a-programming-language-has-following-elements
 google-colab-setup
 grammar-structure-1-evaluation-of-expressions
 data-types
+function-machine-schema
 grammar-structure-2-storing-data-types-in-the-variable-environment
 execution-rule-for-variable-assignment
 grammar-structure-3-evaluation-of-functions
