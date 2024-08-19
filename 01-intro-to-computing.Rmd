@@ -114,6 +114,8 @@ Here are some common data types we will be using in this course.
 | String         |           str           | "hello", "234-234-8594" |
 | Boolean        |          bool           |       True, False       |
 
+### Function machine schema
+
 A nice way to summarize this first grammar structure is using the function machine schema, way back from algebra class:
 
 ![Function machine from algebra class.](images/function_machine.png)

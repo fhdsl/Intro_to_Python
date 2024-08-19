@@ -66,7 +66,7 @@ chrNum[3:len(chrNum)]
 
 where `len(chrNum)` is the length of the list.
 
-When the start or stop index is specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:
+When the start or stop index is *not* specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:
 
 ```{python}
 chrNum[:3]
@@ -85,7 +85,7 @@ The list data structure has an organization and functionality that metaphoricall
 
 And if it "makes sense" to us, then it is well-designed.
 
-The list data structure we have been working with is an example of an **Object**. The definition of an object allows us to ask the questions above: what does it contain, and what can it do? It is an organizational tool for a collection of data and functions that we can relate to. Formally, an object contains the following:
+The list data structure we have been working with is an example of an **Object**. The definition of an object allows us to ask the questions above: what does it contain, and what can it do? It is an organizational tool for a collection of data and functions that we can relate to, like a physical object. Formally, an object contains the following:
 
 -   **Value** that holds the essential data for the object.
 
@@ -179,7 +179,9 @@ Both of these functions (without input arguments) are considered as **methods**:
 
 #### Subsetting Dataframes
 
-Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists. You will use the `iloc` and bracket operations, and you give two slices: one for the row, and one for the column.
+Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists.
+
+You will use the `iloc` and bracket operations, and you give two slices: one for the row, and one for the column.
 
 Subset the first 5 rows, and first two columns:
 
