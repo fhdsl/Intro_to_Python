@@ -1,0 +1,9 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+# Data Wrangling
+
+## Exercises
+
+Exercise for week 3 can be found [here](#)

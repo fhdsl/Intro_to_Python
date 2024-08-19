@@ -4,6 +4,7 @@ repo: https://github.com/jhudsl/OTTR_Template/
 rmd_files: ["index.Rmd",
             "01-intro-to-computing.Rmd",
             "02-data-structures.Rmd",
+            "03-data-wrangling1.Rmd",
             "About.Rmd",
             "References.Rmd"]
 new_session: yes
