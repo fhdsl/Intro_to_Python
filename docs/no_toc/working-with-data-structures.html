@@ -29,7 +29,7 @@
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="intro-to-computing.html"/>
-<link rel="next" href="about-the-authors.html"/>
+<link rel="next" href="data-wrangling.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -181,8 +181,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>2.4</b> Exercises</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#exercises-2"><i class="fa fa-check"></i><b>3.1</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
-<li class="chapter" data-level="3" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>3</b> References</a></li>
+<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
@@ -433,8 +437,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">2.3.2.1</span> Subsetting Dataframes<a href="working-with-data-structures.html#subsetting-dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists.</p>
 <p>You will use the <code>iloc</code> and bracket operations, and you give two slices: one for the row, and one for the column.</p>
+<p>Let’s start with a small dataframe to see how it works before returning to <code>metadata</code>:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="working-with-data-structures.html#cb63-1" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">&#39;status&#39;</span>: [<span class="st">&quot;treated&quot;</span>, <span class="st">&quot;untreated&quot;</span>, <span class="st">&quot;untreated&quot;</span>, <span class="st">&quot;discharged&quot;</span>, <span class="st">&quot;treated&quot;</span>],</span>
+<span id="cb63-2"><a href="working-with-data-structures.html#cb63-2" tabindex="-1"></a>                            <span class="st">&#39;age_case&#39;</span>: [<span class="dv">25</span>, <span class="dv">43</span>, <span class="dv">21</span>, <span class="dv">65</span>, <span class="dv">7</span>],</span>
+<span id="cb63-3"><a href="working-with-data-structures.html#cb63-3" tabindex="-1"></a>                            <span class="st">&#39;age_control&#39;</span>: [<span class="dv">49</span>, <span class="dv">20</span>, <span class="dv">32</span>, <span class="dv">25</span>, <span class="dv">32</span>]})</span>
+<span id="cb63-4"><a href="working-with-data-structures.html#cb63-4" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>##        status  age_case  age_control
+## 0     treated        25           49
+## 1   untreated        43           20
+## 2   untreated        21           32
+## 3  discharged        65           25
+## 4     treated         7           32</code></pre>
+<p>Here is how the dataframe looks like with the row and column index numbers:</p>
+<p><img src="images/pandas_subset_0.png" /></p>
+<p>Subset the second to fourth rows, and the first two columns:</p>
+<p><img src="images/pandas_subset_1.png" /></p>
+<p>Now, back to <code>metadata</code> dataframe.</p>
 <p>Subset the first 5 rows, and first two columns:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="working-with-data-structures.html#cb63-1" tabindex="-1"></a>metadata.iloc[:<span class="dv">5</span>, :<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="working-with-data-structures.html#cb65-1" tabindex="-1"></a>metadata.iloc[:<span class="dv">5</span>, :<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>##       ModelID  PatientID
 ## 0  ACH-000001  PT-gj46wT
 ## 1  ACH-000002  PT-5qa3uk
@@ -442,7 +462,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 3  ACH-000004  PT-q4K2cp
 ## 4  ACH-000005  PT-q4K2cp</code></pre>
 <p>If we want a custom slice that is not sequential, we can use an integer list. Subset the last 5 rows, and the 1st and 10 and 21th column:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="working-with-data-structures.html#cb65-1" tabindex="-1"></a>metadata.iloc[<span class="dv">5</span>:, [<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">21</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="working-with-data-structures.html#cb67-1" tabindex="-1"></a>metadata.iloc[<span class="dv">5</span>:, [<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">21</span>]]</span></code></pre></div>
 <pre><code>##       PatientID GrowthPattern  WTSIMasterCellID
 ## 5     PT-ej13Dz    Suspension            2167.0
 ## 6     PT-NOXwpH      Adherent             569.0
@@ -483,7 +503,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="intro-to-computing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-wrangling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
