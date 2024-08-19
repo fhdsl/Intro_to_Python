@@ -153,6 +153,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions"><i class="fa fa-check"></i><b>1.5</b> Grammar Structure 1: Evaluation of Expressions</a>
 <ul>
 <li class="chapter" data-level="1.5.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>1.5.1</b> Data types</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#function-machine-schema"><i class="fa fa-check"></i><b>1.5.2</b> Function machine schema</a></li>
 </ul></li>
 <li class="chapter" data-level="1.6" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-variable-environment"><i class="fa fa-check"></i><b>1.6</b> Grammar Structure 2: Storing data types in the Variable Environment</a>
 <ul>
@@ -255,7 +256,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="working-with-data-structures.html#cb41-1" tabindex="-1"></a>chrNum[<span class="dv">3</span>:<span class="bu">len</span>(chrNum)]</span></code></pre></div>
 <pre><code>## [2, 2]</code></pre>
 <p>where <code>len(chrNum)</code> is the length of the list.</p>
-<p>When the start or stop index is specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:</p>
+<p>When the start or stop index is <em>not</em> specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="working-with-data-structures.html#cb43-1" tabindex="-1"></a>chrNum[:<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [2, 3, 1]</code></pre>
 <div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="working-with-data-structures.html#cb45-1" tabindex="-1"></a>chrNum[<span class="dv">3</span>:]</span></code></pre></div>
@@ -271,7 +272,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>What can it do (in terms of operations and functions)?</p></li>
 </ul>
 <p>And if it “makes sense” to us, then it is well-designed.</p>
-<p>The list data structure we have been working with is an example of an <strong>Object</strong>. The definition of an object allows us to ask the questions above: what does it contain, and what can it do? It is an organizational tool for a collection of data and functions that we can relate to. Formally, an object contains the following:</p>
+<p>The list data structure we have been working with is an example of an <strong>Object</strong>. The definition of an object allows us to ask the questions above: what does it contain, and what can it do? It is an organizational tool for a collection of data and functions that we can relate to, like a physical object. Formally, an object contains the following:</p>
 <ul>
 <li><p><strong>Value</strong> that holds the essential data for the object.</p></li>
 <li><p><strong>Attributes</strong> that store additional data for the object.</p></li>
@@ -430,7 +431,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Both of these functions (without input arguments) are considered as <strong>methods</strong>: they are functions that does something with the Dataframe you are using it on. You should think about <code>metadata.head()</code> as a function that takes in <code>metadata</code> as an input. If we had another Dataframe called <code>my_data</code> and you want to use the same function, you will have to say <code>my_data.head()</code>.</p>
 <div id="subsetting-dataframes" class="section level4 hasAnchor" number="2.3.2.1">
 <h4><span class="header-section-number">2.3.2.1</span> Subsetting Dataframes<a href="working-with-data-structures.html#subsetting-dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists. You will use the <code>iloc</code> and bracket operations, and you give two slices: one for the row, and one for the column.</p>
+<p>Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists.</p>
+<p>You will use the <code>iloc</code> and bracket operations, and you give two slices: one for the row, and one for the column.</p>
 <p>Subset the first 5 rows, and first two columns:</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="working-with-data-structures.html#cb63-1" tabindex="-1"></a>metadata.iloc[:<span class="dv">5</span>, :<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>##       ModelID  PatientID
