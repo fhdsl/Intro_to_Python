@@ -137,7 +137,6 @@ Let's try it out, with some nice print formatting:
 
 ```{python}
 print("Mean value of Age column:", metadata['Age'].mean())
-print("\n")
 print("Frequency of column", metadata.OncotreeLineage.value_counts())
 ```
 
