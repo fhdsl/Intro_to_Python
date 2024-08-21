@@ -115,7 +115,7 @@ df
 *"I want to subset for rows such that the status is "treated" and subset for columns status and age_case."*
 
 ```{python}
-df.loc[df.status == “treated, [“status”, “age_case”]]
+df.loc[df.status == "treated", ["status", "age_case"]]
 ```
 
 ![](images/pandas_subset_2.png)
@@ -133,12 +133,11 @@ If we look at the data structre of a Dataframe's column, it is called a Series. 
 | `metadata.Age.max()`                      | `metadata.Age` as a numeric value      | Computes the max value of the `Age` column.                                   | Float (NumPy) |
 | `metadata.OncotreeSubtype.value_counts()` | `metadata.OncotreeSubtype` as a String | Creates a frequency table of all unique elements in `OncotreeSubtype` column. | Series        |
 
-Let's try it out:
+Let's try it out, with some nice print formatting:
 
 ```{python}
-metadata['Age'].mean()
-
-metadata.OncotreeLineage.value_counts()
+print("Mean value of Age column:", metadata['Age'].mean())
+print("Frequency of column", metadata.OncotreeLineage.value_counts())
 ```
 
 (Notice that the output of some of these methods are Float (NumPy). This refers to a Python Object called NumPy that is extremely popular for scientific computing, but we're not focused on that in this course.)
