@@ -137,7 +137,7 @@ Let's try it out, with some nice print formatting:
 
 ```{python}
 print("Mean value of Age column:", metadata['Age'].mean())
-print("Frequency of column"", metadata.OncotreeLineage.value_counts())
+print("Frequency of column", metadata.OncotreeLineage.value_counts())
 ```
 
 (Notice that the output of some of these methods are Float (NumPy). This refers to a Python Object called NumPy that is extremely popular for scientific computing, but we're not focused on that in this course.)
