@@ -207,7 +207,7 @@ x - 2
 y = x * 2
 ```
 
-It is quite common for programmers to not know what data type a variable is while they are coding. To learn about the data type of a variable, use the `type()` function on any variable in Python:
+It is quite common for programmers to have to look up the data type of a variable while they are coding. To learn about the data type of a variable, use the `type()` function on any variable in Python:
 
 
 ``` python
@@ -218,7 +218,7 @@ type(y)
 ## <class 'int'>
 ```
 
-We should give useful variable names so that we know what to expect! If you are working with sales data, consider `num_sales` instead of `y`.
+We should give useful variable names so that we know what to expect! If you are working with numerical sales data, consider `num_sales` instead of `y`.
 
 ## Grammar Structure 3: Evaluation of Functions
 

@@ -29,7 +29,7 @@
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="intro-to-computing.html"/>
-<link rel="next" href="data-wrangling.html"/>
+<link rel="next" href="data-wrangling-part-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -181,9 +181,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>2.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a>
+<li class="chapter" data-level="3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling, Part 1</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#exercises-2"><i class="fa fa-check"></i><b>3.1</b> Exercises</a></li>
+<li class="chapter" data-level="3.1" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#tidy-data"><i class="fa fa-check"></i><b>3.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#our-working-tidy-data-depmap-project"><i class="fa fa-check"></i><b>3.2</b> Our working Tidy Data: DepMap Project</a></li>
+<li class="chapter" data-level="3.3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>3.3</b> Transform: “What do you want to do with this Dataframe”?</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#summary-statistics"><i class="fa fa-check"></i><b>3.4</b> Summary Statistics</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#simple-data-visualization"><i class="fa fa-check"></i><b>3.5</b> Simple data visualization</a></li>
+<li class="chapter" data-level="3.6" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
@@ -477,8 +482,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 1863  PT-LAGmLq    Suspension               NaN
 ## 
 ## [1859 rows x 3 columns]</code></pre>
-<p>This is a great way to start thinking about subsetting your dataframes for analysis, but this way of of subsetting can lead to some inconsistencies in the long run. For instance, suppose your collaborator added a new cell line to the metadata and changed the order of the column. Then your code to subset the last 5 rows and the columns will get you a different answer once the spreadsheet is changed.</p>
-<p>The second way is to subset by the column name, and this is much more preferred in data analysis practice. You will learn about it next week!</p>
+<p>When we subset via numerical indicies, it’s called <strong>explicit subsetting</strong>. This is a great way to start thinking about subsetting your dataframes for analysis, but explicit subsetting can lead to some inconsistencies in the long run. For instance, suppose your collaborator added a new cell line to the metadata and changed the order of the column. Then your code to subset the last 5 rows and the columns will get you a different answer once the spreadsheet is changed.</p>
+<p>The second way is to subset by the column name and comparison operators, also known as <strong>implicit subsetting</strong>. This is much more robust in data analysis practice. You will learn about it next week!</p>
 </div>
 </div>
 </div>
@@ -503,7 +508,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="intro-to-computing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-wrangling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-wrangling-part-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
