@@ -214,9 +214,9 @@ If we want a custom slice that is not sequential, we can use an integer list. Su
 metadata.iloc[5:, [1, 10, 21]]
 ```
 
-This is a great way to start thinking about subsetting your dataframes for analysis, but this way of of subsetting can lead to some inconsistencies in the long run. For instance, suppose your collaborator added a new cell line to the metadata and changed the order of the column. Then your code to subset the last 5 rows and the columns will get you a different answer once the spreadsheet is changed.
+When we subset via numerical indicies, it's called **explicit subsetting**. This is a great way to start thinking about subsetting your dataframes for analysis, but explicit subsetting can lead to some inconsistencies in the long run. For instance, suppose your collaborator added a new cell line to the metadata and changed the order of the column. Then your code to subset the last 5 rows and the columns will get you a different answer once the spreadsheet is changed.
 
-The second way is to subset by the column name, and this is much more preferred in data analysis practice. You will learn about it next week!
+The second way is to subset by the column name and comparison operators, also known as **implicit subsetting**. This is much more robust in data analysis practice. You will learn about it next week!
 
 ## Exercises
 
