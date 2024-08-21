@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Data Wrangling, Part 1 | Introduction to Python</title>
+  <meta name="description" content="Description about Course/Book." />
+  <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Data Wrangling, Part 1 | Introduction to Python" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Description about Course/Book." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Data Wrangling, Part 1 | Introduction to Python" />
+  
+  <meta name="twitter:description" content="Description about Course/Book." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="working-with-data-structures.html"/>
+<link rel="next" href="about-the-authors.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://hutchdatascience.org/" target="_blank"><img src="assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Course</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#curriculum"><i class="fa fa-check"></i><b>0.1</b> Curriculum</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#target-audience"><i class="fa fa-check"></i><b>0.2</b> Target Audience</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i><b>0.3</b> Learning Objectives</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#offerings"><i class="fa fa-check"></i><b>0.4</b> Offerings</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro-to-computing.html"><a href="intro-to-computing.html"><i class="fa fa-check"></i><b>1</b> Intro to Computing</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#goals-of-the-course"><i class="fa fa-check"></i><b>1.1</b> Goals of the course</a></li>
+<li class="chapter" data-level="1.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#what-is-a-computer-program"><i class="fa fa-check"></i><b>1.2</b> What is a computer program?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro-to-computing.html"><a href="intro-to-computing.html#a-programming-language-has-following-elements"><i class="fa fa-check"></i><b>1.3</b> A programming language has following elements:</a></li>
+<li class="chapter" data-level="1.4" data-path="intro-to-computing.html"><a href="intro-to-computing.html#google-colab-setup"><i class="fa fa-check"></i><b>1.4</b> Google Colab Setup</a></li>
+<li class="chapter" data-level="1.5" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions"><i class="fa fa-check"></i><b>1.5</b> Grammar Structure 1: Evaluation of Expressions</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>1.5.1</b> Data types</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#function-machine-schema"><i class="fa fa-check"></i><b>1.5.2</b> Function machine schema</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-variable-environment"><i class="fa fa-check"></i><b>1.6</b> Grammar Structure 2: Storing data types in the Variable Environment</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-variable-assignment"><i class="fa fa-check"></i><b>1.6.1</b> Execution rule for variable assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-3-evaluation-of-functions"><i class="fa fa-check"></i><b>1.7</b> Grammar Structure 3: Evaluation of Functions</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-functions"><i class="fa fa-check"></i><b>1.7.1</b> Execution rule for functions:</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="intro-to-computing.html"><a href="intro-to-computing.html#tips-on-writing-your-first-code"><i class="fa fa-check"></i><b>1.8</b> Tips on writing your first code</a></li>
+<li class="chapter" data-level="1.9" data-path="intro-to-computing.html"><a href="intro-to-computing.html#exercises"><i class="fa fa-check"></i><b>1.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html"><i class="fa fa-check"></i><b>2</b> Working with data structures</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#lists"><i class="fa fa-check"></i><b>2.1</b> Lists</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-lists"><i class="fa fa-check"></i><b>2.1.1</b> Subsetting lists</a></li>
+<li class="chapter" data-level="2.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-multiple-elements-of-lists"><i class="fa fa-check"></i><b>2.1.2</b> Subsetting multiple elements of lists</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#objects-in-python"><i class="fa fa-check"></i><b>2.2</b> Objects in Python</a></li>
+<li class="chapter" data-level="2.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>2.3</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-does-a-dataframe-contain-in-terms-of-data"><i class="fa fa-check"></i><b>2.3.1</b> What does a Dataframe contain (in terms of data)?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-can-a-dataframe-do-in-terms-of-operations-and-functions"><i class="fa fa-check"></i><b>2.3.2</b> What can a Dataframe do (in terms of operations and functions)?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling, Part 1</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#tidy-data"><i class="fa fa-check"></i><b>3.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#our-working-tidy-data-depmap-project"><i class="fa fa-check"></i><b>3.2</b> Our working Tidy Data: DepMap Project</a></li>
+<li class="chapter" data-level="3.3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>3.3</b> Transform: “What do you want to do with this Dataframe”?</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#summary-statistics"><i class="fa fa-check"></i><b>3.4</b> Summary Statistics</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#simple-data-visualization"><i class="fa fa-check"></i><b>3.5</b> Simple data visualization</a></li>
+<li class="chapter" data-level="3.6" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/W6Mg4rzuMK6Yk3Am8"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/dasl_thin_main_image.png">
+</div>
+<div id="data-wrangling-part-1" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Data Wrangling, Part 1<a href="data-wrangling-part-1.html#data-wrangling-part-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>From our first two lessons, we are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow, which is a natural cycle that occurs in data analysis.</p>
+<div class="float">
+<img src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="550" alt="Data science workflow. Image source: R for Data Science." />
+<div class="figcaption">Data science workflow. Image source: <a href="https://r4ds.hadley.nz/whole-game">R for Data Science.</a></div>
+</div>
+<p>For the rest of the course, we focus on <em>Transform</em> and <em>Visualize</em> with the assumption that our data is in a nice, “Tidy format”. First, we need to understand what it means for a data to be “Tidy”.</p>
+<div id="tidy-data" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Tidy Data<a href="data-wrangling-part-1.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here, we describe a standard of organizing data. It is important to have standards, as it facilitates a consistent way of thinking about data organization and building tools (functions) that make use of that standard. The principles of <strong>tidy data</strong>, developed by Hadley Wickham:</p>
+<ol style="list-style-type: decimal">
+<li><p>Each variable must have its own column.</p></li>
+<li><p>Each observation must have its own row.</p></li>
+<li><p>Each value must have its own cell.</p></li>
+</ol>
+<p>If you want to be technical about what variables and observations are, Hadley Wickham describes:</p>
+<blockquote>
+<p>A <strong>variable</strong> contains all values that measure the same underlying attribute (like height, temperature, duration) across units. An <strong>observation</strong> contains all values measured on the same unit (like a person, or a day, or a race) across attributes.</p>
+</blockquote>
+<div class="float">
+<img src="https://r4ds.hadley.nz/images/tidy-1.png" width="800" alt="A tidy dataframe. Image source: R for Data Science." />
+<div class="figcaption">A tidy dataframe. Image source: <a href="https://r4ds.hadley.nz/data-tidy">R for Data Science</a>.</div>
+</div>
+</div>
+<div id="our-working-tidy-data-depmap-project" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Our working Tidy Data: DepMap Project<a href="data-wrangling-part-1.html#our-working-tidy-data-depmap-project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <a href="https://depmap.org/portal/">Dependency Map project</a> is a multi-omics profiling of cancer cell lines combined with functional assays such as CRISPR and drug sensitivity to help identify cancer vulnerabilities and drug targets. Here are some of the data that we have public access to. We have been looking at the metadata since last session.</p>
+<ul>
+<li><p>Metadata</p></li>
+<li><p>Somatic mutations</p></li>
+<li><p>Gene expression</p></li>
+<li><p>Drug sensitivity</p></li>
+<li><p>CRISPR knockout</p></li>
+<li><p>and more…</p></li>
+</ul>
+<p>Let’s load these datasets in, and see how these datasets fit the definition of Tidy data:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="data-wrangling-part-1.html#cb69-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb69-2"><a href="data-wrangling-part-1.html#cb69-2" tabindex="-1"></a></span>
+<span id="cb69-3"><a href="data-wrangling-part-1.html#cb69-3" tabindex="-1"></a>metadata <span class="op">=</span> pd.read_csv(<span class="st">&quot;classroom_data/metadata.csv&quot;</span>)</span>
+<span id="cb69-4"><a href="data-wrangling-part-1.html#cb69-4" tabindex="-1"></a>mutation <span class="op">=</span> pd.read_csv(<span class="st">&quot;classroom_data/mutation.csv&quot;</span>)</span>
+<span id="cb69-5"><a href="data-wrangling-part-1.html#cb69-5" tabindex="-1"></a>expression <span class="op">=</span> pd.read_csv(<span class="st">&quot;classroom_data/expression.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="data-wrangling-part-1.html#cb70-1" tabindex="-1"></a>metadata.head()</span></code></pre></div>
+<pre><code>##       ModelID  PatientID  ...     OncotreePrimaryDisease       OncotreeLineage
+## 0  ACH-000001  PT-gj46wT  ...   Ovarian Epithelial Tumor  Ovary/Fallopian Tube
+## 1  ACH-000002  PT-5qa3uk  ...     Acute Myeloid Leukemia               Myeloid
+## 2  ACH-000003  PT-puKIyc  ...  Colorectal Adenocarcinoma                 Bowel
+## 3  ACH-000004  PT-q4K2cp  ...     Acute Myeloid Leukemia               Myeloid
+## 4  ACH-000005  PT-q4K2cp  ...     Acute Myeloid Leukemia               Myeloid
+## 
+## [5 rows x 30 columns]</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="data-wrangling-part-1.html#cb72-1" tabindex="-1"></a>mutation.head()</span></code></pre></div>
+<pre><code>##       ModelID  CACNA1D_Mut  CYP2D6_Mut  ...  CCDC28A_Mut  C1orf194_Mut  U2AF1_Mut
+## 0  ACH-000001        False       False  ...        False         False      False
+## 1  ACH-000002        False       False  ...        False         False      False
+## 2  ACH-000004        False       False  ...        False         False      False
+## 3  ACH-000005        False       False  ...        False         False      False
+## 4  ACH-000006        False       False  ...        False         False      False
+## 
+## [5 rows x 540 columns]</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="data-wrangling-part-1.html#cb74-1" tabindex="-1"></a>expression.head()</span></code></pre></div>
+<pre><code>##       ModelID  ENPP4_Exp  CREBBP_Exp  ...  OR5D13_Exp  C2orf81_Exp  OR8S1_Exp
+## 0  ACH-001113   2.280956    4.094236  ...         0.0     1.726831        0.0
+## 1  ACH-001289   3.622930    3.606442  ...         0.0     0.790772        0.0
+## 2  ACH-001339   0.790772    2.970854  ...         0.0     0.575312        0.0
+## 3  ACH-001538   3.485427    2.801159  ...         0.0     1.077243        0.0
+## 4  ACH-000242   0.879706    3.327687  ...         0.0     0.722466        0.0
+## 
+## [5 rows x 536 columns]</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col width="24%" />
+<col width="24%" />
+<col width="26%" />
+<col width="24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dataframe</th>
+<th>The observation is</th>
+<th>Some variables are</th>
+<th>Some values are</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>metadata</td>
+<td>Cell line</td>
+<td>ModelID, Age, OncotreeLineage</td>
+<td>“ACH-000001”, 60, “Myeloid”</td>
+</tr>
+<tr class="even">
+<td>expression</td>
+<td>Cell line</td>
+<td>KRAS_Exp</td>
+<td>2.4, .3</td>
+</tr>
+<tr class="odd">
+<td>mutation</td>
+<td>Cell line</td>
+<td>KRAS_Mut</td>
+<td>TRUE, FALSE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="transform-what-do-you-want-to-do-with-this-dataframe" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Transform: “What do you want to do with this Dataframe”?<a href="data-wrangling-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Remember that a major theme of the course is about: <strong>How we organize ideas &lt;-&gt; Instructing a computer to do something.</strong></p>
+<p>Until now, we haven’t focused too much on how we organize our scientific ideas to interact with what we can do with code. Let’s pivot to write our code driven by our scientific curiosity. After we are sure that we are working with Tidy data, we can ponder how we want to transform our data that satisfies our scientific question. We will look at several ways we can transform Tidy data, starting with subsetting columns and rows.</p>
+<p>Here’s a starting prompt:</p>
+<blockquote>
+<p>In the <code>metadata</code> dataframe, which rows would you subset for and columns would you subset for that relate to a scientific question?</p>
+</blockquote>
+<p>We have been using <strong>explicit subsetting</strong> with numerical indicies, such as “I want to filter for rows 20-50 and select columns 2 and 8”. We are now going to switch to <strong>implicit subsetting</strong> in which we describe the subsetting criteria via comparision operators and column names, such as:</p>
+<p><em>“I want to subset for rows such that the OncotreeLineage is breast cancer and subset for columns Age and Sex.”</em></p>
+<p>Notice that when we subset for rows in an implicit way, we formulate our criteria in terms of the columns.This is because we are guaranteed to have column names in Dataframes, but not row names.</p>
+<div id="lets-convert-our-implicit-subsetting-criteria-into-code" class="section level4 hasAnchor" number="3.3.0.1">
+<h4><span class="header-section-number">3.3.0.1</span> Let’s convert our implicit subsetting criteria into code!<a href="data-wrangling-part-1.html#lets-convert-our-implicit-subsetting-criteria-into-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To subset for rows implicitly, we will use the conditional operators on Dataframe columns you used in Exercise 2. To formulate a conditional operator expression that OncotreeLineage is breast cancer:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb76-1"><a href="data-wrangling-part-1.html#cb76-1" tabindex="-1"></a>metadata[<span class="st">&#39;OncotreeLineage&#39;</span>] <span class="op">==</span> <span class="st">&quot;Lung&quot;</span></span></code></pre></div>
+<pre><code>## 0       False
+## 1       False
+## 2       False
+## 3       False
+## 4       False
+##         ...  
+## 1859    False
+## 1860    False
+## 1861    False
+## 1862    False
+## 1863     True
+## Name: OncotreeLineage, Length: 1864, dtype: bool</code></pre>
+<p>Then, we will use the <code>.loc</code> operation (which is different than <code>.iloc</code> operation!) and subsetting brackets to subset rows and columns Age and Sex at the same time:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="data-wrangling-part-1.html#cb78-1" tabindex="-1"></a>metadata.loc[metadata[<span class="st">&#39;OncotreeLineage&#39;</span>] <span class="op">==</span> <span class="st">&quot;Lung&quot;</span>, [<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Sex&quot;</span>]]</span></code></pre></div>
+<pre><code>##        Age     Sex
+## 10    39.0  Female
+## 13    44.0    Male
+## 19    55.0  Female
+## 27    39.0  Female
+## 28    45.0    Male
+## ...    ...     ...
+## 1745  52.0    Male
+## 1819  84.0    Male
+## 1820  57.0  Female
+## 1822  53.0    Male
+## 1863  62.0    Male
+## 
+## [241 rows x 2 columns]</code></pre>
+<p>What’s going on here? The first component of the subset, <code>metadata['OncotreeLineage'] == "Lung"</code>, subsets for the rows. It gives us a column of <code>True</code> and <code>False</code> values, and we keep rows that correspond to <code>True</code> values. Then, we specify the column names we want to subset for via a list.</p>
+<p>Here’s another example:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="data-wrangling-part-1.html#cb80-1" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">&#39;status&#39;</span>: [<span class="st">&quot;treated&quot;</span>, <span class="st">&quot;untreated&quot;</span>, <span class="st">&quot;untreated&quot;</span>, <span class="st">&quot;discharged&quot;</span>, <span class="st">&quot;treated&quot;</span>],</span>
+<span id="cb80-2"><a href="data-wrangling-part-1.html#cb80-2" tabindex="-1"></a>                            <span class="st">&#39;age_case&#39;</span>: [<span class="dv">25</span>, <span class="dv">43</span>, <span class="dv">21</span>, <span class="dv">65</span>, <span class="dv">7</span>],</span>
+<span id="cb80-3"><a href="data-wrangling-part-1.html#cb80-3" tabindex="-1"></a>                            <span class="st">&#39;age_control&#39;</span>: [<span class="dv">49</span>, <span class="dv">20</span>, <span class="dv">32</span>, <span class="dv">25</span>, <span class="dv">32</span>]})</span>
+<span id="cb80-4"><a href="data-wrangling-part-1.html#cb80-4" tabindex="-1"></a>                            </span>
+<span id="cb80-5"><a href="data-wrangling-part-1.html#cb80-5" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>##        status  age_case  age_control
+## 0     treated        25           49
+## 1   untreated        43           20
+## 2   untreated        21           32
+## 3  discharged        65           25
+## 4     treated         7           32</code></pre>
+<p><em>“I want to subset for rows such that the status is”treated” and subset for columns status and age_case.”</em></p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="data-wrangling-part-1.html#cb82-1" tabindex="-1"></a>df.loc[df.status <span class="op">==</span> <span class="st">&quot;treated&quot;</span>, [<span class="st">&quot;status&quot;</span>, <span class="st">&quot;age_case&quot;</span>]]</span></code></pre></div>
+<pre><code>##     status  age_case
+## 0  treated        25
+## 4  treated         7</code></pre>
+<p><img src="images/pandas_subset_2.png" /></p>
+</div>
+</div>
+<div id="summary-statistics" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Summary Statistics<a href="data-wrangling-part-1.html#summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that your Dataframe has be transformed based on your scientific question, you can start doing some analysis on it! A common data science task is to examine summary statistics of a dataset, which summarizes the all the values from a variable in a numeric summary, such as mean, median, or mode.</p>
+<p>If we look at the data structre of a Dataframe’s column, it is called a Series. It has methods can compute summary statistics for us. Let’s take a look at a few popular examples:</p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="38%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function method</th>
+<th>What it takes in</th>
+<th>What it does</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>metadata.Age.mean()</code></td>
+<td><code>metadata.Age</code> as a numeric value</td>
+<td>Computes the mean value of the <code>Age</code> column.</td>
+<td>Float (NumPy)</td>
+</tr>
+<tr class="even">
+<td><code>metadata['Age'].median()</code></td>
+<td><code>metadata['Age']</code> as a numeric value</td>
+<td>Computes the median value of the <code>Age</code> column.</td>
+<td>Float (NumPy)</td>
+</tr>
+<tr class="odd">
+<td><code>metadata.Age.max()</code></td>
+<td><code>metadata.Age</code> as a numeric value</td>
+<td>Computes the max value of the <code>Age</code> column.</td>
+<td>Float (NumPy)</td>
+</tr>
+<tr class="even">
+<td><code>metadata.OncotreeSubtype.value_counts()</code></td>
+<td><code>metadata.OncotreeSubtype</code> as a String</td>
+<td>Creates a frequency table of all unique elements in <code>OncotreeSubtype</code> column.</td>
+<td>Series</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s try it out, with some nice print formatting:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="data-wrangling-part-1.html#cb84-1" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Mean value of Age column:&quot;</span>, metadata[<span class="st">&#39;Age&#39;</span>].mean())</span></code></pre></div>
+<pre><code>## Mean value of Age column: 47.45187165775401</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb86-1"><a href="data-wrangling-part-1.html#cb86-1" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Frequency of column&quot;</span>, metadata.OncotreeLineage.value_counts())</span></code></pre></div>
+<pre><code>## Frequency of column OncotreeLineage
+## Lung                         241
+## Lymphoid                     209
+## CNS/Brain                    123
+## Skin                         118
+## Esophagus/Stomach             95
+## Breast                        92
+## Bowel                         87
+## Head and Neck                 81
+## Myeloid                       77
+## Bone                          75
+## Ovary/Fallopian Tube          74
+## Pancreas                      65
+## Kidney                        64
+## Peripheral Nervous System     55
+## Soft Tissue                   54
+## Uterus                        41
+## Fibroblast                    41
+## Biliary Tract                 40
+## Bladder/Urinary Tract         39
+## Normal                        39
+## Pleura                        35
+## Liver                         28
+## Cervix                        25
+## Eye                           19
+## Thyroid                       18
+## Prostate                      14
+## Vulva/Vagina                   5
+## Ampulla of Vater               4
+## Testis                         4
+## Adrenal Gland                  1
+## Other                          1
+## Name: count, dtype: int64</code></pre>
+<p>(Notice that the output of some of these methods are Float (NumPy). This refers to a Python Object called NumPy that is extremely popular for scientific computing, but we’re not focused on that in this course.)</p>
+</div>
+<div id="simple-data-visualization" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Simple data visualization<a href="data-wrangling-part-1.html#simple-data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will dedicate extensive time later this course to talk about data visualization, but the Dataframe’s column, Series, has a method called <code>.plot()</code> that can help us make plots. The <code>.plot()</code> method will default make a line plot, but it is not necessary the plot style we want, so we can give the optional argument <code>kind</code> a String value to specify the plot style. We use it for making a histogram.</p>
+<p>The <code>.plot()</code> method also exists for Dataframes, in which you need to specify a plot using multiple columns. We use it for making a bar plot.</p>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="12%" />
+<col width="9%" />
+<col width="65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Plot style</th>
+<th>Useful for</th>
+<th>kind =</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Histogram</td>
+<td>Numerics</td>
+<td>“hist”</td>
+<td><code>metadata.Age.plot(kind = "hist")</code></td>
+</tr>
+<tr class="even">
+<td>Bar plot</td>
+<td>Strings</td>
+<td>“bar”</td>
+<td><code>metadata.OncotreeSubtype.value_counts().plot(kind = "bar")</code></td>
+</tr>
+</tbody>
+</table>
+<p>Let’s look at a histogram:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb88-1"><a href="data-wrangling-part-1.html#cb88-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb88-2"><a href="data-wrangling-part-1.html#cb88-2" tabindex="-1"></a></span>
+<span id="cb88-3"><a href="data-wrangling-part-1.html#cb88-3" tabindex="-1"></a>plt.figure()</span>
+<span id="cb88-4"><a href="data-wrangling-part-1.html#cb88-4" tabindex="-1"></a>metadata.Age.plot(kind <span class="op">=</span> <span class="st">&quot;hist&quot;</span>)</span>
+<span id="cb88-5"><a href="data-wrangling-part-1.html#cb88-5" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="resources/images/03-data-wrangling1_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Let’s look at a bar plot:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb89-1"><a href="data-wrangling-part-1.html#cb89-1" tabindex="-1"></a>plt.figure()</span>
+<span id="cb89-2"><a href="data-wrangling-part-1.html#cb89-2" tabindex="-1"></a>metadata.OncotreeLineage.value_counts().plot(kind <span class="op">=</span> <span class="st">&quot;bar&quot;</span>)</span>
+<span id="cb89-3"><a href="data-wrangling-part-1.html#cb89-3" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="resources/images/03-data-wrangling1_files/figure-html/unnamed-chunk-12-3.png" width="672" /></p>
+<p>Notice here that we start with the column <code>metadata.OncotreeLineage</code>, and then we first use the method <code>.value_counts()</code> to get a <em>Dataframe</em> of a frequency table. Then, we take the frequency table Dataframe and use the <code>.plot()</code> method. It is quite common in Python to have multiple “chained” function calls, in which the output of <code>.value_counts()</code> is used for the input of <code>.plot()</code>. It takes a bit of time to get used to this!</p>
+</div>
+<div id="exercises-2" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Exercises<a href="data-wrangling-part-1.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Exercise for week 3 can be found <a href="https://colab.research.google.com/drive/1ClNOJviyrcaaoVq5F-YtsO7NhMqn315c?usp=sharing">here</a>.</p>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+      <a href="https://hutchdatascience.org/" target="_blank"><img src="https://hutchdatascience.org/images/crazy-idea-wide.png" style="width: 80%; padding-left: 15px; padding-top: 8px;"</a>
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="working-with-data-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

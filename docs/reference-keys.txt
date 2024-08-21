@@ -26,6 +26,12 @@ what-does-a-dataframe-contain-in-terms-of-data
 what-can-a-dataframe-do-in-terms-of-operations-and-functions
 subsetting-dataframes
 exercises-1
-data-wrangling
+data-wrangling-part-1
+tidy-data
+our-working-tidy-data-depmap-project
+transform-what-do-you-want-to-do-with-this-dataframe
+lets-convert-our-implicit-subsetting-criteria-into-code
+summary-statistics
+simple-data-visualization
 exercises-2
 references
