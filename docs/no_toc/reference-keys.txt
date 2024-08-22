@@ -33,5 +33,6 @@ transform-what-do-you-want-to-do-with-this-dataframe
 lets-convert-our-implicit-subsetting-criteria-into-code
 summary-statistics
 simple-data-visualization
+chained-function-calls
 exercises-2
 references

@@ -231,7 +231,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>From our first two lessons, we are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow, which is a natural cycle that occurs in data analysis.</p>
 <div class="float">
 <img src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="550" alt="Data science workflow. Image source: R for Data Science." />
-<div class="figcaption">Data science workflow. Image source: <a href="https://r4ds.hadley.nz/whole-game">R for Data Science.</a></div>
+<div class="figcaption">Data science workflow. Image source: R for Data Science.</div>
 </div>
 <p>For the rest of the course, we focus on <em>Transform</em> and <em>Visualize</em> with the assumption that our data is in a nice, “Tidy format”. First, we need to understand what it means for a data to be “Tidy”.</p>
 <div id="tidy-data" class="section level2 hasAnchor" number="3.1">
@@ -248,7 +248,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <div class="float">
 <img src="https://r4ds.hadley.nz/images/tidy-1.png" width="800" alt="A tidy dataframe. Image source: R for Data Science." />
-<div class="figcaption">A tidy dataframe. Image source: <a href="https://r4ds.hadley.nz/data-tidy">R for Data Science</a>.</div>
+<div class="figcaption">A tidy dataframe. Image source: R for Data Science.</div>
 </div>
 </div>
 <div id="our-working-tidy-data-depmap-project" class="section level2 hasAnchor" number="3.2">
@@ -399,13 +399,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="summary-statistics" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Summary Statistics<a href="data-wrangling-part-1.html#summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that your Dataframe has be transformed based on your scientific question, you can start doing some analysis on it! A common data science task is to examine summary statistics of a dataset, which summarizes the all the values from a variable in a numeric summary, such as mean, median, or mode.</p>
-<p>If we look at the data structre of a Dataframe’s column, it is called a Series. It has methods can compute summary statistics for us. Let’s take a look at a few popular examples:</p>
+<p>If we look at the data structure of a Dataframe’s column, it is actually not a List, but an object called Series. It has methods can compute summary statistics for us. Let’s take a look at a few popular examples:</p>
 <table>
 <colgroup>
-<col width="20%" />
-<col width="20%" />
-<col width="38%" />
-<col width="20%" />
+<col width="21%" />
+<col width="21%" />
+<col width="34%" />
+<col width="21%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -418,25 +418,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <tbody>
 <tr class="odd">
 <td><code>metadata.Age.mean()</code></td>
-<td><code>metadata.Age</code> as a numeric value</td>
+<td><code>metadata.Age</code> as a numeric Series</td>
 <td>Computes the mean value of the <code>Age</code> column.</td>
 <td>Float (NumPy)</td>
 </tr>
 <tr class="even">
 <td><code>metadata['Age'].median()</code></td>
-<td><code>metadata['Age']</code> as a numeric value</td>
+<td><code>metadata['Age']</code> as a numeric Series</td>
 <td>Computes the median value of the <code>Age</code> column.</td>
 <td>Float (NumPy)</td>
 </tr>
 <tr class="odd">
 <td><code>metadata.Age.max()</code></td>
-<td><code>metadata.Age</code> as a numeric value</td>
+<td><code>metadata.Age</code> as a numeric Series</td>
 <td>Computes the max value of the <code>Age</code> column.</td>
 <td>Float (NumPy)</td>
 </tr>
 <tr class="even">
 <td><code>metadata.OncotreeSubtype.value_counts()</code></td>
-<td><code>metadata.OncotreeSubtype</code> as a String</td>
+<td><code>metadata.OncotreeSubtype</code> as a string Series</td>
 <td>Creates a frequency table of all unique elements in <code>OncotreeSubtype</code> column.</td>
 <td>Series</td>
 </tr>
@@ -479,18 +479,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Adrenal Gland                  1
 ## Other                          1
 ## Name: count, dtype: int64</code></pre>
-<p>(Notice that the output of some of these methods are Float (NumPy). This refers to a Python Object called NumPy that is extremely popular for scientific computing, but we’re not focused on that in this course.)</p>
+<p>Notice that the output of some of these methods are Float (NumPy). This refers to a Python Object called NumPy that is extremely popular for scientific computing, but we’re not focused on that in this course.)</p>
 </div>
 <div id="simple-data-visualization" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Simple data visualization<a href="data-wrangling-part-1.html#simple-data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We will dedicate extensive time later this course to talk about data visualization, but the Dataframe’s column, Series, has a method called <code>.plot()</code> that can help us make plots. The <code>.plot()</code> method will default make a line plot, but it is not necessary the plot style we want, so we can give the optional argument <code>kind</code> a String value to specify the plot style. We use it for making a histogram.</p>
-<p>The <code>.plot()</code> method also exists for Dataframes, in which you need to specify a plot using multiple columns. We use it for making a bar plot.</p>
-<table>
+<p>We will dedicate extensive time later this course to talk about data visualization, but the Dataframe’s column, Series, has a method called <code>.plot()</code> that can help us make simple plots for one variable. The <code>.plot()</code> method will by default make a line plot, but it is not necessary the plot style we want, so we can give the optional argument <code>kind</code> a String value to specify the plot style. We use it for making a histogram or bar plot.</p>
+<table style="width:100%;">
 <colgroup>
-<col width="12%" />
-<col width="12%" />
-<col width="9%" />
-<col width="65%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+<col width="53%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -527,7 +526,36 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb89-2"><a href="data-wrangling-part-1.html#cb89-2" tabindex="-1"></a>metadata.OncotreeLineage.value_counts().plot(kind <span class="op">=</span> <span class="st">&quot;bar&quot;</span>)</span>
 <span id="cb89-3"><a href="data-wrangling-part-1.html#cb89-3" tabindex="-1"></a>plt.show()</span></code></pre></div>
 <p><img src="resources/images/03-data-wrangling1_files/figure-html/unnamed-chunk-12-3.png" width="672" /></p>
-<p>Notice here that we start with the column <code>metadata.OncotreeLineage</code>, and then we first use the method <code>.value_counts()</code> to get a <em>Dataframe</em> of a frequency table. Then, we take the frequency table Dataframe and use the <code>.plot()</code> method. It is quite common in Python to have multiple “chained” function calls, in which the output of <code>.value_counts()</code> is used for the input of <code>.plot()</code>. It takes a bit of time to get used to this!</p>
+<p>(The <code>plt.figure()</code> and <code>plt.show()</code> functions are used to render the plots on the website, but you don’t need to use it for your exercises - yet. We will discuss this in more detail during our week of data visualization.)</p>
+<div id="chained-function-calls" class="section level4 hasAnchor" number="3.5.0.1">
+<h4><span class="header-section-number">3.5.0.1</span> Chained function calls<a href="data-wrangling-part-1.html#chained-function-calls" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let’s look at our bar plot syntax more carefully. We start with the column <code>metadata.OncotreeLineage</code>, and then we first use the method <code>.value_counts()</code> to get a <em>Series</em> of a frequency table. Then, we take the frequency table Series and use the <code>.plot()</code> method.</p>
+<p>It is quite common in Python to have multiple “chained” function calls, in which the output of <code>.value_counts()</code> is used for the input of <code>.plot()</code> all in one line of code. It takes a bit of time to get used to this!</p>
+<p>Here’s another example of a chained function call, which looks quite complex, but let’s break it down:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb90-1"><a href="data-wrangling-part-1.html#cb90-1" tabindex="-1"></a>plt.figure()</span>
+<span id="cb90-2"><a href="data-wrangling-part-1.html#cb90-2" tabindex="-1"></a></span>
+<span id="cb90-3"><a href="data-wrangling-part-1.html#cb90-3" tabindex="-1"></a>metadata.loc[metadata.AgeCategory <span class="op">==</span> <span class="st">&quot;Adult&quot;</span>, ].OncotreeLineage.value_counts().plot(kind<span class="op">=</span><span class="st">&quot;bar&quot;</span>)</span>
+<span id="cb90-4"><a href="data-wrangling-part-1.html#cb90-4" tabindex="-1"></a></span>
+<span id="cb90-5"><a href="data-wrangling-part-1.html#cb90-5" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="resources/images/03-data-wrangling1_files/figure-html/unnamed-chunk-13-5.png" width="672" /></p>
+<ol style="list-style-type: decimal">
+<li>We first take the entire <code>metadata</code> and do some subsetting, which outputs a Dataframe.</li>
+<li>We access the <code>OncotreeLineage</code> column, which outputs a Series.</li>
+<li>We use the method <code>.value_counts()</code>, which outputs a Series.</li>
+<li>We make a plot out of it!</li>
+</ol>
+<p>We could have, alternatively, done this in several lines of code:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb91-1"><a href="data-wrangling-part-1.html#cb91-1" tabindex="-1"></a>plt.figure()</span>
+<span id="cb91-2"><a href="data-wrangling-part-1.html#cb91-2" tabindex="-1"></a></span>
+<span id="cb91-3"><a href="data-wrangling-part-1.html#cb91-3" tabindex="-1"></a>metadata_subset <span class="op">=</span> metadata.loc[metadata.AgeCategory <span class="op">==</span> <span class="st">&quot;Adult&quot;</span>, ]</span>
+<span id="cb91-4"><a href="data-wrangling-part-1.html#cb91-4" tabindex="-1"></a>metadata_subset_lineage <span class="op">=</span> metadata_subset.OncotreeLineage</span>
+<span id="cb91-5"><a href="data-wrangling-part-1.html#cb91-5" tabindex="-1"></a>lineage_freq <span class="op">=</span> metadata_subset_lineage.value_counts()</span>
+<span id="cb91-6"><a href="data-wrangling-part-1.html#cb91-6" tabindex="-1"></a>lineage_freq.plot(kind <span class="op">=</span> <span class="st">&quot;bar&quot;</span>)</span>
+<span id="cb91-7"><a href="data-wrangling-part-1.html#cb91-7" tabindex="-1"></a></span>
+<span id="cb91-8"><a href="data-wrangling-part-1.html#cb91-8" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="resources/images/03-data-wrangling1_files/figure-html/unnamed-chunk-14-7.png" width="672" /></p>
+<p>These are two different <em>styles</em> of code, but they do the exact same thing. It’s up to you to decide what is easier for you to understand.</p>
+</div>
 </div>
 <div id="exercises-2" class="section level2 hasAnchor" number="3.6">
 <h2><span class="header-section-number">3.6</span> Exercises<a href="data-wrangling-part-1.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
