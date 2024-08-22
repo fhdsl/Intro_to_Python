@@ -262,15 +262,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="working-with-data-structures.html#cb39-1" tabindex="-1"></a>chrNum[<span class="dv">1</span>:<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [3, 1]</code></pre>
 <p>If you want to access everything but the first three elements of <code>chrNum</code>:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="working-with-data-structures.html#cb41-1" tabindex="-1"></a>chrNum[<span class="dv">3</span>:<span class="bu">len</span>(chrNum)]</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="working-with-data-structures.html#cb41-1" tabindex="-1"></a>chrNum[<span class="dv">3</span>:]</span></code></pre></div>
 <pre><code>## [2, 2]</code></pre>
-<p>where <code>len(chrNum)</code> is the length of the list.</p>
-<p>When the start or stop index is <em>not</em> specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:</p>
+<p>Here, the stop index number was not specificed. When the start or stop index is <em>not</em> specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="working-with-data-structures.html#cb43-1" tabindex="-1"></a>chrNum[:<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [2, 3, 1]</code></pre>
 <div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="working-with-data-structures.html#cb45-1" tabindex="-1"></a>chrNum[<span class="dv">3</span>:]</span></code></pre></div>
 <pre><code>## [2, 2]</code></pre>
-<p>More discussion of list slicing can be found <a href="https://stackoverflow.com/questions/509211/how-slicing-in-python-works">here</a>.</p>
+<p>There are other popular uses of the slice operator <code>:</code>, such as negative indicies to count from the end of a list, or subsetting with a fixed increment. You can find more discussion of list slicing <a href="https://wesmckinney.com/book/python-builtin#list_slicing">here</a>.</p>
 </div>
 </div>
 <div id="objects-in-python" class="section level2 hasAnchor" number="2.2">
@@ -281,7 +280,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>What can it do (in terms of operations and functions)?</p></li>
 </ul>
 <p>And if it “makes sense” to us, then it is well-designed.</p>
-<p>The list data structure we have been working with is an example of an <strong>Object</strong>. The definition of an object allows us to ask the questions above: what does it contain, and what can it do? It is an organizational tool for a collection of data and functions that we can relate to, like a physical object. Formally, an object contains the following:</p>
+<p>The list data structure we have been working with is an example of an <strong>Object</strong>. The definition of an object allows us to ask the questions above: <em>what does it contain, and what can it do?</em> It is an organizational tool for a collection of data and functions that we can relate to, like a physical object. Formally, an object contains the following:</p>
 <ul>
 <li><p><strong>Value</strong> that holds the essential data for the object.</p></li>
 <li><p><strong>Attributes</strong> that store additional data for the object.</p></li>
@@ -457,7 +456,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/pandas_subset_0.png" /></p>
 <p>Subset the second to fourth rows, and the first two columns:</p>
 <p><img src="images/pandas_subset_1.png" /></p>
-<p>Now, back to <code>metadata</code> dataframe.</p>
+<p>Now, back to <code>metadata</code> dataframe:</p>
 <p>Subset the first 5 rows, and first two columns:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="working-with-data-structures.html#cb65-1" tabindex="-1"></a>metadata.iloc[:<span class="dv">5</span>, :<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>##       ModelID  PatientID

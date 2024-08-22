@@ -71,16 +71,14 @@ If you want to access everything but the first three elements of `chrNum`:
 
 
 ``` python
-chrNum[3:len(chrNum)]
+chrNum[3:]
 ```
 
 ```
 ## [2, 2]
 ```
 
-where `len(chrNum)` is the length of the list.
-
-When the start or stop index is *not* specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:
+Here, the stop index number was not specificed. When the start or stop index is *not* specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:
 
 
 ``` python
@@ -99,7 +97,7 @@ chrNum[3:]
 ## [2, 2]
 ```
 
-More discussion of list slicing can be found [here](https://stackoverflow.com/questions/509211/how-slicing-in-python-works).
+There are other popular uses of the slice operator `:`, such as negative indicies to count from the end of a list, or subsetting with a fixed increment. You can find more discussion of list slicing [here](https://wesmckinney.com/book/python-builtin#list_slicing).
 
 ## Objects in Python
 
@@ -111,7 +109,7 @@ The list data structure has an organization and functionality that metaphoricall
 
 And if it "makes sense" to us, then it is well-designed.
 
-The list data structure we have been working with is an example of an **Object**. The definition of an object allows us to ask the questions above: what does it contain, and what can it do? It is an organizational tool for a collection of data and functions that we can relate to, like a physical object. Formally, an object contains the following:
+The list data structure we have been working with is an example of an **Object**. The definition of an object allows us to ask the questions above: *what does it contain, and what can it do?* It is an organizational tool for a collection of data and functions that we can relate to, like a physical object. Formally, an object contains the following:
 
 -   **Value** that holds the essential data for the object.
 
@@ -337,7 +335,7 @@ Subset the second to fourth rows, and the first two columns:
 
 ![](images/pandas_subset_1.png)
 
-Now, back to `metadata` dataframe.
+Now, back to `metadata` dataframe:
 
 Subset the first 5 rows, and first two columns:
 
