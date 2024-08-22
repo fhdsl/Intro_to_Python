@@ -6,7 +6,7 @@ ottrpal::set_knitr_image_path()
 
 From our first two lessons, we are now equipped with enough fundamental programming skills to apply it to various steps in the data science workflow, which is a natural cycle that occurs in data analysis.
 
-![Data science workflow. Image source: [R for Data Science.](https://r4ds.hadley.nz/whole-game)](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){alt="Data science workflow. Image source: R for Data Science." width="550"}
+![Data science workflow. Image source: R for Data Science.](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
 
 For the rest of the course, we focus on *Transform* and *Visualize* with the assumption that our data is in a nice, "Tidy format". First, we need to understand what it means for a data to be "Tidy".
 
@@ -24,7 +24,7 @@ If you want to be technical about what variables and observations are, Hadley Wi
 
 > A **variable** contains all values that measure the same underlying attribute (like height, temperature, duration) across units. An **observation** contains all values measured on the same unit (like a person, or a day, or a race) across attributes.
 
-![A tidy dataframe. Image source: [R for Data Science](https://r4ds.hadley.nz/data-tidy).](https://r4ds.hadley.nz/images/tidy-1.png){alt="A tidy dataframe. Image source: R for Data Science." width="800"}
+![A tidy dataframe. Image source: R for Data Science.](https://r4ds.hadley.nz/images/tidy-1.png){width="800"}
 
 ## Our working Tidy Data: DepMap Project
 
@@ -112,7 +112,7 @@ df = pd.DataFrame(data={'status': ["treated", "untreated", "untreated", "dischar
 df
 ```
 
-*"I want to subset for rows such that the status is "treated" and subset for columns status and age_case."*
+*"I want to subset for rows such that the status is"treated" and subset for columns status and age_case."*
 
 ```{python}
 df.loc[df.status == "treated", ["status", "age_case"]]
@@ -124,14 +124,14 @@ df.loc[df.status == "treated", ["status", "age_case"]]
 
 Now that your Dataframe has be transformed based on your scientific question, you can start doing some analysis on it! A common data science task is to examine summary statistics of a dataset, which summarizes the all the values from a variable in a numeric summary, such as mean, median, or mode.
 
-If we look at the data structre of a Dataframe's column, it is called a Series. It has methods can compute summary statistics for us. Let's take a look at a few popular examples:
+If we look at the data structure of a Dataframe's column, it is actually not a List, but an object called Series. It has methods can compute summary statistics for us. Let's take a look at a few popular examples:
 
-| Function method                           | What it takes in                       | What it does                                                                  | Returns       |
-|---------------|---------------|----------------------------|---------------|
-| `metadata.Age.mean()`                     | `metadata.Age` as a numeric value      | Computes the mean value of the `Age` column.                                  | Float (NumPy) |
-| `metadata['Age'].median()`                | `metadata['Age']` as a numeric value   | Computes the median value of the `Age` column.                                | Float (NumPy) |
-| `metadata.Age.max()`                      | `metadata.Age` as a numeric value      | Computes the max value of the `Age` column.                                   | Float (NumPy) |
-| `metadata.OncotreeSubtype.value_counts()` | `metadata.OncotreeSubtype` as a String | Creates a frequency table of all unique elements in `OncotreeSubtype` column. | Series        |
+| Function method                           | What it takes in                              | What it does                                                                  | Returns       |
+|----------------|----------------|-------------------------|----------------|
+| `metadata.Age.mean()`                     | `metadata.Age` as a numeric Series            | Computes the mean value of the `Age` column.                                  | Float (NumPy) |
+| `metadata['Age'].median()`                | `metadata['Age']` as a numeric Series         | Computes the median value of the `Age` column.                                | Float (NumPy) |
+| `metadata.Age.max()`                      | `metadata.Age` as a numeric Series            | Computes the max value of the `Age` column.                                   | Float (NumPy) |
+| `metadata.OncotreeSubtype.value_counts()` | `metadata.OncotreeSubtype` as a string Series | Creates a frequency table of all unique elements in `OncotreeSubtype` column. | Series        |
 
 Let's try it out, with some nice print formatting:
 
@@ -140,18 +140,16 @@ print("Mean value of Age column:", metadata['Age'].mean())
 print("Frequency of column", metadata.OncotreeLineage.value_counts())
 ```
 
-(Notice that the output of some of these methods are Float (NumPy). This refers to a Python Object called NumPy that is extremely popular for scientific computing, but we're not focused on that in this course.)
+Notice that the output of some of these methods are Float (NumPy). This refers to a Python Object called NumPy that is extremely popular for scientific computing, but we're not focused on that in this course.)
 
 ## Simple data visualization
 
-We will dedicate extensive time later this course to talk about data visualization, but the Dataframe's column, Series, has a method called `.plot()` that can help us make plots. The `.plot()` method will default make a line plot, but it is not necessary the plot style we want, so we can give the optional argument `kind` a String value to specify the plot style. We use it for making a histogram.
+We will dedicate extensive time later this course to talk about data visualization, but the Dataframe's column, Series, has a method called `.plot()` that can help us make simple plots for one variable. The `.plot()` method will by default make a line plot, but it is not necessary the plot style we want, so we can give the optional argument `kind` a String value to specify the plot style. We use it for making a histogram or bar plot.
 
-The `.plot()` method also exists for Dataframes, in which you need to specify a plot using multiple columns. We use it for making a bar plot.
-
-| Plot style | Useful for | kind =  | Code                                                         |
-|------------|------------|---------|--------------------------------------------------------------|
-| Histogram  | Numerics   | "hist"  | `metadata.Age.plot(kind = "hist")`                           |
-| Bar plot   | Strings    | "bar"   | `metadata.OncotreeSubtype.value_counts().plot(kind = "bar")` |
+| Plot style | Useful for | kind = | Code                                                         |
+|-----------|-----------|-----------|--------------------------------------|
+| Histogram  | Numerics   | "hist" | `metadata.Age.plot(kind = "hist")`                           |
+| Bar plot   | Strings    | "bar"  | `metadata.OncotreeSubtype.value_counts().plot(kind = "bar")` |
 
 Let's look at a histogram:
 
@@ -171,7 +169,44 @@ metadata.OncotreeLineage.value_counts().plot(kind = "bar")
 plt.show()
 ```
 
-Notice here that we start with the column `metadata.OncotreeLineage`, and then we first use the method `.value_counts()` to get a *Dataframe* of a frequency table. Then, we take the frequency table Dataframe and use the `.plot()` method. It is quite common in Python to have multiple "chained" function calls, in which the output of `.value_counts()` is used for the input of `.plot()`. It takes a bit of time to get used to this!
+(The `plt.figure()` and `plt.show()` functions are used to render the plots on the website, but you don't need to use it for your exercises - yet. We will discuss this in more detail during our week of data visualization.)
+
+#### Chained function calls
+
+Let's look at our bar plot syntax more carefully. We start with the column `metadata.OncotreeLineage`, and then we first use the method `.value_counts()` to get a *Series* of a frequency table. Then, we take the frequency table Series and use the `.plot()` method.
+
+It is quite common in Python to have multiple "chained" function calls, in which the output of `.value_counts()` is used for the input of `.plot()` all in one line of code. It takes a bit of time to get used to this!
+
+Here's another example of a chained function call, which looks quite complex, but let's break it down:
+
+```{python}
+plt.figure()
+
+metadata.loc[metadata.AgeCategory == "Adult", ].OncotreeLineage.value_counts().plot(kind="bar")
+
+plt.show()
+
+```
+
+1.  We first take the entire `metadata` and do some subsetting, which outputs a Dataframe.
+2.  We access the `OncotreeLineage` column, which outputs a Series.
+3.  We use the method `.value_counts()`, which outputs a Series.
+4.  We make a plot out of it!
+
+We could have, alternatively, done this in several lines of code:
+
+```{python}
+plt.figure()
+
+metadata_subset = metadata.loc[metadata.AgeCategory == "Adult", ]
+metadata_subset_lineage = metadata_subset.OncotreeLineage
+lineage_freq = metadata_subset_lineage.value_counts()
+lineage_freq.plot(kind = "bar")
+
+plt.show()
+```
+
+These are two different *styles* of code, but they do the exact same thing. It's up to you to decide what is easier for you to understand.
 
 ## Exercises
 
