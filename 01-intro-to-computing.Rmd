@@ -70,6 +70,8 @@ Python Notebook is great for data science work, because:
 
 -   It is flexible to use other programming languages, such as R.
 
+The version of Python used in this course and in Google Colab is Python 3, which is the version of Python that is most supported. Some Python software is written in Python 2, which is very similar but has some [notable differences](https://www.fullstackpython.com/python-2-or-3.html).
+
 Now, we will get to the basics of programming grammar.
 
 ## Grammar Structure 1: Evaluation of Expressions
@@ -215,13 +217,13 @@ And there is an operational equivalent:
 2 ** 3
 ```
 
-We will mostly look at functions with input arguments and return types in this course, but not all functions need to have input arguments and output return. Here are some varieties of functions to stretch your horizons.
+We will mostly look at functions with input arguments and return types in this course, but not all functions need to have input arguments and output return. Let's look at some examples of functions that don't always have an input or output:
 
-| Function call    | What it takes in         | What it does                                | Returns |
+| Function call | What it takes in         | What it does                                                  | Returns |
 |---------------|---------------|----------------------------|---------------|
-| `pow(a, b)`      | integer `a`, integer `b` | Raises `a` to the `b`th power.              | Integer |
-| `print(x)`       | any data type `x`        | Prints out the value of `x` to the console. | None    |
-| `datetime.now()` | Nothing                  | Gets the current time.                      | String  |
+| `pow(a, b)`   | integer `a`, integer `b` | Raises `a` to the `b`th power.                                | Integer |
+| `print(x)`    | any data type `x`        | Prints out the value of `x` to the console.                   | None    |
+| `dir()`       | Nothing                  | Gives a list of all the variables defined in the environment. | List    |
 
 ## Tips on writing your first code
 
@@ -229,7 +231,9 @@ We will mostly look at functions with input arguments and return types in this c
 
 Computers are excellent at doing something specific over and over again, but is extremely rigid and lack flexibility. Here are some tips that is helpful for beginners:
 
--   Write incrementally, test often
+-   Write incrementally, test often.
+
+-   Don't be afraid to break things: it is how we learn how things work in programming.
 
 -   Check your assumptions, especially using new functions, operations, and new data types.
 
