@@ -202,4 +202,4 @@ The input argument to the `.agg(x)` method is called a Dictionary, which let's y
 
 ## Exercises
 
-Exercise for week 4 can be found [here]().
+Exercise for week 4 can be found [here](https://colab.research.google.com/drive/1ntkUdKQ209vu1M89rcsBst-pKKuwzdwX?usp=sharing).
