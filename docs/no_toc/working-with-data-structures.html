@@ -190,8 +190,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#simple-data-visualization"><i class="fa fa-check"></i><b>3.5</b> Simple data visualization</a></li>
 <li class="chapter" data-level="3.6" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling, Part 2</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#creating-new-columns"><i class="fa fa-check"></i><b>4.1</b> Creating new columns</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>4.2</b> Merging two Dataframes together</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>4.3</b> Grouping and summarizing Dataframes</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#optional-multiple-grouping-multiple-columns-multiple-summary-statistics"><i class="fa fa-check"></i><b>4.3.1</b> Optional: Multiple grouping, Multiple columns, Multiple summary statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#exercises-3"><i class="fa fa-check"></i><b>4.4</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
-<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
+<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
@@ -297,9 +307,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Here are some more examples of methods with lists:</p>
 <table>
 <colgroup>
-<col width="18%" />
-<col width="18%" />
-<col width="42%" />
+<col width="20%" />
+<col width="20%" />
+<col width="37%" />
 <col width="20%" />
 </colgroup>
 <thead>
@@ -312,25 +322,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>chrNum.count(x)</code></td>
+<td><a href="https://docs.python.org/3/tutorial/datastructures.html"><code>chrNum.count(x)</code></a></td>
 <td>list <code>chrNum</code>, data type <code>x</code></td>
 <td>Counts the number of instances <code>x</code> appears as an element of <code>chrNum</code>.</td>
 <td>Integer</td>
 </tr>
 <tr class="even">
-<td><code>chrNum.append(x)</code></td>
+<td><a href="https://docs.python.org/3/tutorial/datastructures.html"><code>chrNum.append(x)</code></a></td>
 <td>list <code>chrNum</code>, data type <code>x</code></td>
 <td>Appends <code>x</code> to the end of the <code>chrNum</code>.</td>
 <td>None (but <code>chrNum</code> is modified!)</td>
 </tr>
 <tr class="odd">
-<td><code>chrNum.sort()</code></td>
+<td><a href="https://docs.python.org/3/tutorial/datastructures.html"><code>chrNum.sort()</code></a></td>
 <td>list <code>chrNum</code></td>
 <td>Sorts <code>chrNum</code> by ascending order.</td>
 <td>None (but <code>chrNum</code> is modified!)</td>
 </tr>
 <tr class="even">
-<td><code>chrNum.reverse()</code></td>
+<td><a href="https://docs.python.org/3/tutorial/datastructures.html"><code>chrNum.reverse()</code></a></td>
 <td>list <code>chrNum</code></td>
 <td>Reverses the order of <code>chrNum</code>.</td>
 <td>None (but <code>chrNum</code> is modified!)</td>
@@ -342,13 +352,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.3</span> Dataframes<a href="working-with-data-structures.html#dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A Dataframe is a two-dimensional data structure that stores data like a spreadsheet does.</p>
 <p>The Dataframe data structure is found within a Python module called “Pandas”. A Python module is an organized collection of functions and data structures. The <code>import</code> statement below gives us permission to access the “Pandas” module via the variable <code>pd</code>.</p>
-<p>To load in a Dataframe from existing spreadsheet data, we use the function <code>pd.read_csv()</code>:</p>
+<p>To load in a Dataframe from existing spreadsheet data, we use the function <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"><code>pd.read_csv()</code></a>:</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="working-with-data-structures.html#cb47-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb47-2"><a href="working-with-data-structures.html#cb47-2" tabindex="-1"></a></span>
 <span id="cb47-3"><a href="working-with-data-structures.html#cb47-3" tabindex="-1"></a>metadata <span class="op">=</span> pd.read_csv(<span class="st">&quot;classroom_data/metadata.csv&quot;</span>)</span>
 <span id="cb47-4"><a href="working-with-data-structures.html#cb47-4" tabindex="-1"></a><span class="bu">type</span>(metadata)</span></code></pre></div>
 <pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</code></pre>
-<p>There is a similar function <code>pd.read_excel()</code> for loading in Excel spreadsheets.</p>
+<p>There is a similar function <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html"><code>pd.read_excel()</code></a> for loading in Excel spreadsheets.</p>
 <p>Let’s investigate the Dataframe as an object:</p>
 <ul>
 <li><p>What does a Dataframe contain (in terms of data)?</p></li>
@@ -417,7 +427,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="what-can-a-dataframe-do-in-terms-of-operations-and-functions" class="section level3 hasAnchor" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> What can a Dataframe do (in terms of operations and functions)?<a href="working-with-data-structures.html#what-can-a-dataframe-do-in-terms-of-operations-and-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We can use the <code>head()</code> and <code>tail()</code> functions to look at the first few rows and last few rows of <code>metadata</code>, respectively:</p>
+<p>We can use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html"><code>.head()</code></a> and <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.tail.html"><code>.tail()</code></a> methods to look at the first few rows and last few rows of <code>metadata</code>, respectively:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="working-with-data-structures.html#cb59-1" tabindex="-1"></a>metadata.head()</span></code></pre></div>
 <pre><code>##       ModelID  PatientID  ...     OncotreePrimaryDisease       OncotreeLineage
 ## 0  ACH-000001  PT-gj46wT  ...   Ovarian Epithelial Tumor  Ovary/Fallopian Tube
@@ -440,7 +450,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="subsetting-dataframes" class="section level4 hasAnchor" number="2.3.2.1">
 <h4><span class="header-section-number">2.3.2.1</span> Subsetting Dataframes<a href="working-with-data-structures.html#subsetting-dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists.</p>
-<p>You will use the <code>iloc</code> and bracket operations, and you give two slices: one for the row, and one for the column.</p>
+<p>You will use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html"><code>iloc</code></a> and bracket operations, and you give two slices: one for the row, and one for the column.</p>
 <p>Let’s start with a small dataframe to see how it works before returning to <code>metadata</code>:</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="working-with-data-structures.html#cb63-1" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">&#39;status&#39;</span>: [<span class="st">&quot;treated&quot;</span>, <span class="st">&quot;untreated&quot;</span>, <span class="st">&quot;untreated&quot;</span>, <span class="st">&quot;discharged&quot;</span>, <span class="st">&quot;treated&quot;</span>],</span>
 <span id="cb63-2"><a href="working-with-data-structures.html#cb63-2" tabindex="-1"></a>                            <span class="st">&#39;age_case&#39;</span>: [<span class="dv">25</span>, <span class="dv">43</span>, <span class="dv">21</span>, <span class="dv">65</span>, <span class="dv">7</span>],</span>
