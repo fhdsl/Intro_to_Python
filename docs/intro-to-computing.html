@@ -190,8 +190,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#simple-data-visualization"><i class="fa fa-check"></i><b>3.5</b> Simple data visualization</a></li>
 <li class="chapter" data-level="3.6" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling, Part 2</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#creating-new-columns"><i class="fa fa-check"></i><b>4.1</b> Creating new columns</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>4.2</b> Merging two Dataframes together</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>4.3</b> Grouping and summarizing Dataframes</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#optional-multiple-grouping-multiple-columns-multiple-summary-statistics"><i class="fa fa-check"></i><b>4.3.1</b> Optional: Multiple grouping, Multiple columns, Multiple summary statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#exercises-3"><i class="fa fa-check"></i><b>4.4</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
-<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
+<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
@@ -409,7 +419,8 @@ Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
  
 Some types, such as ints, are able to use a more efficient algorithm when
 invoked using the three argument form.</code></pre>
-<p>This shows the function takes in three input arguments: <code>base</code>, <code>exp</code>, and <code>mod=None</code>. When an argument has an assigned value of <code>mod=None</code>, that means the input argument already has a value, and you don’t need to specify anything, unless you want to.</p>
+<p>We can also find a similar help document, in a <a href="https://docs.python.org/3/library/functions.html#pow">nicer rendered form online.</a> We will practice looking at function documentation throughout the course, because that is a fundamental skill to learn more functions on your own.</p>
+<p>The documentation shows the function takes in three input arguments: <code>base</code>, <code>exp</code>, and <code>mod=None</code>. When an argument has an assigned value of <code>mod=None</code>, that means the input argument already has a value, and you don’t need to specify anything, unless you want to.</p>
 <p>The following ways are equivalent ways of using the <code>pow()</code> function:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="intro-to-computing.html#cb26-1" tabindex="-1"></a><span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## 8</code></pre>
@@ -426,10 +437,10 @@ invoked using the three argument form.</code></pre>
 <p>We will mostly look at functions with input arguments and return types in this course, but not all functions need to have input arguments and output return. Let’s look at some examples of functions that don’t always have an input or output:</p>
 <table>
 <colgroup>
-<col width="20%" />
-<col width="20%" />
-<col width="38%" />
-<col width="20%" />
+<col width="21%" />
+<col width="21%" />
+<col width="34%" />
+<col width="21%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -441,19 +452,19 @@ invoked using the three argument form.</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>pow(a, b)</code></td>
+<td><a href="https://docs.python.org/3/library/functions.html#pow"><code>pow(a, b)</code></a></td>
 <td>integer <code>a</code>, integer <code>b</code></td>
 <td>Raises <code>a</code> to the <code>b</code>th power.</td>
 <td>Integer</td>
 </tr>
 <tr class="even">
-<td><code>print(x)</code></td>
+<td><a href="https://docs.python.org/3/library/functions.html#print"><code>print(x)</code></a></td>
 <td>any data type <code>x</code></td>
 <td>Prints out the value of <code>x</code> to the console.</td>
 <td>None</td>
 </tr>
 <tr class="odd">
-<td><code>dir()</code></td>
+<td><a href="https://docs.python.org/3/library/functions.html#dir"><code>dir()</code></a></td>
 <td>Nothing</td>
 <td>Gives a list of all the variables defined in the environment.</td>
 <td>List</td>
