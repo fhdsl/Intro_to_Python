@@ -195,7 +195,9 @@ Some types, such as ints, are able to use a more efficient algorithm when
 invoked using the three argument form.
 ```
 
-This shows the function takes in three input arguments: `base`, `exp`, and `mod=None`. When an argument has an assigned value of `mod=None`, that means the input argument already has a value, and you don't need to specify anything, unless you want to.
+We can also find a similar help document, in a [nicer rendered form online.](https://docs.python.org/3/library/functions.html#pow) We will practice looking at function documentation throughout the course, because that is a fundamental skill to learn more functions on your own.
+
+The documentation shows the function takes in three input arguments: `base`, `exp`, and `mod=None`. When an argument has an assigned value of `mod=None`, that means the input argument already has a value, and you don't need to specify anything, unless you want to.
 
 The following ways are equivalent ways of using the `pow()` function:
 
@@ -219,11 +221,11 @@ And there is an operational equivalent:
 
 We will mostly look at functions with input arguments and return types in this course, but not all functions need to have input arguments and output return. Let's look at some examples of functions that don't always have an input or output:
 
-| Function call | What it takes in         | What it does                                                  | Returns |
-|---------------|---------------|----------------------------|---------------|
-| `pow(a, b)`   | integer `a`, integer `b` | Raises `a` to the `b`th power.                                | Integer |
-| `print(x)`    | any data type `x`        | Prints out the value of `x` to the console.                   | None    |
-| `dir()`       | Nothing                  | Gives a list of all the variables defined in the environment. | List    |
+| Function call                                                        | What it takes in         | What it does                                                  | Returns |
+|----------------|----------------|-------------------------|----------------|
+| [`pow(a, b)`](https://docs.python.org/3/library/functions.html#pow)  | integer `a`, integer `b` | Raises `a` to the `b`th power.                                | Integer |
+| [`print(x)`](https://docs.python.org/3/library/functions.html#print) | any data type `x`        | Prints out the value of `x` to the console.                   | None    |
+| [`dir()`](https://docs.python.org/3/library/functions.html#dir)      | Nothing                  | Gives a list of all the variables defined in the environment. | List    |
 
 ## Tips on writing your first code
 

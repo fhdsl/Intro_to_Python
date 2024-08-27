@@ -105,12 +105,12 @@ Object methods are functions that does something with the object you are using i
 
 Here are some more examples of methods with lists:
 
-| Function method    | What it takes in             | What it does                                                          | Returns                          |
-|----------------|----------------|-------------------------------------|------------------|
-| `chrNum.count(x)`  | list `chrNum`, data type `x` | Counts the number of instances `x` appears as an element of `chrNum`. | Integer                          |
-| `chrNum.append(x)` | list `chrNum`, data type `x` | Appends `x` to the end of the `chrNum`.                               | None (but `chrNum` is modified!) |
-| `chrNum.sort()`    | list `chrNum`                | Sorts `chrNum` by ascending order.                                    | None (but `chrNum` is modified!) |
-| `chrNum.reverse()` | list `chrNum`                | Reverses the order of `chrNum`.                                       | None (but `chrNum` is modified!) |
+| Function method                                                              | What it takes in             | What it does                                                          | Returns                          |
+|---------------|---------------|---------------------------|---------------|
+| [`chrNum.count(x)`](https://docs.python.org/3/tutorial/datastructures.html)  | list `chrNum`, data type `x` | Counts the number of instances `x` appears as an element of `chrNum`. | Integer                          |
+| [`chrNum.append(x)`](https://docs.python.org/3/tutorial/datastructures.html) | list `chrNum`, data type `x` | Appends `x` to the end of the `chrNum`.                               | None (but `chrNum` is modified!) |
+| [`chrNum.sort()`](https://docs.python.org/3/tutorial/datastructures.html)    | list `chrNum`                | Sorts `chrNum` by ascending order.                                    | None (but `chrNum` is modified!) |
+| [`chrNum.reverse()`](https://docs.python.org/3/tutorial/datastructures.html) | list `chrNum`                | Reverses the order of `chrNum`.                                       | None (but `chrNum` is modified!) |
 
 ## Dataframes
 
@@ -118,7 +118,7 @@ A Dataframe is a two-dimensional data structure that stores data like a spreadsh
 
 The Dataframe data structure is found within a Python module called "Pandas". A Python module is an organized collection of functions and data structures. The `import` statement below gives us permission to access the "Pandas" module via the variable `pd`.
 
-To load in a Dataframe from existing spreadsheet data, we use the function `pd.read_csv()`:
+To load in a Dataframe from existing spreadsheet data, we use the function [`pd.read_csv()`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html):
 
 ```{python}
 import pandas as pd
@@ -127,7 +127,7 @@ metadata = pd.read_csv("classroom_data/metadata.csv")
 type(metadata)
 ```
 
-There is a similar function `pd.read_excel()` for loading in Excel spreadsheets.
+There is a similar function [`pd.read_excel()`](https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html) for loading in Excel spreadsheets.
 
 Let's investigate the Dataframe as an object:
 
@@ -166,7 +166,7 @@ metadata.shape
 
 ### What can a Dataframe do (in terms of operations and functions)?
 
-We can use the `head()` and `tail()` functions to look at the first few rows and last few rows of `metadata`, respectively:
+We can use the [`.head()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html) and [`.tail()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.tail.html) methods to look at the first few rows and last few rows of `metadata`, respectively:
 
 ```{python}
 metadata.head()
@@ -179,7 +179,7 @@ Both of these functions (without input arguments) are considered as **methods**:
 
 Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists.
 
-You will use the `iloc` and bracket operations, and you give two slices: one for the row, and one for the column.
+You will use the [`iloc`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html) and bracket operations, and you give two slices: one for the row, and one for the column.
 
 Let's start with a small dataframe to see how it works before returning to `metadata`:
 
