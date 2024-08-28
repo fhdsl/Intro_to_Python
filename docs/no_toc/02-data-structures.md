@@ -121,7 +121,7 @@ This organizing structure on an object applies to pretty much all Python data ty
 
 Let's see how this applies to the list:
 
--   Value: the contents of the list, such as `[2, 3, 4].`
+-   **Value**: the contents of the list, such as `[2, 3, 4].`
 
 -   **Attributes** that store additional values: Not relevant for lists.
 

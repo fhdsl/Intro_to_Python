@@ -41,4 +41,6 @@ merging-two-dataframes-together
 grouping-and-summarizing-dataframes
 optional-multiple-grouping-multiple-columns-multiple-summary-statistics
 exercises-3
+data-visualization
+exercises-4
 references
