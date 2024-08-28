@@ -6,6 +6,7 @@ rmd_files: ["index.Rmd",
             "02-data-structures.Rmd",
             "03-data-wrangling1.Rmd",
             "04-data-wrangling2.Rmd",
+            "05-data-visualization.Rmd",
             "About.Rmd",
             "References.Rmd"]
 new_session: yes
