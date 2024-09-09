@@ -42,5 +42,9 @@ grouping-and-summarizing-dataframes
 optional-multiple-grouping-multiple-columns-multiple-summary-statistics
 exercises-3
 data-visualization
+distributions-one-variable
+relational-between-2-continuous-variables
+categorical-between-1-categorical-and-1-continuous-variable
+basic-plot-customization
 exercises-4
 references
