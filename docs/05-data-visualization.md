@@ -56,17 +56,10 @@ To create a histogram, we use the function [`sns.displot()`](https://seaborn.pyd
 
 
 ``` python
-plt.figure()
 sns.displot(data=metadata, x="Age")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-3-1.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-3-2.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-3-3.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-3-1.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-3-2.png){width=200%}
 
 (The `plt.figure()` and `plt.show()` functions are used to render the plots on the website, but you don't need to use it for your exercises.)
 
@@ -74,33 +67,19 @@ A common parameter to consider when making histogram is how big the bins are. Yo
 
 
 ``` python
-plt.figure()
 sns.displot(data=metadata, x="Age", binwidth = 10)
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-4-7.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-4-8.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-4-9.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-4-5.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-4-6.png){width=200%}
 
 Our histogram also works for categorical variables, such as "Sex".
 
 
 ``` python
-plt.figure()
 sns.displot(data=metadata, x="Sex")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-5-13.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-5-14.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-5-15.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-5-9.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-5-10.png){width=200%}
 
 **Conditioning on other variables**
 
@@ -108,49 +87,28 @@ Sometimes, you want to examine a distribution, such as Age, conditional on other
 
 
 ``` python
-plt.figure()
 sns.displot(data=metadata, x="Age", hue="Sex")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-6-19.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-6-20.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-6-21.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-6-13.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-6-14.png){width=200%}
 
 It is rather hard to tell the groups apart from the coloring. So, we add a new option that we want to separate each bar category via `multiple="dodge"` input argument:
 
 
 ``` python
-plt.figure()
 sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-7-25.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-7-26.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-7-27.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-7-17.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-7-18.png){width=200%}
 
 Lastly, an alternative to using colors to display the conditional variable, we could make a subplot for each conditional variable's value via `col="Sex"` or `row="Sex"`:
 
 
 ``` python
-plt.figure()
 sns.displot(data=metadata, x="Age", col="Sex")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-8-31.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-8-32.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-8-33.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-8-21.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-8-22.png){width=200%}
 
 You can find a lot more details about distributions and histograms in [the Seaborn tutorial](https://seaborn.pydata.org/tutorial/distributions.html).
 
@@ -160,17 +118,10 @@ To visualize two continuous variables, it is common to use a scatterplot or a li
 
 
 ``` python
-plt.figure()
 sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-9-37.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-9-38.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-9-39.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-9-25.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-9-26.png){width=200%}
 
 To conditional on other variables, plotting features are used to distinguish conditional variable values:
 
@@ -186,65 +137,37 @@ Let's merge `expression` and `metadata` together, so that we can examine KRAS an
 ``` python
 expression_metadata = expression.merge(metadata)
 
-plt.figure()
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-10-43.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-10-44.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-10-45.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-10-29.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-10-30.png){width=200%}
 
 Here is the scatterplot with different shapes:
 
 
 ``` python
-plt.figure()
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", style="PrimaryOrMetastasis")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-11-49.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-11-50.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-11-51.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-11-33.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-11-34.png){width=200%}
 
 You can also try plotting with `size=PrimaryOrMetastasis"` if you like. None of these seem pretty effective at distinguishing the two groups, so we will try subplot faceting as we did for the histogram:
 
 
 ``` python
-plt.figure()
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", col="PrimaryOrMetastasis")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-12-55.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-12-56.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-12-57.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-12-37.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-12-38.png){width=200%}
 
 You can also conditional on multiple variables by assigning a different variable to the conditioning options:
 
 
 ``` python
-plt.figure()
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis", col="AgeCategory")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-13-61.png)<!-- -->
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-13-62.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-13-63.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-13-41.png){width=200%}![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-13-42.png){width=200%}
 
 You can find a lot more details about relational plots such as scatterplots and lineplots [in the Seaborn tutorial](https://seaborn.pydata.org/tutorial/relational.html).
 
@@ -283,13 +206,13 @@ exp_plot = sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
 exp_plot.set(xlabel="KRAS Espression", ylabel="EGFR Expression", title="Gene expression relationship")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-14-67.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-14-45.png)<!-- -->
 
 ``` python
 plt.show()
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-14-68.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-14-69.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-14-46.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-14-47.png)<!-- -->
 
 You can change the color palette by setting adding the `palette` input argument to any of the plots. You can explore available color palettes [here](https://www.practicalpythonfordatascience.com/ap_seaborn_palette):
 
@@ -300,13 +223,13 @@ sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=sns.col
 )
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-15-73.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-15-51.png)<!-- -->
 
 ``` python
 plt.show()
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-15-74.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-15-75.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-15-52.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-15-53.png)<!-- -->
 
 ## Exercises
 
