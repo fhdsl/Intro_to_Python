@@ -1,0 +1,329 @@
+---
+title: "W1: Intro to Computing"
+format: revealjs
+  #smaller: true
+  #scrollable: true
+execute:
+  echo: true
+output-location: fragment
+---
+
+## Welcome!
+
+![](images/R-3.1%20(Final).png)
+
+## Introductions
+
+-   Who am I?
+
+. . .
+
+-   What is DaSL?
+
+. . .
+
+-   Who are you?
+
+    -   Name, pronouns, group you work in
+
+    -   What you want to get out of the class
+
+    -   Favorite spring activity
+
+## Goals of the course
+
+. . .
+
+-   Fundamental concepts in programming languages: *How do programs run, and how do we solve problems effectively using functions and data structures?*
+
+. . .
+
+-   Data science fundamentals: *How do you translate your scientific question to a data wrangling problem and answer it?*
+
+    ![Data science workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
+
+## Culture of the course
+
+. . .
+
+-   Learning on the job is challenging
+    -   I will move at learner's pace
+    -   Teach not for mastery, but teach for empowerment to learn effectively.
+
+. . .
+
+-   Various personal goals and applications
+    -   Curate content towards end of the course
+
+. . .
+
+-   Respect Code of Conduct
+
+## Format of the course
+
+. . .
+
+-   6 classes: April 17, 24, May 1, 8, 15, 22
+
+. . .
+
+-   Streamed online, recordings will be available.
+
+. . .
+
+-   1-2 hour exercises after each session are strongly encouraged as they provide practice.
+
+-   Optional time to work on exercises together on Fridays Noon - 1pm PT.
+
+. . .
+
+-   Online discussion via Slack.
+
+## Content of the course
+
+1.  Intro to Computing
+
+. . .
+
+2.  Data structures
+
+. . .
+
+3.  Data wrangling 1
+
+. . .
+
+4.  Data wrangling 2
+
+. . .
+
+5.  Data visualization
+
+. . .
+
+6.  Loading your own data in, celebratory lunch!!
+
+## What is a computer program?
+
+. . .
+
+-   A sequence of instructions to manipulate data for the computer to execute.
+
+. . .
+
+-   A series of translations: English \<-\> Programming Code for Interpreter \<-\> Machine Code for Central Processing Unit (CPU)
+
+. . .
+
+We will focus on English \<-\> Programming Code for R Interpreter in this class.
+
+. . .
+
+Another way of putting it: **How we organize ideas \<-\> Instructing a computer to do something**.
+
+## Setting up Posit Cloud and trying out your first analysis!
+
+What's the connection between English \<-\> Programming Code for R Interpreter?
+
+## Break
+
+A pre-course survey:
+
+https://forms.gle/Hr59ZbAan1JTumCa7
+
+## Grammar Structure 1: Evaluation of Expressions
+
+. . .
+
+-   **Expressions** are built out of **operations** or **functions**.
+
+. . .
+
+-   Operations and functions take in **data types** and return another data type.
+
+. . .
+
+-   We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.
+
+## Examples
+
+```{r}
+18 + 21
+```
+
+. . .
+
+```{r}
+max(18, 21)
+```
+
+. . .
+
+```{r}
+max(18 + 21, 65)
+```
+
+. . .
+
+```{r}
+18 + (21 + 65)
+```
+
+. . .
+
+```{r}
+nchar("ATCG")
+```
+
+::: notes
+If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.
+:::
+
+## Function machine from algebra class
+
+. . .
+
+![](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png){alt="Function machine from algebra class." width="300"}
+
+. . .
+
+Operations are just functions. We could have written:
+
+```{r}
+sum(18, 21)
+```
+
+. . .
+
+```{r}
+sum(18, sum(21, 65))
+```
+
+::: notes
+Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.
+:::
+
+## Data types
+
+-   **Numeric**: 18, -21, 65, 1.25
+
+-   **Character**: "ATCG", "Whatever", "948-293-0000"
+
+-   **Logical**: TRUE, FALSE
+
+## Grammar Structure 2: Storing data types in the environment
+
+. . .
+
+To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use.
+
+```{r}
+x = 18 + 21
+```
+
+. . .
+
+::: callout-tip
+## Execution rule for variable assignment
+
+Evaluate the expression to the right of `=`.
+
+Bind variable to the left of `=` to the resulting value.
+
+The variable is stored in the environment.
+
+`<-` is okay too!
+:::
+
+::: notes
+The environment is where all the variables are stored, and can be used for an expression anytime once it is defined. Only one unique variable name can be defined.
+
+The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM. When we work with large datasets, if you assign a variable to a data type larger than the available RAM, it will not work. More on this later.
+:::
+
+## Downstream
+
+Look, now `x` can be reused downstream:
+
+```{r}
+x - 2
+```
+
+. . .
+
+```{r}
+y = x * 2
+y
+```
+
+## Grammar Structure 3: Evaluation of Functions
+
+A function has a **function name**, **arguments**, and **returns** a data type.
+
+. . .
+
+::: callout-tip
+## Execution rule for functions:
+
+Evaluate the function by its arguments, and if the arguments contain expressions, evaluate those expressions first.
+
+The output of functions is called the **returned value**.
+:::
+
+. . .
+
+```{r}
+sqrt(nchar("hello"))
+```
+
+. . .
+
+```{r}
+(nchar("hello") + 4) * 2
+```
+
+## A programming language has following features:
+
+. . .
+
+-   Grammar structure to construct expressions
+
+. . .
+
+-   Combining expressions to create more complex expressions
+
+. . .
+
+-   Encapsulate complex expressions via functions to create modular and reusable tasks
+
+. . .
+
+-   Encapsulate complex data via data structures to allow efficient manipulation of data
+
+## Tips on writing your first code
+
+. . .
+
+`Computer = powerful + stupid`
+
+Even the smallest spelling and formatting changes will cause unexpected output and errors!
+
+. . .
+
+-   Write incrementally, test often
+
+. . .
+
+-   Check your assumptions, especially using new functions, operations, and new data types.
+
+. . .
+
+-   Live environments are great for testing, but not great for reproducibility.
+
+. . .
+
+-   **Ask for help!**
+
+## That's all!
+
+Maybe see you Friday Noon - 1pm PT to practice together!
