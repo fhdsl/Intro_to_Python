@@ -368,6 +368,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-16-53.png" width="672" /></p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="data-visualization.html#cb128-1" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
 <p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-17-1.png" width="200%" /></p>
+<p>matplotlib</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb129-1"><a href="data-visualization.html#cb129-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb129-2"><a href="data-visualization.html#cb129-2" tabindex="-1"></a></span>
+<span id="cb129-3"><a href="data-visualization.html#cb129-3" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb129-4"><a href="data-visualization.html#cb129-4" tabindex="-1"></a></span>
+<span id="cb129-5"><a href="data-visualization.html#cb129-5" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;blueberry&#39;</span>, <span class="st">&#39;cherry&#39;</span>, <span class="st">&#39;orange&#39;</span>]</span>
+<span id="cb129-6"><a href="data-visualization.html#cb129-6" tabindex="-1"></a>counts <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">55</span>]</span>
+<span id="cb129-7"><a href="data-visualization.html#cb129-7" tabindex="-1"></a>bar_labels <span class="op">=</span> [<span class="st">&#39;red&#39;</span>, <span class="st">&#39;blue&#39;</span>, <span class="st">&#39;_red&#39;</span>, <span class="st">&#39;orange&#39;</span>]</span>
+<span id="cb129-8"><a href="data-visualization.html#cb129-8" tabindex="-1"></a>bar_colors <span class="op">=</span> [<span class="st">&#39;tab:red&#39;</span>, <span class="st">&#39;tab:blue&#39;</span>, <span class="st">&#39;tab:red&#39;</span>, <span class="st">&#39;tab:orange&#39;</span>]</span>
+<span id="cb129-9"><a href="data-visualization.html#cb129-9" tabindex="-1"></a></span>
+<span id="cb129-10"><a href="data-visualization.html#cb129-10" tabindex="-1"></a>ax.bar(fruits, counts, label<span class="op">=</span>bar_labels, color<span class="op">=</span>bar_colors)</span>
+<span id="cb129-11"><a href="data-visualization.html#cb129-11" tabindex="-1"></a></span>
+<span id="cb129-12"><a href="data-visualization.html#cb129-12" tabindex="-1"></a>ax.set_ylabel(<span class="st">&#39;fruit supply&#39;</span>)</span>
+<span id="cb129-13"><a href="data-visualization.html#cb129-13" tabindex="-1"></a>ax.set_title(<span class="st">&#39;Fruit supply by kind and color&#39;</span>)</span>
+<span id="cb129-14"><a href="data-visualization.html#cb129-14" tabindex="-1"></a>ax.legend(title<span class="op">=</span><span class="st">&#39;Fruit color&#39;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>now show</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb130-1"><a href="data-visualization.html#cb130-1" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-19-3.png" width="672" /></p>
 
 </div>
 </div>

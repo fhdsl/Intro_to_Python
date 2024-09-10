@@ -232,3 +232,35 @@ hist(iris$Sepal.Length)
 ```
 
 <img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-17-1.png" width="200%" />
+
+matplotlib
+
+
+``` python
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+
+fruits = ['apple', 'blueberry', 'cherry', 'orange']
+counts = [40, 100, 30, 55]
+bar_labels = ['red', 'blue', '_red', 'orange']
+bar_colors = ['tab:red', 'tab:blue', 'tab:red', 'tab:orange']
+
+ax.bar(fruits, counts, label=bar_labels, color=bar_colors)
+
+ax.set_ylabel('fruit supply')
+ax.set_title('Fruit supply by kind and color')
+ax.legend(title='Fruit color')
+
+```
+
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+
+now show
+
+
+``` python
+plt.show()
+```
+
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-19-3.png" width="672" />
