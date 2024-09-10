@@ -55,21 +55,19 @@ expression = pd.read_csv("classroom_data/expression.csv")
 
 To create a histogram, we use the function [`sns.displot()`](https://seaborn.pydata.org/generated/seaborn.displot.html) and we specify the input argument `data` as our dataframe, and the input argument `x` as the column name in a String.
 
-```{python, out.width="200%"}
+```{python}
 sns.displot(data=metadata, x="Age")
 ```
 
-(The `plt.figure()` and `plt.show()` functions are used to render the plots on the website, but you don't need to use it for your exercises.)
-
 A common parameter to consider when making histogram is how big the bins are. You can specify the bin width via `binwidth` argument, or the number of bins via `bins` argument.
 
-```{python, out.width="200%"}
+```{python}
 sns.displot(data=metadata, x="Age", binwidth = 10)
 ```
 
 Our histogram also works for categorical variables, such as "Sex".
 
-```{python, out.width="200%"}
+```{python}
 sns.displot(data=metadata, x="Sex")
 ```
 
@@ -77,19 +75,19 @@ sns.displot(data=metadata, x="Sex")
 
 Sometimes, you want to examine a distribution, such as Age, conditional on other variables, such as Age for Female, Age for Male, and Age for Unknown: what is the distribution of age when compared with sex? There are several ways of doing it. First, you could color variables by color, using the `hue` input argument:
 
-```{python, out.width="200%"}
+```{python}
 sns.displot(data=metadata, x="Age", hue="Sex")
 ```
 
 It is rather hard to tell the groups apart from the coloring. So, we add a new option that we want to separate each bar category via `multiple="dodge"` input argument:
 
-```{python, out.width="200%"}
+```{python}
 sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge")
 ```
 
 Lastly, an alternative to using colors to display the conditional variable, we could make a subplot for each conditional variable's value via `col="Sex"` or `row="Sex"`:
 
-```{python, out.width="200%"}
+```{python}
 sns.displot(data=metadata, x="Age", col="Sex")
 ```
 
@@ -99,7 +97,7 @@ You can find a lot more details about distributions and histograms in [the Seabo
 
 To visualize two continuous variables, it is common to use a scatterplot or a lineplot. We use the function [`sns.relplot()`](https://seaborn.pydata.org/generated/seaborn.relplot.html) and we specify the input argument `data` as our dataframe, and the input arguments `x` and `y` as the column names in a String:
 
-```{python, out.width="200%"}
+```{python}
 sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
 ```
 
@@ -113,7 +111,7 @@ To conditional on other variables, plotting features are used to distinguish con
 
 Let's merge `expression` and `metadata` together, so that we can examine KRAS and EGFR relationships conditional on primary vs. metastatic cancer status. Here is the scatterplot with different color:
 
-```{python, out.width="200%"}
+```{python}
 expression_metadata = expression.merge(metadata)
 
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis")
@@ -121,19 +119,19 @@ sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOr
 
 Here is the scatterplot with different shapes:
 
-```{python, out.width="200%"}
+```{python}
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", style="PrimaryOrMetastasis")
 ```
 
 You can also try plotting with `size=PrimaryOrMetastasis"` if you like. None of these seem pretty effective at distinguishing the two groups, so we will try subplot faceting as we did for the histogram:
 
-```{python, out.width="200%"}
+```{python}
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", col="PrimaryOrMetastasis")
 ```
 
 You can also conditional on multiple variables by assigning a different variable to the conditioning options:
 
-```{python, out.width="200%"}
+```{python}
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis", col="AgeCategory")
 ```
 
@@ -168,21 +166,26 @@ See categorical plots [in the Seaborn tutorial.](https://seaborn.pydata.org/tuto
 You can easily change the axis labels and title if you modify the plot object, using the method `.set()`:
 
 ```{python}
-plt.figure()
 exp_plot = sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
 exp_plot.set(xlabel="KRAS Espression", ylabel="EGFR Expression", title="Gene expression relationship")
-plt.show()
 ```
 
 You can change the color palette by setting adding the `palette` input argument to any of the plots. You can explore available color palettes [here](https://www.practicalpythonfordatascience.com/ap_seaborn_palette):
 
 ```{python}
-plt.figure()
 sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=sns.color_palette(palette='rainbow')
 )
-plt.show()
+
 ```
 
 ## Exercises
 
 Exercise for week 5 can be found [here](https://colab.research.google.com/drive/1kT3zzq2rrhL1vHl01IdW5L1V7v0iK0wY?usp=sharing).
+
+```{r}
+hist(iris$Sepal.Length)
+```
+
+```{r, out.width="200%"}
+hist(iris$Sepal.Length)
+```
