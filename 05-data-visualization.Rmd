@@ -56,7 +56,7 @@ expression = pd.read_csv("classroom_data/expression.csv")
 To create a histogram, we use the function [`sns.displot()`](https://seaborn.pydata.org/generated/seaborn.displot.html) and we specify the input argument `data` as our dataframe, and the input argument `x` as the column name in a String.
 
 ```{python}
-sns.displot(data=metadata, x="Age")
+plot = sns.displot(data=metadata, x="Age")
 ```
 
 A common parameter to consider when making histogram is how big the bins are. You can specify the bin width via `binwidth` argument, or the number of bins via `bins` argument.
