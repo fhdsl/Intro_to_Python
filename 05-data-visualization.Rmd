@@ -55,54 +55,42 @@ expression = pd.read_csv("classroom_data/expression.csv")
 
 To create a histogram, we use the function [`sns.displot()`](https://seaborn.pydata.org/generated/seaborn.displot.html) and we specify the input argument `data` as our dataframe, and the input argument `x` as the column name in a String.
 
-```{python}
-plt.figure()
+```{python, out.width="200%"}
 sns.displot(data=metadata, x="Age")
-plt.show()
 ```
 
 (The `plt.figure()` and `plt.show()` functions are used to render the plots on the website, but you don't need to use it for your exercises.)
 
 A common parameter to consider when making histogram is how big the bins are. You can specify the bin width via `binwidth` argument, or the number of bins via `bins` argument.
 
-```{python}
-plt.figure()
+```{python, out.width="200%"}
 sns.displot(data=metadata, x="Age", binwidth = 10)
-plt.show()
 ```
 
 Our histogram also works for categorical variables, such as "Sex".
 
-```{python}
-plt.figure()
+```{python, out.width="200%"}
 sns.displot(data=metadata, x="Sex")
-plt.show()
 ```
 
 **Conditioning on other variables**
 
 Sometimes, you want to examine a distribution, such as Age, conditional on other variables, such as Age for Female, Age for Male, and Age for Unknown: what is the distribution of age when compared with sex? There are several ways of doing it. First, you could color variables by color, using the `hue` input argument:
 
-```{python}
-plt.figure()
+```{python, out.width="200%"}
 sns.displot(data=metadata, x="Age", hue="Sex")
-plt.show()
 ```
 
 It is rather hard to tell the groups apart from the coloring. So, we add a new option that we want to separate each bar category via `multiple="dodge"` input argument:
 
-```{python}
-plt.figure()
+```{python, out.width="200%"}
 sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge")
-plt.show()
 ```
 
 Lastly, an alternative to using colors to display the conditional variable, we could make a subplot for each conditional variable's value via `col="Sex"` or `row="Sex"`:
 
-```{python}
-plt.figure()
+```{python, out.width="200%"}
 sns.displot(data=metadata, x="Age", col="Sex")
-plt.show()
 ```
 
 You can find a lot more details about distributions and histograms in [the Seaborn tutorial](https://seaborn.pydata.org/tutorial/distributions.html).
@@ -111,10 +99,8 @@ You can find a lot more details about distributions and histograms in [the Seabo
 
 To visualize two continuous variables, it is common to use a scatterplot or a lineplot. We use the function [`sns.relplot()`](https://seaborn.pydata.org/generated/seaborn.relplot.html) and we specify the input argument `data` as our dataframe, and the input arguments `x` and `y` as the column names in a String:
 
-```{python}
-plt.figure()
+```{python, out.width="200%"}
 sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
-plt.show()
 ```
 
 To conditional on other variables, plotting features are used to distinguish conditional variable values:
@@ -127,36 +113,28 @@ To conditional on other variables, plotting features are used to distinguish con
 
 Let's merge `expression` and `metadata` together, so that we can examine KRAS and EGFR relationships conditional on primary vs. metastatic cancer status. Here is the scatterplot with different color:
 
-```{python}
+```{python, out.width="200%"}
 expression_metadata = expression.merge(metadata)
 
-plt.figure()
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis")
-plt.show()
 ```
 
 Here is the scatterplot with different shapes:
 
-```{python}
-plt.figure()
+```{python, out.width="200%"}
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", style="PrimaryOrMetastasis")
-plt.show()
 ```
 
 You can also try plotting with `size=PrimaryOrMetastasis"` if you like. None of these seem pretty effective at distinguishing the two groups, so we will try subplot faceting as we did for the histogram:
 
-```{python}
-plt.figure()
+```{python, out.width="200%"}
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", col="PrimaryOrMetastasis")
-plt.show()
 ```
 
 You can also conditional on multiple variables by assigning a different variable to the conditioning options:
 
-```{python}
-plt.figure()
+```{python, out.width="200%"}
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis", col="AgeCategory")
-plt.show()
 ```
 
 You can find a lot more details about relational plots such as scatterplots and lineplots [in the Seaborn tutorial](https://seaborn.pydata.org/tutorial/relational.html).
