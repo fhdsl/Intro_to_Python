@@ -10,8 +10,6 @@ output-location: fragment
 
 ## Welcome!
 
-![](images/R-3.1%20(Final).png)
-
 ## Introductions
 
 -   Who am I?
@@ -28,7 +26,7 @@ output-location: fragment
 
     -   What you want to get out of the class
 
-    -   Favorite spring activity
+    -   Favorite fall activity
 
 ## Goals of the course
 
@@ -42,22 +40,39 @@ output-location: fragment
 
     ![Data science workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
 
-## Culture of the course
+## Culture of the course (1/3)
 
 . . .
 
--   Learning on the job is challenging
-    -   I will move at learner's pace
-    -   Teach not for mastery, but teach for empowerment to learn effectively.
+-   Challenge: We are learning on the job, but you already have a full-time job
 
 . . .
 
--   Various personal goals and applications
-    -   Curate content towards end of the course
+-    *Teach not for mastery, but teach for empowerment to learn effectively.*
 
 . . .
 
--   Respect Code of Conduct
+-    *You should understand the gist of the material with class time, but mastery takes practice and practice.*
+
+## Culture of the course (2/3)
+
+-   Challenge: We sometimes struggle with our data science in isolation, unaware that someone two doors down from us has gone through the same struggle.
+
+. . .
+
+-   *We learn and work better with our peers.*
+
+. . .
+
+-   *You might make a new friend, or two. 😄*
+
+## Culture of the course (3/3)
+
+-   Challenge: We all have various personal goals and applications
+
+. . .
+
+-   *Curate content during open community sessions and office hours based on your inputs.*
 
 ## Format of the course
 
