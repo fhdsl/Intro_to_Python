@@ -61,23 +61,25 @@ plot = sns.displot(data=metadata, x="Age")
 
 ![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-3-1.png)<!-- -->
 
+(For the webpage's purpose, assign the plot to a variable `plot`. In practice, you don't need to do that. You can just write `sns.displot(data=metadata, x="Age")`).
+
 A common parameter to consider when making histogram is how big the bins are. You can specify the bin width via `binwidth` argument, or the number of bins via `bins` argument.
 
 
 ``` python
-sns.displot(data=metadata, x="Age", binwidth = 10)
+plot = sns.displot(data=metadata, x="Age", binwidth = 10)
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-4-3.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-4-4.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-4-3.png)<!-- -->
 
 Our histogram also works for categorical variables, such as "Sex".
 
 
 ``` python
-sns.displot(data=metadata, x="Sex")
+plot = sns.displot(data=metadata, x="Sex")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-5-7.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-5-8.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-5-5.png)<!-- -->
 
 **Conditioning on other variables**
 
@@ -85,28 +87,28 @@ Sometimes, you want to examine a distribution, such as Age, conditional on other
 
 
 ``` python
-sns.displot(data=metadata, x="Age", hue="Sex")
+plot = sns.displot(data=metadata, x="Age", hue="Sex")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-6-11.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-6-12.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-6-7.png)<!-- -->
 
 It is rather hard to tell the groups apart from the coloring. So, we add a new option that we want to separate each bar category via `multiple="dodge"` input argument:
 
 
 ``` python
-sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge")
+plot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-7-15.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-7-16.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-7-9.png)<!-- -->
 
 Lastly, an alternative to using colors to display the conditional variable, we could make a subplot for each conditional variable's value via `col="Sex"` or `row="Sex"`:
 
 
 ``` python
-sns.displot(data=metadata, x="Age", col="Sex")
+plot = sns.displot(data=metadata, x="Age", col="Sex")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-8-19.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-8-20.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-8-11.png)<!-- -->
 
 You can find a lot more details about distributions and histograms in [the Seaborn tutorial](https://seaborn.pydata.org/tutorial/distributions.html).
 
@@ -116,10 +118,10 @@ To visualize two continuous variables, it is common to use a scatterplot or a li
 
 
 ``` python
-sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
+plot = sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-9-23.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-9-24.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-9-13.png)<!-- -->
 
 To conditional on other variables, plotting features are used to distinguish conditional variable values:
 
@@ -135,37 +137,37 @@ Let's merge `expression` and `metadata` together, so that we can examine KRAS an
 ``` python
 expression_metadata = expression.merge(metadata)
 
-sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis")
+plot = sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-10-27.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-10-28.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-10-15.png)<!-- -->
 
 Here is the scatterplot with different shapes:
 
 
 ``` python
-sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", style="PrimaryOrMetastasis")
+plot = sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", style="PrimaryOrMetastasis")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-11-31.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-11-32.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-11-17.png)<!-- -->
 
 You can also try plotting with `size=PrimaryOrMetastasis"` if you like. None of these seem pretty effective at distinguishing the two groups, so we will try subplot faceting as we did for the histogram:
 
 
 ``` python
-sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", col="PrimaryOrMetastasis")
+plot = sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", col="PrimaryOrMetastasis")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-12-35.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-12-36.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-12-19.png)<!-- -->
 
 You can also conditional on multiple variables by assigning a different variable to the conditioning options:
 
 
 ``` python
-sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis", col="AgeCategory")
+plot = sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis", col="AgeCategory")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-13-39.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-13-40.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-13-21.png)<!-- -->
 
 You can find a lot more details about relational plots such as scatterplots and lineplots [in the Seaborn tutorial](https://seaborn.pydata.org/tutorial/relational.html).
 
@@ -203,64 +205,22 @@ exp_plot = sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
 exp_plot.set(xlabel="KRAS Espression", ylabel="EGFR Expression", title="Gene expression relationship")
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-14-43.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-14-44.png)<!-- -->
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-14-23.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-14-24.png)<!-- -->
 
 You can change the color palette by setting adding the `palette` input argument to any of the plots. You can explore available color palettes [here](https://www.practicalpythonfordatascience.com/ap_seaborn_palette):
 
 
 ``` python
-sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=sns.color_palette(palette='rainbow')
+plot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=sns.color_palette(palette='rainbow')
 )
 ```
 
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-15-47.png)<!-- -->![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-15-48.png)<!-- -->
+```
+## <string>:1: UserWarning: The palette list has more values (6) than needed (3), which may not be intended.
+```
+
+![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-15-27.png)<!-- -->
 
 ## Exercises
 
 Exercise for week 5 can be found [here](https://colab.research.google.com/drive/1kT3zzq2rrhL1vHl01IdW5L1V7v0iK0wY?usp=sharing).
-
-
-``` r
-hist(iris$Sepal.Length)
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-16-51.png)<!-- -->
-
-
-``` r
-hist(iris$Sepal.Length)
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-17-1.png){width=200%}
-
-matplotlib
-
-
-``` python
-import matplotlib.pyplot as plt
-
-fig, ax = plt.subplots()
-
-fruits = ['apple', 'blueberry', 'cherry', 'orange']
-counts = [40, 100, 30, 55]
-bar_labels = ['red', 'blue', '_red', 'orange']
-bar_colors = ['tab:red', 'tab:blue', 'tab:red', 'tab:orange']
-
-ax.bar(fruits, counts, label=bar_labels, color=bar_colors)
-
-ax.set_ylabel('fruit supply')
-ax.set_title('Fruit supply by kind and color')
-ax.legend(title='Fruit color')
-
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-18-1.png)<!-- -->
-
-now show
-
-
-``` python
-plt.show()
-```
-
-![](resources/images/05-data-visualization_files/figure-docx/unnamed-chunk-19-3.png)<!-- -->
