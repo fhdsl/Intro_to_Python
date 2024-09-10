@@ -59,9 +59,7 @@ To create a histogram, we use the function [`sns.displot()`](https://seaborn.pyd
 sns.displot(data=metadata, x="Age")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-3-1.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-3-2.png" width="200%" />
-
-(The `plt.figure()` and `plt.show()` functions are used to render the plots on the website, but you don't need to use it for your exercises.)
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-3-1.png" width="244" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-3-2.png" width="480" />
 
 A common parameter to consider when making histogram is how big the bins are. You can specify the bin width via `binwidth` argument, or the number of bins via `bins` argument.
 
@@ -70,7 +68,7 @@ A common parameter to consider when making histogram is how big the bins are. Yo
 sns.displot(data=metadata, x="Age", binwidth = 10)
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-4-5.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-4-6.png" width="200%" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-4-5.png" width="244" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-4-6.png" width="480" />
 
 Our histogram also works for categorical variables, such as "Sex".
 
@@ -79,7 +77,7 @@ Our histogram also works for categorical variables, such as "Sex".
 sns.displot(data=metadata, x="Sex")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-5-9.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-5-10.png" width="200%" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-5-9.png" width="244" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-5-10.png" width="480" />
 
 **Conditioning on other variables**
 
@@ -90,7 +88,7 @@ Sometimes, you want to examine a distribution, such as Age, conditional on other
 sns.displot(data=metadata, x="Age", hue="Sex")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-6-13.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-6-14.png" width="200%" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-6-13.png" width="306" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-6-14.png" width="590" />
 
 It is rather hard to tell the groups apart from the coloring. So, we add a new option that we want to separate each bar category via `multiple="dodge"` input argument:
 
@@ -99,7 +97,7 @@ It is rather hard to tell the groups apart from the coloring. So, we add a new o
 sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-7-17.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-7-18.png" width="200%" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-7-17.png" width="306" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-7-18.png" width="590" />
 
 Lastly, an alternative to using colors to display the conditional variable, we could make a subplot for each conditional variable's value via `col="Sex"` or `row="Sex"`:
 
@@ -108,7 +106,7 @@ Lastly, an alternative to using colors to display the conditional variable, we c
 sns.displot(data=metadata, x="Age", col="Sex")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-8-21.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-8-22.png" width="200%" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-8-21.png" width="745" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-8-22.png" width="1440" />
 
 You can find a lot more details about distributions and histograms in [the Seaborn tutorial](https://seaborn.pydata.org/tutorial/distributions.html).
 
@@ -121,7 +119,7 @@ To visualize two continuous variables, it is common to use a scatterplot or a li
 sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-9-25.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-9-26.png" width="200%" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-9-25.png" width="244" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-9-26.png" width="480" />
 
 To conditional on other variables, plotting features are used to distinguish conditional variable values:
 
@@ -140,7 +138,7 @@ expression_metadata = expression.merge(metadata)
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-10-29.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-10-30.png" width="200%" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-10-29.png" width="317" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-10-30.png" width="629" />
 
 Here is the scatterplot with different shapes:
 
@@ -149,7 +147,7 @@ Here is the scatterplot with different shapes:
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", style="PrimaryOrMetastasis")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-11-33.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-11-34.png" width="200%" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-11-33.png" width="317" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-11-34.png" width="629" />
 
 You can also try plotting with `size=PrimaryOrMetastasis"` if you like. None of these seem pretty effective at distinguishing the two groups, so we will try subplot faceting as we did for the histogram:
 
@@ -158,7 +156,7 @@ You can also try plotting with `size=PrimaryOrMetastasis"` if you like. None of 
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", col="PrimaryOrMetastasis")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-12-37.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-12-38.png" width="200%" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-12-37.png" width="744" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-12-38.png" width="1440" />
 
 You can also conditional on multiple variables by assigning a different variable to the conditioning options:
 
@@ -167,7 +165,7 @@ You can also conditional on multiple variables by assigning a different variable
 sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis", col="AgeCategory")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-13-41.png" width="200%" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-13-42.png" width="200%" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-13-41.png" width="1074" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-13-42.png" width="2069" />
 
 You can find a lot more details about relational plots such as scatterplots and lineplots [in the Seaborn tutorial](https://seaborn.pydata.org/tutorial/relational.html).
 
@@ -201,36 +199,36 @@ You can easily change the axis labels and title if you modify the plot object, u
 
 
 ``` python
-plt.figure()
 exp_plot = sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
 exp_plot.set(xlabel="KRAS Espression", ylabel="EGFR Expression", title="Gene expression relationship")
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-14-45.png" width="244" />
-
-``` python
-plt.show()
-```
-
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-14-46.png" width="480" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-14-47.png" width="672" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-14-45.png" width="244" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-14-46.png" width="480" />
 
 You can change the color palette by setting adding the `palette` input argument to any of the plots. You can explore available color palettes [here](https://www.practicalpythonfordatascience.com/ap_seaborn_palette):
 
 
 ``` python
-plt.figure()
 sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=sns.color_palette(palette='rainbow')
 )
 ```
 
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-15-51.png" width="306" />
-
-``` python
-plt.show()
-```
-
-<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-15-52.png" width="590" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-15-53.png" width="672" />
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-15-49.png" width="306" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-15-50.png" width="590" />
 
 ## Exercises
 
 Exercise for week 5 can be found [here](https://colab.research.google.com/drive/1kT3zzq2rrhL1vHl01IdW5L1V7v0iK0wY?usp=sharing).
+
+
+``` r
+hist(iris$Sepal.Length)
+```
+
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-16-53.png" width="672" />
+
+
+``` r
+hist(iris$Sepal.Length)
+```
+
+<img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-17-1.png" width="200%" />
