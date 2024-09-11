@@ -169,7 +169,7 @@ metadata.OncotreeLineage.value_counts().plot(kind = "bar")
 plt.show()
 ```
 
-(The `plt.figure()` and `plt.show()` functions are used to render the plots on the website, but you don't need to use it for your exercises - yet. We will discuss this in more detail during our week of data visualization.)
+(The `plt.figure()` and `plt.show()` functions are used to render the plots on the website, but you don't need to use it for your exercises. We will discuss this in more detail during our week of data visualization.)
 
 #### Chained function calls
 

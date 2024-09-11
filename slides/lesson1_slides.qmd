@@ -1,10 +1,10 @@
 ---
 title: "W1: Intro to Computing"
-format: revealjs
-  #smaller: true
-  #scrollable: true
-execute:
-  echo: true
+format: 
+  revealjs:
+    smaller: false
+    scrollable: true
+    echo: true
 output-location: fragment
 ---
 
@@ -48,11 +48,11 @@ output-location: fragment
 
 . . .
 
--    *Teach not for mastery, but teach for empowerment to learn effectively.*
+-   *Teach not for mastery, but teach for empowerment to learn effectively.*
 
 . . .
 
--    *You should understand the gist of the material with class time, but mastery takes practice and practice.*
+-   *You should understand the gist of the material with class time, but mastery takes practice and practice.*
 
 ## Culture of the course (2/3)
 
@@ -68,31 +68,29 @@ output-location: fragment
 
 ## Culture of the course (3/3)
 
--   Challenge: We all have various personal goals and applications
+-   Challenge: We all have various personal goals and applications.
 
 . . .
 
 -   *Curate content during open community sessions and office hours based on your inputs.*
 
-## Format of the course
+## Code of Conduct
 
 . . .
 
--   6 classes: April 17, 24, May 1, 8, 15, 22
+-   **Be considerate** in speech and actions, and actively seek to acknowledge and respect the boundaries of other members.
 
 . . .
 
--   Streamed online, recordings will be available.
+-   **Be respectful -** Disagreements happen, but do not require poor behavior or poor manners. If someone asks you to stop, then stop.
 
 . . .
 
--   1-2 hour exercises after each session are strongly encouraged as they provide practice.
-
--   Optional time to work on exercises together on Fridays Noon - 1pm PT.
+-   **Refrain from demeaning, discriminatory, or harassing behavior and speech**.
 
 . . .
 
--   Online discussion via Slack.
+The full CoC can be found [here](https://github.com/fhdsl/coc).
 
 ## Content of the course
 
@@ -108,15 +106,45 @@ output-location: fragment
 
 . . .
 
-4.  Data wrangling 2
+4.  Community Session 1 (optional)
 
 . . .
 
-5.  Data visualization
+5.  Data wrangling 2
 
 . . .
 
-6.  Loading your own data in, celebratory lunch!!
+6.  Data visualization
+
+. . .
+
+7.  Community Session 2 (optional)
+
+. . .
+
+8.  Putting it together: preview for code-a-thon (Tuesday Nov. 12)
+
+. . .
+
+9.  Code-a-thon: Friday Nov. 22
+
+## Format of the course
+
+. . .
+
+-   Streamed online, recordings will be available.
+
+. . .
+
+-   1-2 hour exercises after each session are encouraged for practice.
+
+. . .
+
+-   Optional time to work on exercises together on Fridays 10am - 11am PT.
+
+. . .
+
+-   Online discussion via Slack.
 
 ## What is a computer program?
 
@@ -130,21 +158,23 @@ output-location: fragment
 
 . . .
 
-We will focus on English \<-\> Programming Code for R Interpreter in this class.
+We will focus on English \<-\> Programming Code for Python Interpreter in this class.
 
 . . .
 
 Another way of putting it: **How we organize ideas \<-\> Instructing a computer to do something**.
 
-## Setting up Posit Cloud and trying out your first analysis!
+## Setting up Google Classroom and Colab and trying out your first analysis!
 
-What's the connection between English \<-\> Programming Code for R Interpreter?
+-   Google Classroom [invitation link](https://classroom.google.com/c/NzAyODI5NzU1NDU4?cjc=nq7lioy).
+
+-   Classwork -\> Week 1 Classwork -\> `Week 1 Classwork.ipynb`
 
 ## Break
 
 A pre-course survey:
 
-https://forms.gle/Hr59ZbAan1JTumCa7
+https://forms.gle/zFZ3VB1QZ84Y8Uef6
 
 ## Grammar Structure 1: Evaluation of Expressions
 
@@ -154,7 +184,7 @@ https://forms.gle/Hr59ZbAan1JTumCa7
 
 . . .
 
--   Operations and functions take in **data types** and return another data type.
+-   Functions and operations take in **data types**, do something with them, and **return** another data type.
 
 . . .
 
@@ -162,69 +192,78 @@ https://forms.gle/Hr59ZbAan1JTumCa7
 
 ## Examples
 
-```{r}
+```{python}
 18 + 21
 ```
 
 . . .
 
-```{r}
+```{python}
 max(18, 21)
 ```
 
 . . .
 
-```{r}
+```{python}
 max(18 + 21, 65)
 ```
 
 . . .
 
-```{r}
+```{python}
 18 + (21 + 65)
 ```
 
 . . .
 
-```{r}
-nchar("ATCG")
+```{python}
+len("ATCG")
 ```
 
 ::: notes
-If an expression is made out of multiple, nested operations, what is the proper way of the R Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.
+If an expression is made out of multiple, nested operations, what is the proper way of the Python Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.
 :::
 
 ## Function machine from algebra class
 
 . . .
 
-![](https://cs.wellesley.edu/~cs110/lectures/L16/images/function.png){alt="Function machine from algebra class." width="300"}
+![](images/function_machine.png){alt="Function machine from algebra class."}
 
 . . .
 
 Operations are just functions. We could have written:
 
-```{r}
-sum(18, 21)
+```{python}
+from operator import add
+
+add(18, 21)
 ```
 
 . . .
 
-```{r}
-sum(18, sum(21, 65))
+```{python}
+add(18, add(21, 65))
 ```
 
-::: notes
-Lastly, a note on the use of functions: a programmer should not need to know how the function is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.
-:::
+## Function machine from algebra class
+
+![](images/function_machine.png){alt="Function machine from algebra class."}
+
+-   A programmer should not need to know how the function or operation is implemented in order to use it - this emphasizes **abstraction** and **modular** thinking.
+
+. . .
+
+-   A function can have different kinds of inputs and outputs - it doesn't need to be numbers.
 
 ## Data types
 
--   **Numeric**: 18, -21, 65, 1.25
-
--   **Character**: "ATCG", "Whatever", "948-293-0000"
-
--   **Logical**: TRUE, FALSE
+| Data type name | **Data type shorthand** |      **Examples**       |
+|----------------|:-----------------------:|:-----------------------:|
+| Integer        |           int           |          2, 4           |
+| Float          |          float          |      3.5, -34.1009      |
+| String         |           str           | "hello", "234-234-8594" |
+| Boolean        |          bool           |       True, False       |
 
 ## Grammar Structure 2: Storing data types in the environment
 
@@ -232,7 +271,7 @@ Lastly, a note on the use of functions: a programmer should not need to know how
 
 To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use.
 
-```{r}
+```{python}
 x = 18 + 21
 ```
 
@@ -246,8 +285,6 @@ Evaluate the expression to the right of `=`.
 Bind variable to the left of `=` to the resulting value.
 
 The variable is stored in the environment.
-
-`<-` is okay too!
 :::
 
 ::: notes
@@ -260,60 +297,84 @@ The variable is stored in the working memory of your computer, Random Access Mem
 
 Look, now `x` can be reused downstream:
 
-```{r}
+```{python}
 x - 2
 ```
 
 . . .
 
-```{r}
+```{python}
 y = x * 2
 y
+```
+
+. . .
+
+What's the data type of a variable?
+
+```{python}
+type(y)
 ```
 
 ## Grammar Structure 3: Evaluation of Functions
 
 A function has a **function name**, **arguments**, and **returns** a data type.
 
-. . .
-
 ::: callout-tip
 ## Execution rule for functions:
 
-Evaluate the function by its arguments, and if the arguments contain expressions, evaluate those expressions first.
+A function's input arguments, when there's more than one, can be specified by:
 
-The output of functions is called the **returned value**.
+-   The order the input given: `pow(2, 3)` is different than `pow(3, 2)`.
+
+-   The name of the input argument: `pow(base=2, exp=3)`.
+
+If the arguments contain expressions, evaluate those expressions first!
 :::
 
-. . .
+## Examples
 
-```{r}
-sqrt(nchar("hello"))
+```{python}
+pow(2, 3)
+```
+
+```{python}
+pow(base=2, exp=3)
+```
+
+```{python}
+pow(exp=3, base=2)
 ```
 
 . . .
 
-```{r}
-(nchar("hello") + 4) * 2
+```{python}
+max(len("hello"), 4)
 ```
 
-## A programming language has following features:
+## Learning a new function
+
+1.  Function documentation
+
+```         
+?pow
+
+pow(base, exp, mod=None)
+Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
+ 
+Some types, such as ints, are able to use a more efficient algorithm when
+invoked using the three argument form.
+```
 
 . . .
 
--   Grammar structure to construct expressions
+2.  Documents page of a Python Module
+
+[Base Python documentation of `pow`](https://docs.python.org/3/library/functions.html#pow)
 
 . . .
 
--   Combining expressions to create more complex expressions
-
-. . .
-
--   Encapsulate complex expressions via functions to create modular and reusable tasks
-
-. . .
-
--   Encapsulate complex data via data structures to allow efficient manipulation of data
+3.  Forums vetted by experts, such as [SlackOverflow](https://stackoverflow.com/questions/tagged/pow+python)
 
 ## Tips on writing your first code
 
@@ -338,7 +399,3 @@ Even the smallest spelling and formatting changes will cause unexpected output a
 . . .
 
 -   **Ask for help!**
-
-## That's all!
-
-Maybe see you Friday Noon - 1pm PT to practice together!
