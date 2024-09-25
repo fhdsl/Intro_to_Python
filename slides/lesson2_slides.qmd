@@ -1,0 +1,220 @@
+---
+title: "W2: Working with Data Structures"
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+output-location: fragment
+---
+
+## Solving problems...
+
+![](https://hutchdatascience.org/Intro_to_R/images/gator_error.jpg)
+
+## Lists
+
+**List** is a data structure that stores many elements of various data types, and the order matters.
+
+. . .
+
+You can create a List via the bracket `[ ]` operator:
+
+```{python}
+staff = ["chris", "ted", "jeff"]
+chrNum = [2, 3, 1, 2, 2]
+mixedList = [False, False, False, "A", "B", 92]
+```
+
+. . .
+
+How long is a list?
+
+```{python}
+len(staff)
+```
+
+## Subset to an element of a list
+
+You can access the elements of a list via its "index number", starting at 0.
+
+![](../images/list_subset_0.png){width="200"}
+
+```{python}
+chrNum[0]
+```
+
+. . .
+
+```{python}
+chrNum[2]
+```
+
+. . .
+
+```{python}
+chrNum[4] = chrNum[0] + chrNum[1]
+```
+
+. . .
+
+```{python}
+chrNum
+```
+
+## Subsetting multiple elements of lists
+
+Suppose you want to access the first three elements of `chrNum`.
+
+```{python}
+chrNum
+```
+
+. . .
+
+You can use the **slice** operator `:` to specify,
+
+```{python}
+chrNum[:3]
+```
+
+. . .
+
+The last three elements:
+
+```{python}
+chrNum[-3:]
+```
+
+. . .
+
+The slice `:` represents the start or the end of the List. We also have negative indicies that help us count backwards.
+
+. . .
+
+Learn more about subsetting lists [in full complexity](https://towardsdatascience.com/the-basics-of-indexing-and-slicing-python-lists-2d12c90a94cf).
+
+## Objects in Python
+
+The list data structure has an organization and functionality that metaphorically represents a pen-and-paper list in our physical world. Like a physical object, we have examined:
+
+-   What does it contain (in terms of data)?
+
+-   What can it do (in terms of functions)?
+
+. . .
+
+Such organization is called an **Object**.
+
+## Objects in Python
+
+Formally, an object contains the following:
+
+*What does it contain?*
+
+-   **Value** that holds the essential data for the object.
+
+-   **Attributes** that hold subset or additional data for the object.
+
+*What can it do?*
+
+-   Functions called **Methods** that automatically takes the object as input.
+
+This organizing structure on an object applies to pretty much all Python data types and data structures.
+
+## Lists as Objects
+
+*What does it contain?*
+
+-   **Value**: the contents of the list, such as `[2, 3, 4]`.
+
+-   **Attributes**: None.
+
+*What can it do?*
+
+-   **Methods** that can be used on the object: `chrNum.count(2)` returns the number of instances 2 appears as an element of `chrNum`.
+
+## Methods vs Functions
+
+**Methods** *have to* take in the object of interest as an input: `chrNum.count(2)` automatically treat `chrNum` as an input. Methods are built for a specific Object type.
+
+**Functions** do not have an implied input: `len(chrNum)` requires specifying a list in the input.
+
+Otherwise, no distinction between the two.
+
+## Dataframes
+
+A Dataframe is a two-dimensional data structure that is similar to a spreadsheet.
+
+```{python}
+import pandas as pd
+
+metadata = pd.read_csv("../classroom_data/metadata.csv")
+type(metadata)
+```
+
+. . .
+
+Let's investigate the Dataframe as an object:
+
+-   *What does a Dataframe contain? (values, attributes)*
+
+    -   the spreadsheet, columns, column names, shape, subsetting
+
+-   *What can a Dataframe do?* *(methods)*
+
+    -   `.head()`, `.tail()`
+
+## What does a Dataframe contain?
+
+Attributes: columns
+
+```{python}
+metadata.ModelID
+metadata['ModelID']
+```
+
+. . .
+
+Attribute: column names
+
+```{python}
+metadata.columns
+```
+
+. . .
+
+Attribute: shape
+
+```{python}
+metadata.shape
+```
+
+## Dataframe subsetting
+
+Using the [`iloc`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html) attribute and bracket operations, you give two slices: one for the row, and one for the column.
+
+```{python}
+df = pd.DataFrame(data={'status': ["treated", "untreated", "untreated", "discharged", "treated"],
+                            'age_case': [25, 43, 21, 65, 7],
+                            'age_control': [49, 20, 32, 25, 32]})
+df
+```
+
+. . .
+
+Subset to the first 4 rows, first 2 columns:
+
+```{python}
+df.iloc[:4, :2]
+```
+
+## Dataframe subsetting
+
+If we want a custom slice that is not sequential, we can use an integer list.
+
+Subset the first 3 rows, and the 1st and 3rd column:
+
+```{python}
+df.iloc[:3, [0, 2]]
+```

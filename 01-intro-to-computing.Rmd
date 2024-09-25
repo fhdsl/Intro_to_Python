@@ -78,7 +78,7 @@ Now, we will get to the basics of programming grammar.
 
 -   **Expressions** are be built out of **operations** or **functions**.
 
--   Functions and operations take in **data types**, do something with them, and return another data type.
+-   Functions and operations take in **data types** as inputs, do something with them, and **return** another data type as ouput.
 
 -   We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.
 
