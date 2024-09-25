@@ -152,8 +152,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="intro-to-computing.html"><a href="intro-to-computing.html#google-colab-setup"><i class="fa fa-check"></i><b>1.4</b> Google Colab Setup</a></li>
 <li class="chapter" data-level="1.5" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions"><i class="fa fa-check"></i><b>1.5</b> Grammar Structure 1: Evaluation of Expressions</a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>1.5.1</b> Data types</a></li>
-<li class="chapter" data-level="1.5.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#function-machine-schema"><i class="fa fa-check"></i><b>1.5.2</b> Function machine schema</a></li>
+<li class="chapter" data-level="1.5.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#function-machine-schema"><i class="fa fa-check"></i><b>1.5.1</b> Function machine schema</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>1.5.2</b> Data types</a></li>
 </ul></li>
 <li class="chapter" data-level="1.6" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-variable-environment"><i class="fa fa-check"></i><b>1.6</b> Grammar Structure 2: Storing data types in the Variable Environment</a>
 <ul>
@@ -174,12 +174,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-multiple-elements-of-lists"><i class="fa fa-check"></i><b>2.1.2</b> Subsetting multiple elements of lists</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#objects-in-python"><i class="fa fa-check"></i><b>2.2</b> Objects in Python</a></li>
-<li class="chapter" data-level="2.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>2.3</b> Dataframes</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-does-a-dataframe-contain-in-terms-of-data"><i class="fa fa-check"></i><b>2.3.1</b> What does a Dataframe contain (in terms of data)?</a></li>
-<li class="chapter" data-level="2.3.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-can-a-dataframe-do-in-terms-of-operations-and-functions"><i class="fa fa-check"></i><b>2.3.2</b> What can a Dataframe do (in terms of operations and functions)?</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>2.4</b> Exercises</a></li>
+<li class="chapter" data-level="2.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#methods-vs-functions"><i class="fa fa-check"></i><b>2.3</b> Methods vs Functions</a></li>
+<li class="chapter" data-level="2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Dataframes</a></li>
+<li class="chapter" data-level="2.5" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-does-a-dataframe-contain"><i class="fa fa-check"></i><b>2.5</b> What does a Dataframe contain?</a></li>
+<li class="chapter" data-level="2.6" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-can-a-dataframe-do"><i class="fa fa-check"></i><b>2.6</b> What can a Dataframe do?</a></li>
+<li class="chapter" data-level="2.7" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-dataframes"><i class="fa fa-check"></i><b>2.7</b> Subsetting Dataframes</a></li>
+<li class="chapter" data-level="2.8" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>2.8</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling, Part 1</a>
 <ul>
@@ -279,15 +279,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>If you want to access the second and third elements of <code>chrNum</code>:</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="working-with-data-structures.html#cb39-1" tabindex="-1"></a>chrNum[<span class="dv">1</span>:<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [3, 1]</code></pre>
-<p>If you want to access everything but the first three elements of <code>chrNum</code>:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="working-with-data-structures.html#cb41-1" tabindex="-1"></a>chrNum[<span class="dv">3</span>:]</span></code></pre></div>
-<pre><code>## [2, 2]</code></pre>
-<p>Here, the stop index number was not specificed. When the start or stop index is <em>not</em> specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="working-with-data-structures.html#cb43-1" tabindex="-1"></a>chrNum[:<span class="dv">3</span>]</span></code></pre></div>
+<p>Another way of accessing the first 3 elements of <code>chrNum</code>:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="working-with-data-structures.html#cb41-1" tabindex="-1"></a>chrNum[:<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [2, 3, 1]</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="working-with-data-structures.html#cb45-1" tabindex="-1"></a>chrNum[<span class="dv">3</span>:]</span></code></pre></div>
-<pre><code>## [2, 2]</code></pre>
-<p>There are other popular uses of the slice operator <code>:</code>, such as negative indicies to count from the end of a list, or subsetting with a fixed increment. You can find more discussion of list slicing <a href="https://wesmckinney.com/book/python-builtin#list_slicing">here</a>.</p>
+<p>Here, the start index number was not specified. When the start or stop index is <em>not</em> specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively. Here’s another example, using negative indicies to count from 3 elements from the end of the list:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="working-with-data-structures.html#cb43-1" tabindex="-1"></a>chrNum[<span class="op">-</span><span class="dv">3</span>:]</span></code></pre></div>
+<pre><code>## [1, 2, 2]</code></pre>
+<p>You can find more discussion of list slicing, using negative indicies and incremental slicing, <a href="https://towardsdatascience.com/the-basics-of-indexing-and-slicing-python-lists-2d12c90a94cf">here</a>.</p>
 </div>
 </div>
 <div id="objects-in-python" class="section level2 hasAnchor" number="2.2">
@@ -295,14 +293,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>The list data structure has an organization and functionality that metaphorically represents a pen-and-paper list in our physical world. Like a physical object, we have examined:</p>
 <ul>
 <li><p>What does it contain (in terms of data)?</p></li>
-<li><p>What can it do (in terms of operations and functions)?</p></li>
+<li><p>What can it do (in terms of functions)?</p></li>
 </ul>
 <p>And if it “makes sense” to us, then it is well-designed.</p>
 <p>The list data structure we have been working with is an example of an <strong>Object</strong>. The definition of an object allows us to ask the questions above: <em>what does it contain, and what can it do?</em> It is an organizational tool for a collection of data and functions that we can relate to, like a physical object. Formally, an object contains the following:</p>
 <ul>
 <li><p><strong>Value</strong> that holds the essential data for the object.</p></li>
-<li><p><strong>Attributes</strong> that store additional data for the object.</p></li>
-<li><p>Functions called <strong>Methods</strong> that can be used on the object.</p></li>
+<li><p><strong>Attributes</strong> that hold subset or additional data for the object.</p></li>
+<li><p>Functions called <strong>Methods</strong> that automatically takes the object as input.</p></li>
 </ul>
 <p>This organizing structure on an object applies to pretty much all Python data types and data structures.</p>
 <p>Let’s see how this applies to the list:</p>
@@ -356,26 +354,33 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="dataframes" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Dataframes<a href="working-with-data-structures.html#dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="methods-vs-functions" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Methods vs Functions<a href="working-with-data-structures.html#methods-vs-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Methods</strong> <em>have to</em> take in the object of interest as an input: <code>chrNum.count(2)</code> automatically treat <code>chrNum</code> as an input. Methods are built for a specific Object type.</p>
+<p><strong>Functions</strong> do not have an implied input: <code>len(chrNum)</code> requires specifying a list in the input.</p>
+<p>Otherwise, there is no strong distinction between the two.</p>
+</div>
+<div id="dataframes" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Dataframes<a href="working-with-data-structures.html#dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A Dataframe is a two-dimensional data structure that stores data like a spreadsheet does.</p>
 <p>The Dataframe data structure is found within a Python module called “Pandas”. A Python module is an organized collection of functions and data structures. The <code>import</code> statement below gives us permission to access the “Pandas” module via the variable <code>pd</code>.</p>
 <p>To load in a Dataframe from existing spreadsheet data, we use the function <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"><code>pd.read_csv()</code></a>:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="working-with-data-structures.html#cb47-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb47-2"><a href="working-with-data-structures.html#cb47-2" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="working-with-data-structures.html#cb47-3" tabindex="-1"></a>metadata <span class="op">=</span> pd.read_csv(<span class="st">&quot;classroom_data/metadata.csv&quot;</span>)</span>
-<span id="cb47-4"><a href="working-with-data-structures.html#cb47-4" tabindex="-1"></a><span class="bu">type</span>(metadata)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="working-with-data-structures.html#cb45-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb45-2"><a href="working-with-data-structures.html#cb45-2" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="working-with-data-structures.html#cb45-3" tabindex="-1"></a>metadata <span class="op">=</span> pd.read_csv(<span class="st">&quot;classroom_data/metadata.csv&quot;</span>)</span>
+<span id="cb45-4"><a href="working-with-data-structures.html#cb45-4" tabindex="-1"></a><span class="bu">type</span>(metadata)</span></code></pre></div>
 <pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</code></pre>
 <p>There is a similar function <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html"><code>pd.read_excel()</code></a> for loading in Excel spreadsheets.</p>
 <p>Let’s investigate the Dataframe as an object:</p>
 <ul>
-<li><p>What does a Dataframe contain (in terms of data)?</p></li>
-<li><p>What can a Dataframe do (in terms of operations and functions)?</p></li>
+<li><p>What does a Dataframe contain (values, attributes)?</p></li>
+<li><p>What can a Dataframe do (methods)?</p></li>
 </ul>
-<div id="what-does-a-dataframe-contain-in-terms-of-data" class="section level3 hasAnchor" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> What does a Dataframe contain (in terms of data)?<a href="working-with-data-structures.html#what-does-a-dataframe-contain-in-terms-of-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="what-does-a-dataframe-contain" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> What does a Dataframe contain?<a href="working-with-data-structures.html#what-does-a-dataframe-contain" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We first take a look at the contents:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="working-with-data-structures.html#cb49-1" tabindex="-1"></a>metadata</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="working-with-data-structures.html#cb47-1" tabindex="-1"></a>metadata</span></code></pre></div>
 <pre><code>##          ModelID  ...       OncotreeLineage
 ## 0     ACH-000001  ...  Ovary/Fallopian Tube
 ## 1     ACH-000002  ...               Myeloid
@@ -391,6 +396,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## [1864 rows x 30 columns]</code></pre>
 <p>It looks like there are 1864 rows and 30 columns in this Dataframe, and when we display it it shows some of the data.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="working-with-data-structures.html#cb49-1" tabindex="-1"></a>metadata</span></code></pre></div>
+<pre><code>##          ModelID  ...       OncotreeLineage
+## 0     ACH-000001  ...  Ovary/Fallopian Tube
+## 1     ACH-000002  ...               Myeloid
+## 2     ACH-000003  ...                 Bowel
+## 3     ACH-000004  ...               Myeloid
+## 4     ACH-000005  ...               Myeloid
+## ...          ...  ...                   ...
+## 1859  ACH-002968  ...     Esophagus/Stomach
+## 1860  ACH-002972  ...     Esophagus/Stomach
+## 1861  ACH-002979  ...     Esophagus/Stomach
+## 1862  ACH-002981  ...     Esophagus/Stomach
+## 1863  ACH-003071  ...                  Lung
+## 
+## [1864 rows x 30 columns]</code></pre>
 <p>We can look at specific columns by looking at <strong>attributes</strong> via the dot operation. We can also look at the columns via the bracket operation.</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="working-with-data-structures.html#cb51-1" tabindex="-1"></a>metadata.ModelID</span></code></pre></div>
 <pre><code>## 0       ACH-000001
@@ -433,8 +453,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="working-with-data-structures.html#cb57-1" tabindex="-1"></a>metadata.shape</span></code></pre></div>
 <pre><code>## (1864, 30)</code></pre>
 </div>
-<div id="what-can-a-dataframe-do-in-terms-of-operations-and-functions" class="section level3 hasAnchor" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> What can a Dataframe do (in terms of operations and functions)?<a href="working-with-data-structures.html#what-can-a-dataframe-do-in-terms-of-operations-and-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-can-a-dataframe-do" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> What can a Dataframe do?<a href="working-with-data-structures.html#what-can-a-dataframe-do" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html"><code>.head()</code></a> and <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.tail.html"><code>.tail()</code></a> methods to look at the first few rows and last few rows of <code>metadata</code>, respectively:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="working-with-data-structures.html#cb59-1" tabindex="-1"></a>metadata.head()</span></code></pre></div>
 <pre><code>##       ModelID  PatientID  ...     OncotreePrimaryDisease       OncotreeLineage
@@ -455,10 +475,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## [5 rows x 30 columns]</code></pre>
 <p>Both of these functions (without input arguments) are considered as <strong>methods</strong>: they are functions that does something with the Dataframe you are using it on. You should think about <code>metadata.head()</code> as a function that takes in <code>metadata</code> as an input. If we had another Dataframe called <code>my_data</code> and you want to use the same function, you will have to say <code>my_data.head()</code>.</p>
-<div id="subsetting-dataframes" class="section level4 hasAnchor" number="2.3.2.1">
-<h4><span class="header-section-number">2.3.2.1</span> Subsetting Dataframes<a href="working-with-data-structures.html#subsetting-dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="subsetting-dataframes" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Subsetting Dataframes<a href="working-with-data-structures.html#subsetting-dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists.</p>
-<p>You will use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html"><code>iloc</code></a> and bracket operations, and you give two slices: one for the row, and one for the column.</p>
+<p>You will use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html"><code>iloc</code></a> attribute and bracket operations, and you give two slices: one for the row, and one for the column.</p>
 <p>Let’s start with a small dataframe to see how it works before returning to <code>metadata</code>:</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="working-with-data-structures.html#cb63-1" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">&#39;status&#39;</span>: [<span class="st">&quot;treated&quot;</span>, <span class="st">&quot;untreated&quot;</span>, <span class="st">&quot;untreated&quot;</span>, <span class="st">&quot;discharged&quot;</span>, <span class="st">&quot;treated&quot;</span>],</span>
 <span id="cb63-2"><a href="working-with-data-structures.html#cb63-2" tabindex="-1"></a>                            <span class="st">&#39;age_case&#39;</span>: [<span class="dv">25</span>, <span class="dv">43</span>, <span class="dv">21</span>, <span class="dv">65</span>, <span class="dv">7</span>],</span>
@@ -472,8 +493,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 4     treated         7           32</code></pre>
 <p>Here is how the dataframe looks like with the row and column index numbers:</p>
 <p><img src="images/pandas_subset_0.png" /></p>
-<p>Subset the second to fourth rows, and the first two columns:</p>
-<p><img src="images/pandas_subset_1.png" /></p>
+<p>Subset the first fourth rows, and the first two columns:</p>
+<p><img src="images/pandas%20subset_1.png" /></p>
 <p>Now, back to <code>metadata</code> dataframe:</p>
 <p>Subset the first 5 rows, and first two columns:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="working-with-data-structures.html#cb65-1" tabindex="-1"></a>metadata.iloc[:<span class="dv">5</span>, :<span class="dv">2</span>]</span></code></pre></div>
@@ -502,10 +523,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>When we subset via numerical indicies, it’s called <strong>explicit subsetting</strong>. This is a great way to start thinking about subsetting your dataframes for analysis, but explicit subsetting can lead to some inconsistencies in the long run. For instance, suppose your collaborator added a new cell line to the metadata and changed the order of the column. Then your code to subset the last 5 rows and the columns will get you a different answer once the spreadsheet is changed.</p>
 <p>The second way is to subset by the column name and comparison operators, also known as <strong>implicit subsetting</strong>. This is much more robust in data analysis practice. You will learn about it next week!</p>
 </div>
-</div>
-</div>
-<div id="exercises-1" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Exercises<a href="working-with-data-structures.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercises-1" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Exercises<a href="working-with-data-structures.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Exercise for week 2 can be found <a href="https://colab.research.google.com/drive/1oIL3gKEZR2Lq16k6XY0HXIhjYl34pEjr?usp=sharing">here</a>.</p>
 
 </div>

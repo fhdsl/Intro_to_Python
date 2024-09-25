@@ -76,7 +76,7 @@ Now, we will get to the basics of programming grammar.
 
 -   **Expressions** are be built out of **operations** or **functions**.
 
--   Functions and operations take in **data types**, do something with them, and return another data type.
+-   Functions and operations take in **data types** as inputs, do something with them, and **return** another data type as ouput.
 
 -   We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.
 
@@ -148,17 +148,6 @@ add(18, add(21, 65))
 
 Remember that the Python language is supposed to help us understand what we are writing in code easily, lending to *readable* code. Therefore, it is sometimes useful to come up with operations that is easier to read. (Most functions in Python are stored in a collection of functions called **modules** that needs to be loaded. The `import` statement gives us permission to access the functions in the module "operator".)
 
-### Data types
-
-Here are some common data types we will be using in this course.
-
-| Data type name | **Data type shorthand** |      **Examples**       |
-|----------------|:-----------------------:|:-----------------------:|
-| Integer        |           int           |          2, 4           |
-| Float          |          float          |      3.5, -34.1009      |
-| String         |           str           | "hello", "234-234-8594" |
-| Boolean        |          bool           |       True, False       |
-
 ### Function machine schema
 
 A nice way to summarize this first grammar structure is using the function machine schema, way back from algebra class:
@@ -170,6 +159,17 @@ Here are some aspects of this schema to pay attention to:
 -   A programmer should not need to know how the function or operation is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.
 
 -   A function can have different kinds of inputs and outputs - it doesn't need to be numbers. In the `len()` function, the input is a String, and the output is an Integer. We will see increasingly complex functions with all sorts of different inputs and outputs.
+
+### Data types
+
+Here are some common data types we will be using in this course.
+
+| Data type name | **Data type shorthand** |      **Examples**       |
+|----------------|:-----------------------:|:-----------------------:|
+| Integer        |           int           |          2, 4           |
+| Float          |          float          |      3.5, -34.1009      |
+| String         |           str           | "hello", "234-234-8594" |
+| Boolean        |          bool           |       True, False       |
 
 ## Grammar Structure 2: Storing data types in the Variable Environment
 
@@ -232,7 +232,7 @@ Let's look at functions a little bit more formally: A function has a **function 
 >
 > The output of functions is called the **returned value**.
 
-Often, we will use multiple functions in a nested way, and it is important to understand how the Python console understand the order of operation. We can also use paranthesis to change the order of operation. Think about what the Python is going to do step-by--step in the lines of code below:
+Often, we will use multiple functions in a nested way, and it is important to understand how the Python console understand the order of operation. We can also use parenthesis to change the order of operation. Think about what the Python is going to do step-by--step in the lines of code below:
 
 
 ``` python
@@ -318,11 +318,11 @@ And there is an operational equivalent:
 
 We will mostly look at functions with input arguments and return types in this course, but not all functions need to have input arguments and output return. Let's look at some examples of functions that don't always have an input or output:
 
-| Function call                                                        | What it takes in         | What it does                                                  | Returns |
+| Function call                                                             | What it takes in         | What it does                                                  | Returns |
 |----------------|----------------|-------------------------|----------------|
-| [`pow(a, b)`](https://docs.python.org/3/library/functions.html#pow)  | integer `a`, integer `b` | Raises `a` to the `b`th power.                                | Integer |
-| [`print(x)`](https://docs.python.org/3/library/functions.html#print) | any data type `x`        | Prints out the value of `x` to the console.                   | None    |
-| [`dir()`](https://docs.python.org/3/library/functions.html#dir)      | Nothing                  | Gives a list of all the variables defined in the environment. | List    |
+| [`pow(a, b)`](https://docs.python.org/3/library/functions.html#pow)       | integer `a`, integer `b` | Raises `a` to the `b`th power.                                | Integer |
+| [`time.sleep(x)`](https://docs.python.org/3/library/time.html#time.sleep) | Integer `x`              | Waits for `x` seconds.                                        | None    |
+| [`dir()`](https://docs.python.org/3/library/functions.html#dir)           | Nothing                  | Gives a list of all the variables defined in the environment. | List    |
 
 ## Tips on writing your first code
 
