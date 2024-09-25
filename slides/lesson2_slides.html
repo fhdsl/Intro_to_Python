@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="lesson1_slides_files/libs/clipboard/clipboard.min.js"></script>
-<script src="lesson1_slides_files/libs/quarto-html/tabby.min.js"></script>
-<script src="lesson1_slides_files/libs/quarto-html/popper.min.js"></script>
-<script src="lesson1_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="lesson1_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="lesson1_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="lesson1_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="lesson1_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="lesson2_slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lesson2_slides_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lesson2_slides_files/libs/quarto-html/popper.min.js"></script>
+<script src="lesson2_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lesson2_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lesson2_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lesson2_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="lesson2_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.353">
 
-  <title>W1: Intro to Computing</title>
+  <title>W2: Working with Data Structures</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="lesson1_slides_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="lesson1_slides_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="lesson2_slides_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lesson2_slides_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -94,11 +94,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="lesson1_slides_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="lesson1_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="lesson1_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="lesson1_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="lesson1_slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="lesson2_slides_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="lesson2_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lesson2_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lesson2_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lesson2_slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -384,577 +384,463 @@
       margin-right: 0; 
     }
   </style>
-  <script type="module" src="lesson1_slides_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-  <link href="lesson1_slides_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">W1: Intro to Computing</h1>
+  <h1 class="title">W2: Working with Data Structures</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="welcome" class="slide level2">
-<h2>Welcome!</h2>
-</section>
-<section id="introductions" class="slide level2">
-<h2>Introductions</h2>
-<ul>
-<li>Who am I?</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>What is DaSL?</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><p>Who are you?</p>
-<ul>
-<li><p>Name, pronouns, group you work in</p></li>
-<li><p>What you want to get out of the class</p></li>
-<li><p>Favorite fall activity</p></li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="goals-of-the-course" class="slide level2">
-<h2>Goals of the course</h2>
-<div class="fragment">
-<ul>
-<li>Fundamental concepts in programming languages: <em>How do programs run, and how do we solve problems effectively using functions and data structures?</em></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><p>Data science fundamentals: <em>How do you translate your scientific question to a data wrangling problem and answer it?</em></p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" width="550"></p>
-<figcaption>Data science workflow</figcaption>
-</figure>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="culture-of-the-course" class="slide level2">
-<h2>Culture of the course</h2>
-<div class="fragment">
-<ul>
-<li>Challenge: We are learning a new language, but you already have a full-time job</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><em>Teach not for mastery, but teach for empowerment to learn effectively.</em></li>
-</ul>
-</div>
-</section>
-<section id="culture-of-the-course-1" class="slide level2">
-<h2>Culture of the course</h2>
-<ul>
-<li>Challenge: We sometimes struggle with our data science in isolation, unaware that someone two doors down from us has gone through the same struggle.</li>
-</ul>
-<div class="fragment">
-<ul>
-<li><em>We learn and work better with our peers.</em></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><em>Know that if you have a question, other people will have it.</em></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><em>Asking questions is our way of taking care of others.</em></li>
-</ul>
-</div>
-<div class="fragment">
-<p>We ask you to follow <a href="https://hutchdatascience.org/communitystudios/guidelines/">Participation Guidelines</a> and <a href="https://github.com/fhdsl/coc">Code of Conduct</a>.</p>
-</div>
-</section>
-<section id="content-of-the-course" class="slide level2">
-<h2>Content of the course</h2>
-<ol type="1">
-<li><p>Intro to Computing</p></li>
-<li><p>Data structures</p></li>
-<li><p>Data wrangling 1</p></li>
-<li><p>Community Session 1 (optional)</p></li>
-<li><p>Data wrangling 2</p></li>
-<li><p>Data visualization</p></li>
-<li><p>Community Session 2 (optional)</p></li>
-<li><p>Putting it together: preview for code-a-thon (Tuesday Nov.&nbsp;12)</p></li>
-<li><p>Code-a-thon: Friday Nov.&nbsp;22</p></li>
-</ol>
-</section>
-<section id="format-of-the-course" class="slide level2">
-<h2>Format of the course</h2>
-<div class="fragment">
-<ul>
-<li>Hybrid, and recordings will be available.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>1-2 hour exercises after each session are encouraged for practice.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Office Hours Fridays 10am - 11am PT.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Online discussion via Slack.</li>
-</ul>
-</div>
-</section>
-<section id="ready" class="slide level2">
-<h2>Ready?</h2>
+<section id="solving-problems" class="slide level2">
+<h2>Solving problems…</h2>
 
-<img data-src="images/horst_community.png" class="r-stretch"></section>
-<section id="what-is-a-computer-program" class="slide level2">
-<h2>What is a computer program?</h2>
+<img data-src="https://hutchdatascience.org/Intro_to_R/images/gator_error.jpg" class="r-stretch"></section>
+<section id="lists" class="slide level2">
+<h2>Lists</h2>
+<p><strong>List</strong> is a data structure that stores many elements of various data types, and the order matters.</p>
 <div class="fragment">
-<ul>
-<li>A <em>sequence</em> of instructions to manipulate data for the computer to execute.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>A series of translations: English &lt;-&gt; Programming Code for Interpreter &lt;-&gt; Machine Code</li>
-</ul>
-</div>
-<div class="fragment">
-<p>We will focus on English &lt;-&gt; Programming Code for Python Interpreter in this class.</p>
-</div>
-</section>
-<section id="setting-up-google-classroom-and-colab-and-trying-out-your-first-analysis" class="slide level2">
-<h2>Setting up Google Classroom and Colab and trying out your first analysis!</h2>
-<ul>
-<li><p>Google Classroom <a href="https://classroom.google.com/c/NzAyODI5NzU1NDU4?cjc=nq7lioy">invitation link</a>.</p></li>
-<li><p>Classwork -&gt; Week 1 Classwork -&gt; <code>Week 1 Classwork.ipynb</code></p></li>
-</ul>
-</section>
-<section id="break" class="slide level2">
-<h2>Break</h2>
-<p>A pre-course survey:</p>
-<p>https://forms.gle/zFZ3VB1QZ84Y8Uef6</p>
-</section>
-<section id="grammar-structure-1-evaluation-of-expressions" class="slide level2">
-<h2>Grammar Structure 1: Evaluation of Expressions</h2>
-<p>Consider the expression:</p>
+<p>You can create a List via the bracket <code>[ ]</code> operator:</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">min</span>(<span class="dv">2</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>staff <span class="op">=</span> [<span class="st">"chris"</span>, <span class="st">"ted"</span>, <span class="st">"jeff"</span>]</span>
+<span id="cb1-2"><a href="#cb1-2"></a>chrNum <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>]</span>
+<span id="cb1-3"><a href="#cb1-3"></a>mixedList <span class="op">=</span> [<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="dv">92</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="1">
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>2</code></pre>
+
 </div>
 </div>
 <div class="fragment">
-<ul>
-<li><strong>Expressions</strong> are built out of <strong>functions</strong> or <strong>operations</strong>.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Functions and operations take in <strong>data types</strong> as inputs, do something with them, and <strong>return</strong> another data type as ouput.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>If the function or operation input contains expressions, evaluate those expressions first.</li>
-</ul>
-</div>
-</section>
-<section id="examples" class="slide level2">
-<h2>Examples</h2>
+<p>How long is a list?</p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="dv">18</span> <span class="op">+</span> <span class="dv">21</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">len</span>(staff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>39</code></pre>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">max</span>(<span class="dv">18</span>, <span class="dv">21</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>21</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">max</span>(<span class="dv">18</span> <span class="op">+</span> <span class="dv">21</span>, <span class="dv">65</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="4">
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>65</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="dv">18</span> <span class="op">+</span> (<span class="dv">21</span> <span class="op">+</span> <span class="dv">65</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>104</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">len</span>(<span class="st">"ATCG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>4</code></pre>
-</div>
-</div>
-<aside class="notes">
-<p>If an expression is made out of multiple, nested operations, what is the proper way of the Python Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-</section>
-<section id="function-machine-from-algebra-class" class="slide level2">
-<h2>Function machine from algebra class</h2>
-<div class="fragment">
-<p><img data-src="images/function_machine.png" alt="Function machine from algebra class."></p>
-</div>
-<div class="fragment">
-<p>Operations are just functions. We could have written:</p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">from</span> operator <span class="im">import</span> add</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>add(<span class="dv">18</span>, <span class="dv">21</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>39</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>add(<span class="dv">18</span>, add(<span class="dv">21</span>, <span class="dv">65</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>104</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="function-machine-from-algebra-class-1" class="slide level2">
-<h2>Function machine from algebra class</h2>
-
-<img data-src="images/function_machine.png" alt="Function machine from algebra class." class="r-stretch"><ul>
-<li>A programmer should not need to know how the function or operation is implemented in order to use it.</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>A function can have different kinds of inputs and outputs - it doesn’t need to be numbers.</li>
-</ul>
-</div>
-</section>
-<section id="data-types" class="slide level2">
-<h2>Data types</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Data type name</th>
-<th style="text-align: center;"><strong>Data type shorthand</strong></th>
-<th style="text-align: center;"><strong>Examples</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Integer</td>
-<td style="text-align: center;">int</td>
-<td style="text-align: center;">2, 4</td>
-</tr>
-<tr class="even">
-<td>Float</td>
-<td style="text-align: center;">float</td>
-<td style="text-align: center;">3.5, -34.1009</td>
-</tr>
-<tr class="odd">
-<td>String</td>
-<td style="text-align: center;">str</td>
-<td style="text-align: center;">“hello”, “234-234-8594”</td>
-</tr>
-<tr class="even">
-<td>Boolean</td>
-<td style="text-align: center;">bool</td>
-<td style="text-align: center;">True, False</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="grammar-structure-2-storing-data-types-as-variables-in-the-environment" class="slide level2">
-<h2>Grammar Structure 2: Storing data types as variables in the environment</h2>
-<div class="fragment">
-<p>To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use.</p>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>age <span class="op">=</span> <span class="dv">18</span> <span class="op">+</span> <span class="dv">21</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="9">
-
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Execution rule for variable assignment</strong></p>
-</div>
-<div class="callout-content">
-<p>Evaluate the expression to the right of <code>=</code>.</p>
-<p>Bind variable to the left of <code>=</code> to the resulting value.</p>
-<p>The variable is stored in the <strong>environment</strong>.</p>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>The environment is where all the variables are stored, and can be used for an expression anytime once it is defined. Only one unique variable name can be defined.</p>
-<p>The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM. When we work with large datasets, if you assign a variable to a data type larger than the available RAM, it will not work. More on this later.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-</section>
-<section id="downstream" class="slide level2">
-<h2>Downstream</h2>
-<p>Look, now <code>age</code> can be reused downstream:</p>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>age <span class="op">-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="10">
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>37</code></pre>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>age_double <span class="op">=</span> age <span class="op">*</span> <span class="dv">2</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>age_double</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="11">
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>78</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p>What’s the data type of a variable?</p>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="bu">type</span>(age_double)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="12">
-<div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>int</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="more-examples" class="slide level2">
-<h2>More examples</h2>
-<ul>
-<li><p><code>max(a, b, ...)</code> takes in at least two Integer or Float input arguments, and returns the highest value. You can give it more than two input arguments.</p></li>
-<li><p><code>pow(base, exp)</code> takes in two Integer input arguments, and returns the <code>base</code> raised to the <code>exp</code> power.</p></li>
-<li><p><code>dir()</code> takes in no input arguments, and returns all the variables in the environment as a list.</p></li>
-</ul>
-<div class="fragment">
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="bu">max</span>(<span class="bu">len</span>(<span class="st">"hello"</span>), <span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="13">
-<div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>20</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>age <span class="op">=</span> <span class="dv">35</span> <span class="op">-</span> <span class="dv">5</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>score <span class="op">=</span> <span class="bu">max</span>(age, <span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="14">
-
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="bu">dir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="15">
-<div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>['In',
- 'Out',
- '_',
- '_1',
- '_10',
- '_11',
- '_12',
- '_13',
- '_2',
- '_3',
- '_4',
- '_5',
- '_6',
- '_7',
- '_8',
- '__',
- '___',
- '__builtin__',
- '__builtins__',
- '__name__',
- '_dh',
- '_i',
- '_i1',
- '_i10',
- '_i11',
- '_i12',
- '_i13',
- '_i14',
- '_i15',
- '_i2',
- '_i3',
- '_i4',
- '_i5',
- '_i6',
- '_i7',
- '_i8',
- '_i9',
- '_ih',
- '_ii',
- '_iii',
- '_oh',
- 'add',
- 'age',
- 'age_double',
- 'exit',
- 'get_ipython',
- 'ojs_define',
- 'open',
- 'quit',
- 'score']</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="lists" class="slide level2">
-<h2>Lists</h2>
-<p><strong>List</strong> is a data structure that stores many elements of various data type, and the order its elements are stored matters. Each <em>element</em> of a List contains a single data type, or single data structure.</p>
-<p>You can create a List via the bracket `[ ]` operator:</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>chrs <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="16">
-
-</div>
-<div class="fragment">
-<p>Then, you can access the elements of a list via its “index number”, starting at 0.</p>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>chrs[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="17">
-<div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>2</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>chrs[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="18">
-<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>3</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="tips-on-writing-your-first-code" class="slide level2">
-<h2>Tips on writing your first code</h2>
-<div class="fragment">
-<p><code>Computer = powerful + stupid</code></p>
-<p>Even the smallest spelling and formatting changes will cause unexpected output and errors!</p>
+<section id="subset-to-an-element-of-a-list" class="slide level2">
+<h2>Subset to an element of a list</h2>
+<p>You can access the elements of a list via its “index number”, starting at 0.</p>
+
+<img data-src="../images/list_subset_0.png" width="200" class="r-stretch"><div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>chrNum[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>2</code></pre>
+</div>
 </div>
 <div class="fragment">
-<ul>
-<li>Write incrementally, test often</li>
-</ul>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>chrNum[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>1</code></pre>
+</div>
+</div>
 </div>
 <div class="fragment">
-<ul>
-<li>Check your assumptions, especially using new functions, operations, and new data types.</li>
-</ul>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>chrNum[<span class="dv">4</span>] <span class="op">=</span> chrNum[<span class="dv">0</span>] <span class="op">+</span> chrNum[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="fragment">
-<ul>
-<li>The sequence of instructions you give matters!</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><strong>Ask for help!</strong></li>
-</ul>
-<div class="footer footer-default">
+<div class="cell fragment" data-execution_count="5">
 
 </div>
+</div>
+<div class="fragment">
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>chrNum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>[2, 3, 1, 2, 5]</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="subsetting-multiple-elements-of-lists" class="slide level2">
+<h2>Subsetting multiple elements of lists</h2>
+<p>Suppose you want to access the first three elements of <code>chrNum</code>.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>chrNum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>[2, 3, 1, 2, 5]</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>You can use the <strong>slice</strong> operator <code>:</code> to specify,</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>chrNum[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>[2, 3, 1]</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The last three elements:</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>chrNum[<span class="op">-</span><span class="dv">3</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>[1, 2, 5]</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The slice <code>:</code> represents the start or the end of the List. We also have negative indicies that help us count backwards.</p>
+</div>
+<div class="fragment">
+<p>Learn more about subsetting lists <a href="https://towardsdatascience.com/the-basics-of-indexing-and-slicing-python-lists-2d12c90a94cf">in full complexity</a>.</p>
+</div>
+</section>
+<section id="objects-in-python" class="slide level2">
+<h2>Objects in Python</h2>
+<p>The list data structure has an organization and functionality that metaphorically represents a pen-and-paper list in our physical world. Like a physical object, we have examined:</p>
+<ul>
+<li><p>What does it contain (in terms of data)?</p></li>
+<li><p>What can it do (in terms of functions)?</p></li>
+</ul>
+<div class="fragment">
+<p>Such organization is called an <strong>Object</strong>.</p>
+</div>
+</section>
+<section id="objects-in-python-1" class="slide level2">
+<h2>Objects in Python</h2>
+<p>Formally, an object contains the following:</p>
+<p><em>What does it contain?</em></p>
+<ul>
+<li><p><strong>Value</strong> that holds the essential data for the object.</p></li>
+<li><p><strong>Attributes</strong> that hold subset or additional data for the object.</p></li>
+</ul>
+<p><em>What can it do?</em></p>
+<ul>
+<li>Functions called <strong>Methods</strong> that automatically takes the object as input.</li>
+</ul>
+<p>This organizing structure on an object applies to pretty much all Python data types and data structures.</p>
+</section>
+<section id="lists-as-objects" class="slide level2">
+<h2>Lists as Objects</h2>
+<p><em>What does it contain?</em></p>
+<ul>
+<li><p><strong>Value</strong>: the contents of the list, such as <code>[2, 3, 4]</code>.</p></li>
+<li><p><strong>Attributes</strong>: None.</p></li>
+</ul>
+<p><em>What can it do?</em></p>
+<ul>
+<li><strong>Methods</strong> that can be used on the object: <code>chrNum.count(2)</code> returns the number of instances 2 appears as an element of <code>chrNum</code>.</li>
+</ul>
+</section>
+<section id="methods-vs-functions" class="slide level2">
+<h2>Methods vs Functions</h2>
+<p><strong>Methods</strong> <em>have to</em> take in the object of interest as an input: <code>chrNum.count(2)</code> automatically treat <code>chrNum</code> as an input. Methods are built for a specific Object type.</p>
+<p><strong>Functions</strong> do not have an implied input: <code>len(chrNum)</code> requires specifying a list in the input.</p>
+<p>Otherwise, no distinction between the two.</p>
+</section>
+<section id="dataframes" class="slide level2">
+<h2>Dataframes</h2>
+<p>A Dataframe is a two-dimensional data structure that is similar to a spreadsheet.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb17-2"><a href="#cb17-2"></a></span>
+<span id="cb17-3"><a href="#cb17-3"></a>metadata <span class="op">=</span> pd.read_csv(<span class="st">"../classroom_data/metadata.csv"</span>)</span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="bu">type</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>pandas.core.frame.DataFrame</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Let’s investigate the Dataframe as an object:</p>
+<ul>
+<li><p><em>What does a Dataframe contain? (values, attributes)</em></p>
+<ul>
+<li>the spreadsheet, columns, column names, shape, subsetting</li>
+</ul></li>
+<li><p><em>What can a Dataframe do?</em> <em>(methods)</em></p>
+<ul>
+<li><code>.head()</code>, <code>.tail()</code></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="what-does-a-dataframe-contain" class="slide level2">
+<h2>What does a Dataframe contain?</h2>
+<p>Attributes: columns</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>metadata.ModelID</span>
+<span id="cb19-2"><a href="#cb19-2"></a>metadata[<span class="st">'ModelID'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>0       ACH-000001
+1       ACH-000002
+2       ACH-000003
+3       ACH-000004
+4       ACH-000005
+           ...    
+1859    ACH-002968
+1860    ACH-002972
+1861    ACH-002979
+1862    ACH-002981
+1863    ACH-003071
+Name: ModelID, Length: 1864, dtype: object</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Attribute: column names</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>metadata.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>Index(['ModelID', 'PatientID', 'CellLineName', 'StrippedCellLineName', 'Age',
+       'SourceType', 'SangerModelID', 'RRID', 'DepmapModelType', 'AgeCategory',
+       'GrowthPattern', 'LegacyMolecularSubtype', 'PrimaryOrMetastasis',
+       'SampleCollectionSite', 'Sex', 'SourceDetail', 'LegacySubSubtype',
+       'CatalogNumber', 'CCLEName', 'COSMICID', 'PublicComments',
+       'WTSIMasterCellID', 'EngineeredModel', 'TreatmentStatus',
+       'OnboardedMedia', 'PlateCoating', 'OncotreeCode', 'OncotreeSubtype',
+       'OncotreePrimaryDisease', 'OncotreeLineage'],
+      dtype='object')</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Attribute: shape</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>metadata.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>(1864, 30)</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframe-subsetting" class="slide level2">
+<h2>Dataframe subsetting</h2>
+<p>Using the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html"><code>iloc</code></a> attribute and bracket operations, you give two slices: one for the row, and one for the column.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">'status'</span>: [<span class="st">"treated"</span>, <span class="st">"untreated"</span>, <span class="st">"untreated"</span>, <span class="st">"discharged"</span>, <span class="st">"treated"</span>],</span>
+<span id="cb25-2"><a href="#cb25-2"></a>                            <span class="st">'age_case'</span>: [<span class="dv">25</span>, <span class="dv">43</span>, <span class="dv">21</span>, <span class="dv">65</span>, <span class="dv">7</span>],</span>
+<span id="cb25-3"><a href="#cb25-3"></a>                            <span class="st">'age_control'</span>: [<span class="dv">49</span>, <span class="dv">20</span>, <span class="dv">32</span>, <span class="dv">25</span>, <span class="dv">32</span>]})</span>
+<span id="cb25-4"><a href="#cb25-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">status</th>
+<th data-quarto-table-cell-role="th">age_case</th>
+<th data-quarto-table-cell-role="th">age_control</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>treated</td>
+<td>25</td>
+<td>49</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>untreated</td>
+<td>43</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>untreated</td>
+<td>21</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>discharged</td>
+<td>65</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>treated</td>
+<td>7</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Subset to the first 4 rows, first 2 columns:</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df.iloc[:<span class="dv">4</span>, :<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">status</th>
+<th data-quarto-table-cell-role="th">age_case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>treated</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>untreated</td>
+<td>43</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>untreated</td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>discharged</td>
+<td>65</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframe-subsetting-1" class="slide level2">
+<h2>Dataframe subsetting</h2>
+<p>If we want a custom slice that is not sequential, we can use an integer list.</p>
+<p>Subset the first 3 rows, and the 1st and 3rd column:</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df.iloc[:<span class="dv">3</span>, [<span class="dv">0</span>, <span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">status</th>
+<th data-quarto-table-cell-role="th">age_control</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>treated</td>
+<td>49</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>untreated</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>untreated</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="footer footer-default">
+
 </div>
 </section>
     </div>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="lesson1_slides_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="lesson1_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="lesson1_slides_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="lesson1_slides_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lesson2_slides_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -964,13 +850,13 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
+'smaller': true,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': false,
+'smaller': true,
  
         // Display controls in the bottom right corner
         controls: false,
@@ -1148,17 +1034,6 @@
           RevealZoom
         ]
       });
-    </script>
-    <script type="ojs-module-contents">
-    {"contents":[]}
-    </script>
-    <script type="module">
-    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-    window._ojs.paths.runtimeToDoc = "../../..";
-    window._ojs.paths.runtimeToRoot = "../../..";
-    window._ojs.paths.docToRoot = "";
-    window._ojs.selfContained = false;
-    window._ojs.runtime.interpretFromScriptTags();
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {

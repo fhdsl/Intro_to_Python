@@ -1,0 +1,65 @@
+---
+title: "Untitled"
+format: revealjs
+editor: visual
+---
+
+## Grammar Structure 3: Evaluation of Functions
+
+A function has a **function name**, **input** **arguments**, and **returns** a data type.
+
+::: callout-tip
+## Execution rule for functions:
+
+A function's input arguments, when there's more than one, can be specified by:
+
+-   The order the input given: `pow(2, 3)` is different than `pow(3, 2)`.
+
+-   The name of the input argument: `pow(base=2, exp=3)`.
+
+If the arguments contain expressions, evaluate those expressions first!
+:::
+
+## Examples
+
+```{python}
+pow(2, 3)
+```
+
+```{python}
+pow(base=2, exp=3)
+```
+
+```{python}
+pow(exp=3, base=2)
+```
+
+. . .
+
+```{python}
+max(len("hello"), 4)
+```
+
+## Learning a new function
+
+1.  Function documentation
+
+```         
+?pow
+
+pow(base, exp, mod=None)
+Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
+ 
+Some types, such as ints, are able to use a more efficient algorithm when
+invoked using the three argument form.
+```
+
+. . .
+
+2.  Documents page of a Python Module
+
+[Base Python documentation of `pow`](https://docs.python.org/3/library/functions.html#pow)
+
+. . .
+
+3.  Forums vetted by experts, such as [SlackOverflow](https://stackoverflow.com/questions/tagged/pow+python)
