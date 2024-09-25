@@ -67,18 +67,7 @@ chrNum[1:3]
 ## [3, 1]
 ```
 
-If you want to access everything but the first three elements of `chrNum`:
-
-
-``` python
-chrNum[3:]
-```
-
-```
-## [2, 2]
-```
-
-Here, the stop index number was not specificed. When the start or stop index is *not* specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively:
+Another way of accessing the first 3 elements of `chrNum`:
 
 
 ``` python
@@ -89,15 +78,18 @@ chrNum[:3]
 ## [2, 3, 1]
 ```
 
+Here, the start index number was not specified. When the start or stop index is *not* specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively. Here's another example, using negative indicies to count from 3 elements from the end of the list:
+
+
 ``` python
-chrNum[3:]
+chrNum[-3:]
 ```
 
 ```
-## [2, 2]
+## [1, 2, 2]
 ```
 
-There are other popular uses of the slice operator `:`, such as negative indicies to count from the end of a list, or subsetting with a fixed increment. You can find more discussion of list slicing [here](https://wesmckinney.com/book/python-builtin#list_slicing).
+You can find more discussion of list slicing, using negative indicies and incremental slicing, [here](https://towardsdatascience.com/the-basics-of-indexing-and-slicing-python-lists-2d12c90a94cf).
 
 ## Objects in Python
 
@@ -105,7 +97,7 @@ The list data structure has an organization and functionality that metaphoricall
 
 -   What does it contain (in terms of data)?
 
--   What can it do (in terms of operations and functions)?
+-   What can it do (in terms of functions)?
 
 And if it "makes sense" to us, then it is well-designed.
 
@@ -113,9 +105,9 @@ The list data structure we have been working with is an example of an **Object**
 
 -   **Value** that holds the essential data for the object.
 
--   **Attributes** that store additional data for the object.
+-   **Attributes** that hold subset or additional data for the object.
 
--   Functions called **Methods** that can be used on the object.
+-   Functions called **Methods** that automatically takes the object as input.
 
 This organizing structure on an object applies to pretty much all Python data types and data structures.
 
@@ -137,6 +129,14 @@ Here are some more examples of methods with lists:
 | [`chrNum.append(x)`](https://docs.python.org/3/tutorial/datastructures.html) | list `chrNum`, data type `x` | Appends `x` to the end of the `chrNum`.                               | None (but `chrNum` is modified!) |
 | [`chrNum.sort()`](https://docs.python.org/3/tutorial/datastructures.html)    | list `chrNum`                | Sorts `chrNum` by ascending order.                                    | None (but `chrNum` is modified!) |
 | [`chrNum.reverse()`](https://docs.python.org/3/tutorial/datastructures.html) | list `chrNum`                | Reverses the order of `chrNum`.                                       | None (but `chrNum` is modified!) |
+
+## Methods vs Functions
+
+**Methods** *have to* take in the object of interest as an input: `chrNum.count(2)` automatically treat `chrNum` as an input. Methods are built for a specific Object type.
+
+**Functions** do not have an implied input: `len(chrNum)` requires specifying a list in the input.
+
+Otherwise, there is no strong distinction between the two.
 
 ## Dataframes
 
@@ -162,11 +162,11 @@ There is a similar function [`pd.read_excel()`](https://pandas.pydata.org/docs/r
 
 Let's investigate the Dataframe as an object:
 
--   What does a Dataframe contain (in terms of data)?
+-   What does a Dataframe contain (values, attributes)?
 
--   What can a Dataframe do (in terms of operations and functions)?
+-   What can a Dataframe do (methods)?
 
-### What does a Dataframe contain (in terms of data)?
+## What does a Dataframe contain?
 
 We first take a look at the contents:
 
@@ -193,6 +193,28 @@ metadata
 ```
 
 It looks like there are 1864 rows and 30 columns in this Dataframe, and when we display it it shows some of the data.
+
+
+``` python
+metadata
+```
+
+```
+##          ModelID  ...       OncotreeLineage
+## 0     ACH-000001  ...  Ovary/Fallopian Tube
+## 1     ACH-000002  ...               Myeloid
+## 2     ACH-000003  ...                 Bowel
+## 3     ACH-000004  ...               Myeloid
+## 4     ACH-000005  ...               Myeloid
+## ...          ...  ...                   ...
+## 1859  ACH-002968  ...     Esophagus/Stomach
+## 1860  ACH-002972  ...     Esophagus/Stomach
+## 1861  ACH-002979  ...     Esophagus/Stomach
+## 1862  ACH-002981  ...     Esophagus/Stomach
+## 1863  ACH-003071  ...                  Lung
+## 
+## [1864 rows x 30 columns]
+```
 
 We can look at specific columns by looking at **attributes** via the dot operation. We can also look at the columns via the bracket operation.
 
@@ -265,7 +287,7 @@ metadata.shape
 ## (1864, 30)
 ```
 
-### What can a Dataframe do (in terms of operations and functions)?
+## What can a Dataframe do?
 
 We can use the [`.head()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html) and [`.tail()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.tail.html) methods to look at the first few rows and last few rows of `metadata`, respectively:
 
@@ -302,11 +324,11 @@ metadata.tail()
 
 Both of these functions (without input arguments) are considered as **methods**: they are functions that does something with the Dataframe you are using it on. You should think about `metadata.head()` as a function that takes in `metadata` as an input. If we had another Dataframe called `my_data` and you want to use the same function, you will have to say `my_data.head()`.
 
-#### Subsetting Dataframes
+## Subsetting Dataframes 
 
 Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists.
 
-You will use the [`iloc`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html) and bracket operations, and you give two slices: one for the row, and one for the column.
+You will use the [`iloc`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html) attribute and bracket operations, and you give two slices: one for the row, and one for the column.
 
 Let's start with a small dataframe to see how it works before returning to `metadata`:
 
@@ -331,9 +353,9 @@ Here is how the dataframe looks like with the row and column index numbers:
 
 ![](images/pandas_subset_0.png)
 
-Subset the second to fourth rows, and the first two columns:
+Subset the first fourth rows, and the first two columns:
 
-![](images/pandas_subset_1.png)
+![](images/pandas subset_1.png)
 
 Now, back to `metadata` dataframe:
 

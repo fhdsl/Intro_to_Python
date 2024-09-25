@@ -305,7 +305,7 @@ plt.show()
 
 ![](resources/images/03-data-wrangling1_files/figure-docx/unnamed-chunk-12-3.png)<!-- -->
 
-(The `plt.figure()` and `plt.show()` functions are used to render the plots on the website, but you don't need to use it for your exercises - yet. We will discuss this in more detail during our week of data visualization.)
+(The `plt.figure()` and `plt.show()` functions are used to render the plots on the website, but you don't need to use it for your exercises. We will discuss this in more detail during our week of data visualization.)
 
 #### Chained function calls
 

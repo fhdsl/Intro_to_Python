@@ -8,8 +8,8 @@ what-is-a-computer-program
 a-programming-language-has-following-elements
 google-colab-setup
 grammar-structure-1-evaluation-of-expressions
-data-types
 function-machine-schema
+data-types
 grammar-structure-2-storing-data-types-in-the-variable-environment
 execution-rule-for-variable-assignment
 grammar-structure-3-evaluation-of-functions
@@ -21,9 +21,10 @@ lists
 subsetting-lists
 subsetting-multiple-elements-of-lists
 objects-in-python
+methods-vs-functions
 dataframes
-what-does-a-dataframe-contain-in-terms-of-data
-what-can-a-dataframe-do-in-terms-of-operations-and-functions
+what-does-a-dataframe-contain
+what-can-a-dataframe-do
 subsetting-dataframes
 exercises-1
 data-wrangling-part-1
