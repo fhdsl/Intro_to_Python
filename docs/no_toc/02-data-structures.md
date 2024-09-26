@@ -107,7 +107,7 @@ The list data structure we have been working with is an example of an **Object**
 
 -   **Attributes** that hold subset or additional data for the object.
 
--   Functions called **Methods** that automatically takes the object as input.
+-   Functions called **Methods** that are for the object and *have to* take in the variable referenced as an input
 
 This organizing structure on an object applies to pretty much all Python data types and data structures.
 
