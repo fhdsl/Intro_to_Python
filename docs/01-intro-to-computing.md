@@ -319,7 +319,7 @@ And there is an operational equivalent:
 We will mostly look at functions with input arguments and return types in this course, but not all functions need to have input arguments and output return. Let's look at some examples of functions that don't always have an input or output:
 
 | Function call                                                             | What it takes in         | What it does                                                  | Returns |
-|----------------|----------------|-------------------------|----------------|
+|---------------------------------------------------------------------------|--------------------------|---------------------------------------------------------------|---------|
 | [`pow(a, b)`](https://docs.python.org/3/library/functions.html#pow)       | integer `a`, integer `b` | Raises `a` to the `b`th power.                                | Integer |
 | [`time.sleep(x)`](https://docs.python.org/3/library/time.html#time.sleep) | Integer `x`              | Waits for `x` seconds.                                        | None    |
 | [`dir()`](https://docs.python.org/3/library/functions.html#dir)           | Nothing                  | Gives a list of all the variables defined in the environment. | List    |
