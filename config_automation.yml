@@ -7,7 +7,7 @@ url-checker: yes
 # Render preview of content with changes (Rmd's and md's are checked)
 render-preview: yes
 # Spell check Rmds and quizzes
-spell-check: no
+spell-check: yes
 # Style any R code
 style-code: yes
 # Test build the docker image if any docker-relevant files have been changed
@@ -27,4 +27,4 @@ make-book-txt: yes
 
 # What docker image should be used for rendering?
 # The default is jhudsl/base_ottr:main
-rendering-docker-image: 'jhudsl/ottr_python:main'
+rendering-docker-image: 'jhudsl/base_ottr:main'
