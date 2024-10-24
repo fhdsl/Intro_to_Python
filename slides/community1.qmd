@@ -1,0 +1,63 @@
+---
+title: "Python Community Session 1"
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+output-location: fragment
+---
+
+## Agenda
+
+-   45 min: Practice and Explore
+
+    -   [TidyTuesday open-ended exploration](https://colab.research.google.com/drive/12gyWXbitDrOZPaqMurKAjxOCE4JttmYr?usp=sharing)
+
+    -   [TidyTuesday guided exploration](https://colab.research.google.com/drive/1-9xTTBINzxluApJAd5x56d50aSYhCLxr?usp=sharing)
+
+    -   Intro to Python week 3 exercises
+
+-   Share what you made? :) :) :)
+
+-   30 min: Topics of interest
+
+## [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+
+*"Our over-arching goal for TidyTuesday is to make it easier to learn to work with data, by providing real-world datasets \[to practice on and [share with others](https://x.com/search?q=%23tidytuesday%20&src=typed_query&f=top)\]!"*
+
+This week's TidyTuesday: [National Park Species Database](https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-10-08/readme.md).
+
+## Goal for Intro to Python students
+
+**Make a few implicit dataframe subsets**, in the week 3 exercise, or in the TidyTuesday exploration.
+
+Muddled by the syntax? [Here's some more detailed explanation.](https://colab.research.google.com/drive/1NmFx2tK0coi2O44eldz8RHDH6POOmAFE?usp=sharing)
+
+## How to find new functions and methods
+
+Suppose you want to learn more about Pandas Dataframes:
+
+[Package documentation page](https://pandas.pydata.org/docs/index.html)
+
+[Newcomer tutorials](https://pandas.pydata.org/docs/user_guide/10min.html)
+
+-   How to install the module?
+
+-   How to load in the module? What are some module methods?
+
+-   What kind of Objects are available for use?
+
+## What kind of Objects are available for use?
+
+-   How to construct or load an Object?
+
+-   *What does it contain?*
+
+    -   **Value** that holds the essential data for the object.
+
+    -   **Attributes** that hold subset of the data or additional data for the object.
+
+-   *What can it do?*
+
+    -   Functions called **Methods** specific to the data type and automatically takes the object as input.

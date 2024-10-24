@@ -12,6 +12,10 @@ output-location: fragment
 
 ![](https://hutchdatascience.org/Intro_to_R/images/gator_error.jpg)
 
+. . .
+
+What is a problem you encountered and fixed recently?
+
 ## Lists
 
 **List** is a **data structure** that stores many elements of various data types, and the order matters.
@@ -239,6 +243,12 @@ Subset the first 3 rows, and the 1st and 3rd column:
 df.iloc[:3, [0, 2]]
 ```
 
+## Ask me two questions!
+
+How did class go for you today?
+
+<https://forms.gle/8EGdEqcsp82GP82U9>
+
 ## Objects in Python
 
 Formally, an object contains the following:
@@ -291,10 +301,12 @@ This organizing structure on an object applies to pretty much all Python data ty
 
 -   `.tail()`
 
+## 
+
 ## Appendix: Functions and Methods that don't always have an input or output:
 
 | Function call                                                                | What it takes in             | What it does                                                  | Returns                          |
-|------------------|------------------|--------------------|------------------|
+|------------------------------------------------------------------------------|------------------------------|---------------------------------------------------------------|----------------------------------|
 | [`pow(a, b)`](https://docs.python.org/3/library/functions.html#pow)          | integer `a`, integer `b`     | Raises `a` to the `b`th power.                                | Integer                          |
 | [`time.sleep(x)`](https://docs.python.org/3/library/time.html#time.sleep)    | Integer `x`                  | Waits for `x` seconds.                                        | None                             |
 | [`dir()`](https://docs.python.org/3/library/functions.html#dir)              | Nothing                      | Gives a list of all the variables defined in the environment. | List                             |

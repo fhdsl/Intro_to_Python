@@ -65,7 +65,7 @@ expression.head()
 ```
 
 | Dataframe  | The observation is | Some variables are            | Some values are             |
-|-----------------|-----------------|--------------------|------------------|
+|------------|--------------------|-------------------------------|-----------------------------|
 | metadata   | Cell line          | ModelID, Age, OncotreeLineage | "ACH-000001", 60, "Myeloid" |
 | expression | Cell line          | KRAS_Exp                      | 2.4, .3                     |
 | mutation   | Cell line          | KRAS_Mut                      | TRUE, FALSE                 |
@@ -82,9 +82,9 @@ Here's a starting prompt:
 
 We have been using **explicit subsetting** with numerical indicies, such as "I want to filter for rows 20-50 and select columns 2 and 8". We are now going to switch to **implicit subsetting** in which we describe the subsetting criteria via comparision operators and column names, such as:
 
-*"I want to subset for rows such that the OncotreeLineage is breast cancer and subset for columns Age and Sex."*
+*"I want to subset for rows such that the OncotreeLineage is lung cancer and subset for columns Age and Sex."*
 
-Notice that when we subset for rows in an implicit way, we formulate our criteria in terms of the columns.This is because we are guaranteed to have column names in Dataframes, but not row names.
+Notice that when we subset for rows in an implicit way, we formulate our criteria in terms of the columns. This is because we are guaranteed to have column names in Dataframes, but not row names.
 
 #### Let's convert our implicit subsetting criteria into code!
 
@@ -94,7 +94,7 @@ To subset for rows implicitly, we will use the conditional operators on Datafram
 metadata['OncotreeLineage'] == "Lung"
 ```
 
-Then, we will use the [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html) operation (which is different than [`.iloc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html) operation!) and subsetting brackets to subset rows and columns Age and Sex at the same time:
+Then, we will use the [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html) attribute (which is different than [`.iloc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html) attribute!) and subsetting brackets to subset rows and columns Age and Sex at the same time:
 
 ```{python}
 metadata.loc[metadata['OncotreeLineage'] == "Lung", ["Age", "Sex"]]
@@ -127,7 +127,7 @@ Now that your Dataframe has be transformed based on your scientific question, yo
 If we look at the data structure of a Dataframe's column, it is actually not a List, but an object called Series. It has methods can compute summary statistics for us. Let's take a look at a few popular examples:
 
 | Function method                                                                                                           | What it takes in                              | What it does                                                                  | Returns       |
-|----------------|----------------|------------------------|----------------|
+|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|-------------------------------------------------------------------------------|---------------|
 | [`metadata.Age.mean()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.mean.html)                             | `metadata.Age` as a numeric Series            | Computes the mean value of the `Age` column.                                  | Float (NumPy) |
 | [`metadata['Age'].median()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.median.html)                      | `metadata['Age']` as a numeric Series         | Computes the median value of the `Age` column.                                | Float (NumPy) |
 | [`metadata.Age.max()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.max.html)                               | `metadata.Age` as a numeric Series            | Computes the max value of the `Age` column.                                   | Float (NumPy) |
@@ -147,7 +147,7 @@ Notice that the output of some of these methods are Float (NumPy). This refers t
 We will dedicate extensive time later this course to talk about data visualization, but the Dataframe's column, Series, has a method called [`.plot()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.plot.html) that can help us make simple plots for one variable. The `.plot()` method will by default make a line plot, but it is not necessary the plot style we want, so we can give the optional argument `kind` a String value to specify the plot style. We use it for making a histogram or bar plot.
 
 | Plot style | Useful for | kind = | Code                                                         |
-|-------------|-------------|-------------|---------------------------------|
+|------------|------------|--------|--------------------------------------------------------------|
 | Histogram  | Numerics   | "hist" | `metadata.Age.plot(kind = "hist")`                           |
 | Bar plot   | Strings    | "bar"  | `metadata.OncotreeSubtype.value_counts().plot(kind = "bar")` |
 

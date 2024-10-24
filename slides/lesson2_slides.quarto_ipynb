@@ -1,0 +1,575 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"W2: Working with Data Structures\"\n",
+        "format: \n",
+        "  revealjs:\n",
+        "    smaller: true\n",
+        "    scrollable: true\n",
+        "    echo: true\n",
+        "output-location: fragment\n",
+        "---\n",
+        "\n",
+        "\n",
+        "## Solving problems...\n",
+        "\n",
+        "![](https://hutchdatascience.org/Intro_to_R/images/gator_error.jpg)\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "What is a problem you encountered and fixed recently?\n",
+        "\n",
+        "## Lists\n",
+        "\n",
+        "**List** is a **data structure** that stores many elements of various data types, and the order matters.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "You can create a List via the bracket `[ ]` operator:\n"
+      ],
+      "id": "7d0d4b13"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "staff = [\"chris\", \"ted\", \"jeff\"]\n",
+        "chrNum = [2, 3, 1, 2, 2]\n",
+        "mixedList = [False, False, False, \"A\", \"B\", 92]"
+      ],
+      "id": "bfa6a8a5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "How long is a list?\n"
+      ],
+      "id": "0add978b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "len(staff)"
+      ],
+      "id": "0f45af7e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Subset to an element of a list\n",
+        "\n",
+        "You can access the elements of a list via its \"index number\", starting at 0.\n",
+        "\n",
+        "![](../images/list_subset_0.png){width=\"200\"}\n"
+      ],
+      "id": "5869ee3f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "chrNum[0]"
+      ],
+      "id": "1f42e752",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n"
+      ],
+      "id": "c899d0c5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "chrNum[2]"
+      ],
+      "id": "ebb05931",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "Let the fifth element of `chrNum` be the sum of first and second element of `chrNum`:\n",
+        "\n",
+        ". . .\n"
+      ],
+      "id": "1da6947d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "chrNum[4] = chrNum[0] + chrNum[1]"
+      ],
+      "id": "3e6b00c3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n"
+      ],
+      "id": "0700356f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "chrNum"
+      ],
+      "id": "d13769bb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Subsetting multiple elements of lists\n",
+        "\n",
+        "Suppose you want to access the first three elements of `chrNum`.\n"
+      ],
+      "id": "eeb2a82e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "chrNum"
+      ],
+      "id": "d7e22ecc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "You can use the **slice** operator `:` to specify,\n"
+      ],
+      "id": "8e9badb8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "chrNum[:3]"
+      ],
+      "id": "21431a37",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "The last three elements:\n"
+      ],
+      "id": "49a3aeaa"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "chrNum[-3:]"
+      ],
+      "id": "11bc4653",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "The slice `:` represents the start or the end of the List. We also have negative indicies that help us count backwards.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Learn more about subsetting lists [in full complexity](https://towardsdatascience.com/the-basics-of-indexing-and-slicing-python-lists-2d12c90a94cf).\n",
+        "\n",
+        "## List Methods\n",
+        "\n",
+        "**Methods** are functions for a specific data structure, such as a list.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "`chrNum.count(2)` is a method for lists with `chrNum` and 2 as inputs.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "The method returns the number of instances 2 appears as an element of `chrNum`.\n",
+        "\n",
+        ". . .\n"
+      ],
+      "id": "874310d9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "chrNum = [2, 3, 1, 2, 2]"
+      ],
+      "id": "52dbe774",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n"
+      ],
+      "id": "b635b9cc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "chrNum.count(2)"
+      ],
+      "id": "8738a141",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n"
+      ],
+      "id": "cd4bee04"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "mixedList"
+      ],
+      "id": "b5d3e189",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n"
+      ],
+      "id": "84ca41f3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "mixedList.count(False)"
+      ],
+      "id": "ca9d8bc5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "[More examples here](https://hutchdatascience.org/Intro_to_Python/working-with-data-structures.html#objects-in-python).\n",
+        "\n",
+        "## Methods vs Functions\n",
+        "\n",
+        "**Methods** are for a specific data type and *have to* take in the variable referenced as an input: `chrNum.count(2)` automatically treat `chrNum` as an input.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "**Functions** do not have an implied input: `len(chrNum)` requires specifying a list in the input. Functions are less tied to a data type: `len(\"hello\")` is appropriate for Strings.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Otherwise, no distinction between the two.\n",
+        "\n",
+        "## Objects in Python\n",
+        "\n",
+        "In a List, we have explored:\n",
+        "\n",
+        "-   *What does it contain* (in terms of data)?\n",
+        "\n",
+        "-   *What can it do* (in terms of methods)?\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Such organization is called an **Object**. Pretty much every data type and structure in Python is an object. We will formalize this later.\n",
+        "\n",
+        "## Dataframes\n",
+        "\n",
+        "A Dataframe is a two-dimensional data structure that is similar to a spreadsheet.\n"
+      ],
+      "id": "2ab26eca"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "metadata = pd.read_csv(\"../classroom_data/metadata.csv\")\n",
+        "type(metadata)"
+      ],
+      "id": "1509423f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "Let's investigate the Dataframe as an object:\n",
+        "\n",
+        "-   *What does a Dataframe contain (data)?*\n",
+        "\n",
+        "    -   the spreadsheet, columns, column names, shape, subsetting\n",
+        "\n",
+        "-   *What can a Dataframe do?* *(methods)*\n",
+        "\n",
+        "    -   `.head()`, `.tail()`\n",
+        "\n",
+        "## What does a Dataframe contain?\n",
+        "\n",
+        "Columns\n"
+      ],
+      "id": "0243860f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metadata.ModelID\n",
+        "metadata['ModelID']"
+      ],
+      "id": "ff414eb5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "Column names\n"
+      ],
+      "id": "53c24615"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metadata.columns"
+      ],
+      "id": "2c77b76e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "Shape\n"
+      ],
+      "id": "1ce22ae5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metadata.shape"
+      ],
+      "id": "15343e6d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Dataframe subsetting\n",
+        "\n",
+        "Using [`iloc`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html) and bracket operations, you give two slices: one for the row, and one for the column.\n"
+      ],
+      "id": "679882e5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df = pd.DataFrame(data={'status': [\"treated\", \"untreated\", \"untreated\", \"discharged\", \"treated\"],\n",
+        "                            'age_case': [25, 43, 21, 65, 7],\n",
+        "                            'age_control': [49, 20, 32, 25, 32]})\n",
+        "df"
+      ],
+      "id": "d9b2e281",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "Subset to the first 4 rows, first 2 columns:\n"
+      ],
+      "id": "0167428c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.iloc[:4, :2]"
+      ],
+      "id": "71800e9c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Dataframe subsetting\n",
+        "\n",
+        "If we want a custom slice that is not sequential, we can use an integer list.\n",
+        "\n",
+        "Subset the first 3 rows, and the 1st and 3rd column:\n"
+      ],
+      "id": "b493d287"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.iloc[:3, [0, 2]]"
+      ],
+      "id": "6f630550",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Ask me two questions!\n",
+        "\n",
+        "How did class go for you today?\n",
+        "\n",
+        "<https://forms.gle/8EGdEqcsp82GP82U9>\n",
+        "\n",
+        "## Objects in Python\n",
+        "\n",
+        "Formally, an object contains the following:\n",
+        "\n",
+        "*What does it contain?*\n",
+        "\n",
+        "-   **Value** that holds the essential data for the object.\n",
+        "\n",
+        "-   **Attributes** that hold subset of the data or additional data for the object.\n",
+        "\n",
+        "*What can it do?*\n",
+        "\n",
+        "-   Functions called **Methods** specific to the data type and automatically takes the object as input.\n",
+        "\n",
+        "This organizing structure on an object applies to pretty much all Python data types and data structures.\n",
+        "\n",
+        "## Lists as an Object\n",
+        "\n",
+        "*What does it contain?*\n",
+        "\n",
+        "-   **Value**: the contents of the list, such as `[2, 3, 4]`.\n",
+        "\n",
+        "-   **Attributes**: subsetting via `[ ]`.\n",
+        "\n",
+        "*What can it do (methods)?*\n",
+        "\n",
+        "-   `chrNum.count(2)` returns the number of instances 2 appears as an element of `chrNum`.\n",
+        "\n",
+        "-   `chrNum.append(4)` appends 4 to the last element of `chrNum`, but does not return anything.\n",
+        "\n",
+        "## Dataframe as an Object\n",
+        "\n",
+        "*What does it contain?*\n",
+        "\n",
+        "-   **Value**: the spreadsheet of data.\n",
+        "\n",
+        "-   **Attributes**:\n",
+        "\n",
+        "    -   Columns of the data\n",
+        "\n",
+        "    -   `.columns`\n",
+        "\n",
+        "    -   `.shape`\n",
+        "\n",
+        "    -   `.iloc[ , ]` for subsetting\n",
+        "\n",
+        "*What can it do (methods)?*\n",
+        "\n",
+        "-   `.head()`\n",
+        "\n",
+        "-   `.tail()`\n",
+        "\n",
+        "## \n",
+        "\n",
+        "## Appendix: Functions and Methods that don't always have an input or output:\n",
+        "\n",
+        "| Function call                                                                | What it takes in             | What it does                                                  | Returns                          |\n",
+        "|------------------------------------------------------------------------------|------------------------------|---------------------------------------------------------------|----------------------------------|\n",
+        "| [`pow(a, b)`](https://docs.python.org/3/library/functions.html#pow)          | integer `a`, integer `b`     | Raises `a` to the `b`th power.                                | Integer                          |\n",
+        "| [`time.sleep(x)`](https://docs.python.org/3/library/time.html#time.sleep)    | Integer `x`                  | Waits for `x` seconds.                                        | None                             |\n",
+        "| [`dir()`](https://docs.python.org/3/library/functions.html#dir)              | Nothing                      | Gives a list of all the variables defined in the environment. | List                             |\n",
+        "| [`chrNum.append(x)`](https://docs.python.org/3/tutorial/datastructures.html) | list `chrNum`, data type `x` | Appends `x` to the end of the `chrNum`.                       | None (but `chrNum` is modified!) |\n",
+        "| [`chrNum.sort()`](https://docs.python.org/3/tutorial/datastructures.html)    | list `chrNum`                | Sorts `chrNum` by ascending order.                            | None (but `chrNum` is modified!) |"
+      ],
+      "id": "50fd202c"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

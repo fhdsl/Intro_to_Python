@@ -105,7 +105,7 @@ Object methods are functions that does something with the object you are using i
 Here are some more examples of methods with lists:
 
 | Function method                                                              | What it takes in             | What it does                                                          | Returns                          |
-|---------------|---------------|---------------------------|---------------|
+|------------------------------------------------------------------------------|------------------------------|-----------------------------------------------------------------------|----------------------------------|
 | [`chrNum.count(x)`](https://docs.python.org/3/tutorial/datastructures.html)  | list `chrNum`, data type `x` | Counts the number of instances `x` appears as an element of `chrNum`. | Integer                          |
 | [`chrNum.append(x)`](https://docs.python.org/3/tutorial/datastructures.html) | list `chrNum`, data type `x` | Appends `x` to the end of the `chrNum`.                               | None (but `chrNum` is modified!) |
 | [`chrNum.sort()`](https://docs.python.org/3/tutorial/datastructures.html)    | list `chrNum`                | Sorts `chrNum` by ascending order.                                    | None (but `chrNum` is modified!) |
@@ -186,7 +186,7 @@ metadata.tail()
 
 Both of these functions (without input arguments) are considered as **methods**: they are functions that does something with the Dataframe you are using it on. You should think about `metadata.head()` as a function that takes in `metadata` as an input. If we had another Dataframe called `my_data` and you want to use the same function, you will have to say `my_data.head()`.
 
-## Subsetting Dataframes 
+## Subsetting Dataframes
 
 Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists.
 
@@ -207,7 +207,7 @@ Here is how the dataframe looks like with the row and column index numbers:
 
 Subset the first fourth rows, and the first two columns:
 
-![](images/pandas subset_1.png)
+![](images/pandas%20subset_1.png)
 
 Now, back to `metadata` dataframe:
 
