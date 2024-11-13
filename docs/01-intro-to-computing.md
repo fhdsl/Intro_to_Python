@@ -38,11 +38,13 @@ More importantly: **How we organize ideas \<-\> Instructing a computer to do som
 
 Google Colab is a Integrated Development Environment (IDE) on a web browser. Think about it as Microsoft Word to a plain text editor. It provides extra bells and whistles to using Python that is easier for the user.
 
-Let's open up the KRAS analysis in Google Colab. If you are taking this course while it is in session, the project name is probably named "KRAS Demo" in your Google Classroom workspace. If you are taking this course on your own time, open up...
+Let's open up the KRAS analysis in Google Colab. If you are taking this course while it is in session, the project name is probably named "KRAS Demo" in your Google Classroom workspace. If you are taking this course on your own time, you can view it [here](https://colab.research.google.com/drive/1_77QQcj0mgZOWLlhtkZ-QKWUP1dnSt-_?usp=sharing).
+
+![](images/colab.png){width="800"}
 
 Today, we will pay close attention to:
 
--   Python Console (Execution): Open it via View -\> Executed code history. You give it one line of Python code, and the console executes that single line of code; you give it a single piece of instruction, and it executes it for you.
+-   Python Console ("Executions"): Open it via View -\> Executed code history. You give it one line of Python code, and the console executes that single line of code; you give it a single piece of instruction, and it executes it for you.
 
 -   Notebook: in the central panel of the website, you will see Python code interspersed with word document text. This is called a Python Notebook (other similar services include Jupyter Notebook, iPython Notebook), which has chunks of plain text *and* Python code, and it helps us understand better the code we are writing.
 
@@ -50,7 +52,7 @@ Today, we will pay close attention to:
 
 The first thing we will do is see the different ways we can run Python code. You can do the following:
 
-1.  Type something into the Python Console (Execution) and type enter, such as `2+2`. The Python Console will run it and give you an output.
+1.  Type something into the Python Console (Execution) and click the arrow button, such as `2+2`. The Python Console will run it and give you an output.
 2.  Look through the Python Notebook, and when you see a chunk of Python Code, click the arrow button. It will copy the Python code chunk to the Python Console and run all of it. You will likely see variables created in the Variables panel as you load in and manipulate data.
 3.  Run every single Python code chunk via Runtime -\> Run all.
 
@@ -66,13 +68,15 @@ Python Notebook is great for data science work, because:
 
 -   It is flexible to use other programming languages, such as R.
 
+The version of Python used in this course and in Google Colab is Python 3, which is the version of Python that is most supported. Some Python software is written in Python 2, which is very similar but has some [notable differences](https://www.fullstackpython.com/python-2-or-3.html).
+
 Now, we will get to the basics of programming grammar.
 
 ## Grammar Structure 1: Evaluation of Expressions
 
 -   **Expressions** are be built out of **operations** or **functions**.
 
--   Functions and operations take in **data types**, do something with them, and return another data type.
+-   Functions and operations take in **data types** as inputs, do something with them, and **return** another data type as ouput.
 
 -   We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.
 
@@ -142,7 +146,19 @@ add(18, add(21, 65))
 ## 104
 ```
 
-Remember that the Python language is supposed to help us understand what we are writing in code easily, lending to *readable* code. Therefore, it is sometimes useful to come up with operations that is easier to read. (Because the `add()` function isn't typically used, it is not automatically available, so we used the import statement to load it in.)
+Remember that the Python language is supposed to help us understand what we are writing in code easily, lending to *readable* code. Therefore, it is sometimes useful to come up with operations that is easier to read. (Most functions in Python are stored in a collection of functions called **modules** that needs to be loaded. The `import` statement gives us permission to access the functions in the module "operator".)
+
+### Function machine schema
+
+A nice way to summarize this first grammar structure is using the function machine schema, way back from algebra class:
+
+![Function machine from algebra class.](images/function_machine.png)
+
+Here are some aspects of this schema to pay attention to:
+
+-   A programmer should not need to know how the function or operation is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.
+
+-   A function can have different kinds of inputs and outputs - it doesn't need to be numbers. In the `len()` function, the input is a String, and the output is an Integer. We will see increasingly complex functions with all sorts of different inputs and outputs.
 
 ### Data types
 
@@ -154,16 +170,6 @@ Here are some common data types we will be using in this course.
 | Float          |          float          |      3.5, -34.1009      |
 | String         |           str           | "hello", "234-234-8594" |
 | Boolean        |          bool           |       True, False       |
-
-A nice way to summarize this first grammar structure is using the function machine schema, way back from algebra class:
-
-![Function machine from algebra class.](images/function_machine.png)
-
-Here are some aspects of this schema to pay attention to:
-
--   A programmer should not need to know how the function is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.
-
--   A function can have different kinds of inputs and outputs - it doesn't need to be numbers. In the `len()` function, the input is a String, and the output is an Integer. We will see increasingly complex functions with all sorts of different inputs and outputs.
 
 ## Grammar Structure 2: Storing data types in the Variable Environment
 
@@ -182,11 +188,11 @@ If you enter this in the Console, you will see that in the Variable Environment,
 >
 > Bind variable to the left of `=` to the resulting value.
 >
-> The variable is stored in the Variable Environment.
+> The variable is stored in the **Variable Environment**.
 
 The Variable Environment is where all the variables are stored, and can be used for an expression anytime once it is defined. Only one unique variable name can be defined.
 
-The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM. When we work with large datasets, if you assign a variable to a data type larger than the available RAM, it will not work. More on this later.
+The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM.
 
 Look, now `x` can be reused downstream:
 
@@ -203,7 +209,7 @@ x - 2
 y = x * 2
 ```
 
-It is quite common for programmers to not know what data type a variable is while they are coding. To learn about the data type of a variable, use the `type()` function on any variable in Python:
+It is quite common for programmers to have to look up the data type of a variable while they are coding. To learn about the data type of a variable, use the `type()` function on any variable in Python:
 
 
 ``` python
@@ -214,7 +220,7 @@ type(y)
 ## <class 'int'>
 ```
 
-We should give useful variable names so that we know what to expect! Consider `num_sales` instead of `y`.
+We should give useful variable names so that we know what to expect! If you are working with numerical sales data, consider `num_sales` instead of `y`.
 
 ## Grammar Structure 3: Evaluation of Functions
 
@@ -222,22 +228,30 @@ Let's look at functions a little bit more formally: A function has a **function 
 
 ### Execution rule for functions:
 
-> Evaluate the function by its arguments, and if the arguments are functions or contains operations, evaluate those functions or operations first.
+> Evaluate the function by its arguments if there's any, and if the arguments are functions or contains operations, evaluate those functions or operations first.
 >
 > The output of functions is called the **returned value**.
 
-Often, we will use multiple functions, in a nested way, or use parenthesis to change the order of operation. Being able to read nested operations, nested functions, and parenthesis is very important. Think about what the Python is going to do step-by--step in the line of code below:
+Often, we will use multiple functions in a nested way, and it is important to understand how the Python console understand the order of operation. We can also use parenthesis to change the order of operation. Think about what the Python is going to do step-by--step in the lines of code below:
 
 
 ``` python
-(len("hello") + 4) * 2
+max(len("hello"), 4)
 ```
 
 ```
-## 18
+## 5
 ```
 
-If we don't know how to use a function, such as `pow()` we can ask for help:
+``` python
+(len("pumpkin") - 8) * 2
+```
+
+```
+## -2
+```
+
+If we don't know how to use a function, such as `pow()`, we can ask for help:
 
 ```         
 ?pow
@@ -249,7 +263,9 @@ Some types, such as ints, are able to use a more efficient algorithm when
 invoked using the three argument form.
 ```
 
-This shows the function takes in three input arguments: `base`, `exp`, and `mod=None`. When an argument has an assigned value of `mod=None`, that means the input argument already has a value, and you don't need to specify anything, unless you want to.
+We can also find a similar help document, in a [nicer rendered form online.](https://docs.python.org/3/library/functions.html#pow) We will practice looking at function documentation throughout the course, because that is a fundamental skill to learn more functions on your own.
+
+The documentation shows the function takes in three input arguments: `base`, `exp`, and `mod=None`. When an argument has an assigned value of `mod=None`, that means the input argument already has a value, and you don't need to specify anything, unless you want to.
 
 The following ways are equivalent ways of using the `pow()` function:
 
@@ -300,13 +316,23 @@ And there is an operational equivalent:
 ## 8
 ```
 
+We will mostly look at functions with input arguments and return types in this course, but not all functions need to have input arguments and output return. Let's look at some examples of functions that don't always have an input or output:
+
+| Function call                                                             | What it takes in         | What it does                                                  | Returns |
+|---------------------------------------------------------------------------|--------------------------|---------------------------------------------------------------|---------|
+| [`pow(a, b)`](https://docs.python.org/3/library/functions.html#pow)       | integer `a`, integer `b` | Raises `a` to the `b`th power.                                | Integer |
+| [`time.sleep(x)`](https://docs.python.org/3/library/time.html#time.sleep) | Integer `x`              | Waits for `x` seconds.                                        | None    |
+| [`dir()`](https://docs.python.org/3/library/functions.html#dir)           | Nothing                  | Gives a list of all the variables defined in the environment. | List    |
+
 ## Tips on writing your first code
 
 `Computer = powerful + stupid`
 
-Even the smallest spelling and formatting changes will cause unexpected output and errors!
+Computers are excellent at doing something specific over and over again, but is extremely rigid and lack flexibility. Here are some tips that is helpful for beginners:
 
--   Write incrementally, test often
+-   Write incrementally, test often.
+
+-   Don't be afraid to break things: it is how we learn how things work in programming.
 
 -   Check your assumptions, especially using new functions, operations, and new data types.
 
@@ -315,3 +341,7 @@ Even the smallest spelling and formatting changes will cause unexpected output a
 -   Ask for help!
 
 To get more familiar with the errors Python gives you, take a look at this [summary of Python error messages](https://betterstack.com/community/guides/scaling-python/python-errors/).
+
+## Exercises
+
+Exercise for week 1 can be found [here](https://colab.research.google.com/drive/1AqVvktGz3LStUyu6dLJFsU2KoqNxgagT?usp=sharing).

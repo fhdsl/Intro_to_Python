@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Data Visualization | Introduction to Python</title>
+  <meta name="description" content="Description about Course/Book." />
+  <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Data Visualization | Introduction to Python" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Description about Course/Book." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Data Visualization | Introduction to Python" />
+  
+  <meta name="twitter:description" content="Description about Course/Book." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="data-wrangling-part-2.html"/>
+<link rel="next" href="about-the-authors.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://hutchdatascience.org/" target="_blank"><img src="assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Course</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#curriculum"><i class="fa fa-check"></i><b>0.1</b> Curriculum</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#target-audience"><i class="fa fa-check"></i><b>0.2</b> Target Audience</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i><b>0.3</b> Learning Objectives</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#offerings"><i class="fa fa-check"></i><b>0.4</b> Offerings</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro-to-computing.html"><a href="intro-to-computing.html"><i class="fa fa-check"></i><b>1</b> Intro to Computing</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#goals-of-the-course"><i class="fa fa-check"></i><b>1.1</b> Goals of the course</a></li>
+<li class="chapter" data-level="1.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#what-is-a-computer-program"><i class="fa fa-check"></i><b>1.2</b> What is a computer program?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro-to-computing.html"><a href="intro-to-computing.html#a-programming-language-has-following-elements"><i class="fa fa-check"></i><b>1.3</b> A programming language has following elements:</a></li>
+<li class="chapter" data-level="1.4" data-path="intro-to-computing.html"><a href="intro-to-computing.html#google-colab-setup"><i class="fa fa-check"></i><b>1.4</b> Google Colab Setup</a></li>
+<li class="chapter" data-level="1.5" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions"><i class="fa fa-check"></i><b>1.5</b> Grammar Structure 1: Evaluation of Expressions</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#function-machine-schema"><i class="fa fa-check"></i><b>1.5.1</b> Function machine schema</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>1.5.2</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-variable-environment"><i class="fa fa-check"></i><b>1.6</b> Grammar Structure 2: Storing data types in the Variable Environment</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-variable-assignment"><i class="fa fa-check"></i><b>1.6.1</b> Execution rule for variable assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-3-evaluation-of-functions"><i class="fa fa-check"></i><b>1.7</b> Grammar Structure 3: Evaluation of Functions</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-functions"><i class="fa fa-check"></i><b>1.7.1</b> Execution rule for functions:</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="intro-to-computing.html"><a href="intro-to-computing.html#tips-on-writing-your-first-code"><i class="fa fa-check"></i><b>1.8</b> Tips on writing your first code</a></li>
+<li class="chapter" data-level="1.9" data-path="intro-to-computing.html"><a href="intro-to-computing.html#exercises"><i class="fa fa-check"></i><b>1.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html"><i class="fa fa-check"></i><b>2</b> Working with data structures</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#lists"><i class="fa fa-check"></i><b>2.1</b> Lists</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-lists"><i class="fa fa-check"></i><b>2.1.1</b> Subsetting lists</a></li>
+<li class="chapter" data-level="2.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-multiple-elements-of-lists"><i class="fa fa-check"></i><b>2.1.2</b> Subsetting multiple elements of lists</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#objects-in-python"><i class="fa fa-check"></i><b>2.2</b> Objects in Python</a></li>
+<li class="chapter" data-level="2.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#methods-vs-functions"><i class="fa fa-check"></i><b>2.3</b> Methods vs Functions</a></li>
+<li class="chapter" data-level="2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Dataframes</a></li>
+<li class="chapter" data-level="2.5" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-does-a-dataframe-contain"><i class="fa fa-check"></i><b>2.5</b> What does a Dataframe contain?</a></li>
+<li class="chapter" data-level="2.6" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-can-a-dataframe-do"><i class="fa fa-check"></i><b>2.6</b> What can a Dataframe do?</a></li>
+<li class="chapter" data-level="2.7" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-dataframes"><i class="fa fa-check"></i><b>2.7</b> Subsetting Dataframes</a></li>
+<li class="chapter" data-level="2.8" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>2.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling, Part 1</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#tidy-data"><i class="fa fa-check"></i><b>3.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#our-working-tidy-data-depmap-project"><i class="fa fa-check"></i><b>3.2</b> Our working Tidy Data: DepMap Project</a></li>
+<li class="chapter" data-level="3.3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>3.3</b> Transform: “What do you want to do with this Dataframe”?</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#summary-statistics"><i class="fa fa-check"></i><b>3.4</b> Summary Statistics</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#simple-data-visualization"><i class="fa fa-check"></i><b>3.5</b> Simple data visualization</a></li>
+<li class="chapter" data-level="3.6" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling, Part 2</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#creating-new-columns"><i class="fa fa-check"></i><b>4.1</b> Creating new columns</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>4.2</b> Merging two Dataframes together</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>4.3</b> Grouping and summarizing Dataframes</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#optional-multiple-grouping-multiple-columns-multiple-summary-statistics"><i class="fa fa-check"></i><b>4.3.1</b> Optional: Multiple grouping, Multiple columns, Multiple summary statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#exercises-3"><i class="fa fa-check"></i><b>4.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization.html"><a href="data-visualization.html#distributions-one-variable"><i class="fa fa-check"></i><b>5.1</b> Distributions (one variable)</a></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#relational-between-2-continuous-variables"><i class="fa fa-check"></i><b>5.2</b> Relational (between 2 continuous variables)</a></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization.html"><a href="data-visualization.html#categorical-between-1-categorical-and-1-continuous-variable"><i class="fa fa-check"></i><b>5.3</b> Categorical (between 1 categorical and 1 continuous variable)</a></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization.html"><a href="data-visualization.html#basic-plot-customization"><i class="fa fa-check"></i><b>5.4</b> Basic plot customization</a></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization.html"><a href="data-visualization.html#exercises-4"><i class="fa fa-check"></i><b>5.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/W6Mg4rzuMK6Yk3Am8"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/dasl_thin_main_image.png">
+</div>
+<div id="data-visualization" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Data Visualization<a href="data-visualization.html#data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In our final to last week together, we learn about how to visualize our data.</p>
+<p>There are several different data visualization modules in Python:</p>
+<ul>
+<li><p><a href="https://matplotlib.org/">matplotlib</a> is a general purpose plotting module that is commonly used.</p></li>
+<li><p><a href="https://seaborn.pydata.org/">seaborn</a> is a plotting module built on top of matplotlib focused on data science and statistical visualization. We will focus on this module for this course.</p></li>
+<li><p><a href="https://plotnine.org/">plotnine</a> is a plotting module based on the grammar of graphics organization of making plots. This is very similar to the R package “ggplot”.</p></li>
+</ul>
+<p>To get started, we will consider these most simple and common plots:</p>
+<p>Distributions (one variable)</p>
+<ul>
+<li>Histograms</li>
+</ul>
+<p>Relational (between 2 continuous variables)</p>
+<ul>
+<li><p>Scatterplots</p></li>
+<li><p>Line plots</p></li>
+</ul>
+<p>Categorical (between 1 categorical and 1 continuous variable)</p>
+<ul>
+<li><p>Bar plots</p></li>
+<li><p>Violin plots</p></li>
+</ul>
+<p><a href="https://seaborn.pydata.org/tutorial/function_overview.html"><img src="https://seaborn.pydata.org/_images/function_overview_8_0.png" alt="Image source: Seaborn’s overview of plotting functions" /></a></p>
+<p>Why do we focus on these common plots? Our eyes are better at distinguishing certain visual features more than others. All of these plots are focused on their position to depict data, which gives us the most effective visual scale.</p>
+<p><a href="https://www.oreilly.com/library/view/visualization-analysis-and/9781466508910/K14708_C005.xhtml"><img src="https://www.oreilly.com/api/v2/epubs/9781466508910/files/image/fig5-1.png" alt="Image Source: Visualization Analysis and Design by [Tamara Munzner](https://www.oreilly.com/search?q=author:%22Tamara%20Munzner%22)" /></a></p>
+<p>Let’s load in our genomics datasets and start making some plots from them.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="data-visualization.html#cb113-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb113-2"><a href="data-visualization.html#cb113-2" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb113-3"><a href="data-visualization.html#cb113-3" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb113-4"><a href="data-visualization.html#cb113-4" tabindex="-1"></a></span>
+<span id="cb113-5"><a href="data-visualization.html#cb113-5" tabindex="-1"></a></span>
+<span id="cb113-6"><a href="data-visualization.html#cb113-6" tabindex="-1"></a>metadata <span class="op">=</span> pd.read_csv(<span class="st">&quot;classroom_data/metadata.csv&quot;</span>)</span>
+<span id="cb113-7"><a href="data-visualization.html#cb113-7" tabindex="-1"></a>mutation <span class="op">=</span> pd.read_csv(<span class="st">&quot;classroom_data/mutation.csv&quot;</span>)</span>
+<span id="cb113-8"><a href="data-visualization.html#cb113-8" tabindex="-1"></a>expression <span class="op">=</span> pd.read_csv(<span class="st">&quot;classroom_data/expression.csv&quot;</span>)</span></code></pre></div>
+<div id="distributions-one-variable" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Distributions (one variable)<a href="data-visualization.html#distributions-one-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To create a histogram, we use the function <a href="https://seaborn.pydata.org/generated/seaborn.displot.html"><code>sns.displot()</code></a> and we specify the input argument <code>data</code> as our dataframe, and the input argument <code>x</code> as the column name in a String.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="data-visualization.html#cb114-1" tabindex="-1"></a>plot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">&quot;Age&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-3-1.png" width="480" /></p>
+<p>(For the webpage’s purpose, assign the plot to a variable <code>plot</code>. In practice, you don’t need to do that. You can just write <code>sns.displot(data=metadata, x="Age")</code>).</p>
+<p>A common parameter to consider when making histogram is how big the bins are. You can specify the bin width via <code>binwidth</code> argument, or the number of bins via <code>bins</code> argument.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="data-visualization.html#cb115-1" tabindex="-1"></a>plot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">&quot;Age&quot;</span>, binwidth <span class="op">=</span> <span class="dv">10</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-4-3.png" width="480" /></p>
+<p>Our histogram also works for categorical variables, such as “Sex”.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="data-visualization.html#cb116-1" tabindex="-1"></a>plot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-5-5.png" width="480" /></p>
+<p><strong>Conditioning on other variables</strong></p>
+<p>Sometimes, you want to examine a distribution, such as Age, conditional on other variables, such as Age for Female, Age for Male, and Age for Unknown: what is the distribution of age when compared with sex? There are several ways of doing it. First, you could color variables by color, using the <code>hue</code> input argument:</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb117-1"><a href="data-visualization.html#cb117-1" tabindex="-1"></a>plot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">&quot;Age&quot;</span>, hue<span class="op">=</span><span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-6-7.png" width="590" /></p>
+<p>It is rather hard to tell the groups apart from the coloring. So, we add a new option that we want to separate each bar category via <code>multiple="dodge"</code> input argument:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="data-visualization.html#cb118-1" tabindex="-1"></a>plot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">&quot;Age&quot;</span>, hue<span class="op">=</span><span class="st">&quot;Sex&quot;</span>, multiple<span class="op">=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-7-9.png" width="590" /></p>
+<p>Lastly, an alternative to using colors to display the conditional variable, we could make a subplot for each conditional variable’s value via <code>col="Sex"</code> or <code>row="Sex"</code>:</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb119-1"><a href="data-visualization.html#cb119-1" tabindex="-1"></a>plot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">&quot;Age&quot;</span>, col<span class="op">=</span><span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-8-11.png" width="1440" /></p>
+<p>You can find a lot more details about distributions and histograms in <a href="https://seaborn.pydata.org/tutorial/distributions.html">the Seaborn tutorial</a>.</p>
+</div>
+<div id="relational-between-2-continuous-variables" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Relational (between 2 continuous variables)<a href="data-visualization.html#relational-between-2-continuous-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To visualize two continuous variables, it is common to use a scatterplot or a lineplot. We use the function <a href="https://seaborn.pydata.org/generated/seaborn.relplot.html"><code>sns.relplot()</code></a> and we specify the input argument <code>data</code> as our dataframe, and the input arguments <code>x</code> and <code>y</code> as the column names in a String:</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb120-1"><a href="data-visualization.html#cb120-1" tabindex="-1"></a>plot <span class="op">=</span> sns.relplot(data<span class="op">=</span>expression, x<span class="op">=</span><span class="st">&quot;KRAS_Exp&quot;</span>, y<span class="op">=</span><span class="st">&quot;EGFR_Exp&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-9-13.png" width="480" /></p>
+<p>To conditional on other variables, plotting features are used to distinguish conditional variable values:</p>
+<ul>
+<li><p><code>hue</code> (similar to the histogram)</p></li>
+<li><p><code>style</code></p></li>
+<li><p><code>size</code></p></li>
+</ul>
+<p>Let’s merge <code>expression</code> and <code>metadata</code> together, so that we can examine KRAS and EGFR relationships conditional on primary vs. metastatic cancer status. Here is the scatterplot with different color:</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb121-1"><a href="data-visualization.html#cb121-1" tabindex="-1"></a>expression_metadata <span class="op">=</span> expression.merge(metadata)</span>
+<span id="cb121-2"><a href="data-visualization.html#cb121-2" tabindex="-1"></a></span>
+<span id="cb121-3"><a href="data-visualization.html#cb121-3" tabindex="-1"></a>plot <span class="op">=</span> sns.relplot(data<span class="op">=</span>expression_metadata, x<span class="op">=</span><span class="st">&quot;KRAS_Exp&quot;</span>, y<span class="op">=</span><span class="st">&quot;EGFR_Exp&quot;</span>, hue<span class="op">=</span><span class="st">&quot;PrimaryOrMetastasis&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-10-15.png" width="629" /></p>
+<p>Here is the scatterplot with different shapes:</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb122-1"><a href="data-visualization.html#cb122-1" tabindex="-1"></a>plot <span class="op">=</span> sns.relplot(data<span class="op">=</span>expression_metadata, x<span class="op">=</span><span class="st">&quot;KRAS_Exp&quot;</span>, y<span class="op">=</span><span class="st">&quot;EGFR_Exp&quot;</span>, style<span class="op">=</span><span class="st">&quot;PrimaryOrMetastasis&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-11-17.png" width="629" /></p>
+<p>You can also try plotting with <code>size=PrimaryOrMetastasis"</code> if you like. None of these seem pretty effective at distinguishing the two groups, so we will try subplot faceting as we did for the histogram:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb123-1"><a href="data-visualization.html#cb123-1" tabindex="-1"></a>plot <span class="op">=</span> sns.relplot(data<span class="op">=</span>expression_metadata, x<span class="op">=</span><span class="st">&quot;KRAS_Exp&quot;</span>, y<span class="op">=</span><span class="st">&quot;EGFR_Exp&quot;</span>, col<span class="op">=</span><span class="st">&quot;PrimaryOrMetastasis&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-12-19.png" width="1440" /></p>
+<p>You can also conditional on multiple variables by assigning a different variable to the conditioning options:</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb124-1"><a href="data-visualization.html#cb124-1" tabindex="-1"></a>plot <span class="op">=</span> sns.relplot(data<span class="op">=</span>expression_metadata, x<span class="op">=</span><span class="st">&quot;KRAS_Exp&quot;</span>, y<span class="op">=</span><span class="st">&quot;EGFR_Exp&quot;</span>, hue<span class="op">=</span><span class="st">&quot;PrimaryOrMetastasis&quot;</span>, col<span class="op">=</span><span class="st">&quot;AgeCategory&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-13-21.png" width="2069" /></p>
+<p>You can find a lot more details about relational plots such as scatterplots and lineplots <a href="https://seaborn.pydata.org/tutorial/relational.html">in the Seaborn tutorial</a>.</p>
+</div>
+<div id="categorical-between-1-categorical-and-1-continuous-variable" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Categorical (between 1 categorical and 1 continuous variable)<a href="data-visualization.html#categorical-between-1-categorical-and-1-continuous-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A very similar pattern follows for categorical plots. We start with <a href="https://seaborn.pydata.org/generated/seaborn.catplot.html">sns.catplot()</a> as our main plotting function, with the basic input arguments:</p>
+<ul>
+<li><p><code>data</code></p></li>
+<li><p><code>x</code></p></li>
+<li><p><code>y</code></p></li>
+</ul>
+<p>You can change the plot styles via the input arguments:</p>
+<ul>
+<li><code>kind</code>: “strip”, “box”, “swarm”, etc.</li>
+</ul>
+<p>You can add additional conditional variables via the input arguments:</p>
+<ul>
+<li><p><code>hue</code></p></li>
+<li><p><code>col</code></p></li>
+<li><p><code>row</code></p></li>
+</ul>
+<p>See categorical plots <a href="https://seaborn.pydata.org/tutorial/categorical.html">in the Seaborn tutorial.</a></p>
+</div>
+<div id="basic-plot-customization" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Basic plot customization<a href="data-visualization.html#basic-plot-customization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can easily change the axis labels and title if you modify the plot object, using the method <code>.set()</code>:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb125-1"><a href="data-visualization.html#cb125-1" tabindex="-1"></a>exp_plot <span class="op">=</span> sns.relplot(data<span class="op">=</span>expression, x<span class="op">=</span><span class="st">&quot;KRAS_Exp&quot;</span>, y<span class="op">=</span><span class="st">&quot;EGFR_Exp&quot;</span>)</span>
+<span id="cb125-2"><a href="data-visualization.html#cb125-2" tabindex="-1"></a>exp_plot.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">&quot;KRAS Espression&quot;</span>, ylabel<span class="op">=</span><span class="st">&quot;EGFR Expression&quot;</span>, title<span class="op">=</span><span class="st">&quot;Gene expression relationship&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-14-23.png" width="244" /><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-14-24.png" width="480" /></p>
+<p>You can change the color palette by setting adding the <code>palette</code> input argument to any of the plots. You can explore available color palettes <a href="https://www.practicalpythonfordatascience.com/ap_seaborn_palette">here</a>:</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb126-1"><a href="data-visualization.html#cb126-1" tabindex="-1"></a>plot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">&quot;Age&quot;</span>, hue<span class="op">=</span><span class="st">&quot;Sex&quot;</span>, multiple<span class="op">=</span><span class="st">&quot;dodge&quot;</span>, palette<span class="op">=</span>sns.color_palette(palette<span class="op">=</span><span class="st">&#39;rainbow&#39;</span>)</span>
+<span id="cb126-2"><a href="data-visualization.html#cb126-2" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## &lt;string&gt;:1: UserWarning: The palette list has more values (6) than needed (3), which may not be intended.</code></pre>
+<p><img src="resources/images/05-data-visualization_files/figure-html/unnamed-chunk-15-27.png" width="590" /></p>
+</div>
+<div id="exercises-4" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Exercises<a href="data-visualization.html#exercises-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Exercise for week 5 can be found <a href="https://colab.research.google.com/drive/1kT3zzq2rrhL1vHl01IdW5L1V7v0iK0wY?usp=sharing">here</a>.</p>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+      <a href="https://hutchdatascience.org/" target="_blank"><img src="https://hutchdatascience.org/images/crazy-idea-wide.png" style="width: 80%; padding-left: 15px; padding-top: 8px;"</a>
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-wrangling-part-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

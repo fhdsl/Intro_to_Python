@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Working with data structures | Introduction to Python</title>
+  <meta name="description" content="Description about Course/Book." />
+  <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Working with data structures | Introduction to Python" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Description about Course/Book." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Working with data structures | Introduction to Python" />
+  
+  <meta name="twitter:description" content="Description about Course/Book." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="intro-to-computing.html"/>
+<link rel="next" href="data-wrangling-part-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://hutchdatascience.org/" target="_blank"><img src="assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Course</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#curriculum"><i class="fa fa-check"></i><b>0.1</b> Curriculum</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#target-audience"><i class="fa fa-check"></i><b>0.2</b> Target Audience</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i><b>0.3</b> Learning Objectives</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#offerings"><i class="fa fa-check"></i><b>0.4</b> Offerings</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro-to-computing.html"><a href="intro-to-computing.html"><i class="fa fa-check"></i><b>1</b> Intro to Computing</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#goals-of-the-course"><i class="fa fa-check"></i><b>1.1</b> Goals of the course</a></li>
+<li class="chapter" data-level="1.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#what-is-a-computer-program"><i class="fa fa-check"></i><b>1.2</b> What is a computer program?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro-to-computing.html"><a href="intro-to-computing.html#a-programming-language-has-following-elements"><i class="fa fa-check"></i><b>1.3</b> A programming language has following elements:</a></li>
+<li class="chapter" data-level="1.4" data-path="intro-to-computing.html"><a href="intro-to-computing.html#google-colab-setup"><i class="fa fa-check"></i><b>1.4</b> Google Colab Setup</a></li>
+<li class="chapter" data-level="1.5" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions"><i class="fa fa-check"></i><b>1.5</b> Grammar Structure 1: Evaluation of Expressions</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#function-machine-schema"><i class="fa fa-check"></i><b>1.5.1</b> Function machine schema</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>1.5.2</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-variable-environment"><i class="fa fa-check"></i><b>1.6</b> Grammar Structure 2: Storing data types in the Variable Environment</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-variable-assignment"><i class="fa fa-check"></i><b>1.6.1</b> Execution rule for variable assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-3-evaluation-of-functions"><i class="fa fa-check"></i><b>1.7</b> Grammar Structure 3: Evaluation of Functions</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-functions"><i class="fa fa-check"></i><b>1.7.1</b> Execution rule for functions:</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="intro-to-computing.html"><a href="intro-to-computing.html#tips-on-writing-your-first-code"><i class="fa fa-check"></i><b>1.8</b> Tips on writing your first code</a></li>
+<li class="chapter" data-level="1.9" data-path="intro-to-computing.html"><a href="intro-to-computing.html#exercises"><i class="fa fa-check"></i><b>1.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html"><i class="fa fa-check"></i><b>2</b> Working with data structures</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#lists"><i class="fa fa-check"></i><b>2.1</b> Lists</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-lists"><i class="fa fa-check"></i><b>2.1.1</b> Subsetting lists</a></li>
+<li class="chapter" data-level="2.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-multiple-elements-of-lists"><i class="fa fa-check"></i><b>2.1.2</b> Subsetting multiple elements of lists</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#objects-in-python"><i class="fa fa-check"></i><b>2.2</b> Objects in Python</a></li>
+<li class="chapter" data-level="2.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#methods-vs-functions"><i class="fa fa-check"></i><b>2.3</b> Methods vs Functions</a></li>
+<li class="chapter" data-level="2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Dataframes</a></li>
+<li class="chapter" data-level="2.5" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-does-a-dataframe-contain"><i class="fa fa-check"></i><b>2.5</b> What does a Dataframe contain?</a></li>
+<li class="chapter" data-level="2.6" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-can-a-dataframe-do"><i class="fa fa-check"></i><b>2.6</b> What can a Dataframe do?</a></li>
+<li class="chapter" data-level="2.7" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-dataframes"><i class="fa fa-check"></i><b>2.7</b> Subsetting Dataframes</a></li>
+<li class="chapter" data-level="2.8" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>2.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling, Part 1</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#tidy-data"><i class="fa fa-check"></i><b>3.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#our-working-tidy-data-depmap-project"><i class="fa fa-check"></i><b>3.2</b> Our working Tidy Data: DepMap Project</a></li>
+<li class="chapter" data-level="3.3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>3.3</b> Transform: “What do you want to do with this Dataframe”?</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#summary-statistics"><i class="fa fa-check"></i><b>3.4</b> Summary Statistics</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#simple-data-visualization"><i class="fa fa-check"></i><b>3.5</b> Simple data visualization</a></li>
+<li class="chapter" data-level="3.6" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling, Part 2</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#creating-new-columns"><i class="fa fa-check"></i><b>4.1</b> Creating new columns</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>4.2</b> Merging two Dataframes together</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>4.3</b> Grouping and summarizing Dataframes</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#optional-multiple-grouping-multiple-columns-multiple-summary-statistics"><i class="fa fa-check"></i><b>4.3.1</b> Optional: Multiple grouping, Multiple columns, Multiple summary statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#exercises-3"><i class="fa fa-check"></i><b>4.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization.html"><a href="data-visualization.html#distributions-one-variable"><i class="fa fa-check"></i><b>5.1</b> Distributions (one variable)</a></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#relational-between-2-continuous-variables"><i class="fa fa-check"></i><b>5.2</b> Relational (between 2 continuous variables)</a></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization.html"><a href="data-visualization.html#categorical-between-1-categorical-and-1-continuous-variable"><i class="fa fa-check"></i><b>5.3</b> Categorical (between 1 categorical and 1 continuous variable)</a></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization.html"><a href="data-visualization.html#basic-plot-customization"><i class="fa fa-check"></i><b>5.4</b> Basic plot customization</a></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization.html"><a href="data-visualization.html#exercises-4"><i class="fa fa-check"></i><b>5.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/W6Mg4rzuMK6Yk3Am8"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/dasl_thin_main_image.png">
+</div>
+<div id="working-with-data-structures" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Working with data structures<a href="working-with-data-structures.html#working-with-data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In our second lesson, we start to look at two <strong>data structures</strong>, <strong>Lists</strong> and <strong>Dataframes</strong>, that can handle a large amount of data for analysis.</p>
+<div id="lists" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Lists<a href="working-with-data-structures.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the first exercise, you started to explore <strong>data structures</strong>, which store information about data types. You explored <strong>lists</strong>, which is an ordered collection of data types or data structures. Each <em>element</em> of a list contains a data type or another data structure.</p>
+<p>We can now store a vast amount of information in a list, and assign it to a single variable. Even more, we can use operations and functions on a list, modifying many elements within the list at once! This makes analyzing data much more scalable and less repetitive.</p>
+<p>We create a list via the bracket <code>[ ]</code> operation.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="working-with-data-structures.html#cb36-1" tabindex="-1"></a>staff <span class="op">=</span> [<span class="st">&quot;chris&quot;</span>, <span class="st">&quot;ted&quot;</span>, <span class="st">&quot;jeff&quot;</span>]</span>
+<span id="cb36-2"><a href="working-with-data-structures.html#cb36-2" tabindex="-1"></a>chrNum <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>]</span>
+<span id="cb36-3"><a href="working-with-data-structures.html#cb36-3" tabindex="-1"></a>mixedList <span class="op">=</span> [<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="dv">92</span>]</span></code></pre></div>
+<div id="subsetting-lists" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Subsetting lists<a href="working-with-data-structures.html#subsetting-lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To access an element of a list, you can use the bracket notation <code>[ ]</code> to access the elements of the list. We simply access an element via the “index” number - the location of the data within the list.</p>
+<p><em>Here’s the tricky thing about the index number: it starts at 0!</em></p>
+<p>1st element of <code>chrNum</code>: <code>chrNum[0]</code></p>
+<p>2nd element of <code>chrNum</code>: <code>chrNum[1]</code></p>
+<p>…</p>
+<p>5th element of <code>chrNum</code>: <code>chrNum[4]</code></p>
+<p>With subsetting, you can modify elements of a list or use the element of a list as part of an expression.</p>
+</div>
+<div id="subsetting-multiple-elements-of-lists" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Subsetting multiple elements of lists<a href="working-with-data-structures.html#subsetting-multiple-elements-of-lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose you want to access multiple elements of a list, such as accessing the first three elements of <code>chrNum</code>. You would use the <strong>slice</strong> operator <code>:</code>, which specifies:</p>
+<ul>
+<li><p>the index number to start</p></li>
+<li><p>the index number to stop, <em>plus one.</em></p></li>
+</ul>
+<p>If you want to access the first three elements of <code>chrNum</code>:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="working-with-data-structures.html#cb37-1" tabindex="-1"></a>chrNum[<span class="dv">0</span>:<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [2, 3, 1]</code></pre>
+<p>The first element’s index number is 0, the third element’s index number is 2, plus 1, which is 3.</p>
+<p>If you want to access the second and third elements of <code>chrNum</code>:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="working-with-data-structures.html#cb39-1" tabindex="-1"></a>chrNum[<span class="dv">1</span>:<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [3, 1]</code></pre>
+<p>Another way of accessing the first 3 elements of <code>chrNum</code>:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="working-with-data-structures.html#cb41-1" tabindex="-1"></a>chrNum[:<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [2, 3, 1]</code></pre>
+<p>Here, the start index number was not specified. When the start or stop index is <em>not</em> specified, it implies that you are subsetting starting the from the beginning of the list or subsetting to the end of the list, respectively. Here’s another example, using negative indicies to count from 3 elements from the end of the list:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="working-with-data-structures.html#cb43-1" tabindex="-1"></a>chrNum[<span class="op">-</span><span class="dv">3</span>:]</span></code></pre></div>
+<pre><code>## [1, 2, 2]</code></pre>
+<p>You can find more discussion of list slicing, using negative indicies and incremental slicing, <a href="https://towardsdatascience.com/the-basics-of-indexing-and-slicing-python-lists-2d12c90a94cf">here</a>.</p>
+</div>
+</div>
+<div id="objects-in-python" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Objects in Python<a href="working-with-data-structures.html#objects-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The list data structure has an organization and functionality that metaphorically represents a pen-and-paper list in our physical world. Like a physical object, we have examined:</p>
+<ul>
+<li><p>What does it contain (in terms of data)?</p></li>
+<li><p>What can it do (in terms of functions)?</p></li>
+</ul>
+<p>And if it “makes sense” to us, then it is well-designed.</p>
+<p>The list data structure we have been working with is an example of an <strong>Object</strong>. The definition of an object allows us to ask the questions above: <em>what does it contain, and what can it do?</em> It is an organizational tool for a collection of data and functions that we can relate to, like a physical object. Formally, an object contains the following:</p>
+<ul>
+<li><p><strong>Value</strong> that holds the essential data for the object.</p></li>
+<li><p><strong>Attributes</strong> that hold subset or additional data for the object.</p></li>
+<li><p>Functions called <strong>Methods</strong> that are for the object and <em>have to</em> take in the variable referenced as an input</p></li>
+</ul>
+<p>This organizing structure on an object applies to pretty much all Python data types and data structures.</p>
+<p>Let’s see how this applies to the list:</p>
+<ul>
+<li><p><strong>Value</strong>: the contents of the list, such as <code>[2, 3, 4].</code></p></li>
+<li><p><strong>Attributes</strong> that store additional values: Not relevant for lists.</p></li>
+<li><p><strong>Methods</strong> that can be used on the object: <code>chrNum.count(2)</code> counts the number of instances 2 appears as an element of <code>chrNum</code>.</p></li>
+</ul>
+<p>Object methods are functions that does something with the object you are using it on. You should think about <code>chrNum.count(2)</code> as a function that takes in <code>chrNum</code> and <code>2</code> as inputs. If you want to use the count function on list <code>mixedList</code>, you would use <code>mixedList.count(x)</code>.</p>
+<p>Here are some more examples of methods with lists:</p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="37%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function method</th>
+<th>What it takes in</th>
+<th>What it does</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/tutorial/datastructures.html"><code>chrNum.count(x)</code></a></td>
+<td>list <code>chrNum</code>, data type <code>x</code></td>
+<td>Counts the number of instances <code>x</code> appears as an element of <code>chrNum</code>.</td>
+<td>Integer</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/tutorial/datastructures.html"><code>chrNum.append(x)</code></a></td>
+<td>list <code>chrNum</code>, data type <code>x</code></td>
+<td>Appends <code>x</code> to the end of the <code>chrNum</code>.</td>
+<td>None (but <code>chrNum</code> is modified!)</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/tutorial/datastructures.html"><code>chrNum.sort()</code></a></td>
+<td>list <code>chrNum</code></td>
+<td>Sorts <code>chrNum</code> by ascending order.</td>
+<td>None (but <code>chrNum</code> is modified!)</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/tutorial/datastructures.html"><code>chrNum.reverse()</code></a></td>
+<td>list <code>chrNum</code></td>
+<td>Reverses the order of <code>chrNum</code>.</td>
+<td>None (but <code>chrNum</code> is modified!)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="methods-vs-functions" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Methods vs Functions<a href="working-with-data-structures.html#methods-vs-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Methods</strong> <em>have to</em> take in the object of interest as an input: <code>chrNum.count(2)</code> automatically treat <code>chrNum</code> as an input. Methods are built for a specific Object type.</p>
+<p><strong>Functions</strong> do not have an implied input: <code>len(chrNum)</code> requires specifying a list in the input.</p>
+<p>Otherwise, there is no strong distinction between the two.</p>
+</div>
+<div id="dataframes" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Dataframes<a href="working-with-data-structures.html#dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A Dataframe is a two-dimensional data structure that stores data like a spreadsheet does.</p>
+<p>The Dataframe data structure is found within a Python module called “Pandas”. A Python module is an organized collection of functions and data structures. The <code>import</code> statement below gives us permission to access the “Pandas” module via the variable <code>pd</code>.</p>
+<p>To load in a Dataframe from existing spreadsheet data, we use the function <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"><code>pd.read_csv()</code></a>:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="working-with-data-structures.html#cb45-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb45-2"><a href="working-with-data-structures.html#cb45-2" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="working-with-data-structures.html#cb45-3" tabindex="-1"></a>metadata <span class="op">=</span> pd.read_csv(<span class="st">&quot;classroom_data/metadata.csv&quot;</span>)</span>
+<span id="cb45-4"><a href="working-with-data-structures.html#cb45-4" tabindex="-1"></a><span class="bu">type</span>(metadata)</span></code></pre></div>
+<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</code></pre>
+<p>There is a similar function <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html"><code>pd.read_excel()</code></a> for loading in Excel spreadsheets.</p>
+<p>Let’s investigate the Dataframe as an object:</p>
+<ul>
+<li><p>What does a Dataframe contain (values, attributes)?</p></li>
+<li><p>What can a Dataframe do (methods)?</p></li>
+</ul>
+</div>
+<div id="what-does-a-dataframe-contain" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> What does a Dataframe contain?<a href="working-with-data-structures.html#what-does-a-dataframe-contain" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We first take a look at the contents:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="working-with-data-structures.html#cb47-1" tabindex="-1"></a>metadata</span></code></pre></div>
+<pre><code>##          ModelID  ...       OncotreeLineage
+## 0     ACH-000001  ...  Ovary/Fallopian Tube
+## 1     ACH-000002  ...               Myeloid
+## 2     ACH-000003  ...                 Bowel
+## 3     ACH-000004  ...               Myeloid
+## 4     ACH-000005  ...               Myeloid
+## ...          ...  ...                   ...
+## 1859  ACH-002968  ...     Esophagus/Stomach
+## 1860  ACH-002972  ...     Esophagus/Stomach
+## 1861  ACH-002979  ...     Esophagus/Stomach
+## 1862  ACH-002981  ...     Esophagus/Stomach
+## 1863  ACH-003071  ...                  Lung
+## 
+## [1864 rows x 30 columns]</code></pre>
+<p>It looks like there are 1864 rows and 30 columns in this Dataframe, and when we display it it shows some of the data.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="working-with-data-structures.html#cb49-1" tabindex="-1"></a>metadata</span></code></pre></div>
+<pre><code>##          ModelID  ...       OncotreeLineage
+## 0     ACH-000001  ...  Ovary/Fallopian Tube
+## 1     ACH-000002  ...               Myeloid
+## 2     ACH-000003  ...                 Bowel
+## 3     ACH-000004  ...               Myeloid
+## 4     ACH-000005  ...               Myeloid
+## ...          ...  ...                   ...
+## 1859  ACH-002968  ...     Esophagus/Stomach
+## 1860  ACH-002972  ...     Esophagus/Stomach
+## 1861  ACH-002979  ...     Esophagus/Stomach
+## 1862  ACH-002981  ...     Esophagus/Stomach
+## 1863  ACH-003071  ...                  Lung
+## 
+## [1864 rows x 30 columns]</code></pre>
+<p>We can look at specific columns by looking at <strong>attributes</strong> via the dot operation. We can also look at the columns via the bracket operation.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="working-with-data-structures.html#cb51-1" tabindex="-1"></a>metadata.ModelID</span></code></pre></div>
+<pre><code>## 0       ACH-000001
+## 1       ACH-000002
+## 2       ACH-000003
+## 3       ACH-000004
+## 4       ACH-000005
+##            ...    
+## 1859    ACH-002968
+## 1860    ACH-002972
+## 1861    ACH-002979
+## 1862    ACH-002981
+## 1863    ACH-003071
+## Name: ModelID, Length: 1864, dtype: object</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="working-with-data-structures.html#cb53-1" tabindex="-1"></a>metadata[<span class="st">&#39;ModelID&#39;</span>]</span></code></pre></div>
+<pre><code>## 0       ACH-000001
+## 1       ACH-000002
+## 2       ACH-000003
+## 3       ACH-000004
+## 4       ACH-000005
+##            ...    
+## 1859    ACH-002968
+## 1860    ACH-002972
+## 1861    ACH-002979
+## 1862    ACH-002981
+## 1863    ACH-003071
+## Name: ModelID, Length: 1864, dtype: object</code></pre>
+<p>The names of all columns is stored as an attribute, which can be accessed via the dot operation.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="working-with-data-structures.html#cb55-1" tabindex="-1"></a>metadata.columns</span></code></pre></div>
+<pre><code>## Index([&#39;ModelID&#39;, &#39;PatientID&#39;, &#39;CellLineName&#39;, &#39;StrippedCellLineName&#39;, &#39;Age&#39;,
+##        &#39;SourceType&#39;, &#39;SangerModelID&#39;, &#39;RRID&#39;, &#39;DepmapModelType&#39;, &#39;AgeCategory&#39;,
+##        &#39;GrowthPattern&#39;, &#39;LegacyMolecularSubtype&#39;, &#39;PrimaryOrMetastasis&#39;,
+##        &#39;SampleCollectionSite&#39;, &#39;Sex&#39;, &#39;SourceDetail&#39;, &#39;LegacySubSubtype&#39;,
+##        &#39;CatalogNumber&#39;, &#39;CCLEName&#39;, &#39;COSMICID&#39;, &#39;PublicComments&#39;,
+##        &#39;WTSIMasterCellID&#39;, &#39;EngineeredModel&#39;, &#39;TreatmentStatus&#39;,
+##        &#39;OnboardedMedia&#39;, &#39;PlateCoating&#39;, &#39;OncotreeCode&#39;, &#39;OncotreeSubtype&#39;,
+##        &#39;OncotreePrimaryDisease&#39;, &#39;OncotreeLineage&#39;],
+##       dtype=&#39;object&#39;)</code></pre>
+<p>The number of rows and columns are also stored as an attribute:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="working-with-data-structures.html#cb57-1" tabindex="-1"></a>metadata.shape</span></code></pre></div>
+<pre><code>## (1864, 30)</code></pre>
+</div>
+<div id="what-can-a-dataframe-do" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> What can a Dataframe do?<a href="working-with-data-structures.html#what-can-a-dataframe-do" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html"><code>.head()</code></a> and <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.tail.html"><code>.tail()</code></a> methods to look at the first few rows and last few rows of <code>metadata</code>, respectively:</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="working-with-data-structures.html#cb59-1" tabindex="-1"></a>metadata.head()</span></code></pre></div>
+<pre><code>##       ModelID  PatientID  ...     OncotreePrimaryDisease       OncotreeLineage
+## 0  ACH-000001  PT-gj46wT  ...   Ovarian Epithelial Tumor  Ovary/Fallopian Tube
+## 1  ACH-000002  PT-5qa3uk  ...     Acute Myeloid Leukemia               Myeloid
+## 2  ACH-000003  PT-puKIyc  ...  Colorectal Adenocarcinoma                 Bowel
+## 3  ACH-000004  PT-q4K2cp  ...     Acute Myeloid Leukemia               Myeloid
+## 4  ACH-000005  PT-q4K2cp  ...     Acute Myeloid Leukemia               Myeloid
+## 
+## [5 rows x 30 columns]</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="working-with-data-structures.html#cb61-1" tabindex="-1"></a>metadata.tail()</span></code></pre></div>
+<pre><code>##          ModelID  PatientID  ...          OncotreePrimaryDisease    OncotreeLineage
+## 1859  ACH-002968  PT-pjhrsc  ...  Esophagogastric Adenocarcinoma  Esophagus/Stomach
+## 1860  ACH-002972  PT-dkXZB1  ...  Esophagogastric Adenocarcinoma  Esophagus/Stomach
+## 1861  ACH-002979  PT-lyHTzo  ...  Esophagogastric Adenocarcinoma  Esophagus/Stomach
+## 1862  ACH-002981  PT-Z9akXf  ...  Esophagogastric Adenocarcinoma  Esophagus/Stomach
+## 1863  ACH-003071  PT-LAGmLq  ...       Lung Neuroendocrine Tumor               Lung
+## 
+## [5 rows x 30 columns]</code></pre>
+<p>Both of these functions (without input arguments) are considered as <strong>methods</strong>: they are functions that does something with the Dataframe you are using it on. You should think about <code>metadata.head()</code> as a function that takes in <code>metadata</code> as an input. If we had another Dataframe called <code>my_data</code> and you want to use the same function, you will have to say <code>my_data.head()</code>.</p>
+</div>
+<div id="subsetting-dataframes" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Subsetting Dataframes<a href="working-with-data-structures.html#subsetting-dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Perhaps the most important operation you will can do with Dataframes is subsetting them. There are two ways to do it. The first way is to subset by numerical indicies, exactly like how we did for lists.</p>
+<p>You will use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html"><code>iloc</code></a> attribute and bracket operations, and you give two slices: one for the row, and one for the column.</p>
+<p>Let’s start with a small dataframe to see how it works before returning to <code>metadata</code>:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="working-with-data-structures.html#cb63-1" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">&#39;status&#39;</span>: [<span class="st">&quot;treated&quot;</span>, <span class="st">&quot;untreated&quot;</span>, <span class="st">&quot;untreated&quot;</span>, <span class="st">&quot;discharged&quot;</span>, <span class="st">&quot;treated&quot;</span>],</span>
+<span id="cb63-2"><a href="working-with-data-structures.html#cb63-2" tabindex="-1"></a>                            <span class="st">&#39;age_case&#39;</span>: [<span class="dv">25</span>, <span class="dv">43</span>, <span class="dv">21</span>, <span class="dv">65</span>, <span class="dv">7</span>],</span>
+<span id="cb63-3"><a href="working-with-data-structures.html#cb63-3" tabindex="-1"></a>                            <span class="st">&#39;age_control&#39;</span>: [<span class="dv">49</span>, <span class="dv">20</span>, <span class="dv">32</span>, <span class="dv">25</span>, <span class="dv">32</span>]})</span>
+<span id="cb63-4"><a href="working-with-data-structures.html#cb63-4" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>##        status  age_case  age_control
+## 0     treated        25           49
+## 1   untreated        43           20
+## 2   untreated        21           32
+## 3  discharged        65           25
+## 4     treated         7           32</code></pre>
+<p>Here is how the dataframe looks like with the row and column index numbers:</p>
+<p><img src="images/pandas_subset_0.png" /></p>
+<p>Subset the first fourth rows, and the first two columns:</p>
+<p><img src="images/pandas%20subset_1.png" /></p>
+<p>Now, back to <code>metadata</code> dataframe:</p>
+<p>Subset the first 5 rows, and first two columns:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="working-with-data-structures.html#cb65-1" tabindex="-1"></a>metadata.iloc[:<span class="dv">5</span>, :<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>##       ModelID  PatientID
+## 0  ACH-000001  PT-gj46wT
+## 1  ACH-000002  PT-5qa3uk
+## 2  ACH-000003  PT-puKIyc
+## 3  ACH-000004  PT-q4K2cp
+## 4  ACH-000005  PT-q4K2cp</code></pre>
+<p>If we want a custom slice that is not sequential, we can use an integer list. Subset the last 5 rows, and the 1st and 10 and 21th column:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="working-with-data-structures.html#cb67-1" tabindex="-1"></a>metadata.iloc[<span class="dv">5</span>:, [<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">21</span>]]</span></code></pre></div>
+<pre><code>##       PatientID GrowthPattern  WTSIMasterCellID
+## 5     PT-ej13Dz    Suspension            2167.0
+## 6     PT-NOXwpH      Adherent             569.0
+## 7     PT-fp8PeY      Adherent            1806.0
+## 8     PT-puKIyc      Adherent            2104.0
+## 9     PT-AR7W9o      Adherent               NaN
+## ...         ...           ...               ...
+## 1859  PT-pjhrsc      Organoid               NaN
+## 1860  PT-dkXZB1      Organoid               NaN
+## 1861  PT-lyHTzo      Organoid               NaN
+## 1862  PT-Z9akXf      Organoid               NaN
+## 1863  PT-LAGmLq    Suspension               NaN
+## 
+## [1859 rows x 3 columns]</code></pre>
+<p>When we subset via numerical indicies, it’s called <strong>explicit subsetting</strong>. This is a great way to start thinking about subsetting your dataframes for analysis, but explicit subsetting can lead to some inconsistencies in the long run. For instance, suppose your collaborator added a new cell line to the metadata and changed the order of the column. Then your code to subset the last 5 rows and the columns will get you a different answer once the spreadsheet is changed.</p>
+<p>The second way is to subset by the column name and comparison operators, also known as <strong>implicit subsetting</strong>. This is much more robust in data analysis practice. You will learn about it next week!</p>
+</div>
+<div id="exercises-1" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Exercises<a href="working-with-data-structures.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Exercise for week 2 can be found <a href="https://colab.research.google.com/drive/1oIL3gKEZR2Lq16k6XY0HXIhjYl34pEjr?usp=sharing">here</a>.</p>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+      <a href="https://hutchdatascience.org/" target="_blank"><img src="https://hutchdatascience.org/images/crazy-idea-wide.png" style="width: 80%; padding-left: 15px; padding-top: 8px;"</a>
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro-to-computing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-wrangling-part-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

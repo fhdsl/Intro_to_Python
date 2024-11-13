@@ -29,7 +29,7 @@
   
   <link rel="shortcut icon" href="assets/dasl_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="index.html"/>
-<link rel="next" href="about-the-authors.html"/>
+<link rel="next" href="working-with-data-structures.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -152,7 +152,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="intro-to-computing.html"><a href="intro-to-computing.html#google-colab-setup"><i class="fa fa-check"></i><b>1.4</b> Google Colab Setup</a></li>
 <li class="chapter" data-level="1.5" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions"><i class="fa fa-check"></i><b>1.5</b> Grammar Structure 1: Evaluation of Expressions</a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>1.5.1</b> Data types</a></li>
+<li class="chapter" data-level="1.5.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#function-machine-schema"><i class="fa fa-check"></i><b>1.5.1</b> Function machine schema</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro-to-computing.html"><a href="intro-to-computing.html#data-types"><i class="fa fa-check"></i><b>1.5.2</b> Data types</a></li>
 </ul></li>
 <li class="chapter" data-level="1.6" data-path="intro-to-computing.html"><a href="intro-to-computing.html#grammar-structure-2-storing-data-types-in-the-variable-environment"><i class="fa fa-check"></i><b>1.6</b> Grammar Structure 2: Storing data types in the Variable Environment</a>
 <ul>
@@ -163,9 +164,52 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7.1" data-path="intro-to-computing.html"><a href="intro-to-computing.html#execution-rule-for-functions"><i class="fa fa-check"></i><b>1.7.1</b> Execution rule for functions:</a></li>
 </ul></li>
 <li class="chapter" data-level="1.8" data-path="intro-to-computing.html"><a href="intro-to-computing.html#tips-on-writing-your-first-code"><i class="fa fa-check"></i><b>1.8</b> Tips on writing your first code</a></li>
+<li class="chapter" data-level="1.9" data-path="intro-to-computing.html"><a href="intro-to-computing.html#exercises"><i class="fa fa-check"></i><b>1.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html"><i class="fa fa-check"></i><b>2</b> Working with data structures</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#lists"><i class="fa fa-check"></i><b>2.1</b> Lists</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-lists"><i class="fa fa-check"></i><b>2.1.1</b> Subsetting lists</a></li>
+<li class="chapter" data-level="2.1.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-multiple-elements-of-lists"><i class="fa fa-check"></i><b>2.1.2</b> Subsetting multiple elements of lists</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#objects-in-python"><i class="fa fa-check"></i><b>2.2</b> Objects in Python</a></li>
+<li class="chapter" data-level="2.3" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#methods-vs-functions"><i class="fa fa-check"></i><b>2.3</b> Methods vs Functions</a></li>
+<li class="chapter" data-level="2.4" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Dataframes</a></li>
+<li class="chapter" data-level="2.5" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-does-a-dataframe-contain"><i class="fa fa-check"></i><b>2.5</b> What does a Dataframe contain?</a></li>
+<li class="chapter" data-level="2.6" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#what-can-a-dataframe-do"><i class="fa fa-check"></i><b>2.6</b> What can a Dataframe do?</a></li>
+<li class="chapter" data-level="2.7" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#subsetting-dataframes"><i class="fa fa-check"></i><b>2.7</b> Subsetting Dataframes</a></li>
+<li class="chapter" data-level="2.8" data-path="working-with-data-structures.html"><a href="working-with-data-structures.html#exercises-1"><i class="fa fa-check"></i><b>2.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling, Part 1</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#tidy-data"><i class="fa fa-check"></i><b>3.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#our-working-tidy-data-depmap-project"><i class="fa fa-check"></i><b>3.2</b> Our working Tidy Data: DepMap Project</a></li>
+<li class="chapter" data-level="3.3" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#transform-what-do-you-want-to-do-with-this-dataframe"><i class="fa fa-check"></i><b>3.3</b> Transform: “What do you want to do with this Dataframe”?</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#summary-statistics"><i class="fa fa-check"></i><b>3.4</b> Summary Statistics</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#simple-data-visualization"><i class="fa fa-check"></i><b>3.5</b> Simple data visualization</a></li>
+<li class="chapter" data-level="3.6" data-path="data-wrangling-part-1.html"><a href="data-wrangling-part-1.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling, Part 2</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#creating-new-columns"><i class="fa fa-check"></i><b>4.1</b> Creating new columns</a></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#merging-two-dataframes-together"><i class="fa fa-check"></i><b>4.2</b> Merging two Dataframes together</a></li>
+<li class="chapter" data-level="4.3" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#grouping-and-summarizing-dataframes"><i class="fa fa-check"></i><b>4.3</b> Grouping and summarizing Dataframes</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#optional-multiple-grouping-multiple-columns-multiple-summary-statistics"><i class="fa fa-check"></i><b>4.3.1</b> Optional: Multiple grouping, Multiple columns, Multiple summary statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-wrangling-part-2.html"><a href="data-wrangling-part-2.html#exercises-3"><i class="fa fa-check"></i><b>4.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization.html"><a href="data-visualization.html#distributions-one-variable"><i class="fa fa-check"></i><b>5.1</b> Distributions (one variable)</a></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#relational-between-2-continuous-variables"><i class="fa fa-check"></i><b>5.2</b> Relational (between 2 continuous variables)</a></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization.html"><a href="data-visualization.html#categorical-between-1-categorical-and-1-continuous-variable"><i class="fa fa-check"></i><b>5.3</b> Categorical (between 1 categorical and 1 continuous variable)</a></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization.html"><a href="data-visualization.html#basic-plot-customization"><i class="fa fa-check"></i><b>5.4</b> Basic plot customization</a></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization.html"><a href="data-visualization.html#exercises-4"><i class="fa fa-check"></i><b>5.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
-<li class="chapter" data-level="2" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>2</b> References</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
@@ -236,16 +280,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="google-colab-setup" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Google Colab Setup<a href="intro-to-computing.html#google-colab-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Google Colab is a Integrated Development Environment (IDE) on a web browser. Think about it as Microsoft Word to a plain text editor. It provides extra bells and whistles to using Python that is easier for the user.</p>
-<p>Let’s open up the KRAS analysis in Google Colab. If you are taking this course while it is in session, the project name is probably named “KRAS Demo” in your Google Classroom workspace. If you are taking this course on your own time, open up…</p>
+<p>Let’s open up the KRAS analysis in Google Colab. If you are taking this course while it is in session, the project name is probably named “KRAS Demo” in your Google Classroom workspace. If you are taking this course on your own time, you can view it <a href="https://colab.research.google.com/drive/1_77QQcj0mgZOWLlhtkZ-QKWUP1dnSt-_?usp=sharing">here</a>.</p>
+<p><img src="images/colab.png" width="800" /></p>
 <p>Today, we will pay close attention to:</p>
 <ul>
-<li><p>Python Console (Execution): Open it via View -&gt; Executed code history. You give it one line of Python code, and the console executes that single line of code; you give it a single piece of instruction, and it executes it for you.</p></li>
+<li><p>Python Console (“Executions”): Open it via View -&gt; Executed code history. You give it one line of Python code, and the console executes that single line of code; you give it a single piece of instruction, and it executes it for you.</p></li>
 <li><p>Notebook: in the central panel of the website, you will see Python code interspersed with word document text. This is called a Python Notebook (other similar services include Jupyter Notebook, iPython Notebook), which has chunks of plain text <em>and</em> Python code, and it helps us understand better the code we are writing.</p></li>
 <li><p>Variable Environment: Open it by clicking on the “{x}” button on the left-hand panel. Often, your code will store information in the Variable Environment, so that information can be reused. For instance, we often load in data and store it in the Variable Environment, and use it throughout rest of your Python code.</p></li>
 </ul>
 <p>The first thing we will do is see the different ways we can run Python code. You can do the following:</p>
 <ol style="list-style-type: decimal">
-<li>Type something into the Python Console (Execution) and type enter, such as <code>2+2</code>. The Python Console will run it and give you an output.</li>
+<li>Type something into the Python Console (Execution) and click the arrow button, such as <code>2+2</code>. The Python Console will run it and give you an output.</li>
 <li>Look through the Python Notebook, and when you see a chunk of Python Code, click the arrow button. It will copy the Python code chunk to the Python Console and run all of it. You will likely see variables created in the Variables panel as you load in and manipulate data.</li>
 <li>Run every single Python code chunk via Runtime -&gt; Run all.</li>
 </ol>
@@ -257,13 +302,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>It encourages excellent documentation, as you can have code, output from code, and prose combined together.</p></li>
 <li><p>It is flexible to use other programming languages, such as R.</p></li>
 </ul>
+<p>The version of Python used in this course and in Google Colab is Python 3, which is the version of Python that is most supported. Some Python software is written in Python 2, which is very similar but has some <a href="https://www.fullstackpython.com/python-2-or-3.html">notable differences</a>.</p>
 <p>Now, we will get to the basics of programming grammar.</p>
 </div>
 <div id="grammar-structure-1-evaluation-of-expressions" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Grammar Structure 1: Evaluation of Expressions<a href="intro-to-computing.html#grammar-structure-1-evaluation-of-expressions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p><strong>Expressions</strong> are be built out of <strong>operations</strong> or <strong>functions</strong>.</p></li>
-<li><p>Functions and operations take in <strong>data types</strong>, do something with them, and return another data type.</p></li>
+<li><p>Functions and operations take in <strong>data types</strong> as inputs, do something with them, and <strong>return</strong> another data type as ouput.</p></li>
 <li><p>We can combine multiple expressions together to form more complex expressions: an expression can have other expressions nested inside it.</p></li>
 </ul>
 <p>For instance, consider the following expressions entered to the Python Console:</p>
@@ -285,9 +331,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## 39</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="intro-to-computing.html#cb13-1" tabindex="-1"></a>add(<span class="dv">18</span>, add(<span class="dv">21</span>, <span class="dv">65</span>))</span></code></pre></div>
 <pre><code>## 104</code></pre>
-<p>Remember that the Python language is supposed to help us understand what we are writing in code easily, lending to <em>readable</em> code. Therefore, it is sometimes useful to come up with operations that is easier to read. (Because the <code>add()</code> function isn’t typically used, it is not automatically available, so we used the import statement to load it in.)</p>
-<div id="data-types" class="section level3 hasAnchor" number="1.5.1">
-<h3><span class="header-section-number">1.5.1</span> Data types<a href="intro-to-computing.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remember that the Python language is supposed to help us understand what we are writing in code easily, lending to <em>readable</em> code. Therefore, it is sometimes useful to come up with operations that is easier to read. (Most functions in Python are stored in a collection of functions called <strong>modules</strong> that needs to be loaded. The <code>import</code> statement gives us permission to access the functions in the module “operator”.)</p>
+<div id="function-machine-schema" class="section level3 hasAnchor" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Function machine schema<a href="intro-to-computing.html#function-machine-schema" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A nice way to summarize this first grammar structure is using the function machine schema, way back from algebra class:</p>
+<div class="float">
+<img src="images/function_machine.png" alt="Function machine from algebra class." />
+<div class="figcaption">Function machine from algebra class.</div>
+</div>
+<p>Here are some aspects of this schema to pay attention to:</p>
+<ul>
+<li><p>A programmer should not need to know how the function or operation is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.</p></li>
+<li><p>A function can have different kinds of inputs and outputs - it doesn’t need to be numbers. In the <code>len()</code> function, the input is a String, and the output is an Integer. We will see increasingly complex functions with all sorts of different inputs and outputs.</p></li>
+</ul>
+</div>
+<div id="data-types" class="section level3 hasAnchor" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Data types<a href="intro-to-computing.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here are some common data types we will be using in this course.</p>
 <table>
 <thead>
@@ -320,16 +379,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>A nice way to summarize this first grammar structure is using the function machine schema, way back from algebra class:</p>
-<div class="float">
-<img src="images/function_machine.png" alt="Function machine from algebra class." />
-<div class="figcaption">Function machine from algebra class.</div>
-</div>
-<p>Here are some aspects of this schema to pay attention to:</p>
-<ul>
-<li><p>A programmer should not need to know how the function is implemented in order to use it - this emphasizes abstraction and modular thinking, a foundation in any programming language.</p></li>
-<li><p>A function can have different kinds of inputs and outputs - it doesn’t need to be numbers. In the <code>len()</code> function, the input is a String, and the output is an Integer. We will see increasingly complex functions with all sorts of different inputs and outputs.</p></li>
-</ul>
 </div>
 </div>
 <div id="grammar-structure-2-storing-data-types-in-the-variable-environment" class="section level2 hasAnchor" number="1.6">
@@ -342,18 +391,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Evaluate the expression to the right of <code>=</code>.</p>
 <p>Bind variable to the left of <code>=</code> to the resulting value.</p>
-<p>The variable is stored in the Variable Environment.</p>
+<p>The variable is stored in the <strong>Variable Environment</strong>.</p>
 </blockquote>
 <p>The Variable Environment is where all the variables are stored, and can be used for an expression anytime once it is defined. Only one unique variable name can be defined.</p>
-<p>The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM. When we work with large datasets, if you assign a variable to a data type larger than the available RAM, it will not work. More on this later.</p>
+<p>The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM.</p>
 <p>Look, now <code>x</code> can be reused downstream:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="intro-to-computing.html#cb16-1" tabindex="-1"></a>x <span class="op">-</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## 37</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="intro-to-computing.html#cb18-1" tabindex="-1"></a>y <span class="op">=</span> x <span class="op">*</span> <span class="dv">2</span></span></code></pre></div>
-<p>It is quite common for programmers to not know what data type a variable is while they are coding. To learn about the data type of a variable, use the <code>type()</code> function on any variable in Python:</p>
+<p>It is quite common for programmers to have to look up the data type of a variable while they are coding. To learn about the data type of a variable, use the <code>type()</code> function on any variable in Python:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="intro-to-computing.html#cb19-1" tabindex="-1"></a><span class="bu">type</span>(y)</span></code></pre></div>
 <pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
-<p>We should give useful variable names so that we know what to expect! Consider <code>num_sales</code> instead of <code>y</code>.</p>
+<p>We should give useful variable names so that we know what to expect! If you are working with numerical sales data, consider <code>num_sales</code> instead of <code>y</code>.</p>
 </div>
 </div>
 <div id="grammar-structure-3-evaluation-of-functions" class="section level2 hasAnchor" number="1.7">
@@ -362,13 +411,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="execution-rule-for-functions" class="section level3 hasAnchor" number="1.7.1">
 <h3><span class="header-section-number">1.7.1</span> Execution rule for functions:<a href="intro-to-computing.html#execution-rule-for-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
-<p>Evaluate the function by its arguments, and if the arguments are functions or contains operations, evaluate those functions or operations first.</p>
+<p>Evaluate the function by its arguments if there’s any, and if the arguments are functions or contains operations, evaluate those functions or operations first.</p>
 <p>The output of functions is called the <strong>returned value</strong>.</p>
 </blockquote>
-<p>Often, we will use multiple functions, in a nested way, or use parenthesis to change the order of operation. Being able to read nested operations, nested functions, and parenthesis is very important. Think about what the Python is going to do step-by–step in the line of code below:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="intro-to-computing.html#cb21-1" tabindex="-1"></a>(<span class="bu">len</span>(<span class="st">&quot;hello&quot;</span>) <span class="op">+</span> <span class="dv">4</span>) <span class="op">*</span> <span class="dv">2</span></span></code></pre></div>
-<pre><code>## 18</code></pre>
-<p>If we don’t know how to use a function, such as <code>pow()</code> we can ask for help:</p>
+<p>Often, we will use multiple functions in a nested way, and it is important to understand how the Python console understand the order of operation. We can also use parenthesis to change the order of operation. Think about what the Python is going to do step-by–step in the lines of code below:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="intro-to-computing.html#cb21-1" tabindex="-1"></a><span class="bu">max</span>(<span class="bu">len</span>(<span class="st">&quot;hello&quot;</span>), <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## 5</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="intro-to-computing.html#cb23-1" tabindex="-1"></a>(<span class="bu">len</span>(<span class="st">&quot;pumpkin&quot;</span>) <span class="op">-</span> <span class="dv">8</span>) <span class="op">*</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## -2</code></pre>
+<p>If we don’t know how to use a function, such as <code>pow()</code>, we can ask for help:</p>
 <pre><code>?pow
 
 pow(base, exp, mod=None)
@@ -376,33 +427,76 @@ Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
  
 Some types, such as ints, are able to use a more efficient algorithm when
 invoked using the three argument form.</code></pre>
-<p>This shows the function takes in three input arguments: <code>base</code>, <code>exp</code>, and <code>mod=None</code>. When an argument has an assigned value of <code>mod=None</code>, that means the input argument already has a value, and you don’t need to specify anything, unless you want to.</p>
+<p>We can also find a similar help document, in a <a href="https://docs.python.org/3/library/functions.html#pow">nicer rendered form online.</a> We will practice looking at function documentation throughout the course, because that is a fundamental skill to learn more functions on your own.</p>
+<p>The documentation shows the function takes in three input arguments: <code>base</code>, <code>exp</code>, and <code>mod=None</code>. When an argument has an assigned value of <code>mod=None</code>, that means the input argument already has a value, and you don’t need to specify anything, unless you want to.</p>
 <p>The following ways are equivalent ways of using the <code>pow()</code> function:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="intro-to-computing.html#cb24-1" tabindex="-1"></a><span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="intro-to-computing.html#cb26-1" tabindex="-1"></a><span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## 8</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="intro-to-computing.html#cb26-1" tabindex="-1"></a><span class="bu">pow</span>(base<span class="op">=</span><span class="dv">2</span>, exp<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="intro-to-computing.html#cb28-1" tabindex="-1"></a><span class="bu">pow</span>(base<span class="op">=</span><span class="dv">2</span>, exp<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## 8</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="intro-to-computing.html#cb28-1" tabindex="-1"></a><span class="bu">pow</span>(exp<span class="op">=</span><span class="dv">3</span>, base<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="intro-to-computing.html#cb30-1" tabindex="-1"></a><span class="bu">pow</span>(exp<span class="op">=</span><span class="dv">3</span>, base<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## 8</code></pre>
 <p>but this will give you something different:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="intro-to-computing.html#cb30-1" tabindex="-1"></a><span class="bu">pow</span>(<span class="dv">3</span>, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="intro-to-computing.html#cb32-1" tabindex="-1"></a><span class="bu">pow</span>(<span class="dv">3</span>, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## 9</code></pre>
 <p>And there is an operational equivalent:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="intro-to-computing.html#cb32-1" tabindex="-1"></a><span class="dv">2</span> <span class="op">**</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="intro-to-computing.html#cb34-1" tabindex="-1"></a><span class="dv">2</span> <span class="op">**</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>## 8</code></pre>
+<p>We will mostly look at functions with input arguments and return types in this course, but not all functions need to have input arguments and output return. Let’s look at some examples of functions that don’t always have an input or output:</p>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="15%" />
+<col width="36%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function call</th>
+<th>What it takes in</th>
+<th>What it does</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/functions.html#pow"><code>pow(a, b)</code></a></td>
+<td>integer <code>a</code>, integer <code>b</code></td>
+<td>Raises <code>a</code> to the <code>b</code>th power.</td>
+<td>Integer</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.python.org/3/library/time.html#time.sleep"><code>time.sleep(x)</code></a></td>
+<td>Integer <code>x</code></td>
+<td>Waits for <code>x</code> seconds.</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td><a href="https://docs.python.org/3/library/functions.html#dir"><code>dir()</code></a></td>
+<td>Nothing</td>
+<td>Gives a list of all the variables defined in the environment.</td>
+<td>List</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="tips-on-writing-your-first-code" class="section level2 hasAnchor" number="1.8">
 <h2><span class="header-section-number">1.8</span> Tips on writing your first code<a href="intro-to-computing.html#tips-on-writing-your-first-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>Computer = powerful + stupid</code></p>
-<p>Even the smallest spelling and formatting changes will cause unexpected output and errors!</p>
+<p>Computers are excellent at doing something specific over and over again, but is extremely rigid and lack flexibility. Here are some tips that is helpful for beginners:</p>
 <ul>
-<li><p>Write incrementally, test often</p></li>
+<li><p>Write incrementally, test often.</p></li>
+<li><p>Don’t be afraid to break things: it is how we learn how things work in programming.</p></li>
 <li><p>Check your assumptions, especially using new functions, operations, and new data types.</p></li>
 <li><p>Live environments are great for testing, but not great for reproducibility.</p></li>
 <li><p>Ask for help!</p></li>
 </ul>
 <p>To get more familiar with the errors Python gives you, take a look at this <a href="https://betterstack.com/community/guides/scaling-python/python-errors/">summary of Python error messages</a>.</p>
+</div>
+<div id="exercises" class="section level2 hasAnchor" number="1.9">
+<h2><span class="header-section-number">1.9</span> Exercises<a href="intro-to-computing.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Exercise for week 1 can be found <a href="https://colab.research.google.com/drive/1AqVvktGz3LStUyu6dLJFsU2KoqNxgagT?usp=sharing">here</a>.</p>
 
 </div>
 </div>
@@ -421,7 +515,7 @@ invoked using the three argument form.</code></pre>
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="working-with-data-structures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

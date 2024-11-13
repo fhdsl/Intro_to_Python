@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Python"
-date: "August, 2024"
+date: "September, 2024"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
