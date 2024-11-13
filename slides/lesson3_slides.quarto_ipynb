@@ -1,0 +1,297 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"W3: Data Wrangling with Tidy Data, Part 1\"\n",
+        "format: \n",
+        "  revealjs:\n",
+        "    smaller: true\n",
+        "    scrollable: true\n",
+        "    echo: true\n",
+        "output-location: fragment\n",
+        "---\n",
+        "\n",
+        "\n",
+        "## Objects in Python\n",
+        "\n",
+        "Formally, an object contains the following:\n",
+        "\n",
+        "*What does it contain?*\n",
+        "\n",
+        "-   **Value** that holds the essential data for the object.\n",
+        "\n",
+        "-   **Attributes** that hold subset of the data or additional data for the object.\n",
+        "\n",
+        "*What can it do?*\n",
+        "\n",
+        "-   Functions called **Methods** specific to the data type and automatically takes the object as input.\n",
+        "\n",
+        "This organizing structure on an object applies to pretty much all Python data types and data structures.\n",
+        "\n",
+        "## Lists as an Object\n",
+        "\n",
+        "*What does it contain?*\n",
+        "\n",
+        "-   **Value**: the contents of the list, such as `[2, 3, 4]`.\n",
+        "\n",
+        "-   **Attributes**: subsetting via `[ ]`.\n",
+        "\n",
+        "*What can it do (methods)?*\n",
+        "\n",
+        "-   `chrNum.count(2)` returns the number of instances 2 appears as an element of `chrNum`.\n",
+        "\n",
+        "-   `chrNum.append(4)` appends 4 to the last element of `chrNum`, but does not return anything.\n",
+        "\n",
+        "## Dataframe as an Object\n",
+        "\n",
+        "*What does it contain?*\n",
+        "\n",
+        "-   **Value**: the spreadsheet of data.\n",
+        "\n",
+        "-   **Attributes**:\n",
+        "\n",
+        "    -   Columns of the data\n",
+        "\n",
+        "    -   `.columns`\n",
+        "\n",
+        "    -   `.shape`\n",
+        "\n",
+        "    -   `.iloc[ , ]` for subsetting\n",
+        "\n",
+        "*What can it do (methods)?*\n",
+        "\n",
+        "-   `.head()`\n",
+        "\n",
+        "-   `.tail()`\n",
+        "\n",
+        "## Data Science Workflow\n",
+        "\n",
+        "![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width=\"200\"}\n"
+      ],
+      "id": "bfaa99ba"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "metadata = pd.read_csv(\"https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/metadata.csv\")\n",
+        "mutation = pd.read_csv(\"https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/mutation.csv\")\n",
+        "expression = pd.read_csv(\"https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/expression.csv\")"
+      ],
+      "id": "9e955294",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "We start with *Transform* and *Visualize* with the assumption that our data is in a nice, **\"tidy\"** state.\n",
+        "\n",
+        "## Tidy Data\n",
+        "\n",
+        "![](https://r4ds.hadley.nz/images/tidy-1.png){alt=\"A tidy dataframe. Image source: R for Data Science.\" width=\"800\"}\n",
+        "\n",
+        "Here, we describe a standard of organizing data:\n",
+        "\n",
+        "1.  Each variable must have its own column.\n",
+        "\n",
+        "2.  Each observation must have its own row.\n",
+        "\n",
+        "3.  Each value must have its own cell.\n",
+        "\n",
+        "## Our working Tidy Data: DepMap Project\n",
+        "\n",
+        "<https://depmap.org/>\n",
+        "\n",
+        "We will work with `metadata`, `mutation`, and `expression` dataframes.\n",
+        "\n",
+        "What do the rows represent? What are some variables and values?\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "| Dataframe  | The observation is | Some variables are            | Some values are             |\n",
+        "|------------|--------------------|-------------------------------|-----------------------------|\n",
+        "| metadata   | Cell line          | ModelID, Age, OncotreeLineage | \"ACH-000001\", 60, \"Myeloid\" |\n",
+        "| expression | Cell line          | KRAS_Exp                      | 2.4, .3                     |\n",
+        "| mutation   | Cell line          | KRAS_Mut                      | TRUE, FALSE                 |\n",
+        "\n",
+        "## What do you want to do with this dataframe?\n",
+        "\n",
+        "Remember that a major theme of the course is about: **How we organize ideas \\<-\\> Instructing a computer to do something.**\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "With Tidy data, we can ponder how we want to transform our data that satisfies our scientific question.\n",
+        "\n",
+        "## Subsetting a dataframe\n",
+        "\n",
+        "*In the dataframe you have here, which rows would you filter for and columns would you select that relate to a scientific question?*\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "✅ Implicit: *\"I want to subset for rows such that the OncotreeLineage is lung cancer and subset for columns Age and Sex.\"*\n",
+        "\n",
+        "🚫 Explicit: *\"I want to subset for rows 1:10 and subset columns 2 and 8.\"*\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.\n",
+        "\n",
+        "## How we do it:\n",
+        "\n",
+        "\"I want to *subset* *rows* such that the OncotreeLineage column is lung cancer and *subset* *columns* Age and Sex.\"\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "To formulate a conditional expression that OncotreeLineage is breast cancer:\n",
+        "\n",
+        ". . .\n"
+      ],
+      "id": "ee719a5b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metadata['OncotreeLineage'] == \"Lung\""
+      ],
+      "id": "87a24a4b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "It gives us a column of `True` and `False` values, and we want to keep rows that correspond to `True` values.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Then, we will use the [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html) attribute (which is different than [`.iloc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html) operation!) and subsetting brackets to subset rows and columns Age and Sex at the same time:\n"
+      ],
+      "id": "7429836b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metadata.loc[metadata['OncotreeLineage'] == \"Lung\", [\"Age\", \"Sex\"]]"
+      ],
+      "id": "8bf8edc4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Another example, in 3 steps:\n"
+      ],
+      "id": "3c6ff82d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df = pd.DataFrame(data={'status': [\"treated\", \"untreated\", \"untreated\", \"discharged\", \"treated\"],\n",
+        "                            'age_case': [25, 43, 21, 65, 7],\n",
+        "                            'age_control': [49, 20, 32, 25, 32]})\n",
+        "                            \n",
+        "df"
+      ],
+      "id": "ae492d86",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "1.  *\"I want to subset for rows such that the status is\"treated\" and subset for columns status and age_case.\"*\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "2.  Create a conditional expression that status is \"treated\":\n"
+      ],
+      "id": "dfeacc51"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.status == \"treated\""
+      ],
+      "id": "cdc0f80f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "3.  Subset for rows using df`.loc[ ]` via our conditional expression and columns names:\n"
+      ],
+      "id": "078384a0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "md-indent": "    "
+      },
+      "source": [
+        "df.loc[df.status == \"treated\", [\"status\", \"age_case\"]]"
+      ],
+      "id": "026e2266",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "    . . .\n",
+        "\n",
+        "![](../images/pandas_subset_2.png)\n",
+        "\n",
+        "## Summary statistics\n",
+        "\n",
+        "Now that your dataframe has be transformed based on your scientific question, you can start doing some analysis on it!\n",
+        "\n",
+        "A common data science task is to examine summary statistics of a dataset, which summarizes the all the values from a variable in a numeric summary, such as mean, median, or mode.\n",
+        "\n",
+        "If we look at the data structure of a Dataframe's column, it is actually not a List, but an object called Series. It has methods can compute summary statistics for us. Let's take a look at a few popular examples:\n",
+        "\n",
+        "| Function method                                                                                                           | What it takes in                              | What it does                                                                  | Returns       |\n",
+        "|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|-------------------------------------------------------------------------------|---------------|\n",
+        "| [`metadata.Age.mean()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.mean.html)                             | `metadata.Age` as a numeric Series            | Computes the mean value of the `Age` column.                                  | Float (NumPy) |\n",
+        "| [`metadata['Age'].median()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.median.html)                      | `metadata['Age']` as a numeric Series         | Computes the median value of the `Age` column.                                | Float (NumPy) |\n",
+        "| [`metadata.Age.max()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.max.html)                               | `metadata.Age` as a numeric Series            | Computes the max value of the `Age` column.                                   | Float (NumPy) |\n",
+        "| [`metadata.OncotreeSubtype.value_counts()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html) | `metadata.OncotreeSubtype` as a string Series | Creates a frequency table of all unique elements in `OncotreeSubtype` column. | Series        |"
+      ],
+      "id": "8ee0fcb1"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

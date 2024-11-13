@@ -1,0 +1,39 @@
+---
+title: "Python Community Session 1"
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+output-location: fragment
+---
+
+## How to find new functions and methods
+
+Suppose you want to learn more about Pandas Dataframes:
+
+[Newcomer tutorials](https://pandas.pydata.org/docs/user_guide/10min.html)
+
+[User guides](https://pandas.pydata.org/docs/user_guide/index.html)
+
+[Package documentation page](https://pandas.pydata.org/docs/index.html)
+
+-   How to install the module?
+
+-   How to load in the module? What are some module functions?
+
+-   What kind of Objects are available for use?
+
+## What kind of Objects are available for use?
+
+-   How to construct or load an Object?
+
+-   *What does it contain?*
+
+    -   **Value** that holds the essential data for the object.
+
+    -   **Attributes** that hold subset of the data or additional data for the object.
+
+-   *What can it do?*
+
+    -   Functions called **Methods** specific to the data type and automatically takes the object as input.

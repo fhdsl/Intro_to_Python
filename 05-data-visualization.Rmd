@@ -182,4 +182,4 @@ plot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=
 
 ## Exercises
 
-Exercise for week 5 can be found [here](https://colab.research.google.com/drive/1kT3zzq2rrhL1vHl01IdW5L1V7v0iK0wY?usp=sharing).
+Exercise for week 5 can be found [here](https://colab.research.google.com/drive/17iwr8NwLLrmzRj4a6zRZucETXpPkmDNR?usp=sharing).

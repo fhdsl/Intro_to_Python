@@ -1,0 +1,262 @@
+---
+title: "W5: Data Visualization"
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+---
+
+```{r, message=F, echo=F}
+library(reticulate)
+
+```
+
+```{python, message=FALSE, echo=F}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+
+metadata = pd.read_csv("https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/metadata.csv")
+mutation = pd.read_csv("https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/mutation.csv")
+expression = pd.read_csv("https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/expression.csv")
+```
+
+## [Last Class Pizza and Code-a-thon](https://forms.gle/Cj1oDM7FEY2LruYf7)
+
+## Python modules
+
+A Python [module](https://docs.python.org/3/tutorial/modules.html), such as `pandas`, `math`, `seaborn`, can contain the following:
+
+-   Functions
+
+-   Attributes
+
+-   **Classes** - templates for creating Objects
+
+. . .
+
+Think of Classes as a mold for the Objects you create and use.
+
+## Example: Pandas
+
+`import pandas as pd`
+
+. . .
+
+-   Functions
+
+    -   `pd.read_csv("my_file.csv")`
+
+    -   `pd.to_csv(my_df, "output.csv")`
+
+-   Classes
+
+    -   DataFrame
+
+        -   Attributes
+
+        -   Methods
+
+    -   Series
+
+        -   Attributes
+
+        -   Methods
+
+. . .
+
+Once you load in the Dataframe, `my_df` is a Dataframe Object.
+
+`my_df = pd.read_csv("my_file.csv")`
+
+`my_df.shape`
+
+## Seaborn module
+
+`import seaborn as sns`
+
+. . .
+
+-   Functions
+
+    -   `displot(...)`
+
+    -   `relplot(...)`
+
+    -   `catplot(...)`
+
+-   Classes
+
+    -   FacetGrid
+
+. . .
+
+When we make a plot from `displot`, it returns a FacetGrid object.
+
+## [What's your favorite plot??](https://docs.google.com/document/d/1-v4pYC7jh7EYHq7MtRLd0rfhurojGrskWy7Oy_GQfZY/edit?usp=sharing)
+
+## Seaborn plotting functions
+
+`displot`: Distributions (one variable)
+
+-   Histograms
+
+`relplot`: Relational (between 2 continuous variables)
+
+-   Scatterplots
+
+`catplot`: Categorical (between 1 categorical and 1 continuous variable)
+
+-   Categorical scatterplots
+
+. . .
+
+More to come!
+
+## Why we like these plots
+
+![](https://www.oreilly.com/api/v2/epubs/9781466508910/files/image/fig5-1.png)
+
+## Distributions
+
+Specify the input argument `data` as our Dataframe, and the input argument `x` as the column name of the Dataframe in a String.
+
+```{python}
+plot = sns.displot(data=metadata, x="Age")
+```
+
+## Distributions
+
+Adjust the binwidth:
+
+```{python}
+plot = sns.displot(data=metadata, x="Age", binwidth = 10)
+```
+
+## Conditional Distributions
+
+What is the distribution of age conditional on sex? Age for Female, Age for Male, and Age for Unknown:
+
+```{python}
+plot = sns.displot(data=metadata, x="Age", hue="Sex", binwidth=10)
+```
+
+## Conditional Distributions
+
+We add a new option that we want to separate each bar category via `multiple="dodge"` input argument:
+
+```{python}
+plot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", binwidth=10)
+```
+
+## Conditional Distributions
+
+Or, separate the conditions via a subplot:
+
+```{python}
+plot = sns.displot(data=metadata, x="Age", col="Sex", binwidth=10)
+```
+
+More info [here](https://seaborn.pydata.org/tutorial/distributions.html).
+
+## Relational
+
+Specify the input argument `data` as our dataframe, and the input arguments `x` and `y` as the column names in a String:
+
+```{python}
+plot = sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
+```
+
+## Condition on Relational
+
+To conditional on other variables, plotting features are used to distinguish conditional variable values:
+
+-   `hue` (similar to the histogram)
+
+-   `style`
+
+-   `size`
+
+. . .
+
+Let's merge `expression` and `metadata` together, so that we can examine KRAS and EGFR relationships conditional on primary vs. metastatic cancer status.
+
+```{python}
+expression_metadata = expression.merge(metadata)
+```
+
+## Condition on Relational
+
+Examine KRAS and EGFR relationships conditional on primary vs. metastatic cancer status:
+
+```{python}
+plot = sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis")
+```
+
+## Condition on Relational
+
+More conditioning:
+
+```{python}
+plot = sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis", col="AgeCategory")
+```
+
+More on relational plots [here](https://seaborn.pydata.org/tutorial/relational.html).
+
+## Categorical
+
+Between one categorical and one continuous variable:
+
+[sns.catplot()](https://seaborn.pydata.org/generated/seaborn.catplot.html) is our main plotting function, with the basic input arguments:
+
+-   `data`
+
+-   `x`
+
+-   `y`
+
+You can add additional conditional variables via the input arguments:
+
+-   `hue`
+
+-   `col`
+
+## Condtion on Categorical
+
+```{python}
+plot = sns.catplot(data=expression_metadata, x="PrimaryOrMetastasis", y="EGFR_Exp", hue="AgeCategory")
+```
+
+More on categorical plots [here](https://seaborn.pydata.org/tutorial/categorical.html).
+
+## "Kind" of plots
+
+![Image source: Seaborn’s overview of plotting functions](https://seaborn.pydata.org/_images/function_overview_8_0.png)
+
+For example, `sns.catplot(data=expression_metadata, x="PrimaryOrMetastasis", y="EGFR_Exp", hue="AgeCategory", kind="box")`
+
+[Try it out, share with what you tried](https://docs.google.com/document/d/1-v4pYC7jh7EYHq7MtRLd0rfhurojGrskWy7Oy_GQfZY/edit?usp=sharing)
+
+
+## Basic plot customization: color
+
+You can change the color palette by setting adding the `palette` input argument to any of the plots. You can explore available color palettes [here](https://www.practicalpythonfordatascience.com/ap_seaborn_palette) or [here](https://seaborn.pydata.org/tutorial/color_palettes.html).
+
+```{python}
+plot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=sns.color_palette(palette='rainbow'))
+
+```
+
+## Plot customization via [Better Plots workshop](https://better-plots.netlify.app/)
+
+## [Cheatsheet, updated with Modules](https://docs.google.com/document/d/1si-4suESej1Vjopkv5KiI-hGylXk11osmO3oEfpYOuc/edit?usp=sharing)
+
+
+## What to do next week?
+
+<https://docs.google.com/document/d/17FsFWDOEuqTcHoWe-wl2Bz-xlsK0vGzqeiNBxMDkwXI/edit?usp=sharing>
+
+## How was class for you today?
+
+<https://forms.gle/8EGdEqcsp82GP82U9>

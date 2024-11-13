@@ -146,7 +146,7 @@ To get there, we need to:
 
 -   **Summarize** each group via a summary statistic performed on a column, such as `Age`.
 
-We first subset the the two columns we need, and then use the methods [`.group_by(x)`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html) and `.mean()`.
+We use the methods [`.group_by(x)`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html) and `.mean()`.
 
 ```{python}
 metadata_grouped = metadata.groupby("OncotreeLineage")
@@ -155,7 +155,7 @@ metadata_grouped['Age'].mean()
 
 Here's what's going on:
 
--   We use the Dataframe method [`.group_by(x)`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html) and specify the column we want to group by. The output of this method is a Grouped Dataframe object. It still contains all the information of the `metadata` Dataframe, but it makes a note that it's been grouped.
+-   We use the Dataframe method [`.group_by(x)`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html) and specify the column we want to group by. The output of this method is a **Grouped Dataframe object**. It still contains all the information of the `metadata` Dataframe, but it makes a note that it's been grouped.
 
 -   We subset to the column `Age`. The grouping information still persists (This is a Grouped Series object).
 

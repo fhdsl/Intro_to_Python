@@ -1,0 +1,274 @@
+---
+title: "W3: Data Wrangling with Tidy Data, Part 1"
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+output-location: fragment
+---
+
+## Data snacks!
+
+<https://hutchdatascience.org/data_snacks/>
+
+## Objects in Python
+
+Formally, an object contains the following:
+
+*What does it contain?*
+
+-   **Value** that holds the essential data for the object.
+
+-   **Attributes** that hold subset of the data or additional data for the object.
+
+. . .
+
+*What can it do?*
+
+-   Functions called **Methods** specific to the data type and automatically takes the object as input.
+
+. . .
+
+This organizing structure on an object applies to pretty much all Python data types and data structures.
+
+## Lists as an Object
+
+*What does it contain?*
+
+-   **Value**: the contents of the list, such as `[2, 3, 4]`.
+
+-   **Attributes**: subsetting via `[ ]`.
+
+. . .
+
+*What can it do (methods)?*
+
+-   `chrNum.count(2)` returns the number of instances 2 appears as an element of `chrNum`.
+
+-   `chrNum.append(4)` appends 4 to the last element of `chrNum`, but does not return anything.
+
+## Dataframe as an Object
+
+*What does it contain?*
+
+-   **Value**: the spreadsheet of data.
+
+-   **Attributes**:
+
+    -   Columns of the data
+
+    -   `.columns`
+
+    -   `.shape`
+
+    -   `.iloc[ , ]` for subsetting
+
+. . .
+
+*What can it do (methods)?*
+
+-   `.head()`
+
+-   `.tail()`
+
+## Data Science Workflow
+
+![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="200"}
+
+```{r, message=F, echo=F}
+library(reticulate)
+
+```
+
+```{python, message=FALSE, echo=F}
+import pandas as pd
+
+metadata = pd.read_csv("https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/metadata.csv")
+mutation = pd.read_csv("https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/mutation.csv")
+expression = pd.read_csv("https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/expression.csv")
+```
+
+. . .
+
+We start with *Transform* and *Visualize* with the assumption that our data is in a nice, **"tidy"** state.
+
+## Tidy Data
+
+![](https://r4ds.hadley.nz/images/tidy-1.png){alt="A tidy dataframe. Image source: R for Data Science." width="800"}
+
+Here, we describe a standard of organizing data:
+
+1.  Each variable must have its own column.
+
+2.  Each observation must have its own row.
+
+3.  Each value must have its own cell.
+
+## Our working Tidy Data: DepMap Project
+
+<https://depmap.org/>
+
+We will work with `metadata`, `mutation`, and `expression` dataframes.
+
+What do the rows represent? What are some variables and values?
+
+. . .
+
+| Dataframe  | The observation is | Some variables are            | Some values are             |
+|------------|--------------------|-------------------------------|-----------------------------|
+| metadata   | Cell line          | ModelID, Age, OncotreeLineage | "ACH-000001", 60, "Myeloid" |
+| expression | Cell line          | KRAS_Exp                      | 2.4, .3                     |
+| mutation   | Cell line          | KRAS_Mut                      | TRUE, FALSE                 |
+
+## What do you want to do with this dataframe?
+
+Remember that a major theme of the course is about: **How we organize ideas \<-\> Instructing a computer to do something.**
+
+. . .
+
+With Tidy data, we can ponder how we want to transform our data that satisfies our scientific question.
+
+## Subsetting a dataframe
+
+*In the dataframe you have here, which rows would subset for and columns would subset for that relate to a scientific question?*
+
+. . .
+
+✅ Implicit: *"I want to subset for rows that contains lung cancer for OncotreeLineage column and subset for columns Age and Sex."*
+
+🚫 Explicit: *"I want to subset for rows 1:10 and subset columns 2 and 8."*
+
+. . .
+
+Notice that when we filter for rows in an implicitly way, we often formulate criteria about the columns.
+
+## How we do it:
+
+"*I want to subset for rows that contains lung cancer for OncotreeLineage column and subset for columns Age and Sex.*"
+
+. . .
+
+To formulate a conditional expression that OncotreeLineage is lung cancer:
+
+. . .
+
+```{python}
+metadata['OncotreeLineage'] == "Lung"
+```
+
+. . .
+
+It gives us a column of `True` and `False` values, and we want to keep rows that correspond to `True` values.
+
+. . .
+
+Then, we will use the [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html)`[ , ]`attribute and subsetting brackets to subset rows and columns Age and Sex at the same time:
+
+```{python}
+metadata.loc[metadata['OncotreeLineage'] == "Lung", ["Age", "Sex"]]
+```
+
+## Another example, in 3 steps:
+
+```{python}
+df = pd.DataFrame(data={'status': ["treated", "untreated", "untreated", "discharged", "treated"],
+                            'age_case': [25, 43, 21, 65, 7],
+                            'age_control': [49, 20, 32, 25, 32]})
+                            
+df
+```
+
+. . .
+
+1.  *"I want to subset for rows that contains"treated" for the status column and subset for columns status and age_case."*
+
+. . .
+
+2.  Create a conditional expression that status column is "treated":
+
+```{python}
+df.status == "treated"
+```
+
+. . .
+
+3.  Subset for rows using df`.loc[ ]` via our conditional expression and columns names:
+
+    ```{python}
+    df.loc[df.status == "treated", ["status", "age_case"]]
+    ```
+
+. . .
+
+![](pandas_subset_2.png)
+
+## Your turn!
+
+1.  Come up with subsetting criteria: *"In `dataframe`, I want to subset for rows that contains \[criteria\] in \[column name\] and subset for columns \[column names\]."*
+2.  Create a conditional expression for *\[criteria\] in \[column name\].*
+3.  Subset for rows and columns via `.loc[ ]`
+
+## Summary statistics
+
+Now that your dataframe has be transformed based on your scientific question, you can start doing some analysis on it!
+
+. . .
+
+We can examine summary statistics of a column, which summarizes the all the values in a numeric summary:
+
+-   Numeric value: mean, median, max, etc.
+
+-   String value: frequency table, etc.
+
+## Summary statistics
+
+If we look at the data structure of a Dataframe's column, it is actually not a List, but an object called **Series**. It has methods can compute summary statistics for us.
+
+. . .
+
+```{python}
+type(metadata.Age)
+```
+
+```{python}
+metadata.Age.mean()
+```
+
+. . .
+
+```{python}
+metadata.OncotreeSubtype.value_counts()
+```
+
+## Methods for summary statistics
+
+| Function method                                                                                                           | What it takes in                              | What it does                                                                  | Returns       |
+|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|-------------------------------------------------------------------------------|---------------|
+| [`metadata.Age.mean()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.mean.html)                             | `metadata.Age` as a numeric Series            | Computes the mean value of the `Age` column.                                  | Float (NumPy) |
+| [`metadata['Age'].median()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.median.html)                      | `metadata['Age']` as a numeric Series         | Computes the median value of the `Age` column.                                | Float (NumPy) |
+| [`metadata.Age.max()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.max.html)                               | `metadata.Age` as a numeric Series            | Computes the max value of the `Age` column.                                   | Float (NumPy) |
+| [`metadata.OncotreeSubtype.value_counts()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html) | `metadata.OncotreeSubtype` as a string Series | Creates a frequency table of all unique elements in `OncotreeSubtype` column. | Series        |
+
+## What should we do for our community session next week?
+
+<https://docs.google.com/document/d/1b4gWYXezYAmfkrYBAVSEstYBsbiUESHcW-09SUllS9o/edit?usp=sharing>
+
+## How was class for you today?
+
+<https://forms.gle/8EGdEqcsp82GP82U9>
+
+## Appendix: Simple data visualization
+
+The Dataframe's column, Series, has a method called [`.plot()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.plot.html) that can help us make simple plots for one variable.
+
+. . .
+
+The `.plot()` method will by default make a line plot, but it is not necessary the plot style we want, so we can give the optional argument `kind` a String value to specify the plot style.
+
+. . .
+
+| Plot style | Useful for | kind = | Code                                                         |
+|------------|------------|--------|--------------------------------------------------------------|
+| Histogram  | Numerics   | "hist" | `metadata.Age.plot(kind = "hist")`                           |
+| Bar plot   | Strings    | "bar"  | `metadata.OncotreeSubtype.value_counts().plot(kind = "bar")` |
