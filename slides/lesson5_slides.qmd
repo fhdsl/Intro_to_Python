@@ -92,7 +92,7 @@ Once you load in the Dataframe, `my_df` is a Dataframe Object.
 
 . . .
 
-Ex. When we make a plot from `displot`, we get a FacetGrid object.
+When we make a plot from `displot`, it returns a FacetGrid object.
 
 ## [What's your favorite plot??](https://docs.google.com/document/d/1-v4pYC7jh7EYHq7MtRLd0rfhurojGrskWy7Oy_GQfZY/edit?usp=sharing)
 
@@ -114,7 +114,7 @@ Ex. When we make a plot from `displot`, we get a FacetGrid object.
 
 More to come!
 
-## Why we like these common plots
+## Why we like these plots
 
 ![](https://www.oreilly.com/api/v2/epubs/9781466508910/files/image/fig5-1.png)
 
@@ -134,15 +134,15 @@ Adjust the binwidth:
 plot = sns.displot(data=metadata, x="Age", binwidth = 10)
 ```
 
-## Distributions
+## Conditional Distributions
 
-What is the distribution of age when compared with sex? Age for Female, Age for Male, and Age for Unknown:
+What is the distribution of age conditional on sex? Age for Female, Age for Male, and Age for Unknown:
 
 ```{python}
 plot = sns.displot(data=metadata, x="Age", hue="Sex", binwidth=10)
 ```
 
-## Distributions
+## Conditional Distributions
 
 We add a new option that we want to separate each bar category via `multiple="dodge"` input argument:
 
@@ -150,7 +150,7 @@ We add a new option that we want to separate each bar category via `multiple="do
 plot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", binwidth=10)
 ```
 
-## Distributions
+## Conditional Distributions
 
 Or, separate the conditions via a subplot:
 
@@ -158,7 +158,7 @@ Or, separate the conditions via a subplot:
 plot = sns.displot(data=metadata, x="Age", col="Sex", binwidth=10)
 ```
 
-You can find a lot more details about distributions and histograms in [the Seaborn tutorial](https://seaborn.pydata.org/tutorial/distributions.html).
+More info [here](https://seaborn.pydata.org/tutorial/distributions.html).
 
 ## Relational
 
@@ -168,15 +168,7 @@ Specify the input argument `data` as our dataframe, and the input arguments `x` 
 plot = sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp")
 ```
 
-## Relational
-
-You can change the plot style via the `kind` argument to "line", but the visual interpretation changes.
-
-```{python}
-plot = sns.relplot(data=expression, x="KRAS_Exp", y="EGFR_Exp", kind="line")
-```
-
-## Relational
+## Condition on Relational
 
 To conditional on other variables, plotting features are used to distinguish conditional variable values:
 
@@ -194,7 +186,7 @@ Let's merge `expression` and `metadata` together, so that we can examine KRAS an
 expression_metadata = expression.merge(metadata)
 ```
 
-## Relational
+## Condition on Relational
 
 Examine KRAS and EGFR relationships conditional on primary vs. metastatic cancer status:
 
@@ -202,13 +194,15 @@ Examine KRAS and EGFR relationships conditional on primary vs. metastatic cancer
 plot = sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis")
 ```
 
-## Relational
+## Condition on Relational
 
 More conditioning:
 
 ```{python}
 plot = sns.relplot(data=expression_metadata, x="KRAS_Exp", y="EGFR_Exp", hue="PrimaryOrMetastasis", col="AgeCategory")
 ```
+
+More on relational plots [here](https://seaborn.pydata.org/tutorial/relational.html).
 
 ## Categorical
 
@@ -228,11 +222,13 @@ You can add additional conditional variables via the input arguments:
 
 -   `col`
 
-## Categorical
+## Condtion on Categorical
 
 ```{python}
 plot = sns.catplot(data=expression_metadata, x="PrimaryOrMetastasis", y="EGFR_Exp", hue="AgeCategory")
 ```
+
+More on categorical plots [here](https://seaborn.pydata.org/tutorial/categorical.html).
 
 ## "Kind" of plots
 
@@ -240,7 +236,8 @@ plot = sns.catplot(data=expression_metadata, x="PrimaryOrMetastasis", y="EGFR_Ex
 
 For example, `sns.catplot(data=expression_metadata, x="PrimaryOrMetastasis", y="EGFR_Exp", hue="AgeCategory", kind="box")`
 
-Try it out!
+[Try it out, share with what you tried](https://docs.google.com/document/d/1-v4pYC7jh7EYHq7MtRLd0rfhurojGrskWy7Oy_GQfZY/edit?usp=sharing)
+
 
 ## Basic plot customization: color
 
@@ -254,6 +251,11 @@ plot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=
 ## Plot customization via [Better Plots workshop](https://better-plots.netlify.app/)
 
 ## [Cheatsheet, updated with Modules](https://docs.google.com/document/d/1si-4suESej1Vjopkv5KiI-hGylXk11osmO3oEfpYOuc/edit?usp=sharing)
+
+
+## What to do next week?
+
+<https://docs.google.com/document/d/17FsFWDOEuqTcHoWe-wl2Bz-xlsK0vGzqeiNBxMDkwXI/edit?usp=sharing>
 
 ## How was class for you today?
 

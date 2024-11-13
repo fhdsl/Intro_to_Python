@@ -1,0 +1,157 @@
+---
+title: "W6: Getting Python on your computer"
+format: 
+  revealjs:
+    smaller: true
+    scrollable: true
+    echo: true
+---
+
+## We did it!
+
+[You are now comfortable with our code from Week 1!](https://colab.research.google.com/drive/1_77QQcj0mgZOWLlhtkZ-QKWUP1dnSt-_?usp=sharing)
+
+[Your Cheatsheet](https://docs.google.com/document/d/1si-4suESej1Vjopkv5KiI-hGylXk11osmO3oEfpYOuc/edit?usp=sharing)
+
+## End of class stickers
+
+## ![](images/student_stickers.jpg){width="300"}
+
+## End of class surveys
+
+[How was the course for you?](https://forms.gle/cwZNhu9pKRRzLRZz5)
+
+[Register for Data-thon here](https://www.addevent.com/event/fM23708762).
+
+[What do you want to learn in the winter quarter?](https://docs.google.com/forms/d/e/1FAIpQLSeVZmlDeDDHPGD-Fm2acrP3JjnFd0zdaJZZQSMjlEJ8vsuW0w/viewform)
+
+## Install Python on your computer
+
+### Windows
+
+Open up Command Prompt, type: `python3`
+
+Might take you to Microsoft Store to install Python 3.x
+
+### Mac
+
+Open up Terminal, type: `python3`
+
+If nothing comes up, download at: <https://www.python.org/downloads/>
+
+## Python Integrated Development Environment (IDE)
+
+[VSCode](https://code.visualstudio.com/) is our choice, but there are [many other software to consider.](https://sciwiki.fredhutch.org/scicomputing/software_python/#python-ide-comparison)
+
+### Install
+
+-   Mac/Windows: <https://code.visualstudio.com/download>
+
+-   Windows: Can be installed from Microsoft Store
+
+## Getting Started
+
+### Script mode:
+
+-   Open up a blank file
+
+-   Put down a Python code, such as `print("hello")`, save it with `.py` extension.
+
+-   Install the Python Extension
+
+-   Run the code
+
+## Getting Started
+
+### Notebook mode:
+
+-   Open Extensions, Install Jupyter Extension
+
+-   Open up New File... -\> Jupyter Notebook
+
+-   Put down Python code, such as `print("hello")`, sand save with `.ipynb` extension.
+
+-   Select Kernel and run it
+
+    -   Install iPython kernel if needed.
+
+More info here: <https://code.visualstudio.com/docs/datascience/jupyter-notebooks>
+
+## Python Environments
+
+An **"Environment"** in Python is the context in which a Python program runs that consists of an interpreter and any number of installed packages.
+
+-   The "**Global Environment"** is the default Python installation, with its interpreter and installed packages.
+
+-   The "**Local Environment**" is a secondary Python installation, built specifically for a project. It is good practice to always have a local environment in a project you are working on, so that the Python interpreter and package are version controlled.
+
+    -   We will use the Virtual Environment built in Python, but there are other local environment managers such as Conda or miniConda.
+
+## Create your local environment
+
+-   Show and run commands -\> Python: Select Interpreter -\> Create Virtual Environment -\> Venv
+
+    -   You may need to Open as a Workspace, to specify the folder you are working in.
+
+-   You can see and toggle your Environment on the bottom right hand corner.
+
+More info here: [https://code.visualstudio.com/docs/python/environments](https://code.visualstudio.com/docs/python/environmentshttps://code.visualstudio.com/docs/python/environments)
+
+## Install Python Packages/Modules
+
+### Notebook Mode
+
+-   Select the Python environment you want to be in.
+
+-   Create a new code cell, `%pip install [package name]`
+
+## Install Python Packages/Modules
+
+### Script Mode
+
+-   Select the Python environment you want to be in.
+
+-   Run you script. The Terminal should show up.
+
+-   `/full_path/.venv/bin/python -m pip install [package_name]`
+
+## Staying connected to [DaSL](https://hutchdatascience.org/)
+
+-   Look out for Winter course announcements in about a month!
+
+-   [Data House Calls](https://hutchdatascience.org/datahousecalls/)
+
+## Appendix: Create virtual environment from command line
+
+```         
+# macOS/Linux
+python3 -m venv .venv
+
+# Windows
+# You can also use `py -3 -m venv .venv`
+python -m venv .venv
+```
+
+## Appendix: Install Python Packages/Modules from command line
+
+Mac:
+
+```         
+% source venv/bin/activate  
+(.venv) % python -m pip install [package_name]
+```
+
+Windows:
+
+```         
+.\venv\Scripts\activate
+(.venv) % python -m pip install [package_name]
+```
+
+To exit the local environment:
+
+```         
+deactivate
+```
+
+## 

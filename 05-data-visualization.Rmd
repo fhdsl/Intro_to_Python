@@ -32,7 +32,7 @@ Categorical (between 1 categorical and 1 continuous variable)
 
 -   Violin plots
 
-[![Image source: Seaborn\'s overview of plotting functions](https://seaborn.pydata.org/_images/function_overview_8_0.png)](https://seaborn.pydata.org/tutorial/function_overview.html)
+[![Image source: Seaborn's overview of plotting functions](https://seaborn.pydata.org/_images/function_overview_8_0.png)](https://seaborn.pydata.org/tutorial/function_overview.html)
 
 Why do we focus on these common plots? Our eyes are better at distinguishing certain visual features more than others. All of these plots are focused on their position to depict data, which gives us the most effective visual scale.
 
@@ -182,4 +182,4 @@ plot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=
 
 ## Exercises
 
-Exercise for week 5 can be found [here](https://colab.research.google.com/drive/1kT3zzq2rrhL1vHl01IdW5L1V7v0iK0wY?usp=sharing).
+Exercise for week 5 can be found [here](https://colab.research.google.com/drive/17iwr8NwLLrmzRj4a6zRZucETXpPkmDNR?usp=sharing).
