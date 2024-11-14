@@ -206,7 +206,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#relational-between-2-continuous-variables"><i class="fa fa-check"></i><b>5.2</b> Relational (between 2 continuous variables)</a></li>
 <li class="chapter" data-level="5.3" data-path="data-visualization.html"><a href="data-visualization.html#categorical-between-1-categorical-and-1-continuous-variable"><i class="fa fa-check"></i><b>5.3</b> Categorical (between 1 categorical and 1 continuous variable)</a></li>
 <li class="chapter" data-level="5.4" data-path="data-visualization.html"><a href="data-visualization.html#basic-plot-customization"><i class="fa fa-check"></i><b>5.4</b> Basic plot customization</a></li>
-<li class="chapter" data-level="5.5" data-path="data-visualization.html"><a href="data-visualization.html#exercises-4"><i class="fa fa-check"></i><b>5.5</b> Exercises</a></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization.html"><a href="data-visualization.html#other-resources"><i class="fa fa-check"></i><b>5.5</b> Other resources</a></li>
+<li class="chapter" data-level="5.6" data-path="data-visualization.html"><a href="data-visualization.html#exercises-4"><i class="fa fa-check"></i><b>5.6</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
@@ -459,7 +460,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Group</strong> the data based on some criteria, elements of <code>OncotreeLineage</code></p></li>
 <li><p><strong>Summarize</strong> each group via a summary statistic performed on a column, such as <code>Age</code>.</p></li>
 </ul>
-<p>We first subset the the two columns we need, and then use the methods <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html"><code>.group_by(x)</code></a> and <code>.mean()</code>.</p>
+<p>We use the methods <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html"><code>.group_by(x)</code></a> and <code>.mean()</code>.</p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="data-wrangling-part-2.html#cb103-1" tabindex="-1"></a>metadata_grouped <span class="op">=</span> metadata.groupby(<span class="st">&quot;OncotreeLineage&quot;</span>)</span>
 <span id="cb103-2"><a href="data-wrangling-part-2.html#cb103-2" tabindex="-1"></a>metadata_grouped[<span class="st">&#39;Age&#39;</span>].mean()</span></code></pre></div>
 <pre><code>## OncotreeLineage
@@ -497,7 +498,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Name: Age, dtype: float64</code></pre>
 <p>Here’s what’s going on:</p>
 <ul>
-<li><p>We use the Dataframe method <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html"><code>.group_by(x)</code></a> and specify the column we want to group by. The output of this method is a Grouped Dataframe object. It still contains all the information of the <code>metadata</code> Dataframe, but it makes a note that it’s been grouped.</p></li>
+<li><p>We use the Dataframe method <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html"><code>.group_by(x)</code></a> and specify the column we want to group by. The output of this method is a <strong>Grouped Dataframe object</strong>. It still contains all the information of the <code>metadata</code> Dataframe, but it makes a note that it’s been grouped.</p></li>
 <li><p>We subset to the column <code>Age</code>. The grouping information still persists (This is a Grouped Series object).</p></li>
 <li><p>We use the method <code>.mean()</code> to calculate the mean value of <code>Age</code> within each group defined by <code>OncotreeLineage</code>.</p></li>
 </ul>

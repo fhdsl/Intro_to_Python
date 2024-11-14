@@ -47,5 +47,6 @@ distributions-one-variable
 relational-between-2-continuous-variables
 categorical-between-1-categorical-and-1-continuous-variable
 basic-plot-customization
+other-resources
 exercises-4
 references
