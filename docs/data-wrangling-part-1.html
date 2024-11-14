@@ -206,7 +206,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#relational-between-2-continuous-variables"><i class="fa fa-check"></i><b>5.2</b> Relational (between 2 continuous variables)</a></li>
 <li class="chapter" data-level="5.3" data-path="data-visualization.html"><a href="data-visualization.html#categorical-between-1-categorical-and-1-continuous-variable"><i class="fa fa-check"></i><b>5.3</b> Categorical (between 1 categorical and 1 continuous variable)</a></li>
 <li class="chapter" data-level="5.4" data-path="data-visualization.html"><a href="data-visualization.html#basic-plot-customization"><i class="fa fa-check"></i><b>5.4</b> Basic plot customization</a></li>
-<li class="chapter" data-level="5.5" data-path="data-visualization.html"><a href="data-visualization.html#exercises-4"><i class="fa fa-check"></i><b>5.5</b> Exercises</a></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization.html"><a href="data-visualization.html#other-resources"><i class="fa fa-check"></i><b>5.5</b> Other resources</a></li>
+<li class="chapter" data-level="5.6" data-path="data-visualization.html"><a href="data-visualization.html#exercises-4"><i class="fa fa-check"></i><b>5.6</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
@@ -315,10 +316,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## [5 rows x 536 columns]</code></pre>
 <table>
 <colgroup>
-<col width="23%" />
-<col width="23%" />
-<col width="27%" />
-<col width="25%" />
+<col width="13%" />
+<col width="21%" />
+<col width="33%" />
+<col width="31%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -359,8 +360,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>In the <code>metadata</code> dataframe, which rows would you subset for and columns would you subset for that relate to a scientific question?</p>
 </blockquote>
 <p>We have been using <strong>explicit subsetting</strong> with numerical indicies, such as “I want to filter for rows 20-50 and select columns 2 and 8”. We are now going to switch to <strong>implicit subsetting</strong> in which we describe the subsetting criteria via comparision operators and column names, such as:</p>
-<p><em>“I want to subset for rows such that the OncotreeLineage is breast cancer and subset for columns Age and Sex.”</em></p>
-<p>Notice that when we subset for rows in an implicit way, we formulate our criteria in terms of the columns.This is because we are guaranteed to have column names in Dataframes, but not row names.</p>
+<p><em>“I want to subset for rows such that the OncotreeLineage is lung cancer and subset for columns Age and Sex.”</em></p>
+<p>Notice that when we subset for rows in an implicit way, we formulate our criteria in terms of the columns. This is because we are guaranteed to have column names in Dataframes, but not row names.</p>
 <div id="lets-convert-our-implicit-subsetting-criteria-into-code" class="section level4 hasAnchor" number="3.3.0.1">
 <h4><span class="header-section-number">3.3.0.1</span> Let’s convert our implicit subsetting criteria into code!<a href="data-wrangling-part-1.html#lets-convert-our-implicit-subsetting-criteria-into-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To subset for rows implicitly, we will use the conditional operators on Dataframe columns you used in Exercise 2. To formulate a conditional operator expression that OncotreeLineage is breast cancer:</p>
@@ -377,7 +378,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 1862    False
 ## 1863     True
 ## Name: OncotreeLineage, Length: 1864, dtype: bool</code></pre>
-<p>Then, we will use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html"><code>.loc</code></a> operation (which is different than <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html"><code>.iloc</code></a> operation!) and subsetting brackets to subset rows and columns Age and Sex at the same time:</p>
+<p>Then, we will use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html"><code>.loc</code></a> attribute (which is different than <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html"><code>.iloc</code></a> attribute!) and subsetting brackets to subset rows and columns Age and Sex at the same time:</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="data-wrangling-part-1.html#cb78-1" tabindex="-1"></a>metadata.loc[metadata[<span class="st">&#39;OncotreeLineage&#39;</span>] <span class="op">==</span> <span class="st">&quot;Lung&quot;</span>, [<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Sex&quot;</span>]]</span></code></pre></div>
 <pre><code>##        Age     Sex
 ## 10    39.0  Female
@@ -420,10 +421,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>If we look at the data structure of a Dataframe’s column, it is actually not a List, but an object called Series. It has methods can compute summary statistics for us. Let’s take a look at a few popular examples:</p>
 <table style="width:100%;">
 <colgroup>
-<col width="22%" />
-<col width="22%" />
-<col width="33%" />
-<col width="22%" />
+<col width="46%" />
+<col width="17%" />
+<col width="29%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -504,10 +505,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>We will dedicate extensive time later this course to talk about data visualization, but the Dataframe’s column, Series, has a method called <a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.plot.html"><code>.plot()</code></a> that can help us make simple plots for one variable. The <code>.plot()</code> method will by default make a line plot, but it is not necessary the plot style we want, so we can give the optional argument <code>kind</code> a String value to specify the plot style. We use it for making a histogram or bar plot.</p>
 <table>
 <colgroup>
-<col width="18%" />
-<col width="18%" />
-<col width="18%" />
-<col width="45%" />
+<col width="12%" />
+<col width="12%" />
+<col width="8%" />
+<col width="65%" />
 </colgroup>
 <thead>
 <tr class="header">
