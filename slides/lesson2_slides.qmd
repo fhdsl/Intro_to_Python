@@ -10,11 +10,15 @@ output-location: fragment
 
 ## Solving problems...
 
-![](https://hutchdatascience.org/Intro_to_R/images/gator_error.jpg)
+![](images/gator_error.jpg)
 
 . . .
 
 What is a problem you encountered and fixed recently?
+
+## [Exercise 1 Continued](https://colab.research.google.com/drive/1Oypt0HeVqmzBQcsIuixpoAm6syE-kwXy?usp=sharing)
+
+-   Three styles of defining and updating variables
 
 ## Lists
 
@@ -100,19 +104,19 @@ The slice `:` represents the start or the end of the List. We also have negative
 
 . . .
 
-Learn more about subsetting lists [in full complexity](https://towardsdatascience.com/the-basics-of-indexing-and-slicing-python-lists-2d12c90a94cf).
+Learn more about subsetting lists [in full complexity](https://towardsdatascience.com/mastering-indexing-and-slicing-in-python-443e23457125/).
 
 ## List Methods
 
-**Methods** are functions for a specific data structure, such as a list.
+**Methods** are functions for a specific data type, such as a list.
 
 . . .
 
-`chrNum.count(2)` is a method for lists with `chrNum` and 2 as inputs.
+`chrNum.append(5)` is a method for lists with `chrNum` and 5 as inputs.
 
 . . .
 
-The method returns the number of instances 2 appears as an element of `chrNum`.
+The method appends 5 to the list `chrNum`.
 
 . . .
 
@@ -123,24 +127,20 @@ chrNum = [2, 3, 1, 2, 2]
 . . .
 
 ```{python}
-chrNum.count(2)
+chrNum.append(5)
 ```
 
 . . .
 
 ```{python}
-mixedList
+chrNum
 ```
 
 . . .
 
-```{python}
-mixedList.count(False)
-```
+Interesting, there's no output from this method, but `chrNum` has changed!
 
-. . .
-
-[More examples here](https://hutchdatascience.org/Intro_to_Python/working-with-data-structures.html#objects-in-python).
+See appendix for examples of functions and methods that don't always have an input or output.
 
 ## Methods vs Functions
 
@@ -154,7 +154,7 @@ mixedList.count(False)
 
 Otherwise, no distinction between the two.
 
-## Objects in Python
+## Questions to ask a data structure
 
 In a List, we have explored:
 
@@ -164,7 +164,7 @@ In a List, we have explored:
 
 . . .
 
-Such organization is called an **Object**. Pretty much every data type and structure in Python is an object. We will formalize this later.
+We will explore it in a similar way for Dataframes.
 
 ## Dataframes
 
@@ -179,7 +179,7 @@ type(metadata)
 
 . . .
 
-Let's investigate the Dataframe as an object:
+Let's investigate the Dataframe:
 
 -   *What does a Dataframe contain (data)?*
 
@@ -189,7 +189,7 @@ Let's investigate the Dataframe as an object:
 
     -   `.head()`, `.tail()`
 
-## What does a Dataframe contain?
+## What does a Dataframe contain (data)?
 
 Columns
 
@@ -227,7 +227,23 @@ df
 
 . . .
 
-Subset to the first 4 rows, first 2 columns:
+Subset to the first row, second column:
+
+```{python}
+df.iloc[0, 1]
+```
+
+. . .
+
+Subset to the first 4 rows, second column:
+
+```{python}
+df.iloc[:4, 2]
+```
+
+. . .
+
+Subset to the first 4 rows, first two columns:
 
 ```{python}
 df.iloc[:4, :2]
@@ -243,70 +259,14 @@ Subset the first 3 rows, and the 1st and 3rd column:
 df.iloc[:3, [0, 2]]
 ```
 
-## Ask me two questions!
+## How did class go for you today?
 
-How did class go for you today?
+<https://forms.gle/qGTBHdDwXciYrPa39>
 
-<https://forms.gle/8EGdEqcsp82GP82U9>
-
-## Objects in Python
-
-Formally, an object contains the following:
-
-*What does it contain?*
-
--   **Value** that holds the essential data for the object.
-
--   **Attributes** that hold subset of the data or additional data for the object.
-
-*What can it do?*
-
--   Functions called **Methods** specific to the data type and automatically takes the object as input.
-
-This organizing structure on an object applies to pretty much all Python data types and data structures.
-
-## Lists as an Object
-
-*What does it contain?*
-
--   **Value**: the contents of the list, such as `[2, 3, 4]`.
-
--   **Attributes**: subsetting via `[ ]`.
-
-*What can it do (methods)?*
-
--   `chrNum.count(2)` returns the number of instances 2 appears as an element of `chrNum`.
-
--   `chrNum.append(4)` appends 4 to the last element of `chrNum`, but does not return anything.
-
-## Dataframe as an Object
-
-*What does it contain?*
-
--   **Value**: the spreadsheet of data.
-
--   **Attributes**:
-
-    -   Columns of the data
-
-    -   `.columns`
-
-    -   `.shape`
-
-    -   `.iloc[ , ]` for subsetting
-
-*What can it do (methods)?*
-
--   `.head()`
-
--   `.tail()`
-
-## 
-
-## Appendix: Functions and Methods that don't always have an input or output:
+## Appendix: Functions and Methods examples
 
 | Function call                                                                | What it takes in             | What it does                                                  | Returns                          |
-|------------------------------------------------------------------------------|------------------------------|---------------------------------------------------------------|----------------------------------|
+|---------------------|-----------------|-----------------|-----------------|
 | [`pow(a, b)`](https://docs.python.org/3/library/functions.html#pow)          | integer `a`, integer `b`     | Raises `a` to the `b`th power.                                | Integer                          |
 | [`time.sleep(x)`](https://docs.python.org/3/library/time.html#time.sleep)    | Integer `x`                  | Waits for `x` seconds.                                        | None                             |
 | [`dir()`](https://docs.python.org/3/library/functions.html#dir)              | Nothing                      | Gives a list of all the variables defined in the environment. | List                             |

@@ -25,13 +25,13 @@ The course is intended for researchers who want to learn coding for the first ti
 
 ## Learning Objectives
 
-**Analyze** Tidy datasets in the Python programming language via data subsetting, joining, and transformations.
+-   **Analyze** Tidy datasets in the Python programming language via data wrangling, summary statistics, and visualization.
 
-**Evaluate** summary statistics and data visualization to understand scientific questions.
+-   **Compute** summary statistics and create data visualizations to interpret data.
 
-**Describe** how the Python programming environment interpret complex expressions made out of functions, operations, and data structures, in a step-by-step way.
+-   **Describe** how the Python programming environment interpret complex expressions made out of functions, operations, and data structures, in a step-by-step way.
 
-**Apply** problem solving strategies to debug broken code.
+-   **Apply** problem solving strategies to debug broken code.
 
 ## Offerings
 

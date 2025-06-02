@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="lesson2_slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="lesson2_slides_files/libs/clipboard/clipboard.min.js"></script>
 <script src="lesson2_slides_files/libs/quarto-html/tabby.min.js"></script>
 <script src="lesson2_slides_files/libs/quarto-html/popper.min.js"></script>
 <script src="lesson2_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -8,7 +8,7 @@
 <link href="lesson2_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="lesson2_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="lesson2_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.5.57">
 
   <title>W2: Working with Data Structures</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -41,7 +41,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -69,7 +69,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -83,7 +83,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -220,7 +220,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -385,7 +386,7 @@
     }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
@@ -402,19 +403,25 @@
 <section id="solving-problems" class="slide level2">
 <h2>Solving problems…</h2>
 
-<img data-src="https://hutchdatascience.org/Intro_to_R/images/gator_error.jpg" class="r-stretch"><div class="fragment">
+<img data-src="images/gator_error.jpg" class="r-stretch"><div class="fragment">
 <p>What is a problem you encountered and fixed recently?</p>
 </div>
+</section>
+<section id="exercise-1-continued" class="slide level2">
+<h2><a href="https://colab.research.google.com/drive/1Oypt0HeVqmzBQcsIuixpoAm6syE-kwXy?usp=sharing">Exercise 1 Continued</a></h2>
+<ul>
+<li>Three styles of defining and updating variables</li>
+</ul>
 </section>
 <section id="lists" class="slide level2">
 <h2>Lists</h2>
 <p><strong>List</strong> is a <strong>data structure</strong> that stores many elements of various data types, and the order matters.</p>
 <div class="fragment">
 <p>You can create a List via the bracket <code>[ ]</code> operator:</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>staff <span class="op">=</span> [<span class="st">"chris"</span>, <span class="st">"ted"</span>, <span class="st">"jeff"</span>]</span>
-<span id="cb1-2"><a href="#cb1-2"></a>chrNum <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>]</span>
-<span id="cb1-3"><a href="#cb1-3"></a>mixedList <span class="op">=</span> [<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="dv">92</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="eacc6100" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>staff <span class="op">=</span> [<span class="st">"chris"</span>, <span class="st">"ted"</span>, <span class="st">"jeff"</span>]</span>
+<span id="cb1-2"><a href=""></a>chrNum <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>]</span>
+<span id="cb1-3"><a href=""></a>mixedList <span class="op">=</span> [<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="dv">92</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="1">
 
@@ -422,11 +429,11 @@
 </div>
 <div class="fragment">
 <p>How long is a list?</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">len</span>(staff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="00a60598" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="bu">len</span>(staff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="2">
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>3</code></pre>
 </div>
 </div>
@@ -436,20 +443,20 @@
 <h2>Subset to an element of a list</h2>
 <p>You can access the elements of a list via its “index number”, starting at 0.</p>
 
-<img data-src="../images/list_subset_0.png" width="200" class="r-stretch"><div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>chrNum[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="../images/list_subset_0.png" width="200" class="r-stretch"><div id="5e1a6f7a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>chrNum[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>2</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>chrNum[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="64a1767d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>chrNum[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="4">
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>1</code></pre>
 </div>
 </div>
@@ -458,19 +465,19 @@
 <p>Let the fifth element of <code>chrNum</code> be the sum of first and second element of <code>chrNum</code>:</p>
 </div>
 <div class="fragment">
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>chrNum[<span class="dv">4</span>] <span class="op">=</span> chrNum[<span class="dv">0</span>] <span class="op">+</span> chrNum[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0f92fe77" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>chrNum[<span class="dv">4</span>] <span class="op">=</span> chrNum[<span class="dv">0</span>] <span class="op">+</span> chrNum[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="5">
 
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>chrNum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e42f61b0" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>chrNum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>[2, 3, 1, 2, 5]</code></pre>
 </div>
 </div>
@@ -479,32 +486,32 @@
 <section id="subsetting-multiple-elements-of-lists" class="slide level2">
 <h2>Subsetting multiple elements of lists</h2>
 <p>Suppose you want to access the first three elements of <code>chrNum</code>.</p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>chrNum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fbdc3c02" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>chrNum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>[2, 3, 1, 2, 5]</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p>You can use the <strong>slice</strong> operator <code>:</code> to specify,</p>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>chrNum[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a840eac6" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>chrNum[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>[2, 3, 1]</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
 <p>The last three elements:</p>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>chrNum[<span class="op">-</span><span class="dv">3</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="65038f0e" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>chrNum[<span class="op">-</span><span class="dv">3</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="9">
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>[1, 2, 5]</code></pre>
 </div>
 </div>
@@ -518,53 +525,42 @@
 </section>
 <section id="list-methods" class="slide level2">
 <h2>List Methods</h2>
-<p><strong>Methods</strong> are functions for a specific data structure, such as a list.</p>
+<p><strong>Methods</strong> are functions for a specific data type, such as a list.</p>
 <div class="fragment">
-<p><code>chrNum.count(2)</code> is a method for lists with <code>chrNum</code> and 2 as inputs.</p>
+<p><code>chrNum.append(5)</code> is a method for lists with <code>chrNum</code> and 5 as inputs.</p>
 </div>
 <div class="fragment">
-<p>The method returns the number of instances 2 appears as an element of <code>chrNum</code>.</p>
+<p>The method appends 5 to the list <code>chrNum</code>.</p>
 </div>
 <div class="fragment">
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>chrNum <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7cade8c9" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>chrNum <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="10">
 
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>chrNum.count(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d966dd06" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>chrNum.append(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="11">
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>3</code></pre>
-</div>
+
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>mixedList</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cf69117a" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>chrNum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="12">
-<div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>[False, False, False, 'A', 'B', 92]</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>[2, 3, 1, 2, 2, 5]</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>mixedList.count(<span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment" data-execution_count="13">
-<div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>3</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p><a href="https://hutchdatascience.org/Intro_to_Python/working-with-data-structures.html#objects-in-python">More examples here</a>.</p>
+<p>Interesting, there’s no output from this method, but <code>chrNum</code> has changed!</p>
+<p>See appendix for examples of functions and methods that don’t always have an input or output.</p>
 </div>
 </section>
 <section id="methods-vs-functions" class="slide level2">
@@ -577,33 +573,33 @@
 <p>Otherwise, no distinction between the two.</p>
 </div>
 </section>
-<section id="objects-in-python" class="slide level2">
-<h2>Objects in Python</h2>
+<section id="questions-to-ask-a-data-structure" class="slide level2">
+<h2>Questions to ask a data structure</h2>
 <p>In a List, we have explored:</p>
 <ul>
 <li><p><em>What does it contain</em> (in terms of data)?</p></li>
 <li><p><em>What can it do</em> (in terms of methods)?</p></li>
 </ul>
 <div class="fragment">
-<p>Such organization is called an <strong>Object</strong>. Pretty much every data type and structure in Python is an object. We will formalize this later.</p>
+<p>We will explore it in a similar way for Dataframes.</p>
 </div>
 </section>
 <section id="dataframes" class="slide level2">
 <h2>Dataframes</h2>
 <p>A Dataframe is a two-dimensional data structure that is similar to a spreadsheet.</p>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb24-2"><a href="#cb24-2"></a></span>
-<span id="cb24-3"><a href="#cb24-3"></a>metadata <span class="op">=</span> pd.read_csv(<span class="st">"../classroom_data/metadata.csv"</span>)</span>
-<span id="cb24-4"><a href="#cb24-4"></a><span class="bu">type</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e60ecb87" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb21-2"><a href=""></a></span>
+<span id="cb21-3"><a href=""></a>metadata <span class="op">=</span> pd.read_csv(<span class="st">"../classroom_data/metadata.csv"</span>)</span>
+<span id="cb21-4"><a href=""></a><span class="bu">type</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="14">
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell fragment" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>pandas.core.frame.DataFrame</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>Let’s investigate the Dataframe as an object:</p>
+<p>Let’s investigate the Dataframe:</p>
 <ul>
 <li><p><em>What does a Dataframe contain (data)?</em></p>
 <ul>
@@ -616,15 +612,15 @@
 </ul>
 </div>
 </section>
-<section id="what-does-a-dataframe-contain" class="slide level2">
-<h2>What does a Dataframe contain?</h2>
+<section id="what-does-a-dataframe-contain-data" class="slide level2">
+<h2>What does a Dataframe contain (data)?</h2>
 <p>Columns</p>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>metadata.ModelID</span>
-<span id="cb26-2"><a href="#cb26-2"></a>metadata[<span class="st">'ModelID'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="dfc52e97" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>metadata.ModelID</span>
+<span id="cb23-2"><a href=""></a>metadata[<span class="st">'ModelID'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="15">
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell fragment" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>0       ACH-000001
 1       ACH-000002
 2       ACH-000003
@@ -641,11 +637,11 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
 </div>
 <div class="fragment">
 <p>Column names</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>metadata.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c4875cd6" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a>metadata.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="16">
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell fragment" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>Index(['ModelID', 'PatientID', 'CellLineName', 'StrippedCellLineName', 'Age',
        'SourceType', 'SangerModelID', 'RRID', 'DepmapModelType', 'AgeCategory',
        'GrowthPattern', 'LegacyMolecularSubtype', 'PrimaryOrMetastasis',
@@ -660,11 +656,11 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
 </div>
 <div class="fragment">
 <p>Shape</p>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>metadata.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="73d51bbd" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a>metadata.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="17">
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell fragment" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>(1864, 30)</code></pre>
 </div>
 </div>
@@ -673,14 +669,14 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
 <section id="dataframe-subsetting" class="slide level2">
 <h2>Dataframe subsetting</h2>
 <p>Using <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html"><code>iloc</code></a> and bracket operations, you give two slices: one for the row, and one for the column.</p>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">'status'</span>: [<span class="st">"treated"</span>, <span class="st">"untreated"</span>, <span class="st">"untreated"</span>, <span class="st">"discharged"</span>, <span class="st">"treated"</span>],</span>
-<span id="cb32-2"><a href="#cb32-2"></a>                            <span class="st">'age_case'</span>: [<span class="dv">25</span>, <span class="dv">43</span>, <span class="dv">21</span>, <span class="dv">65</span>, <span class="dv">7</span>],</span>
-<span id="cb32-3"><a href="#cb32-3"></a>                            <span class="st">'age_control'</span>: [<span class="dv">49</span>, <span class="dv">20</span>, <span class="dv">32</span>, <span class="dv">25</span>, <span class="dv">32</span>]})</span>
-<span id="cb32-4"><a href="#cb32-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fb6a53d3" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">'status'</span>: [<span class="st">"treated"</span>, <span class="st">"untreated"</span>, <span class="st">"untreated"</span>, <span class="st">"discharged"</span>, <span class="st">"treated"</span>],</span>
+<span id="cb29-2"><a href=""></a>                            <span class="st">'age_case'</span>: [<span class="dv">25</span>, <span class="dv">43</span>, <span class="dv">21</span>, <span class="dv">65</span>, <span class="dv">7</span>],</span>
+<span id="cb29-3"><a href=""></a>                            <span class="st">'age_control'</span>: [<span class="dv">49</span>, <span class="dv">20</span>, <span class="dv">32</span>, <span class="dv">25</span>, <span class="dv">32</span>]})</span>
+<span id="cb29-4"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="18">
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell fragment" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -696,7 +692,7 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -743,12 +739,38 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>Subset to the first 4 rows, first 2 columns:</p>
-<div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>df.iloc[:<span class="dv">4</span>, :<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Subset to the first row, second column:</p>
+<div id="189a7c81" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a>df.iloc[<span class="dv">0</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>25</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Subset to the first 4 rows, second column:</p>
+<div id="4958624a" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a>df.iloc[:<span class="dv">4</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="19">
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>0    49
+1    20
+2    32
+3    25
+Name: age_control, dtype: int64</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Subset to the first 4 rows, first two columns:</p>
+<div id="0ac233ec" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a>df.iloc[:<span class="dv">4</span>, :<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="41">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -764,7 +786,7 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -805,11 +827,11 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
 <h2>Dataframe subsetting</h2>
 <p>If we want a custom slice that is not sequential, we can use an integer list.</p>
 <p>Subset the first 3 rows, and the 1st and 3rd column:</p>
-<div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df.iloc[:<span class="dv">3</span>, [<span class="dv">0</span>, <span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b8abf167" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>df.iloc[:<span class="dv">3</span>, [<span class="dv">0</span>, <span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="20">
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell fragment" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="42">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -825,7 +847,7 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
     }
 </style>
 
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
@@ -856,63 +878,13 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
 </div>
 </div>
 </section>
-<section id="ask-me-two-questions" class="slide level2">
-<h2>Ask me two questions!</h2>
-<p>How did class go for you today?</p>
-<p><a href="https://forms.gle/8EGdEqcsp82GP82U9" class="uri">https://forms.gle/8EGdEqcsp82GP82U9</a></p>
+<section id="how-did-class-go-for-you-today" class="slide level2">
+<h2>How did class go for you today?</h2>
+<p><a href="https://forms.gle/qGTBHdDwXciYrPa39" class="uri">https://forms.gle/qGTBHdDwXciYrPa39</a></p>
 </section>
-<section id="objects-in-python-1" class="slide level2">
-<h2>Objects in Python</h2>
-<p>Formally, an object contains the following:</p>
-<p><em>What does it contain?</em></p>
-<ul>
-<li><p><strong>Value</strong> that holds the essential data for the object.</p></li>
-<li><p><strong>Attributes</strong> that hold subset of the data or additional data for the object.</p></li>
-</ul>
-<p><em>What can it do?</em></p>
-<ul>
-<li>Functions called <strong>Methods</strong> specific to the data type and automatically takes the object as input.</li>
-</ul>
-<p>This organizing structure on an object applies to pretty much all Python data types and data structures.</p>
-</section>
-<section id="lists-as-an-object" class="slide level2">
-<h2>Lists as an Object</h2>
-<p><em>What does it contain?</em></p>
-<ul>
-<li><p><strong>Value</strong>: the contents of the list, such as <code>[2, 3, 4]</code>.</p></li>
-<li><p><strong>Attributes</strong>: subsetting via <code>[ ]</code>.</p></li>
-</ul>
-<p><em>What can it do (methods)?</em></p>
-<ul>
-<li><p><code>chrNum.count(2)</code> returns the number of instances 2 appears as an element of <code>chrNum</code>.</p></li>
-<li><p><code>chrNum.append(4)</code> appends 4 to the last element of <code>chrNum</code>, but does not return anything.</p></li>
-</ul>
-</section>
-<section id="dataframe-as-an-object" class="slide level2">
-<h2>Dataframe as an Object</h2>
-<p><em>What does it contain?</em></p>
-<ul>
-<li><p><strong>Value</strong>: the spreadsheet of data.</p></li>
-<li><p><strong>Attributes</strong>:</p>
-<ul>
-<li><p>Columns of the data</p></li>
-<li><p><code>.columns</code></p></li>
-<li><p><code>.shape</code></p></li>
-<li><p><code>.iloc[ , ]</code> for subsetting</p></li>
-</ul></li>
-</ul>
-<p><em>What can it do (methods)?</em></p>
-<ul>
-<li><p><code>.head()</code></p></li>
-<li><p><code>.tail()</code></p></li>
-</ul>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-</section>
-<section id="appendix-functions-and-methods-that-dont-always-have-an-input-or-output" class="slide level2">
-<h2>Appendix: Functions and Methods that don’t always have an input or output:</h2>
-<table>
+<section id="appendix-functions-and-methods-examples" class="slide level2">
+<h2>Appendix: Functions and Methods examples</h2>
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th>Function call</th>
@@ -954,8 +926,10 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
 </tr>
 </tbody>
 </table>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -984,7 +958,6 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': true,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1201,18 +1174,7 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1244,11 +1206,50 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1258,8 +1259,17 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1273,7 +1283,11 @@ Name: ModelID, Length: 1864, dtype: object</code></pre>
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

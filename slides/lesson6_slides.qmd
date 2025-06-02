@@ -11,19 +11,57 @@ format:
 
 [You are now comfortable with our code from Week 1!](https://colab.research.google.com/drive/1_77QQcj0mgZOWLlhtkZ-QKWUP1dnSt-_?usp=sharing)
 
-[Your Cheatsheet](https://docs.google.com/document/d/1si-4suESej1Vjopkv5KiI-hGylXk11osmO3oEfpYOuc/edit?usp=sharing)
+[Your Cheatsheet](https://docs.google.com/document/d/1BJzDaUeIjF1kOVx1RXoWhtHqAGORfUy8eDK0kmnybLE/edit?tab=t.0#heading=h.2bko76vfr8r6)
+
+## Certification/Badging
+
+Certification upon completing 4 out of the 5 assignments: <https://www.credly.com/org/fred-hutch/badge/intro-to-python>
+
+What it is:
+
+-   A display of what you accomplished in the course, shareable in your professional networks such as LinkedIn, similar to online education services such as Coursera.
+
+What it isn't:
+
+-   Accreditation through an university or degree-granting program.
+
+I've been keeping track of folks' completion [here](https://docs.google.com/spreadsheets/d/17uiNgJA-h19qEIToKyYz4DAnAZWn_raM8kz44wG85Gc/edit?usp=sharing).
+
+## Continuing your education
+
+-   [Intermediate Python](https://hutchdatascience.org/Intermediate_Python/) (to be taught live in Winter 2026, sorry, a long time away...)
+
+. . .
+
+-   Learning Community starts on June 10! Message me if you haven't been added.
+
+. . .
+
+-   Reference texts:
+
+    -   [Python for Data Analysis](https://wesmckinney.com/book/)
+
+## Connecting to rest of [DaSL Training](https://hutchdatascience.org/courses/)
+
+![](images/stickers%20mosaic.png)
+
+## Connecting to rest of DaSL/OCDO
+
+-   [Data House Calls](https://ocdo.fredhutch.org/programs/dhc.html)
+
+-   [Fred Hutch Data Slack](https://join.slack.com/t/fhdata/signup)
+
+-   [Fred Hutch SciWiki](https://ocdo.fredhutch.org/programs/sciwiki.html)
+
+-   [Open source software at Fred Hutch: WILDS](https://getwilds.org/)
+
+## Please fill out survey!
+
+Our [class survey](https://forms.gle/PMwzPf5axUtQbfao9) makes a huge difference for us.
 
 ## End of class stickers
 
 ## ![](images/student_stickers.jpg){width="300"}
-
-## End of class surveys
-
-[How was the course for you?](https://forms.gle/cwZNhu9pKRRzLRZz5)
-
-[Register for Data-thon here](https://www.addevent.com/event/fM23708762).
-
-[What do you want to learn in the winter quarter?](https://docs.google.com/forms/d/e/1FAIpQLSeVZmlDeDDHPGD-Fm2acrP3JjnFd0zdaJZZQSMjlEJ8vsuW0w/viewform)
 
 ## Install Python on your computer
 
@@ -51,6 +89,8 @@ If nothing comes up, download at: <https://www.python.org/downloads/>
 
 ## Getting Started
 
+Open up a folder for your project. Everything for the project, such as code and data will be in this folder.
+
 ### Script mode:
 
 -   Open up a blank file
@@ -69,7 +109,7 @@ If nothing comes up, download at: <https://www.python.org/downloads/>
 
 -   Open up New File... -\> Jupyter Notebook
 
--   Put down Python code, such as `print("hello")`, sand save with `.ipynb` extension.
+-   Put down Python code, such as `print("hello")`, and save with `.ipynb` extension.
 
 -   Select Kernel and run it
 
@@ -77,7 +117,121 @@ If nothing comes up, download at: <https://www.python.org/downloads/>
 
 More info here: <https://code.visualstudio.com/docs/datascience/jupyter-notebooks>
 
-## Python Environments
+## Install Python Packages/Modules
+
+### Notebook Mode
+
+-   Create a new code cell, `%pip install [package name]`
+
+## Install Python Packages/Modules
+
+### Script Mode
+
+-   Run you script. The Terminal should show up.
+
+-   `[your python path] -m pip install [package_name]`
+
+## Reading in Data
+
+Here's an example data:
+
+```         
+a,b,c,d,message
+1,2,3,4,hello
+5,6,7,8,world
+9,10,11,12,foo
+```
+
+We read it in as:
+
+```{python}
+import pandas as pd
+my_df = pd.read_csv("examples/ex1.csv")
+my_df
+```
+
+## Dealing with headers
+
+A file will not always have a header row:
+
+```         
+1,2,3,4,hello
+5,6,7,8,world
+9,10,11,12,foo
+```
+
+```{python}
+import pandas as pd
+my_df = pd.read_csv("examples/ex2.csv", header=None)
+my_df
+```
+
+. . .
+
+We can assign columns:
+
+```{python}
+my_df = pd.read_csv("examples/ex2.csv", names=["a", "b", "c", "d", "message"])
+my_df
+```
+
+## Skipping certain rows
+
+```         
+# hey!
+a,b,c,d,message
+# just wanted to make things more difficult for you
+# who reads CSV files with computers, anyway?
+1,2,3,4,hello
+5,6,7,8,world
+9,10,11,12,foo
+```
+
+```{python}
+my_df = pd.read_csv("examples/ex3.csv", skiprows=[0, 2, 3])
+my_df
+```
+
+## Other file formats
+
+`pd.read_excel("example.xlsx")` for excel files
+
+`pd.read_excel("example.xlsx", sheet_name = "chickwts")` for excel files with a sheet name
+
+`pd.read_table()` for general-deliminated files, such as:
+
+`pd.read_table("file.tsv", sep = "\t")`
+
+## Writing out data
+
+`my_df.write_csv( "filepath.csv")`
+
+`my_df.write_excel("filepath.xlsx")`
+
+`my_df.write_table("filepath.tsv", sep="\t")`
+
+## Saving plots
+
+```         
+myplot = sns.displot(data=metadata, x="Age", col="Sex", multiple="dodge", binwidth= 10)
+myplot.savefig("myplot.png")
+```
+
+## Project and spreadsheet organization
+
+Consider having subfolders for:
+
+-   Raw data and metadata
+
+-   Analyzed data
+
+-   Plots
+
+[Good enough practices for scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+
+[Better Spreadsheet workshop](https://better-spreadsheets.netlify.app/)
+
+## Appendix: Python Environments
 
 An **"Environment"** in Python is the context in which a Python program runs that consists of an interpreter and any number of installed packages.
 
@@ -87,7 +241,7 @@ An **"Environment"** in Python is the context in which a Python program runs tha
 
     -   We will use the Virtual Environment built in Python, but there are other local environment managers such as Conda or miniConda.
 
-## Create your local environment
+## Appendix: Create your local environment
 
 -   Show and run commands -\> Python: Select Interpreter -\> Create Virtual Environment -\> Venv
 
@@ -96,30 +250,6 @@ An **"Environment"** in Python is the context in which a Python program runs tha
 -   You can see and toggle your Environment on the bottom right hand corner.
 
 More info here: [https://code.visualstudio.com/docs/python/environments](https://code.visualstudio.com/docs/python/environmentshttps://code.visualstudio.com/docs/python/environments)
-
-## Install Python Packages/Modules
-
-### Notebook Mode
-
--   Select the Python environment you want to be in.
-
--   Create a new code cell, `%pip install [package name]`
-
-## Install Python Packages/Modules
-
-### Script Mode
-
--   Select the Python environment you want to be in.
-
--   Run you script. The Terminal should show up.
-
--   `/full_path/.venv/bin/python -m pip install [package_name]`
-
-## Staying connected to [DaSL](https://hutchdatascience.org/)
-
--   Look out for Winter course announcements in about a month!
-
--   [Data House Calls](https://hutchdatascience.org/datahousecalls/)
 
 ## Appendix: Create virtual environment from command line
 
