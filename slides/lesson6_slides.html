@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="lesson6_slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="lesson6_slides_files/libs/clipboard/clipboard.min.js"></script>
 <script src="lesson6_slides_files/libs/quarto-html/tabby.min.js"></script>
 <script src="lesson6_slides_files/libs/quarto-html/popper.min.js"></script>
 <script src="lesson6_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lesson6_slides_files/libs/revealjs/dist/theme/quarto.css">
   <link href="lesson6_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -320,6 +385,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -335,19 +403,62 @@
 <section id="we-did-it" class="slide level2">
 <h2>We did it!</h2>
 <p><a href="https://colab.research.google.com/drive/1_77QQcj0mgZOWLlhtkZ-QKWUP1dnSt-_?usp=sharing">You are now comfortable with our code from Week 1!</a></p>
-<p><a href="https://docs.google.com/document/d/1si-4suESej1Vjopkv5KiI-hGylXk11osmO3oEfpYOuc/edit?usp=sharing">Your Cheatsheet</a></p>
+<p><a href="https://docs.google.com/document/d/1BJzDaUeIjF1kOVx1RXoWhtHqAGORfUy8eDK0kmnybLE/edit?tab=t.0#heading=h.2bko76vfr8r6">Your Cheatsheet</a></p>
+</section>
+<section id="certificationbadging" class="slide level2">
+<h2>Certification/Badging</h2>
+<p>Certification upon completing 4 out of the 5 assignments:&nbsp;<a href="https://www.credly.com/org/fred-hutch/badge/intro-to-python" class="uri">https://www.credly.com/org/fred-hutch/badge/intro-to-python</a></p>
+<p>What it is:</p>
+<ul>
+<li>A display of what you accomplished in the course, shareable in your professional networks such as LinkedIn, similar to online education services such as Coursera.</li>
+</ul>
+<p>What it isn’t:</p>
+<ul>
+<li>Accreditation through an university or degree-granting program.</li>
+</ul>
+<p>I’ve been keeping track of folks’ completion <a href="https://docs.google.com/spreadsheets/d/17uiNgJA-h19qEIToKyYz4DAnAZWn_raM8kz44wG85Gc/edit?usp=sharing">here</a>.</p>
+</section>
+<section id="continuing-your-education" class="slide level2">
+<h2>Continuing your education</h2>
+<ul>
+<li><a href="https://hutchdatascience.org/Intermediate_Python/">Intermediate Python</a> (to be taught live in Winter 2026, sorry, a long time away…)</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Learning Community starts on June 10! Message me if you haven’t been added.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><p>Reference texts:</p>
+<ul>
+<li><a href="https://wesmckinney.com/book/">Python for Data Analysis</a></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="connecting-to-rest-of-dasl-training" class="slide level2">
+<h2>Connecting to rest of <a href="https://hutchdatascience.org/courses/">DaSL Training</a></h2>
+
+<img data-src="images/stickers%20mosaic.png" class="r-stretch"></section>
+<section id="connecting-to-rest-of-daslocdo" class="slide level2">
+<h2>Connecting to rest of DaSL/OCDO</h2>
+<ul>
+<li><p><a href="https://ocdo.fredhutch.org/programs/dhc.html">Data House Calls</a></p></li>
+<li><p><a href="https://join.slack.com/t/fhdata/signup">Fred Hutch Data Slack</a></p></li>
+<li><p><a href="https://ocdo.fredhutch.org/programs/sciwiki.html">Fred Hutch SciWiki</a></p></li>
+<li><p><a href="https://getwilds.org/">Open source software at Fred Hutch: WILDS</a></p></li>
+</ul>
+</section>
+<section id="please-fill-out-survey" class="slide level2">
+<h2>Please fill out survey!</h2>
+<p>Our <a href="https://forms.gle/PMwzPf5axUtQbfao9">class survey</a> makes a huge difference for us.</p>
 </section>
 <section id="end-of-class-stickers" class="slide level2">
 <h2>End of class stickers</h2>
 </section>
 <section id="section" class="slide level2">
 <h2><img data-src="images/student_stickers.jpg" width="300"></h2>
-</section>
-<section id="end-of-class-surveys" class="slide level2">
-<h2>End of class surveys</h2>
-<p><a href="https://forms.gle/cwZNhu9pKRRzLRZz5">How was the course for you?</a></p>
-<p><a href="https://www.addevent.com/event/fM23708762">Register for Data-thon here</a>.</p>
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSeVZmlDeDDHPGD-Fm2acrP3JjnFd0zdaJZZQSMjlEJ8vsuW0w/viewform">What do you want to learn in the winter quarter?</a></p>
 </section>
 <section id="install-python-on-your-computer" class="slide level2">
 <h2>Install Python on your computer</h2>
@@ -369,6 +480,7 @@
 </section>
 <section id="getting-started" class="slide level2">
 <h2>Getting Started</h2>
+<p>Open up a folder for your project. Everything for the project, such as code and data will be in this folder.</p>
 <h3 id="script-mode">Script mode:</h3>
 <ul>
 <li><p>Open up a blank file</p></li>
@@ -383,7 +495,7 @@
 <ul>
 <li><p>Open Extensions, Install Jupyter Extension</p></li>
 <li><p>Open up New File… -&gt; Jupyter Notebook</p></li>
-<li><p>Put down Python code, such as <code>print("hello")</code>, sand save with <code>.ipynb</code> extension.</p></li>
+<li><p>Put down Python code, such as <code>print("hello")</code>, and save with <code>.ipynb</code> extension.</p></li>
 <li><p>Select Kernel and run it</p>
 <ul>
 <li>Install iPython kernel if needed.</li>
@@ -391,8 +503,327 @@
 </ul>
 <p>More info here: <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks" class="uri">https://code.visualstudio.com/docs/datascience/jupyter-notebooks</a></p>
 </section>
-<section id="python-environments" class="slide level2">
-<h2>Python Environments</h2>
+<section id="install-python-packagesmodules" class="slide level2">
+<h2>Install Python Packages/Modules</h2>
+<h3 id="notebook-mode-1">Notebook Mode</h3>
+<ul>
+<li>Create a new code cell, <code>%pip install [package name]</code></li>
+</ul>
+</section>
+<section id="install-python-packagesmodules-1" class="slide level2">
+<h2>Install Python Packages/Modules</h2>
+<h3 id="script-mode-1">Script Mode</h3>
+<ul>
+<li><p>Run you script. The Terminal should show up.</p></li>
+<li><p><code>[your python path] -m pip install [package_name]</code></p></li>
+</ul>
+</section>
+<section id="reading-in-data" class="slide level2">
+<h2>Reading in Data</h2>
+<p>Here’s an example data:</p>
+<pre><code>a,b,c,d,message
+1,2,3,4,hello
+5,6,7,8,world
+9,10,11,12,foo</code></pre>
+<p>We read it in as:</p>
+<div id="095cc8a4" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href=""></a>my_df <span class="op">=</span> pd.read_csv(<span class="st">"examples/ex1.csv"</span>)</span>
+<span id="cb2-3"><a href=""></a>my_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">a</th>
+<th data-quarto-table-cell-role="th">b</th>
+<th data-quarto-table-cell-role="th">c</th>
+<th data-quarto-table-cell-role="th">d</th>
+<th data-quarto-table-cell-role="th">message</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>hello</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>world</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>foo</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="dealing-with-headers" class="slide level2">
+<h2>Dealing with headers</h2>
+<p>A file will not always have a header row:</p>
+<pre><code>1,2,3,4,hello
+5,6,7,8,world
+9,10,11,12,foo</code></pre>
+<div id="99f38a9e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href=""></a>my_df <span class="op">=</span> pd.read_csv(<span class="st">"examples/ex2.csv"</span>, header<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb4-3"><a href=""></a>my_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>hello</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>world</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>foo</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>We can assign columns:</p>
+<div id="49aaa87a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>my_df <span class="op">=</span> pd.read_csv(<span class="st">"examples/ex2.csv"</span>, names<span class="op">=</span>[<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"message"</span>])</span>
+<span id="cb5-2"><a href=""></a>my_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">a</th>
+<th data-quarto-table-cell-role="th">b</th>
+<th data-quarto-table-cell-role="th">c</th>
+<th data-quarto-table-cell-role="th">d</th>
+<th data-quarto-table-cell-role="th">message</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>hello</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>world</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>foo</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="skipping-certain-rows" class="slide level2">
+<h2>Skipping certain rows</h2>
+<pre><code># hey!
+a,b,c,d,message
+# just wanted to make things more difficult for you
+# who reads CSV files with computers, anyway?
+1,2,3,4,hello
+5,6,7,8,world
+9,10,11,12,foo</code></pre>
+<div id="b2863fec" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>my_df <span class="op">=</span> pd.read_csv(<span class="st">"examples/ex3.csv"</span>, skiprows<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb7-2"><a href=""></a>my_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">a</th>
+<th data-quarto-table-cell-role="th">b</th>
+<th data-quarto-table-cell-role="th">c</th>
+<th data-quarto-table-cell-role="th">d</th>
+<th data-quarto-table-cell-role="th">message</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>hello</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>world</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>foo</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="other-file-formats" class="slide level2">
+<h2>Other file formats</h2>
+<p><code>pd.read_excel("example.xlsx")</code> for excel files</p>
+<p><code>pd.read_excel("example.xlsx", sheet_name = "chickwts")</code> for excel files with a sheet name</p>
+<p><code>pd.read_table()</code> for general-deliminated files, such as:</p>
+<p><code>pd.read_table("file.tsv", sep = "\t")</code></p>
+</section>
+<section id="writing-out-data" class="slide level2">
+<h2>Writing out data</h2>
+<p><code>my_df.write_csv( "filepath.csv")</code></p>
+<p><code>my_df.write_excel("filepath.xlsx")</code></p>
+<p><code>my_df.write_table("filepath.tsv", sep="\t")</code></p>
+</section>
+<section id="saving-plots" class="slide level2">
+<h2>Saving plots</h2>
+<pre><code>myplot = sns.displot(data=metadata, x="Age", col="Sex", multiple="dodge", binwidth= 10)
+myplot.savefig("myplot.png")</code></pre>
+</section>
+<section id="project-and-spreadsheet-organization" class="slide level2">
+<h2>Project and spreadsheet organization</h2>
+<p>Consider having subfolders for:</p>
+<ul>
+<li><p>Raw data and metadata</p></li>
+<li><p>Analyzed data</p></li>
+<li><p>Plots</p></li>
+</ul>
+<p><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good enough practices for scientific computing</a></p>
+<p><a href="https://better-spreadsheets.netlify.app/">Better Spreadsheet workshop</a></p>
+</section>
+<section id="appendix-python-environments" class="slide level2">
+<h2>Appendix: Python Environments</h2>
 <p>An <strong>“Environment”</strong> in Python is the context in which a Python program runs that consists of an interpreter and any number of installed packages.</p>
 <ul>
 <li><p>The “<strong>Global Environment”</strong> is the default Python installation, with its interpreter and installed packages.</p></li>
@@ -402,8 +833,8 @@
 </ul></li>
 </ul>
 </section>
-<section id="create-your-local-environment" class="slide level2">
-<h2>Create your local environment</h2>
+<section id="appendix-create-your-local-environment" class="slide level2">
+<h2>Appendix: Create your local environment</h2>
 <ul>
 <li><p>Show and run commands -&gt; Python: Select Interpreter -&gt; Create Virtual Environment -&gt; Venv</p>
 <ul>
@@ -412,30 +843,6 @@
 <li><p>You can see and toggle your Environment on the bottom right hand corner.</p></li>
 </ul>
 <p>More info here: <a href="https://code.visualstudio.com/docs/python/environmentshttps://code.visualstudio.com/docs/python/environments">https://code.visualstudio.com/docs/python/environments</a></p>
-</section>
-<section id="install-python-packagesmodules" class="slide level2">
-<h2>Install Python Packages/Modules</h2>
-<h3 id="notebook-mode-1">Notebook Mode</h3>
-<ul>
-<li><p>Select the Python environment you want to be in.</p></li>
-<li><p>Create a new code cell, <code>%pip install [package name]</code></p></li>
-</ul>
-</section>
-<section id="install-python-packagesmodules-1" class="slide level2">
-<h2>Install Python Packages/Modules</h2>
-<h3 id="script-mode-1">Script Mode</h3>
-<ul>
-<li><p>Select the Python environment you want to be in.</p></li>
-<li><p>Run you script. The Terminal should show up.</p></li>
-<li><p><code>/full_path/.venv/bin/python -m pip install [package_name]</code></p></li>
-</ul>
-</section>
-<section id="staying-connected-to-dasl" class="slide level2">
-<h2>Staying connected to <a href="https://hutchdatascience.org/">DaSL</a></h2>
-<ul>
-<li><p>Look out for Winter course announcements in about a month!</p></li>
-<li><p><a href="https://hutchdatascience.org/datahousecalls/">Data House Calls</a></p></li>
-</ul>
 </section>
 <section id="appendix-create-virtual-environment-from-command-line" class="slide level2">
 <h2>Appendix: Create virtual environment from command line</h2>

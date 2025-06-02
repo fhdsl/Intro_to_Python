@@ -2,7 +2,7 @@
 title: "W1: Intro to Computing"
 format: 
   revealjs:
-    smaller: false
+    smaller: true
     scrollable: true
     echo: true
 output-location: fragment
@@ -10,13 +10,17 @@ output-location: fragment
 
 ## Welcome!
 
+![](images/Intro_to_Python_R2-01.png){width="600"}
+
+Please sign up for Google Classroom ([link](https://classroom.google.com/c/NzY0OTY2Nzc0NzU5?cjc=wpplaqbt)) if you haven't already.
+
 ## Introductions
 
 -   Who am I?
 
 . . .
 
--   What is DaSL?
+-   What is [DaSL](https://hutchdatascience.org/)?
 
 . . .
 
@@ -26,7 +30,13 @@ output-location: fragment
 
     -   What you want to get out of the class
 
-    -   Favorite fall activity
+    -   What is a favorite springtime activity?\
+
+. . .
+
+-   Our wonderful TAs!
+
+## 
 
 ## Goals of the course
 
@@ -40,6 +50,20 @@ output-location: fragment
 
     ![Data science workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
 
+## Content of the course
+
+1.  Intro to Computing
+
+2.  Data structures
+
+3.  Data wrangling 1
+
+4.  Data wrangling 2
+
+5.  Data visualization
+
+6.  Wrap-up
+
 ## Culture of the course
 
 . . .
@@ -50,9 +74,13 @@ output-location: fragment
 
 -   *Teach not for mastery, but teach for empowerment to learn effectively.*
 
+. . .
+
+-   *Teach at learner's pace.*
+
 ## Culture of the course
 
--   Challenge: We sometimes struggle with our data science in isolation, unaware that someone two doors down from us has gone through the same struggle.
+-   Challenge: We sometimes struggle with our data science in isolation, unaware that someone two doors down from us has worked on something similar.
 
 . . .
 
@@ -60,35 +88,7 @@ output-location: fragment
 
 . . .
 
--   *Know that if you have a question, other people will have it.*
-
-. . .
-
--   *Asking questions is our way of taking care of others.*
-
-. . .
-
-We ask you to follow [Participation Guidelines](https://hutchdatascience.org/communitystudios/guidelines/) and [Code of Conduct](https://github.com/fhdsl/coc).
-
-## Content of the course
-
-1.  Intro to Computing
-
-2.  Data structures
-
-3.  Data wrangling 1
-
-4.  Community Session 1 (optional)
-
-5.  Data wrangling 2
-
-6.  Data visualization
-
-7.  Community Session 2 (optional)
-
-8.  Putting it together: preview for code-a-thon (Tuesday Nov. 12)
-
-9.  Code-a-thon: Friday Nov. 22
+-   *We encourage discussion and questions, as others often have similar questions also.*
 
 ## Format of the course
 
@@ -98,15 +98,35 @@ We ask you to follow [Participation Guidelines](https://hutchdatascience.org/com
 
 . . .
 
--   1-2 hour exercises after each session are encouraged for practice.
+-   1 hour exercises after each session are encouraged for practice.
 
 . . .
 
--   Office Hours Fridays 10am - 11am PT.
+-   Office Hours Mondays Noon-1pm
 
 . . .
 
--   Online discussion via Slack.
+## Badge of completion
+
+![](images/Intro_to_Python_Square.png){width="350"}
+
+We offer a [badge of completion](https://www.credly.com/org/fred-hutch/badge/intro-to-python) when you finish the course!
+
+What it is:
+
+-   A display of what you accomplished in the course, shareable in your professional networks such as LinkedIn, similar to online education services such as Coursera.
+
+What it isn't:
+
+-   Accreditation through an university or degree-granting program.
+
+. . .
+
+Requirements:
+
+-   Complete badge-required sections of the exercises for 4 out of 5 assignments.
+
+## 
 
 ## Ready?
 
@@ -120,7 +140,7 @@ We ask you to follow [Participation Guidelines](https://hutchdatascience.org/com
 
 . . .
 
--   A series of translations: English \<-\> Programming Code for Interpreter \<-\> Machine Code
+-   A series of *translations*: English \<-\> Programming Code for Interpreter \<-\> Machine Code
 
 . . .
 
@@ -128,15 +148,17 @@ We will focus on English \<-\> Programming Code for Python Interpreter in this c
 
 ## Setting up Google Classroom and Colab and trying out your first analysis!
 
--   Google Classroom [invitation link](https://classroom.google.com/c/NzAyODI5NzU1NDU4?cjc=nq7lioy).
+-   Google Classroom invite: <https://classroom.google.com/c/NzY0OTY2Nzc0NzU5?cjc=wpplaqbt>
 
 -   Classwork -\> Week 1 Classwork -\> `Week 1 Classwork.ipynb`
+
+    -   Alternative link [here](https://colab.research.google.com/drive/1_77QQcj0mgZOWLlhtkZ-QKWUP1dnSt-_?authuser=1#scrollTo=vSuAhvp2Aa33).
 
 ## Break
 
 A pre-course survey:
 
-https://forms.gle/zFZ3VB1QZ84Y8Uef6
+<https://forms.gle/3rJvTEhwJfH95raf8>
 
 ## Grammar Structure 1: Evaluation of Expressions
 
@@ -152,7 +174,7 @@ min(2, 10)
 
 . . .
 
--   Functions and operations take in **data types** as inputs, do something with them, and **return** another data type as ouput.
+-   Functions and operations take in **data types** as inputs, and **return** another data type as output.
 
 . . .
 
@@ -188,37 +210,11 @@ max(18 + 21, 65)
 len("ATCG")
 ```
 
-::: notes
-If an expression is made out of multiple, nested operations, what is the proper way of the Python Console interpreting it? Being able to read nested operations and nested functions as a programmer is very important.
-:::
+## Interpreting functions
 
-## Function machine from algebra class
+![](https://moffett4understandingmath.com/wp-content/uploads/2017/06/function-machine.png){alt="Function machine from algebra class." width="200"}
 
-. . .
-
-![](images/function_machine.png){alt="Function machine from algebra class."}
-
-. . .
-
-Operations are just functions. We could have written:
-
-```{python}
-from operator import add
-
-add(18, 21)
-```
-
-. . .
-
-```{python}
-add(18, add(21, 65))
-```
-
-## Function machine from algebra class
-
-![](images/function_machine.png){alt="Function machine from algebra class."}
-
--   A programmer should not need to know how the function or operation is implemented in order to use it.
+-   To use a function, we only need to know what the expected inputs and outputs are. The inner workings don't matter yet.
 
 . . .
 
@@ -233,7 +229,7 @@ add(18, add(21, 65))
 | String         |           str           | "hello", "234-234-8594" |
 | Boolean        |          bool           |       True, False       |
 
-## Grammar Structure 2: Storing data types as variables in the environment
+## Grammar Structure 2: Storing variables in the environment
 
 . . .
 
@@ -245,21 +241,11 @@ age = 18 + 21
 
 . . .
 
-::: callout-tip
-## Execution rule for variable assignment
-
 Evaluate the expression to the right of `=`.
 
-Bind variable to the left of `=` to the resulting value.
+Bind variable on the left of `=` to the resulting value.
 
-The variable is stored in the **environment**.
-:::
-
-::: notes
-The environment is where all the variables are stored, and can be used for an expression anytime once it is defined. Only one unique variable name can be defined.
-
-The variable is stored in the working memory of your computer, Random Access Memory (RAM). This is temporary memory storage on the computer that can be accessed quickly. Typically a personal computer has 8, 16, 32 Gigabytes of RAM. When we work with large datasets, if you assign a variable to a data type larger than the available RAM, it will not work. More on this later.
-:::
+Then the variable is stored in the **environment**.
 
 ## Downstream
 
@@ -284,36 +270,32 @@ What's the data type of a variable?
 type(age_double)
 ```
 
-## More examples
+## More practice
 
--   `max(a, b, ...)` takes in at least two Integer or Float input arguments, and returns the highest value. You can give it more than two input arguments.
+-   `max(a, b, ...)` takes in at least two numeric input arguments, and returns the highest value.
 
 -   `pow(base, exp)` takes in two Integer input arguments, and returns the `base` raised to the `exp` power.
 
--   `dir()` takes in no input arguments, and returns all the variables in the environment as a list.
-
 . . .
 
 ```{python}
-max(len("hello"), pow(2, 3), 20)
+(len("hello") + 4) * pow(2, 3)
 ```
 
 . . .
 
 ```{python}
-age = 35 - 5
-score = max(age, pow(2, 3), 20)
-```
-
-. . .
-
-```{python}
-dir()
+brothers_age = 45
+grandmas_age = 90
+cousins_age = 32
+age = max(cousins_age, brothers_age, grandmas_age)
+secret = (len("hello") + age) * pow(2, 3)
+secret
 ```
 
 ## Lists
 
-**List** is a data structure that stores many elements of various data type, and the order its elements are stored matters. Each *element* of a List contains a single data type, or single data structure.
+**List** is a **data structure** that stores many elements of various data type, and the order its elements are stored matters.
 
 You can create a List via the bracket \`\[ \]\` operator:
 
@@ -341,19 +323,13 @@ chrs[1]
 
 `Computer = powerful + stupid`
 
-Even the smallest spelling and formatting changes will cause unexpected output and errors!
+. . .
+
+-   Write incrementally: if `function(a, b + c)` isn't working, examine `a` and `b + c`
 
 . . .
 
--   Write incrementally, test often
-
-. . .
-
--   Check your assumptions, especially using new functions, operations, and new data types.
-
-. . .
-
--   The sequence of instructions you give matters!
+-   The sequence of instructions you give matters! Refresh the page to clear the environment.
 
 . . .
 

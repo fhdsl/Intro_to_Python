@@ -16,25 +16,14 @@ library(reticulate)
 import pandas as pd
 import numpy as np
 
-metadata = pd.read_csv("https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/metadata.csv")
-mutation = pd.read_csv("https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/mutation.csv")
-expression = pd.read_csv("https://raw.githubusercontent.com/fhdsl/Intro_to_Python/main/classroom_data/expression.csv")
+metadata = pd.read_csv("../classroom_data/metadata.csv")
+mutation = pd.read_csv("../classroom_data/mutation.csv")
+expression = pd.read_csv("../classroom_data/expression.csv")
 ```
 
 ## [Data subsetting syntax guide](https://colab.research.google.com/drive/1NmFx2tK0coi2O44eldz8RHDH6POOmAFE?usp=sharing)
 
 This guide goes over the syntax nuances in List and Dataframe subsetting.
-
-## Summary Statistics update
-
-| Function method                                                                                                           | What it takes in                              | What it does                                                                  | Returns       |
-|-------------------|------------------|------------------|------------------|
-| [`metadata.Age.mean()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.mean.html)                             | `metadata.Age` as a numeric Series            | Computes the mean value of the `Age` column.                                  | Float (NumPy) |
-| [`metadata['Age'].median()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.median.html)                      | `metadata['Age']` as a numeric Series         | Computes the median value of the `Age` column.                                | Float (NumPy) |
-| [`metadata.Age.max()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.max.html)                               | `metadata.Age` as a numeric Series            | Computes the max value of the `Age` column.                                   | Float (NumPy) |
-| [metadata.Age.describe()](https://pandas.pydata.org/docs/reference/api/pandas.Series.describe.html)                       | `metadata.Age` as a numeric Series            | Compute several numerical summary statistics for `Age` column                 | DataFrame     |
-| [`metadata.OncotreeSubtype.value_counts()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html) | `metadata.OncotreeSubtype` as a string Series | Creates a frequency table of all unique elements in `OncotreeSubtype` column. | Series        |
-| [metadata.OncotreeSubtype.unique()](https://pandas.pydata.org/docs/reference/api/pandas.Series.unique.html)               | `metadata.OncotreeSubtype` as a string Series | Counts the number of unique values in the `OncotreeSubtype` column            | Int (NumPy)   |
 
 ## Creating new columns
 
@@ -100,32 +89,52 @@ I want to compare the relationship between `OncotreeLineage` and `PIK3CA_Exp`:
 
 ## Merging two dataframes together
 
-We see that in both dataframes, the rows (observations) represent cell lines with a common column `ModelID`, so let's merge these two dataframes together, using `full_join()`:
+Let's start with a simpler example, by considering `simple_df` and `simple2_df`:
+
+```{python, message=F, echo=F}
+simple_df = pd.DataFrame(data={'id': ["AAA", "BBB", "CCC", "DDD", "EEE"],
+                               'measurement1': [2.5, 3.5, 9, .1, 2.2],
+                               'measurement2': [0, 0, .5, .24, .003],
+                               'measurement3': [80, 2, 1, 1, 2]})
+
+simple2_df = pd.DataFrame(data={'id': ["AAA", "EEE", "FFF", "GGG", "HHH"],
+                               'measurement4': ["medium", "medium", "high", "medium", "low"],
+                               'measurement5': [True, True, True, False, False]})
+```
 
 ```{python}
-merged = metadata.merge(expression)
+simple_df
 ```
 
 . . .
 
-It's usually better to specify what that index column to avoid ambiguity, using the `on` optional argument:
+```{python}
+simple2_df
+```
+
+. . .
+
+We see that in both dataframes, the rows represent samples with a common column `ModelID`, so let's merge these two dataframes together, using `merge()`:
 
 ```{python}
-merged = metadata.merge(expression, on='ModelID')
+merged = simple_df.merge(simple2_df, on="id")
+merged
 ```
+
+. . .
 
 Let's take a look at the dimensions:
 
 . . .
 
 ```{python}
-metadata.shape
+simple_df.shape
 ```
 
 . . .
 
 ```{python}
-expression.shape
+simple2_df.shape
 ```
 
 . . .
@@ -138,21 +147,41 @@ merged.shape
 
 This is an example of an "inner join".
 
-## Merging two dataframes together: variations
+## Merging two dataframes together
 
-![](join.png)
+![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*9eH1_7VbTZPZd9jBiGIyNA.png){width="350"}
 
 . . .
 
-You can specifiy the join style by changing the optional input argument `how`.
+You can specify the join style by changing the optional input argument `how`.
 
--   `how = "outer"` keeps all observations - also known as a "full join"
+-   `how = "inner"` keeps observations common to both Dataframe. This is the default value of `how`.
+
+-   `how = "outer"` keeps all observations.
 
 -   `how = "left"` keeps all observations in the left Dataframe.
 
 -   `how = "right"` keeps all observations in the right Dataframe.
 
--   `how = "inner"` keeps observations common to both Dataframe. This is the default value of `how`.
+## What else do you want to do with Dataframes?
+
+We have learned:
+
+-   Explicit subsetting via `.iloc[ ]`
+
+-   Implicit subsetting via `.loc[ ]`
+
+-   Calculate summary statistics
+
+-   Creating new columns
+
+-   Merging dataframes
+
+Summarized in [Cheatsheet](https://docs.google.com/document/d/1IHD9_Edg3mbMY9lilAF0QWVjaKBK0eE0-hbo0fSywAA/edit?usp=sharing).
+
+. . .
+
+What do *you* want to learn??
 
 ## Grouping and summarizing dataframes
 
@@ -200,15 +229,19 @@ metadata_grouped['Age'].mean()
 
 Here's what's going on:
 
--   We use the Dataframe method [`.group_by(x)`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html) and specify the column we want to group by. The output of this method is a **Grouped Dataframe object**. It still contains all the information of the `metadata` Dataframe, but it makes a note that it's been grouped.
+-   We use the Dataframe method [`.group_by(x)`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html) and specify the column we want to group by. The output of this method is a **Grouped Dataframe** data structure. It still contains all the information of the `metadata` Dataframe, but it makes a note that it's been grouped.
 
--   We subset to the column `Age`. The grouping information still persists (This is a Grouped Series object).
+. . .
+
+-   We subset to the column `Age`. The grouping information still persists (This is a Grouped Series data structure).
+
+. . .
 
 -   We use the method `.mean()` to calculate the mean value of `Age` within each group defined by `OncotreeLineage`.
 
 . . .
 
-## Other summary statistics
+## Summary statistics for grouped dataframes
 
 Once a Dataframe has been grouped and a column has been identified, other summary statistics can be used, such as `.mean()`, `.median()`, `.max()`,
 
@@ -220,9 +253,6 @@ Once a Dataframe has been grouped and a column has been identified, other summar
 metadata_grouped.OncotreeLineage.count()
 ```
 
-
-## [Cheatsheet](https://docs.google.com/document/d/1si-4suESej1Vjopkv5KiI-hGylXk11osmO3oEfpYOuc/edit?usp=sharing)
-
 ## How was class for you today?
 
-<https://forms.gle/8EGdEqcsp82GP82U9>
+<https://forms.gle/pbDSGrtkCBUCJ74VA>
