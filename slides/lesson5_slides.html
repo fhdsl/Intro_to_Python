@@ -397,9 +397,9 @@
 </div>
 
 </section>
-<section id="last-call-for-lunch-next-week" class="slide level2">
-<h2>Last call for lunch next week…</h2>
-<p><a href="https://forms.gle/gKo5KwfcShd3Zq8c7" class="uri">https://forms.gle/gKo5KwfcShd3Zq8c7</a></p>
+<section id="last-class-next-week" class="slide level2">
+<h2>Last class next week!</h2>
+<p>Would you like to come in for lunch? <a href="https://forms.gle/MvesnNZFS8ZHPekz8" class="uri">https://forms.gle/MvesnNZFS8ZHPekz8</a></p>
 </section>
 <section id="seaborn-module" class="slide level2">
 <h2>Seaborn module</h2>
@@ -543,10 +543,10 @@
 <h2>“Kind” of plots</h2>
 
 <img data-src="https://seaborn.pydata.org/_images/function_overview_8_0.png" class="r-stretch quarto-figure-center"><p class="caption">Image source: Seaborn’s overview of plotting functions</p><p>For example, <code>sns.catplot(data=expression_metadata, x="PrimaryOrMetastasis", y="EGFR_Exp", hue="AgeCategory", kind="box")</code></p>
-<p><a href="https://docs.google.com/document/d/1qchQimLvbxtSRVDuzLcoDMQU2jbg6xgJ5ZHXJ6c7P5I/edit?usp=sharing"><strong>Try it out, share with what you tried</strong></a></p>
+<p><a href="https://docs.google.com/document/d/1vvzxlD9G_7PgIkandFN4sZhMT1A6ote9H2iwawne4R4/edit?usp=sharing"><strong>Try it out, share with what you tried</strong></a></p>
 </section>
-<section id="basic-plot-customization-color" class="slide level2">
-<h2>Basic plot customization: color</h2>
+<section id="color-customization" class="slide level2">
+<h2>Color customization</h2>
 <p>You can change the color palette by setting adding the <code>palette</code> input argument to any of the plots. You can explore available color palettes <a href="https://www.practicalpythonfordatascience.com/ap_seaborn_palette">here</a> or <a href="https://seaborn.pydata.org/tutorial/color_palettes.html">here</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>myplot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"Sex"</span>, multiple<span class="op">=</span><span class="st">"dodge"</span>, palette<span class="op">=</span>sns.color_palette(palette<span class="op">=</span><span class="st">'rainbow'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -557,53 +557,52 @@
 <h2>Scale customization</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>myplot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"Sex"</span>, multiple<span class="op">=</span><span class="st">"dodge"</span>, palette<span class="op">=</span>sns.color_palette(palette<span class="op">=</span><span class="st">'rainbow'</span>))</span>
-<span id="cb11-2"><a href=""></a>plt.xlim(<span class="dv">0</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(0.0, 10.0)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="lesson5_slides_files/figure-revealjs/unnamed-chunk-13-19.png" width="590" class="r-stretch"></section>
-<section id="label-customization" class="slide level2">
-<h2>Label customization</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>myplot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"Sex"</span>, multiple<span class="op">=</span><span class="st">"dodge"</span>, palette<span class="op">=</span>sns.color_palette(palette<span class="op">=</span><span class="st">'rainbow'</span>))</span>
-<span id="cb14-2"><a href=""></a>myplot.set_titles(<span class="st">"my title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href=""></a>myplot.<span class="bu">set</span>(xlim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson5_slides_files/figure-revealjs/unnamed-chunk-14-21.png" width="306"></p>
+<p><img data-src="lesson5_slides_files/figure-revealjs/unnamed-chunk-13-19.png" width="306"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>myplot.set_xlabels(<span class="st">"new x label"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="lesson5_slides_files/figure-revealjs/unnamed-chunk-14-22.png" width="306"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="lesson5_slides_files/figure-revealjs/unnamed-chunk-14-23.png" width="590"></p>
+<p><img data-src="lesson5_slides_files/figure-revealjs/unnamed-chunk-13-20.png" width="590"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="other-plot-customization-via-better-plots-workshop" class="slide level2">
-<h2>Other plot customization via <a href="https://better-plots.netlify.app/">Better Plots workshop</a></h2>
+<section id="label-customization" class="slide level2">
+<h2>Label customization</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>myplot <span class="op">=</span> sns.displot(data<span class="op">=</span>metadata, x<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"Sex"</span>, multiple<span class="op">=</span><span class="st">"dodge"</span>, palette<span class="op">=</span>sns.color_palette(palette<span class="op">=</span><span class="st">'rainbow'</span>))</span>
+<span id="cb12-2"><a href=""></a>myplot.fig.suptitle(<span class="st">'my title'</span>)</span>
+<span id="cb12-3"><a href=""></a>myplot.set_xlabels(<span class="st">"new x label"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="lesson5_slides_files/figure-revealjs/unnamed-chunk-14-23.png" width="306"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="lesson5_slides_files/figure-revealjs/unnamed-chunk-14-24.png" width="590"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="reference-for-seaborn-plotting" class="slide level2">
 <h2>Reference for Seaborn plotting</h2>
 <p><a href="https://seaborn.pydata.org/tutorial.html" class="uri">https://seaborn.pydata.org/tutorial.html</a></p>
 </section>
 <section id="cheatsheet" class="slide level2">
-<h2><a href="https://docs.google.com/document/d/1BJzDaUeIjF1kOVx1RXoWhtHqAGORfUy8eDK0kmnybLE/edit?usp=sharing">Cheatsheet</a></h2>
+<h2><a href="https://docs.google.com/document/d/171UZo7cg_6dIaJF1nucKiawgQKXoTl1LzRPpCFmI4fc/edit?tab=t.0">Cheatsheet</a></h2>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

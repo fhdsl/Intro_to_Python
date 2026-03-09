@@ -587,12 +587,12 @@ Name: KRAS_Exp_log, Length: 1450, dtype: float64</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>simple_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    id case_control  measurement1  measurement2  measurement3
-0  AAA         case           2.5         0.000            80
-1  BBB         case           3.5         0.000             2
-2  CCC      control           9.0         0.500             1
-3  DDD      control           0.1         0.240             1
-4  EEE      control           2.2         0.003             2</code></pre>
+<pre><code>    id  measurement1  measurement2  measurement3
+0  AAA           2.5         0.000            80
+1  BBB           3.5         0.000             2
+2  CCC           9.0         0.500             1
+3  DDD           0.1         0.240             1
+4  EEE           2.2         0.003             2</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -614,11 +614,9 @@ Name: KRAS_Exp_log, Length: 1450, dtype: float64</code></pre>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>merged <span class="op">=</span> simple_df.merge(simple2_df, on<span class="op">=</span><span class="st">"id"</span>)</span>
 <span id="cb13-2"><a href=""></a>merged</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    id case_control  measurement1  ...  measurement3  measurement4 measurement5
-0  AAA         case           2.5  ...            80        medium         True
-1  EEE      control           2.2  ...             2        medium         True
-
-[2 rows x 7 columns]</code></pre>
+<pre><code>    id  measurement1  measurement2  measurement3 measurement4  measurement5
+0  AAA           2.5         0.000            80       medium          True
+1  EEE           2.2         0.003             2       medium          True</code></pre>
 </div>
 </div>
 </div>
@@ -629,7 +627,7 @@ Name: KRAS_Exp_log, Length: 1450, dtype: float64</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>simple_df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(5, 5)</code></pre>
+<pre><code>(5, 4)</code></pre>
 </div>
 </div>
 </div>
@@ -645,7 +643,7 @@ Name: KRAS_Exp_log, Length: 1450, dtype: float64</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>merged.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(2, 7)</code></pre>
+<pre><code>(2, 6)</code></pre>
 </div>
 </div>
 </div>
@@ -676,7 +674,7 @@ Name: KRAS_Exp_log, Length: 1450, dtype: float64</code></pre>
 <li><p>Creating new columns</p></li>
 <li><p>Merging dataframes</p></li>
 </ul>
-<p>Summarized in <a href="https://docs.google.com/document/d/1IHD9_Edg3mbMY9lilAF0QWVjaKBK0eE0-hbo0fSywAA/edit?usp=sharing">Cheatsheet</a>.</p>
+<p>Summarized in <a href="https://docs.google.com/document/d/171UZo7cg_6dIaJF1nucKiawgQKXoTl1LzRPpCFmI4fc/edit?usp=sharing">Cheatsheet</a>.</p>
 <div class="fragment">
 <p>What do <em>you</em> want to learn??</p>
 </div>
@@ -863,14 +861,10 @@ Vulva/Vagina                   5
 Name: OncotreeLineage, dtype: int64</code></pre>
 </div>
 </div>
-</div>
-</section>
-<section id="how-was-class-for-you-today" class="slide level2">
-<h2>How was class for you today?</h2>
-<p><a href="https://forms.gle/pbDSGrtkCBUCJ74VA" class="uri">https://forms.gle/pbDSGrtkCBUCJ74VA</a></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </div>
 </section>

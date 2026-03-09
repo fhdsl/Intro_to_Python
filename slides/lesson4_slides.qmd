@@ -177,7 +177,7 @@ We have learned:
 
 -   Merging dataframes
 
-Summarized in [Cheatsheet](https://docs.google.com/document/d/1IHD9_Edg3mbMY9lilAF0QWVjaKBK0eE0-hbo0fSywAA/edit?usp=sharing).
+Summarized in [Cheatsheet](https://docs.google.com/document/d/171UZo7cg_6dIaJF1nucKiawgQKXoTl1LzRPpCFmI4fc/edit?usp=sharing).
 
 . . .
 
@@ -252,7 +252,3 @@ Once a Dataframe has been grouped and a column has been identified, other summar
 ```{python}
 metadata_grouped.OncotreeLineage.count()
 ```
-
-## How was class for you today?
-
-<https://forms.gle/pbDSGrtkCBUCJ74VA>
