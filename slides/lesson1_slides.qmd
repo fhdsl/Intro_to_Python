@@ -1,18 +1,37 @@
 ---
 title: "W1: Intro to Computing"
 format: 
-  revealjs:
+  live-revealjs:
     smaller: true
     scrollable: true
     echo: true
 output-location: fragment
 ---
 
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
 ## Welcome!
 
 ![](images/Intro_to_Python_R2-01.png){width="600"}
 
 Please sign up for Google Classroom ([link](https://classroom.google.com/c/NzY0OTY2Nzc0NzU5?cjc=wpplaqbt)) if you haven't already.
+
+## Course Logistics {.incremental}
+
+- Hybrid course - recordings will be available online
+    - In person: snacks/drinks will be available
+- Slides are online and will be available before class
+- Sign into Teams, even in person
+- I am here in person every two weeks (see course contents)
+
+## Course Logistics {.incremental}
+
+- I will communicate with you before and after class via email
+- Ask questions via Teams chat
+- Office hour (11:30-12 PM) before each class
+    - Will send out invite
+- We will be taking collective notes in this [Course Cheatsheet](https://docs.google.com/document/d/1b98V6-rxh1LXIMb7bKnr2VBbQHv4Cu9KHfK2CB6Tfls/edit?usp=sharing)
+    - I will mirror announcements there as well
 
 ## Introductions
 
@@ -30,13 +49,13 @@ Please sign up for Google Classroom ([link](https://classroom.google.com/c/NzY0O
 
     -   What you want to get out of the class
 
-    -   What is a favorite springtime activity?\
+    -   What is your favorite fall activity?
 
 . . .
 
--   Our wonderful TAs!
+-   Our wonderful TA - Scott Chamberlain!
 
-## 
+
 
 ## Goals of the course
 
@@ -50,19 +69,20 @@ Please sign up for Google Classroom ([link](https://classroom.google.com/c/NzY0O
 
     ![Data science workflow](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png){width="550"}
 
+
 ## Content of the course
 
-1.  Intro to Computing
+|Week|Date|Topic|
+|----|-----|----|
+|1.*|9/23|Intro to Computing|
+|2.|9/30| Data structures|
+|3.*|10/7|Data wrangling 1|
+|4.|10/14| Data wrangling 2|
+|5.*|10/21|Data visualization|
+|No Class|10/28|Accelerator Retreat|
+|6.*|11/4|Wrap-up|
 
-2.  Data structures
-
-3.  Data wrangling 1
-
-4.  Data wrangling 2
-
-5.  Data visualization
-
-6.  Wrap-up
+* = Ted on-campus
 
 ## Culture of the course
 
@@ -88,23 +108,26 @@ Please sign up for Google Classroom ([link](https://classroom.google.com/c/NzY0O
 
 . . .
 
--   *We encourage discussion and questions, as others often have similar questions also.*
-
-## Format of the course
+-   *We encourage discussion and questions. If you have a question, others probably have it. Asking question is a way of taking care of others in class.*
 
 . . .
 
--   Hybrid, and recordings will be available.
+- *If possible, find a buddy to work with. Trade ideas back and forth*
 
-. . .
+## Learning can be hard
 
--   1 hour exercises after each session are encouraged for practice.
+![](images/gator_error.jpg)
 
-. . .
+- Be patient with yourself, it's not you
+- Sometimes things are inherently difficult
+- Take a break, do something else, come back to it.
 
--   Office Hours Mondays Noon-1pm
+## Getting Help
 
-. . .
+- We will be here 1/2 hour early (11:30) for office hours
+    - Come work on exercises
+- Learning Community is also a good time
+- Make an appointment with me (link in my email signature)
 
 ## Badge of completion
 
@@ -126,11 +149,23 @@ Requirements:
 
 -   Complete badge-required sections of the exercises for 4 out of 5 assignments.
 
-## 
+## Badge of Completion
+
+- I will be pretty easy in terms of "grading" badge assignments
+- Let me know when you're finished and I will look over your exercises
+- There will be a completion dashboard
+- Late assignments are fine, but I encourage you to not take advantage of that.
+
+## Break (5 mins)
+
+A pre-course survey:
+
+<https://forms.gle/K4sQ3KNDPVp6NZTu7>
 
 ## Ready?
 
 ![](images/horst_community.png)
+
 
 ## What is a computer program?
 
@@ -146,25 +181,11 @@ Requirements:
 
 We will focus on English \<-\> Programming Code for Python Interpreter in this class.
 
-## Setting up Google Classroom and Colab and trying out your first analysis!
-
--   Google Classroom invite: <https://classroom.google.com/c/NzY0OTY2Nzc0NzU5?cjc=wpplaqbt>
-
--   Classwork -\> Week 1 Classwork -\> `Week 1 Classwork.ipynb`
-
-    -   Alternative link [here](https://colab.research.google.com/drive/1_77QQcj0mgZOWLlhtkZ-QKWUP1dnSt-_?authuser=1#scrollTo=vSuAhvp2Aa33).
-
-## Break
-
-A pre-course survey:
-
-<https://forms.gle/3rJvTEhwJfH95raf8>
-
 ## Grammar Structure 1: Evaluation of Expressions
 
 Consider the expression:
 
-```{python}
+```{pyodide}
 min(2, 10)
 ```
 
@@ -182,31 +203,31 @@ min(2, 10)
 
 ## Examples
 
-```{python}
+```{pyodide}
 18 + 21
 ```
 
 . . .
 
-```{python}
+```{pyodide}
 max(18, 21)
 ```
 
 . . .
 
-```{python}
+```{pyodide}
 max(18 + 21, 65)
 ```
 
 . . .
 
-```{python}
+```{pyodide}
 18 + (21 + 65)
 ```
 
 . . .
 
-```{python}
+```{pyodide}
 len("ATCG")
 ```
 
@@ -235,7 +256,7 @@ len("ATCG")
 
 To build up a computer program, we need to store our returned data type from our expression somewhere for downstream use.
 
-```{python}
+```{pyodide}
 age = 18 + 21
 ```
 
@@ -247,17 +268,25 @@ Bind variable on the left of `=` to the resulting value.
 
 Then the variable is stored in the **environment**.
 
+## Looking at a variable
+
+You can always look at the value of a variable by typing the name
+
+```{pyodide}
+age
+```
+
 ## Downstream
 
 Look, now `age` can be reused downstream:
 
-```{python}
+```{pyodide}
 age - 2
 ```
 
 . . .
 
-```{python}
+```{pyodide}
 age_double = age * 2
 age_double
 ```
@@ -266,7 +295,7 @@ age_double
 
 What's the data type of a variable?
 
-```{python}
+```{pyodide}
 type(age_double)
 ```
 
@@ -278,13 +307,13 @@ type(age_double)
 
 . . .
 
-```{python}
+```{pyodide}
 (len("hello") + 4) * pow(2, 3)
 ```
 
-. . .
+## Another Example
 
-```{python}
+```{pyodide}
 brothers_age = 45
 grandmas_age = 90
 cousins_age = 32
@@ -299,7 +328,7 @@ secret
 
 You can create a List via the bracket \`\[ \]\` operator:
 
-```{python}
+```{pyodide}
 chrs = [2, 3, 2, 1, 2]
 ```
 
@@ -307,15 +336,24 @@ chrs = [2, 3, 2, 1, 2]
 
 Then, you can access the elements of a list via its "index number", starting at 0.
 
-```{python}
+```{pyodide}
 chrs[0]
 ```
 
 . . .
 
-```{python}
+```{pyodide}
 chrs[1]
 ```
+
+## Setting up Google Classroom and Colab and trying out your first analysis!
+
+-   Google Classroom invite: <https://classroom.google.com/c/NzY0OTY2Nzc0NzU5?cjc=wpplaqbt>
+
+-   Classwork -\> Week 1 Classwork -\> `Week 1 Classwork.ipynb`
+
+    -   Alternative link [here](https://colab.research.google.com/drive/1_77QQcj0mgZOWLlhtkZ-QKWUP1dnSt-_?authuser=1#scrollTo=vSuAhvp2Aa33).
+
 
 ## Tips on writing your first code
 
