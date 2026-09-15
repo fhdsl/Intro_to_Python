@@ -23,9 +23,9 @@ mutation = pd.read_csv("../classroom_data/mutation.csv")
 expression = pd.read_csv("../classroom_data/expression.csv")
 ```
 
-## Last call for lunch next week...
+## Last class next week!
 
-<https://forms.gle/gKo5KwfcShd3Zq8c7>
+Would you like to come in for lunch? <https://forms.gle/MvesnNZFS8ZHPekz8>
 
 ## Seaborn module
 
@@ -181,9 +181,9 @@ More on categorical plots [here](https://seaborn.pydata.org/tutorial/categorical
 
 For example, `sns.catplot(data=expression_metadata, x="PrimaryOrMetastasis", y="EGFR_Exp", hue="AgeCategory", kind="box")`
 
-[**Try it out, share with what you tried**](https://docs.google.com/document/d/1qchQimLvbxtSRVDuzLcoDMQU2jbg6xgJ5ZHXJ6c7P5I/edit?usp=sharing)
+[**Try it out, share with what you tried**](https://docs.google.com/document/d/1vvzxlD9G_7PgIkandFN4sZhMT1A6ote9H2iwawne4R4/edit?usp=sharing)
 
-## Basic plot customization: color
+## Color customization
 
 You can change the color palette by setting adding the `palette` input argument to any of the plots. You can explore available color palettes [here](https://www.practicalpythonfordatascience.com/ap_seaborn_palette) or [here](https://seaborn.pydata.org/tutorial/color_palettes.html).
 
@@ -196,23 +196,20 @@ myplot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palett
 
 ```{python}
 myplot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=sns.color_palette(palette='rainbow'))
-plt.xlim(0, 10)
-plt.show()
+myplot.set(xlim=(0, 10))
 ```
 
 ## Label customization
 
 ```{python}
 myplot = sns.displot(data=metadata, x="Age", hue="Sex", multiple="dodge", palette=sns.color_palette(palette='rainbow'))
-myplot.set_titles("my title")
+myplot.fig.suptitle('my title')
 myplot.set_xlabels("new x label")
 plt.show()
 ```
-
-## Other plot customization via [Better Plots workshop](https://better-plots.netlify.app/)
 
 ## Reference for Seaborn plotting
 
 <https://seaborn.pydata.org/tutorial.html>
 
-## [Cheatsheet](https://docs.google.com/document/d/1BJzDaUeIjF1kOVx1RXoWhtHqAGORfUy8eDK0kmnybLE/edit?usp=sharing)
+## [Cheatsheet](https://docs.google.com/document/d/171UZo7cg_6dIaJF1nucKiawgQKXoTl1LzRPpCFmI4fc/edit?tab=t.0)

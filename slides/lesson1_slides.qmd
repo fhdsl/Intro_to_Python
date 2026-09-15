@@ -14,7 +14,7 @@ output-location: fragment
 
 ![](images/Intro_to_Python_R2-01.png){width="600"}
 
-Please sign up for Google Classroom ([link](https://classroom.google.com/c/NzY0OTY2Nzc0NzU5?cjc=wpplaqbt)) if you haven't already.
+Please sign up for Google Classroom ([link](https://classroom.google.com/c/ODM5MDMzMTgxMDE2?cjc=7qb6bjjd)) if you haven't already.
 
 ## Course Logistics {.incremental}
 
@@ -39,7 +39,7 @@ Please sign up for Google Classroom ([link](https://classroom.google.com/c/NzY0O
 
 . . .
 
--   What is [DaSL](https://hutchdatascience.org/)?
+-   What is [DaSL](https://ocdo.fredhutch.org/dasl/) / [OCDO](https://ocdo.fredhutch.org/) ?
 
 . . .
 
@@ -47,7 +47,7 @@ Please sign up for Google Classroom ([link](https://classroom.google.com/c/NzY0O
 
     -   Name, pronouns, group you work in
 
-    -   What you want to get out of the class
+    -   What brings you to this class?
 
     -   What is your favorite fall activity?
 
@@ -221,25 +221,41 @@ max(18 + 21, 65)
 
 . . .
 
+Parenthesis changes the order of operation:
+
+```{r}
+18 * (21 + 65)
+```
+
+. . .
+
+Compare with:
+
+```{r}
+(18 * 21) + 65
+```
+
+. . .
+
 ```{pyodide}
 18 + (21 + 65)
 ```
 
 . . .
 
+What's this?
+
 ```{pyodide}
 len("ATCG")
 ```
 
-## Interpreting functions
+## Interpreting functions and operations
 
-![](https://moffett4understandingmath.com/wp-content/uploads/2017/06/function-machine.png){alt="Function machine from algebra class." width="200"}
-
--   To use a function, we only need to know what the expected inputs and outputs are. The inner workings don't matter yet.
+-   To use a function or operation, we only need to know what the expected inputs and outputs are. The inner workings doesn't matter - it is modular.
 
 . . .
 
--   A function can have different kinds of inputs and outputs - it doesn't need to be numbers.
+-   A function or operation can have different kinds of inputs and outputs - it doesn't need to be numbers.
 
 ## Data types
 

@@ -14,8 +14,6 @@ output-location: fragment
 
 . . .
 
-What is a problem you encountered and fixed recently?
-
 ## [Exercise 1 Continued](https://colab.research.google.com/drive/1Oypt0HeVqmzBQcsIuixpoAm6syE-kwXy?usp=sharing)
 
 -   Three styles of defining and updating variables
@@ -104,11 +102,11 @@ The slice `:` represents the start or the end of the List. We also have negative
 
 . . .
 
-Learn more about subsetting lists [in full complexity](https://towardsdatascience.com/mastering-indexing-and-slicing-in-python-443e23457125/).
+Learn more about subsetting lists [in full complexity](https://www.pythonmorsels.com/slicing/).
 
 ## List Methods
 
-**Methods** are functions for a specific data type, such as a list.
+**Methods** are functions for a specific data type, such as a List.
 
 . . .
 
@@ -259,14 +257,10 @@ Subset the first 3 rows, and the 1st and 3rd column:
 df.iloc[:3, [0, 2]]
 ```
 
-## How did class go for you today?
-
-<https://forms.gle/qGTBHdDwXciYrPa39>
-
 ## Appendix: Functions and Methods examples
 
 | Function call                                                                | What it takes in             | What it does                                                  | Returns                          |
-|---------------------|-----------------|-----------------|-----------------|
+|--------------------|------------------|------------------|------------------|
 | [`pow(a, b)`](https://docs.python.org/3/library/functions.html#pow)          | integer `a`, integer `b`     | Raises `a` to the `b`th power.                                | Integer                          |
 | [`time.sleep(x)`](https://docs.python.org/3/library/time.html#time.sleep)    | Integer `x`                  | Waits for `x` seconds.                                        | None                             |
 | [`dir()`](https://docs.python.org/3/library/functions.html#dir)              | Nothing                      | Gives a list of all the variables defined in the environment. | List                             |

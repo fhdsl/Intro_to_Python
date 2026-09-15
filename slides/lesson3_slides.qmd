@@ -36,9 +36,9 @@ output-location: fragment
 
 -   **Attributes**:
 
-    -   Columns of the data
-
     -   `.columns`
+
+    -   Columns of the data
 
     -   `.shape`
 
@@ -52,35 +52,31 @@ output-location: fragment
 
 -   `.tail()`
 
-## Our working data: DepMap Project
-
 ```{r, message=F, echo=F}
 library(reticulate)
 
 ```
 
-```{python, message=FALSE, echo=F}
-import pandas as pd
-
-metadata = pd.read_csv("../classroom_data/metadata.csv")
-mutation = pd.read_csv("../classroom_data/mutation.csv")
-expression = pd.read_csv("../classroom_data/expression.csv")
-```
-
-<https://depmap.org/>
-
-We will work with `metadata`, `mutation`, and `expression` dataframes.
-
-What do the rows represent? What are some variables and values?
-
 ## Subsetting a dataframe, revisited
 
-We know how to: *"I want to subset for rows 1 to 10 and subset column 2."*
+```{python}
+import pandas as pd
+
+df = pd.DataFrame(data={'status': ["treated", "untreated", "untreated", "discharged", "treated"],
+                            'age_case': [25, 43, 21, 65, 7],
+                            'age_control': [49, 20, 32, 25, 32]})
+                            
+df
+```
+
+. . .
+
+We know how to: *"I want to subset for rows 1 to 3 and subset column 2."*
 
 . . .
 
 ```{python}
-metadata.iloc[:10, 1]
+df.iloc[:3, 1]
 ```
 
 . . .
@@ -93,7 +89,7 @@ However, when you are giving a (large) spreadsheet, you often have a criteria of
 
 . . .
 
-*"I want to subset for rows that contains lung cancer for OncotreeLineage column and subset for columns Age and Sex."*
+*I want to subset for rows that contains "treated" for the status column and subset for columns "status" and "age_case"* .
 
 . . .
 
@@ -101,24 +97,20 @@ This is called **implicit subsetting**, which we will encourage in data science.
 
 . . .
 
-Your turn: come up with criteria on the rows, and columns, using the column names and the column values.
-
-. . .
-
 Notice that when we filter for rows in an implicit way, we often formulate criteria about the columns.
 
 ## How we do it:
 
-"*I want to subset for rows that contains lung cancer for OncotreeLineage column and subset for columns Age and Sex.*"
+*I want to subset for rows that contains "treated" for the status column and subset for columns "status" and "age_case"* .
 
 . . .
 
-To formulate a conditional expression that OncotreeLineage is lung cancer:
+1.  Create a conditional expression that `status` column is "treated":
 
 . . .
 
 ```{python}
-metadata['OncotreeLineage'] == "Lung"
+df.status == "treated"
 ```
 
 . . .
@@ -127,59 +119,21 @@ It gives us a column of `True` and `False` values, and we want to keep rows that
 
 . . .
 
-Then, we will use the [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html)`[ , ]`attribute and subsetting brackets to subset rows:
+2.  Then, we will use the [`.loc`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html)`[ , ]`attribute and subsetting brackets to subset rows:
 
 ```{python}
-metadata.loc[metadata['OncotreeLineage'] == "Lung", ]
+df.loc[df.status == "treated", ]
 ```
 
 . . .
 
-and subset columns Age and Sex also:
+3.  Finally, we add subsetting information of the column names:
 
 ```{python}
-metadata.loc[metadata['OncotreeLineage'] == "Lung", ["Age", "Sex"]]
+df.loc[df.status == "treated", ["status", "age_case"]]
 ```
 
-## Another example, in 3 steps:
-
-```{python}
-df = pd.DataFrame(data={'status': ["treated", "untreated", "untreated", "discharged", "treated"],
-                            'age_case': [25, 43, 21, 65, 7],
-                            'age_control': [49, 20, 32, 25, 32]})
-                            
-df
-```
-
-. . .
-
-*"I want to subset for rows that contains"treated" for the status column and subset for columns status and age_case."*
-
-. . .
-
-1.  Create a conditional expression that status column is "treated":
-
-```{python}
-df.status == "treated"
-```
-
-. . .
-
-2.  Subset for rows using df`.loc[ ]` via our conditional expression:
-
-    ```{python}
-    df.loc[df.status == "treated", ]
-    ```
-
-. . .
-
-3.  Subset for rows using df`.loc[ ]` via our conditional expression and subset columns:
-
-    ```{python}
-    df.loc[df.status == "treated", ["status", "age_case"]]
-    ```
-
-. . .
+## Visually:
 
 ![](https://hutchdatascience.org/Intro_to_Python/images/pandas_subset_2.png)
 
@@ -190,6 +144,52 @@ Come up with subsetting criteria: *"In `dataframe`, I want to subset for rows th
 1.  Create a conditional expression for \[column name\]'s \[criteria\].
 2.  Subset for rows via `.loc[ ]`
 3.  Subset for rows and columns via `.loc[ ]`
+
+## Our working data: DepMap Project
+
+```{python, message=FALSE, echo=F}
+metadata = pd.read_csv("../classroom_data/metadata.csv")
+mutation = pd.read_csv("../classroom_data/mutation.csv")
+expression = pd.read_csv("../classroom_data/expression.csv")
+```
+
+<https://depmap.org/>
+
+We will work with `metadata`, `mutation`, and `expression` dataframes.
+
+What do the rows represent? What are some variables and values?
+
+## Another example, in 3 steps:
+
+. . .
+
+"*I want to subset for rows that contains lung cancer for OncotreeLineage column and subset for columns Age and Sex.*"
+
+. . .
+
+1.  Formulate a conditional expression that `OncotreeLineage` column is "Lung"
+
+```{python}
+metadata['OncotreeLineage'] == "Lung"
+```
+
+. . .
+
+2.  Subset for rows using `metadata.loc[ ]` via our conditional expression:
+
+    ```{python}
+    metadata.loc[metadata['OncotreeLineage'] == "Lung", ]
+    ```
+
+. . .
+
+3.  Subset for rows using `metadata.loc[ ]` via our conditional expression and subset columns:
+
+    ```{python}
+    metadata.loc[metadata['OncotreeLineage'] == "Lung", ["Age", "Sex"]]
+    ```
+
+. . .
 
 ## Summary statistics
 
@@ -214,7 +214,7 @@ type(metadata.Age)
 ```
 
 ```{python}
-metadata.Age.mean()
+print(metadata.Age.mean())
 ```
 
 . . .
@@ -232,6 +232,6 @@ metadata.OncotreeSubtype.value_counts()
 | [`metadata.Age.max()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.max.html)                               | `metadata.Age` as a numeric Series            | Computes the max value of the `Age` column.                                   | Float (NumPy) |
 | [`metadata.OncotreeSubtype.value_counts()`](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html) | `metadata.OncotreeSubtype` as a string Series | Creates a frequency table of all unique elements in `OncotreeSubtype` column. | Series        |
 
-## How was class for you today?
+## Feedback on course pacing
 
-<https://forms.gle/pbDSGrtkCBUCJ74VA>
+<https://forms.gle/gPdT9a5khN5TsTZm8>

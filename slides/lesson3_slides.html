@@ -424,8 +424,8 @@
 <li><p><strong>Value</strong>: the spreadsheet of data.</p></li>
 <li><p><strong>Attributes</strong>:</p>
 <ul>
-<li><p>Columns of the data</p></li>
 <li><p><code>.columns</code></p></li>
+<li><p>Columns of the data</p></li>
 <li><p><code>.shape</code></p></li>
 <li><p><code>.iloc[ , ]</code> for subsetting</p></li>
 </ul></li>
@@ -438,32 +438,40 @@
 </ul>
 </div>
 </section>
-<section id="our-working-data-depmap-project" class="slide level2">
-<h2>Our working data: DepMap Project</h2>
-<p><a href="https://depmap.org/" class="uri">https://depmap.org/</a></p>
-<p>We will work with <code>metadata</code>, <code>mutation</code>, and <code>expression</code> dataframes.</p>
-<p>What do the rows represent? What are some variables and values?</p>
-</section>
 <section id="subsetting-a-dataframe-revisited" class="slide level2">
 <h2>Subsetting a dataframe, revisited</h2>
-<p>We know how to: <em>“I want to subset for rows 1 to 10 and subset column 2.”</em></p>
-<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>metadata.iloc[:<span class="dv">10</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">'status'</span>: [<span class="st">"treated"</span>, <span class="st">"untreated"</span>, <span class="st">"untreated"</span>, <span class="st">"discharged"</span>, <span class="st">"treated"</span>],</span>
+<span id="cb1-4"><a href=""></a>                            <span class="st">'age_case'</span>: [<span class="dv">25</span>, <span class="dv">43</span>, <span class="dv">21</span>, <span class="dv">65</span>, <span class="dv">7</span>],</span>
+<span id="cb1-5"><a href=""></a>                            <span class="st">'age_control'</span>: [<span class="dv">49</span>, <span class="dv">20</span>, <span class="dv">32</span>, <span class="dv">25</span>, <span class="dv">32</span>]})</span>
+<span id="cb1-6"><a href=""></a>                            </span>
+<span id="cb1-7"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>0    PT-gj46wT
-1    PT-5qa3uk
-2    PT-puKIyc
-3    PT-q4K2cp
-4    PT-q4K2cp
-5    PT-ej13Dz
-6    PT-NOXwpH
-7    PT-fp8PeY
-8    PT-puKIyc
-9    PT-AR7W9o
-Name: PatientID, dtype: object</code></pre>
+<pre><code>       status  age_case  age_control
+0     treated        25           49
+1   untreated        43           20
+2   untreated        21           32
+3  discharged        65           25
+4     treated         7           32</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>We know how to: <em>“I want to subset for rows 1 to 3 and subset column 2.”</em></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>df.iloc[:<span class="dv">3</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>0    25
+1    43
+2    21
+Name: age_case, dtype: int64</code></pre>
 </div>
 </div>
 </div>
@@ -475,27 +483,102 @@ Name: PatientID, dtype: object</code></pre>
 <h2>Subsetting a dataframe, revisited</h2>
 <p>However, when you are giving a (large) spreadsheet, you often have a criteria of what you want to subset for:</p>
 <div class="fragment">
-<p><em>“I want to subset for rows that contains lung cancer for OncotreeLineage column and subset for columns Age and Sex.”</em></p>
+<p><em>I want to subset for rows that contains “treated” for the status column and subset for columns “status” and “age_case”</em> .</p>
 </div>
 <div class="fragment">
 <p>This is called <strong>implicit subsetting</strong>, which we will encourage in data science.</p>
 </div>
 <div class="fragment">
-<p>Your turn: come up with criteria on the rows, and columns, using the column names and the column values.</p>
-</div>
-<div class="fragment">
 <p>Notice that when we filter for rows in an implicit way, we often formulate criteria about the columns.</p>
 </div>
 </section>
-<section id="how-we-do-it" class="slide level2">
+<section id="how-we-do-it" class="slide level2 scrollable">
 <h2>How we do it:</h2>
-<p>“<em>I want to subset for rows that contains lung cancer for OncotreeLineage column and subset for columns Age and Sex.</em>”</p>
+<p><em>I want to subset for rows that contains “treated” for the status column and subset for columns “status” and “age_case”</em> .</p>
 <div class="fragment">
-<p>To formulate a conditional expression that OncotreeLineage is lung cancer:</p>
+<ol type="1">
+<li>Create a conditional expression that <code>status</code> column is “treated”:</li>
+</ol>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>metadata[<span class="st">'OncotreeLineage'</span>] <span class="op">==</span> <span class="st">"Lung"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>df.status <span class="op">==</span> <span class="st">"treated"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>0     True
+1    False
+2    False
+3    False
+4     True
+Name: status, dtype: bool</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>It gives us a column of <code>True</code> and <code>False</code> values, and we want to keep rows that correspond to <code>True</code> values.</p>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Then, we will use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html"><code>.loc</code></a><code>[ , ]</code>attribute and subsetting brackets to subset rows:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>df.loc[df.status <span class="op">==</span> <span class="st">"treated"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>    status  age_case  age_control
+0  treated        25           49
+4  treated         7           32</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Finally, we add subsetting information of the column names:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>df.loc[df.status <span class="op">==</span> <span class="st">"treated"</span>, [<span class="st">"status"</span>, <span class="st">"age_case"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>    status  age_case
+0  treated        25
+4  treated         7</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="visually" class="slide level2">
+<h2>Visually:</h2>
+
+<img data-src="https://hutchdatascience.org/Intro_to_Python/images/pandas_subset_2.png" class="r-stretch"></section>
+<section id="your-turn" class="slide level2 scrollable">
+<h2>Your turn!</h2>
+<p>Come up with subsetting criteria: <em>“In <code>dataframe</code>, I want to subset for rows that contains [criteria] in [column name] and subset for columns [column names].”</em></p>
+<ol type="1">
+<li>Create a conditional expression for [column name]’s [criteria].</li>
+<li>Subset for rows via <code>.loc[ ]</code></li>
+<li>Subset for rows and columns via <code>.loc[ ]</code></li>
+</ol>
+</section>
+<section id="our-working-data-depmap-project" class="slide level2">
+<h2>Our working data: DepMap Project</h2>
+<p><a href="https://depmap.org/" class="uri">https://depmap.org/</a></p>
+<p>We will work with <code>metadata</code>, <code>mutation</code>, and <code>expression</code> dataframes.</p>
+<p>What do the rows represent? What are some variables and values?</p>
+</section>
+<section id="another-example-in-3-steps" class="slide level2 scrollable">
+<h2>Another example, in 3 steps:</h2>
+<div class="fragment">
+<p>“<em>I want to subset for rows that contains lung cancer for OncotreeLineage column and subset for columns Age and Sex.</em>”</p>
+</div>
+<div class="fragment">
+<ol type="1">
+<li>Formulate a conditional expression that <code>OncotreeLineage</code> column is “Lung”</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>metadata[<span class="st">'OncotreeLineage'</span>] <span class="op">==</span> <span class="st">"Lung"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -515,12 +598,10 @@ Name: OncotreeLineage, Length: 1864, dtype: bool</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>It gives us a column of <code>True</code> and <code>False</code> values, and we want to keep rows that correspond to <code>True</code> values.</p>
-</div>
-<div class="fragment">
-<p>Then, we will use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html"><code>.loc</code></a><code>[ , ]</code>attribute and subsetting brackets to subset rows:</p>
+<ol start="2" type="1">
+<li><p>Subset for rows using <code>metadata.loc[ ]</code> via our conditional expression:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>metadata.loc[metadata[<span class="st">'OncotreeLineage'</span>] <span class="op">==</span> <span class="st">"Lung"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>metadata.loc[metadata[<span class="st">'OncotreeLineage'</span>] <span class="op">==</span> <span class="st">"Lung"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -539,12 +620,14 @@ Name: OncotreeLineage, Length: 1864, dtype: bool</code></pre>
 
 [241 rows x 30 columns]</code></pre>
 </div>
-</div>
+</div></li>
+</ol>
 </div>
 <div class="fragment">
-<p>and subset columns Age and Sex also:</p>
+<ol start="3" type="1">
+<li><p>Subset for rows using <code>metadata.loc[ ]</code> via our conditional expression and subset columns:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>metadata.loc[metadata[<span class="st">'OncotreeLineage'</span>] <span class="op">==</span> <span class="st">"Lung"</span>, [<span class="st">"Age"</span>, <span class="st">"Sex"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>metadata.loc[metadata[<span class="st">'OncotreeLineage'</span>] <span class="op">==</span> <span class="st">"Lung"</span>, [<span class="st">"Age"</span>, <span class="st">"Sex"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -563,91 +646,9 @@ Name: OncotreeLineage, Length: 1864, dtype: bool</code></pre>
 
 [241 rows x 2 columns]</code></pre>
 </div>
-</div>
-</div>
-</section>
-<section id="another-example-in-3-steps" class="slide level2 scrollable">
-<h2>Another example, in 3 steps:</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>{<span class="st">'status'</span>: [<span class="st">"treated"</span>, <span class="st">"untreated"</span>, <span class="st">"untreated"</span>, <span class="st">"discharged"</span>, <span class="st">"treated"</span>],</span>
-<span id="cb9-2"><a href=""></a>                            <span class="st">'age_case'</span>: [<span class="dv">25</span>, <span class="dv">43</span>, <span class="dv">21</span>, <span class="dv">65</span>, <span class="dv">7</span>],</span>
-<span id="cb9-3"><a href=""></a>                            <span class="st">'age_control'</span>: [<span class="dv">49</span>, <span class="dv">20</span>, <span class="dv">32</span>, <span class="dv">25</span>, <span class="dv">32</span>]})</span>
-<span id="cb9-4"><a href=""></a>                            </span>
-<span id="cb9-5"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>       status  age_case  age_control
-0     treated        25           49
-1   untreated        43           20
-2   untreated        21           32
-3  discharged        65           25
-4     treated         7           32</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><em>“I want to subset for rows that contains”treated” for the status column and subset for columns status and age_case.”</em></p>
-</div>
-<div class="fragment">
-<ol type="1">
-<li>Create a conditional expression that status column is “treated”:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>df.status <span class="op">==</span> <span class="st">"treated"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>0     True
-1    False
-2    False
-3    False
-4     True
-Name: status, dtype: bool</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<ol start="2" type="1">
-<li><p>Subset for rows using df<code>.loc[ ]</code> via our conditional expression:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>df.loc[df.status <span class="op">==</span> <span class="st">"treated"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>    status  age_case  age_control
-0  treated        25           49
-4  treated         7           32</code></pre>
-</div>
 </div></li>
 </ol>
 </div>
-<div class="fragment">
-<ol start="3" type="1">
-<li><p>Subset for rows using df<code>.loc[ ]</code> via our conditional expression and subset columns:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>df.loc[df.status <span class="op">==</span> <span class="st">"treated"</span>, [<span class="st">"status"</span>, <span class="st">"age_case"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>    status  age_case
-0  treated        25
-4  treated         7</code></pre>
-</div>
-</div></li>
-</ol>
-</div>
-<div class="fragment">
-<p><img data-src="https://hutchdatascience.org/Intro_to_Python/images/pandas_subset_2.png"></p>
-</div>
-</section>
-<section id="your-turn" class="slide level2 scrollable">
-<h2>Your turn!</h2>
-<p>Come up with subsetting criteria: <em>“In <code>dataframe</code>, I want to subset for rows that contains [criteria] in [column name] and subset for columns [column names].”</em></p>
-<ol type="1">
-<li>Create a conditional expression for [column name]’s [criteria].</li>
-<li>Subset for rows via <code>.loc[ ]</code></li>
-<li>Subset for rows and columns via <code>.loc[ ]</code></li>
-</ol>
 </section>
 <section id="summary-statistics" class="slide level2">
 <h2>Summary statistics</h2>
@@ -673,11 +674,11 @@ Name: status, dtype: bool</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>metadata.Age.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="bu">print</span>(metadata.Age.mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(47.45187165775401)</code></pre>
+<pre><code>47.45187165775401</code></pre>
 </div>
 </div>
 </div>
@@ -743,9 +744,9 @@ Name: count, Length: 204, dtype: int64</code></pre>
 </tbody>
 </table>
 </section>
-<section id="how-was-class-for-you-today" class="slide level2">
-<h2>How was class for you today?</h2>
-<p><a href="https://forms.gle/pbDSGrtkCBUCJ74VA" class="uri">https://forms.gle/pbDSGrtkCBUCJ74VA</a></p>
+<section id="feedback-on-course-pacing" class="slide level2">
+<h2>Feedback on course pacing</h2>
+<p><a href="https://forms.gle/gPdT9a5khN5TsTZm8" class="uri">https://forms.gle/gPdT9a5khN5TsTZm8</a></p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

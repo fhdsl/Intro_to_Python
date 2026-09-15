@@ -11,7 +11,7 @@ format:
 
 [You are now comfortable with our code from Week 1!](https://colab.research.google.com/drive/1_77QQcj0mgZOWLlhtkZ-QKWUP1dnSt-_?usp=sharing)
 
-[Your Cheatsheet](https://docs.google.com/document/d/1BJzDaUeIjF1kOVx1RXoWhtHqAGORfUy8eDK0kmnybLE/edit?tab=t.0#heading=h.2bko76vfr8r6)
+[Your Cheatsheet](https://docs.google.com/document/d/171UZo7cg_6dIaJF1nucKiawgQKXoTl1LzRPpCFmI4fc/edit?tab=t.0#heading=h.o6ug7zunarm)
 
 ## Certification/Badging
 
@@ -25,43 +25,24 @@ What it isn't:
 
 -   Accreditation through an university or degree-granting program.
 
-I've been keeping track of folks' completion [here](https://docs.google.com/spreadsheets/d/17uiNgJA-h19qEIToKyYz4DAnAZWn_raM8kz44wG85Gc/edit?usp=sharing).
+I've been keeping track of folks' completion [here](https://docs.google.com/spreadsheets/d/1mv3OKnf4l2lYNxPPLy3PLnktZCCvUrio9F9HeCTBJfE/edit?gid=0#gid=0).
 
 ## Continuing your education
 
--   [Intermediate Python](https://hutchdatascience.org/Intermediate_Python/) (to be taught live in Winter 2026, sorry, a long time away...)
-
-. . .
-
--   Learning Community starts on June 10! Message me if you haven't been added.
-
-. . .
-
+-   [Intermediate Python](https://hutchdatascience.org/Intermediate_Python/) (live class TBD)
+-   [Machine Learning for Python](https://ocdo.fredhutch.org/dasl/courses/machine-learning-python/) (Spring 2026)
 -   Reference texts:
-
     -   [Python for Data Analysis](https://wesmckinney.com/book/)
 
-## Connecting to rest of [DaSL Training](https://hutchdatascience.org/courses/)
-
-![](images/stickers%20mosaic.png)
-
-## Connecting to rest of DaSL/OCDO
+## Connecting to rest of Data Science Lab...
 
 -   [Data House Calls](https://ocdo.fredhutch.org/programs/dhc.html)
 
--   [Fred Hutch Data Slack](https://join.slack.com/t/fhdata/signup)
-
--   [Fred Hutch SciWiki](https://ocdo.fredhutch.org/programs/sciwiki.html)
-
--   [Open source software at Fred Hutch: WILDS](https://getwilds.org/)
+-   [Building Computational Workflows Workshop, March 11 at noon](https://forms.office.com/r/YPxrxaw421)
 
 ## Please fill out survey!
 
-Our [class survey](https://forms.gle/PMwzPf5axUtQbfao9) makes a huge difference for us.
-
-## End of class stickers
-
-## ![](images/student_stickers.jpg){width="300"}
+[Our class survey](https://forms.gle/EwtYWTNBARz4koLbA) makes a huge difference for us.
 
 ## Install Python on your computer
 
@@ -73,65 +54,58 @@ Might take you to Microsoft Store to install Python 3.x
 
 ### Mac
 
-Open up Terminal, type: `python3`
+Open up Terminal (under Applications/Utilities folder), type: `python3`
 
 If nothing comes up, download at: <https://www.python.org/downloads/>
 
 ## Python Integrated Development Environment (IDE)
 
-[VSCode](https://code.visualstudio.com/) is our choice, but there are [many other software to consider.](https://sciwiki.fredhutch.org/scicomputing/software_python/#python-ide-comparison)
+-   [Positron](https://positron.posit.co/) is built for data science applications
+
+-   [VSCode](https://code.visualstudio.com/) is highly popular with experienced programmers
+
+-   [PyCharm](https://www.jetbrains.com/pycharm/) is also very popular
 
 ### Install
 
--   Mac/Windows: <https://code.visualstudio.com/download>
+-   <https://positron.posit.co/download.html>
 
--   Windows: Can be installed from Microsoft Store
+## Getting Started - Notebook style
 
-## Getting Started
+Create a new folder from template. Everything for the project, such as code and data will be in this folder.
 
-Open up a folder for your project. Everything for the project, such as code and data will be in this folder.
+-   Use Jupyter Notebooks
 
-### Script mode:
+-   Select a folder name and directory of your choice
 
--   Open up a blank file
+-   Select virual environment
 
--   Put down a Python code, such as `print("hello")`, save it with `.py` extension.
+-   Should open up a blank notebook for you.
 
--   Install the Python Extension
-
--   Run the code
-
-## Getting Started
-
-### Notebook mode:
-
--   Open Extensions, Install Jupyter Extension
-
--   Open up New File... -\> Jupyter Notebook
-
--   Put down Python code, such as `print("hello")`, and save with `.ipynb` extension.
-
--   Select Kernel and run it
-
-    -   Install iPython kernel if needed.
-
-More info here: <https://code.visualstudio.com/docs/datascience/jupyter-notebooks>
+There may be a step request to install Jupyter Notebooks extensions. Accept the request.
 
 ## Install Python Packages/Modules
 
-### Notebook Mode
+In the Console type: `%pip install [package name]`
 
--   Create a new code cell, `%pip install [package name]`
+## Practice reading in data locally
 
-## Install Python Packages/Modules
+-   Save your notebook.
 
-### Script Mode
+-   Create a folder `data/` in your project directory.
 
--   Run you script. The Terminal should show up.
+-   Place `ex1.csv`, `ex2.csv`, `ex3.csv` in the `data/` folder.
 
--   `[your python path] -m pip install [package_name]`
+. . .
 
-## Reading in Data
+-   The **absolute directory path** specifies the directory from the root directory: `/Users/clo2/Documents/python_project/data/ex1.csv`
+-   The **relative directory path** is a path *relative to our current directory*: `data/ex1.csv`
+
+. . .
+
+-   The symbol `..` specifies the parent directory. If we are currently at `/Users/clo2/Documents/python_project/notebooks`, then we have to access our file via `../ex1.csv`.
+
+## Practice reading in data locally
 
 Here's an example data:
 
@@ -146,13 +120,13 @@ We read it in as:
 
 ```{python}
 import pandas as pd
-my_df = pd.read_csv("examples/ex1.csv")
+my_df = pd.read_csv("data/ex1.csv")
 my_df
 ```
 
 ## Dealing with headers
 
-A file will not always have a header row:
+A dataset sometimes might not have column names/headers....
 
 ```         
 1,2,3,4,hello
@@ -162,7 +136,7 @@ A file will not always have a header row:
 
 ```{python}
 import pandas as pd
-my_df = pd.read_csv("examples/ex2.csv", header=None)
+my_df = pd.read_csv("data/ex2.csv", header=None)
 my_df
 ```
 
@@ -171,11 +145,11 @@ my_df
 We can assign columns:
 
 ```{python}
-my_df = pd.read_csv("examples/ex2.csv", names=["a", "b", "c", "d", "message"])
+my_df = pd.read_csv("data/ex2.csv", names=["a", "b", "c", "d", "message"])
 my_df
 ```
 
-## Skipping certain rows
+## Other weird things - skipping certain rows
 
 ```         
 # hey!
@@ -188,7 +162,7 @@ a,b,c,d,message
 ```
 
 ```{python}
-my_df = pd.read_csv("examples/ex3.csv", skiprows=[0, 2, 3])
+my_df = pd.read_csv("data/ex3.csv", skiprows=[0, 2, 3])
 my_df
 ```
 
@@ -204,11 +178,11 @@ my_df
 
 ## Writing out data
 
-`my_df.write_csv( "filepath.csv")`
+`my_df.to_csv( "filepath.csv")`
 
-`my_df.write_excel("filepath.xlsx")`
+`my_df.to_excel("filepath.xlsx")`
 
-`my_df.write_table("filepath.tsv", sep="\t")`
+`my_df.to_table("filepath.tsv", sep="\t")`
 
 ## Saving plots
 
@@ -233,55 +207,13 @@ Consider having subfolders for:
 
 ## Appendix: Python Environments
 
-An **"Environment"** in Python is the context in which a Python program runs that consists of an interpreter and any number of installed packages.
+An **"Environment"** in Python is the context in which a Python program runs that consists of a Python interpreter and any number of installed packages.
 
 -   The "**Global Environment"** is the default Python installation, with its interpreter and installed packages.
 
--   The "**Local Environment**" is a secondary Python installation, built specifically for a project. It is good practice to always have a local environment in a project you are working on, so that the Python interpreter and package are version controlled.
+-   The "**Local Environment**" is a secondary Python installation, built specifically for a project. It is good practice to always have a local environment in a project you are working on, so that the Python interpreter and package are version controlled. (Also known as Virtual Environments)
 
-    -   We will use the Virtual Environment built in Python, but there are other local environment managers such as Conda or miniConda.
-
-## Appendix: Create your local environment
-
--   Show and run commands -\> Python: Select Interpreter -\> Create Virtual Environment -\> Venv
-
-    -   You may need to Open as a Workspace, to specify the folder you are working in.
-
--   You can see and toggle your Environment on the bottom right hand corner.
-
-More info here: [https://code.visualstudio.com/docs/python/environments](https://code.visualstudio.com/docs/python/environmentshttps://code.visualstudio.com/docs/python/environments)
-
-## Appendix: Create virtual environment from command line
-
-```         
-# macOS/Linux
-python3 -m venv .venv
-
-# Windows
-# You can also use `py -3 -m venv .venv`
-python -m venv .venv
-```
-
-## Appendix: Install Python Packages/Modules from command line
-
-Mac:
-
-```         
-% source venv/bin/activate  
-(.venv) % python -m pip install [package_name]
-```
-
-Windows:
-
-```         
-.\venv\Scripts\activate
-(.venv) % python -m pip install [package_name]
-```
-
-To exit the local environment:
-
-```         
-deactivate
-```
-
-## 
+    -   There are several software that manages these local environments for you:
+        -   [uv](https://docs.astral.sh/uv/)
+        -   [Virtual Environment](https://docs.python.org/3/library/venv.html)
+        -   [Conda](https://docs.conda.io/en/latest/)
